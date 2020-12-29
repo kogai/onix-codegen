@@ -4,7 +4,7 @@ HS_FILES := $(shell find ./ -type f -name '*.hs' | grep -v '.stack-work')
 run: build
 	stack exec onix-exe
 
-.stack-work: $(HS_FILES)
+.stack-work: $(HS_FILES) package.yaml stack.yaml
 	stack build
 
 build: .stack-work

@@ -1,11 +1,13 @@
 module Lib
   ( someFunc,
     render,
+    compile,
     Language (..),
   )
 where
 
 import Control.Exception (Exception, throw)
+import Data.Text (unpack)
 import Data.Typeable
 import Text.Mustache
 
@@ -21,13 +23,20 @@ data Empty = Unimplemented
 
 instance Exception Empty
 
-render :: Language -> IO ()
-render TypeScript = throw Unimplemented
-render Go = do
-  let searchSpace = ["."]
+compile :: Language -> IO String
+compile TypeScript = throw Unimplemented
+compile Go = do
+  let searchSpace = [".", "src"]
       templateName = "model.mustache"
-
   compiled <- automaticCompile searchSpace templateName
-  case compiled of
-    Left err -> print err
-    Right t -> print t
+  return
+    -- TODO: Handle Either properly
+    ( case compiled of
+        Left err -> show err
+        Right t -> unpack $ substitute t ()
+    )
+
+render :: Language -> IO ()
+render l = do
+  s <- compile l
+  writeFile "./go/onix.gen.go" s

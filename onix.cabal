@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: afbdf58c1c333c068343393a4a8139797e74f0216cd26239d35b1dc6c858916b
+-- hash: cdf2727c14cdaa714b774ec65ca348fb66454b167f3036bcec2e8c05699bbfac
 
 name:           onix
 version:        0.1.0.0
@@ -36,6 +36,7 @@ library
   build-depends:
       base >=4.7 && <5
     , mustache ==2.3.1
+    , text ==1.2.4.0
   default-language: Haskell2010
 
 executable onix-exe

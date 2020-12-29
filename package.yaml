@@ -31,6 +31,7 @@ library:
     - -fwarn-incomplete-uni-patterns
   dependencies:
     - mustache == 2.3.1
+    - text == 1.2.4.0
 
 executables:
   onix-exe:
