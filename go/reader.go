@@ -14,7 +14,7 @@ func Read(input string) (*Onix, error) {
 		return nil, err
 	}
 
-	var data IngramContentOnix
+	var data Onix
 	decoder := xml.NewDecoder(bytes.NewReader(file))
 	decoder.CharsetReader = func(label string, input io.Reader) (io.Reader, error) {
 		return input, nil

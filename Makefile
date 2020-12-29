@@ -8,3 +8,6 @@ run: build
 	stack build
 
 build: .stack-work
+
+fixtures/20201200.json: run
+	go run github.com/kogai/onix/go/helper
