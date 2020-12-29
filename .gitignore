@@ -1,3 +1,4 @@
 .stack-work/
 *~
 /fixtures/*.onix
+!/fixtures/20201200.onix

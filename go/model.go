@@ -587,8 +587,8 @@ func (c *BoolIfElementPresent) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 	return nil
 }
 
-// IngramContentOnix is not documented yet.
-type IngramContentOnix struct {
+// Onix is not documented yet.
+type Onix struct {
 	XMLName  xml.Name  `xml:"ONIXmessage"`
 	Header   Header    `xml:"header"`
 	Products []Product `xml:"product"`
