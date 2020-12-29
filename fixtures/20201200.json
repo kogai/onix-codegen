@@ -1,0 +1,1450 @@
+{
+  "XMLName": {
+    "Space": "",
+    "Local": "ONIXmessage"
+  },
+  "Header": {
+    "FromCompany": "Ingram Book Company",
+    "SentDate": "20201119",
+    "DefaultLanguageOfText": "eng",
+    "DefaultPriceTypeCode": "01",
+    "DefaultCurrencyCode": "USD"
+  },
+  "Products": [
+    {
+      "RecordReference": "062124983",
+      "NotificationType": "02",
+      "Productidentifiers": [
+        {
+          "ProductIDType": "ISBN-10",
+          "IDValue": "1680506366"
+        },
+        {
+          "ProductIDType": "GTIN-13",
+          "IDValue": "9781680506365"
+        },
+        {
+          "ProductIDType": "GTIN-14",
+          "IDValue": "09781680506365"
+        },
+        {
+          "ProductIDType": "ISBN-13",
+          "IDValue": "9781680506365"
+        }
+      ],
+      "ProductForm": "BC",
+      "ProductFormDetail": [
+        "B102",
+        "B305"
+      ],
+      "ProductClassification": {
+        "ProductClassificationType": "01",
+        "ProductClassificationCode": "4901.99.0075"
+      },
+      "NoSeries": true,
+      "Title": {
+        "TextCase": "02",
+        "Language": "eng",
+        "TitleType": "01",
+        "TitleText": "Programming Webassembly with Rust",
+        "Subtitle": "Unified Development for Web, Mobile, and Embedded Applications"
+      },
+      "Contributor": {
+        "ContributorRole": "A01",
+        "NamesBeforeKey": "Kevin",
+        "KeyNames": "Hoffman",
+        "BiographicalNote": "\n        \u003cp\u003e\u003cb\u003eKevin Hoffman\u003c/b\u003e got his start programming at the age of 10 with a Commodore VIC-20, a cassette drive, and a hand-altered floppy disc drive from a Commodore 64. He has worked in dozens of industries from gaming to waste management, from drones to biometric security, and finance. He has written or co-written over 20 technology books and looks forward to someday completing his fantasy trilogy - the Sigilord Chronicles.\u003c/p\u003e\n      "
+      },
+      "Language": {
+        "LanguageRole": "01",
+        "LanguageCode": "eng"
+      },
+      "NumberOfPages": 240,
+      "BASICMainSubject": "COM060160",
+      "MainSubject": {
+        "MainSubjectSchemeIdentifier": 10,
+        "SubjectCode": "COM060160",
+        "SubjectHeadingText": "Computers/Internet - Web Programming"
+      },
+      "Subjects": [
+        {
+          "SubjectSchemeIdentifier": "BISAC Subject Heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "COM051000",
+          "SubjectHeadingText": "Computers/Programming - General"
+        },
+        {
+          "SubjectSchemeIdentifier": "BISAC Subject Heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "COM051010",
+          "SubjectHeadingText": "Computers/Languages - General"
+        },
+        {
+          "SubjectSchemeIdentifier": "BISAC Subject Heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "COM051230",
+          "SubjectHeadingText": "\n        Computers/Software Development \u0026 Engineering - General\n      "
+        },
+        {
+          "SubjectSchemeIdentifier": "BISAC Subject Heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "COM060180",
+          "SubjectHeadingText": "\n        Computers/Internet - Web Services \u0026 APIs\n      "
+        },
+        {
+          "SubjectSchemeIdentifier": "Keywords",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "JavaScript; Rust; WebAssembly; cross-platform development; front-end applications; modular development; wasm; web applications"
+        },
+        {
+          "SubjectSchemeIdentifier": "Proprietary subject scheme",
+          "SubjectSchemeName": "INGRAM SUBJECT",
+          "SubjectCode": "XB",
+          "SubjectHeadingText": "Computer / Internet"
+        }
+      ],
+      "AudienceCode": "01",
+      "OtherTexts": [
+        {
+          "TextTypeCode": "Long description",
+          "Text": {
+            "Body": "\n        \u003cp\u003eWebAssembly fulfills the long-awaited promise of web technologies: fast code, type-safe at compile time, execution in the browser, on embedded devices, or anywhere else. Rust delivers the power of C in a language that strictly enforces type safety. Combine both languages and you can write for the web like never before! Learn how to integrate with JavaScript, run code on platforms other than the browser, and take a step into IoT. Discover the easy way to build cross-platform applications without sacrificing power, and change the way you write code for the web.\u003c/p\u003e \u003cp\u003eWebAssembly is more than just a revolutionary new technology. It's reshaping how we build applications for the web and beyond. Where technologies like ActiveX and Flash have failed, you can now write code in whatever language you prefer and compile to WebAssembly for fast, type-safe code that runs in the browser, on mobile devices, embedded devices, and more. Combining WebAssembly's portable, high-performance modules with Rust's safety and power is a perfect development combination.\u003c/p\u003e \u003cp\u003eLearn how WebAssembly's stack machine architecture works, install low-level wasm tools, and discover the dark art of writing raw wast code. Build on that foundation and learn how to compile WebAssembly modules from Rust by implementing the logic for a checkers game. Create wasm modules in Rust to interoperate with JavaScript in many compelling ways. Apply your new skills to the world of non-web hosts, and create everything from an app running on a Raspberry Pi that controls a lighting system, to a fully-functioning online multiplayer game engine where developers upload their own arena-bound WebAssembly combat modules.\u003c/p\u003e \u003cp\u003eGet started with WebAssembly today, and change the way you think about the web.\u003c/p\u003e \u003cp\u003e\u003cb\u003eWhat You Need: \u003c/b\u003e\u003c/p\u003e \u003cp\u003eYou'll need a Linux, Mac, or Windows workstation with an Internet connection. You'll need an up-to-date web browser that supports WebAssembly. To work with the sample code, you can use your favorite text editor or IDE. The book will guide you through installing the Rust and WebAssembly tools needed for each chapter.\u003c/p\u003e\n      ",
+            "TextFormat": "HTML"
+          }
+        },
+        {
+          "TextTypeCode": "Biographical note",
+          "Text": {
+            "Body": "\n        \u003cp\u003e\u003cb\u003eKevin Hoffman\u003c/b\u003e got his start programming at the age of 10 with a Commodore VIC-20, a cassette drive, and a hand-altered floppy disc drive from a Commodore 64. He has worked in dozens of industries from gaming to waste management, from drones to biometric security, and finance. He has written or co-written over 20 technology books and looks forward to someday completing his fantasy trilogy - the Sigilord Chronicles.\u003c/p\u003e\n      ",
+            "TextFormat": "HTML"
+          }
+        },
+        {
+          "TextTypeCode": "Country of final manufacture",
+          "Text": {
+            "Body": "US",
+            "TextFormat": ""
+          }
+        }
+      ],
+      "Imprints": [
+        {
+          "NameCodeType": "02",
+          "NameCodeTypeName": "INGRAM PROPRIETARY",
+          "NameCodeValue": "PGIB",
+          "ImprintName": ""
+        },
+        {
+          "NameCodeType": "",
+          "NameCodeTypeName": "",
+          "NameCodeValue": "",
+          "ImprintName": "Pragmatic Bookshelf"
+        }
+      ],
+      "Publisher": {
+        "PublishingRole": "01",
+        "PublisherName": "Pragmatic Bookshelf"
+      },
+      "PublishingStatus": {
+        "Body": "04",
+        "Datestamp": "20190325"
+      },
+      "PublicationDate": "20190331",
+      "SalesRights": [
+        {
+          "SalesRightsType": "01",
+          "RightsCountry": "US CA",
+          "RightsTerritory": ""
+        },
+        {
+          "SalesRightsType": "02",
+          "RightsCountry": "",
+          "RightsTerritory": "WORLD"
+        }
+      ],
+      "Measures": [
+        {
+          "MeasureTypeCode": "Height",
+          "Measurement": 9.25,
+          "MeasureUnitCode": "in"
+        },
+        {
+          "MeasureTypeCode": "Width",
+          "Measurement": 7.5,
+          "MeasureUnitCode": "in"
+        },
+        {
+          "MeasureTypeCode": "Thickness",
+          "Measurement": 0.51,
+          "MeasureUnitCode": "in"
+        },
+        {
+          "MeasureTypeCode": "Unit weight",
+          "Measurement": 0.92,
+          "MeasureUnitCode": "lb"
+        }
+      ],
+      "RelatedProducts": [
+        {
+          "RelationCode": "00",
+          "Productidentifier": [
+            {
+              "ProductIDType": "GTIN-13",
+              "IDValue": "9781680506839"
+            }
+          ],
+          "ProductForm": "DG"
+        },
+        {
+          "RelationCode": "00",
+          "Productidentifier": [
+            {
+              "ProductIDType": "GTIN-13",
+              "IDValue": "9781680506860"
+            }
+          ],
+          "ProductForm": "DG"
+        }
+      ],
+      "SupplyDetail": {
+        "SupplierName": "Ingram Publisher Services",
+        "SupplierRole": "02",
+        "ReturnsCodeType": "02",
+        "ReturnsCode": "Y",
+        "ProductAvailability": "21",
+        "PackQuantity": 16,
+        "Prices": [
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "C"
+              },
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "S007",
+                "DiscountCode": "SDS007"
+              }
+            ],
+            "PriceAmount": 60.95,
+            "CurrencyCode": "CAD",
+            "CountryCode": "CA"
+          },
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "C"
+              },
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "S007",
+                "DiscountCode": "SDS007"
+              }
+            ],
+            "PriceAmount": 42,
+            "CurrencyCode": "EUR",
+            "CountryCode": "DE"
+          },
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "C"
+              },
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "S007",
+                "DiscountCode": "SDS007"
+              }
+            ],
+            "PriceAmount": 36.99,
+            "CurrencyCode": "GBP",
+            "CountryCode": "GB"
+          },
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "C"
+              },
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "S007",
+                "DiscountCode": "SDS007"
+              }
+            ],
+            "PriceAmount": 45.95,
+            "CurrencyCode": "USD",
+            "CountryCode": "US"
+          }
+        ]
+      }
+    },
+    {
+      "RecordReference": "050569283",
+      "NotificationType": "02",
+      "Productidentifiers": [
+        {
+          "ProductIDType": "ISBN-10",
+          "IDValue": "0062651234"
+        },
+        {
+          "ProductIDType": "GTIN-13",
+          "IDValue": "9780062651235"
+        },
+        {
+          "ProductIDType": "LCCN",
+          "IDValue": "2017015481"
+        },
+        {
+          "ProductIDType": "GTIN-14",
+          "IDValue": "09780062651235"
+        },
+        {
+          "ProductIDType": "ISBN-13",
+          "IDValue": "9780062651235"
+        }
+      ],
+      "ProductForm": "BC",
+      "ProductFormDetail": [
+        "B102",
+        "B305"
+      ],
+      "ProductClassification": {
+        "ProductClassificationType": "01",
+        "ProductClassificationCode": "4901.99.0075"
+      },
+      "NoSeries": true,
+      "Title": {
+        "TextCase": "02",
+        "Language": "eng",
+        "TitleType": "01",
+        "TitleText": "Blood, Sweat, and Pixels",
+        "Subtitle": "The Triumphant, Turbulent Stories Behind How Video Games Are Made"
+      },
+      "Contributor": {
+        "ContributorRole": "A01",
+        "NamesBeforeKey": "Jason",
+        "KeyNames": "Schreier",
+        "BiographicalNote": "\n        \u003cp\u003e\u003cstrong\u003eJason Schreier\u003c/strong\u003e is the news editor at \u003cem\u003eKotaku\u003c/em\u003e, a leading website covering the industry and culture of video games. He has also covered the video game world for \u003cem\u003eWired\u003c/em\u003e, and has contributed to a wide range of outlets including \u003cem\u003eThe New York Times, Edge, Paste, Kill Screen, \u003c/em\u003e and \u003cem\u003eThe Onion News Network\u003c/em\u003e. \u003cem\u003eBlood, Sweat, and Pixels\u003c/em\u003e is his first book.\u003cstrong\u003e\u003c/strong\u003e\u003c/p\u003e\n      "
+      },
+      "Language": {
+        "LanguageRole": "01",
+        "LanguageCode": "eng"
+      },
+      "NumberOfPages": 304,
+      "BASICMainSubject": "GAM013000",
+      "MainSubject": {
+        "MainSubjectSchemeIdentifier": 10,
+        "SubjectCode": "GAM013000",
+        "SubjectHeadingText": "\n        Games \u0026 Activities/Video \u0026 Mobile\n      "
+      },
+      "Subjects": [
+        {
+          "SubjectSchemeIdentifier": "BISAC Subject Heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "BUS070110",
+          "SubjectHeadingText": "\n        Business \u0026 Economics/Industries - Entertainment\n      "
+        },
+        {
+          "SubjectSchemeIdentifier": "BISAC Subject Heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "BUS070030",
+          "SubjectHeadingText": "\n        Business \u0026 Economics/Industries - Computers \u0026 Information Technology\n      "
+        },
+        {
+          "SubjectSchemeIdentifier": "Keywords",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "blood, sweat, and pixels; blood sweat and pixels; blood, sweat, and video games; blood sweat and video games; jason schreier; jason schrer; jason schreir; jason schrier; kotaku; pillars of eternity; dragon age: inquisition; dragon age inquisition; dragon age; stardew valley; diablo; diablo 3; diablo iii; the witcher; witcher; the witcher 3; witcher 3; witcher iii; uncharted; uncharted 4; uncharted iv; destiny; shovel knight; destiny 2; star wars; star wars 1313; cancelled star wars game; star wars game; halo wars; halo; how to make video games; making video games; video game development; development hell; video game careers; playstation; playstation 4; xbox; xbox 360; xbox one; nintendo; e3; video game demos; crunch; video game crunch; bioware; lucasarts; bungie; microsoft; games; 2016; 2017; 2018"
+        },
+        {
+          "SubjectSchemeIdentifier": "Dewey",
+          "SubjectSchemeName": "",
+          "SubjectCode": "794.8",
+          "SubjectHeadingText": ""
+        },
+        {
+          "SubjectSchemeIdentifier": "LC subject heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "Video games"
+        },
+        {
+          "SubjectSchemeIdentifier": "LC subject heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "Video games - Design"
+        },
+        {
+          "SubjectSchemeIdentifier": "LC subject heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "Video games industry"
+        },
+        {
+          "SubjectSchemeIdentifier": "LC subject heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "Video games - Economic aspects"
+        },
+        {
+          "SubjectSchemeIdentifier": "LC subject heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "\n        GAMES / Video \u0026 Electronic\n      "
+        },
+        {
+          "SubjectSchemeIdentifier": "LC subject heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "\n        BUSINESS \u0026 ECONOMICS / Industries / Computer Industry\n      "
+        },
+        {
+          "SubjectSchemeIdentifier": "Proprietary subject scheme",
+          "SubjectSchemeName": "INGRAM SUBJECT",
+          "SubjectCode": "GA",
+          "SubjectHeadingText": "Games / Gamebooks / Crosswords"
+        }
+      ],
+      "AudienceCode": "01",
+      "OtherTexts": [
+        {
+          "TextTypeCode": "Short description/annotation",
+          "Text": {
+            "Body": "\"You've got your dream job--making video games. You have a great project, great designs, and clever controls. One morning, you get a call from your producer. Turns out that wall-jumping trick won't work because the artists don't have time to design a separate animation just for the plumber to move that way. Also, your lead designer keeps micromanaging the programmers, which is driving them crazy. Your E3 demo is due in two weeks, and you know there's no way you can get it done in less than four. You'll have to cut out some of the game's biggest features just to hit your deadlines. And suddenly the investor is asking if maybe you can slash that $10 million budget down to $8 million, even if you have to fire a few people to make it happen? Welcome to video game development. In his years covering the industry, Jason Schreier has often heard developers say that any game actually released is a miracle. In Blood, Sweat, and Pixels, Schreier takes you behind the scenes of some of the biggest recent games to share never-before-told stories of the struggles and failures the development teams faced along the way. His reputation for great storytelling and fly-on-the-wall detail will provide readers with the clearest picture yet of what actually goes on behind the scenes. Each chapter will cover a different game, from major studios with nine-figure budgets to indie games with half a dozen people on their teams. The chapters will also focus on a variety of subjects in the process, from building the basics to adjusting for fan reaction post-launch. Blood, Sweat, and Pixels will give readers an unparallelled inside look at one of the biggest entertainment industries in the world\"--",
+            "TextFormat": ""
+          }
+        },
+        {
+          "TextTypeCode": "Long description",
+          "Text": {
+            "Body": "\n        \u003cp\u003eNATIONAL BESTSELLER\u003c/p\u003e\u003cp\u003eDeveloping video games--hero's journey or fool's errand? The creative and technical logistics that go into building today's hottest games can be more harrowing and complex than the games themselves, often seeming like an endless maze or a bottomless abyss. In \u003cem\u003eBlood, Sweat, and Pixels, \u003c/em\u003eJason Schreier takes readers on a fascinating odyssey behind the scenes of video game development, where the creator may be a team of 600 overworked underdogs or a solitary geek genius. Exploring the artistic challenges, technical impossibilities, marketplace demands, and Donkey Kong-sized monkey wrenches thrown into the works by corporate, \u003cem\u003eBlood, Sweat, and Pixels \u003c/em\u003ereveals how bringing any game to completion is more than Sisyphean--it's nothing short of miraculous.\u003c/p\u003e\u003cp\u003eTaking some of the most popular, bestselling recent games, Schreier immerses readers in the hellfire of the development process, whether it's RPG studio Bioware's challenge to beat an impossible schedule and overcome countless technical nightmares to build \u003cem\u003eDragon Age: Inquisition\u003c/em\u003e; indie developer Eric Barone's single-handed efforts to grow country-life RPG \u003cem\u003eStardew Valley \u003c/em\u003efrom one man's vision into a multi-million-dollar franchise; or Bungie spinning out from their corporate overlords at Microsoft to create \u003cem\u003eDestiny\u003c/em\u003e, a brand new universe that they hoped would become as iconic as \u003cem\u003eStar Wars\u003c/em\u003e and \u003cem\u003eLord of the Rings\u003c/em\u003e--even as it nearly ripped their studio apart. \u003c/p\u003e\u003cp\u003eDocumenting the round-the-clock crunches, buggy-eyed burnout, and last-minute saves, \u003cem\u003eBlood, Sweat, and Pixels \u003c/em\u003eis a journey through development hell--and ultimately a tribute to the dedicated diehards and unsung heroes who scale mountains of obstacles in their quests to create the best games imaginable.\u003c/p\u003e\n      ",
+            "TextFormat": "HTML"
+          }
+        },
+        {
+          "TextTypeCode": "Back cover copy",
+          "Text": {
+            "Body": "\n        \u003cp\u003eThe creative and technical logistics that go into building today's hottest games can be more fraught with challenges and complex than the games themselves, often seeming like an endless maze or a bottomless abyss. In \u003cem\u003eBlood, Sweat, and Pixels\u003c/em\u003e, Jason Schreier takes readers on a fascinating odyssey behind the scenes of video game development, where the creator may be a team of six hundred overworked underdogs or a solitary geek genius. Exploring the artistic challenges, technical impossibilities, marketplace demands, and Donkey Kong-sized monkey wrenches thrown into the works by corporate, \u003cem\u003eBlood, Sweat, and Pixels\u003c/em\u003e reveals how bringing any game to completion is more than Sisyphean--it's nothing short of miraculous.\u003c/p\u003e\u003cp\u003eExamining some of the bestselling games and most infamous failures, Schreier immerses readers in the hellfire of the development process, whether it's RPG studio BioWare's challenge to beat an impossible schedule and overcome countless technical nightmares to build \u003cem\u003eDragon Age: Inquisition\u003c/em\u003e; indie developer Eric Barone's single-handed efforts to grow country-life RPG \u003cem\u003eStardew Valley\u003c/em\u003e from one man's vision into a multimillion-dollar franchise; or Bungie employees spinning out from their corporate overlords at Microsoft to create \u003cem\u003eDestiny\u003c/em\u003e, a brand-new universe that they hoped would become as iconic as \u003cem\u003eStar Wars\u003c/em\u003e and \u003cem\u003eLord of the Rings\u003c/em\u003e--even as it nearly ripped their studio apart.\u003c/p\u003e\u003cp\u003e\u003cem\u003eBlood, Sweat, and Pixels\u003c/em\u003e is a journey through development hell--and ultimately a tribute to the dedicated diehards and unsung heroes who scale mountains of obstacles in their quests to create the best games imaginable.\u003c/p\u003e\n      ",
+            "TextFormat": "HTML"
+          }
+        },
+        {
+          "TextTypeCode": "Review quote",
+          "Text": {
+            "Body": "\n        \"...his enthusiasm is contagious; even if you've never played one of these games, you'll be riveted by the account of how they came to be.\"--\u003cem\u003eBooklist\u003c/em\u003e\n      ",
+            "TextFormat": "HTML"
+          }
+        },
+        {
+          "TextTypeCode": "Review quote",
+          "Text": {
+            "Body": "\"Blood, Sweat, and Pixels is the instruction manual to the game industry I never realized I needed.\"--GameCritics.com",
+            "TextFormat": ""
+          }
+        },
+        {
+          "TextTypeCode": "Review quote",
+          "Text": {
+            "Body": "\"Schreier creates a compellingly warts-and-all portrait of a profession that so many who grew up playing games idolized.\"--Wired",
+            "TextFormat": ""
+          }
+        },
+        {
+          "TextTypeCode": "Review quote",
+          "Text": {
+            "Body": "\n        \"Lively writing... For fans of video games, \u003cem\u003eBlood, Sweat, and Pixels \u003c/em\u003eis a must read, but anyone interested in stories about the hard process of making art is also sure to enjoy it.\"--Shelf Awareness\n      ",
+            "TextFormat": "HTML"
+          }
+        },
+        {
+          "TextTypeCode": "Review quote",
+          "Text": {
+            "Body": "\"One of the most insightful pieces of text I've ever read... It's a well-written tale of real sacrifice, struggles, and more, it's almost inspiring despite how sad it can be at times.\"--GameZone",
+            "TextFormat": ""
+          }
+        },
+        {
+          "TextTypeCode": "Review quote",
+          "Text": {
+            "Body": "\n        \"Necessary to read... by the end, my only complaint about \u003cem\u003eBlood, Sweat, and Pixels \u003c/em\u003eis that there wasn't more to read.\"--Forbes.com\n      ",
+            "TextFormat": "HTML"
+          }
+        },
+        {
+          "TextTypeCode": "Review quote",
+          "Text": {
+            "Body": "\"Schreier covers the notoriously secretive gaming industry... and he knows it well... He also clearly respects [the] developers and their achievements, and treats their rueful tales of selfless struggle with an admiring deference...a useful survey of the landscape of game production at this cultural moment.\"--GQ",
+            "TextFormat": ""
+          }
+        },
+        {
+          "TextTypeCode": "Review quote",
+          "Text": {
+            "Body": "\"Schreier sets each scene with admirable prowess, giving the reader just enough information to feel the weight of each story. For anyone who has ever wondered how some of the most successful games are made, this book is a real eye-opener... At its heart, Blood, Sweat, and Pixels is an ode to the people who put every fiber of their being into making memorable experiences for gamers all over the world.\"--Fiction Southeast",
+            "TextFormat": ""
+          }
+        },
+        {
+          "TextTypeCode": "Review quote",
+          "Text": {
+            "Body": "\n        \"A meticulously researched, well-written, and painful at times account of many developers' and studios' highs and lows. May need to make it required reading for the developers at my studio.\"--\u003cstrong\u003eCliff Bleszinski\u003c/strong\u003e, creator of Gears of War\u003c/em\u003e and founder of Boss Key Productions\n      ",
+            "TextFormat": "HTML"
+          }
+        },
+        {
+          "TextTypeCode": "Review quote",
+          "Text": {
+            "Body": "\n        \"Jason Schreier brilliantly exposes the truth about how video games are made. Brutal, honest, yet ultimately uplifting; I've been gaming for thirty years, yet I was surprised by every page. Turns out what I didn't know about my favorite hobby could fill a book. This book! Can't recommend it enough to any serious fan of this generation's greatest new art form.\"--\u003cstrong\u003eAdam Conover\u003c/strong\u003e, executive producer and host of truTV's Adam Ruins Everything\u003c/em\u003e\n      ",
+            "TextFormat": "HTML"
+          }
+        },
+        {
+          "TextTypeCode": "Review quote",
+          "Text": {
+            "Body": "\n        \"The stories in this book make for a fascinating and remarkably complete pantheon of just about every common despair and every joy related to game development.\"--\u003cstrong\u003eRami Ismail\u003c/strong\u003e, cofounder of Vlambeer and developer of Nuclear Throne\u003c/em\u003e\n      ",
+            "TextFormat": "HTML"
+          }
+        },
+        {
+          "TextTypeCode": "Review quote",
+          "Text": {
+            "Body": "\n        \"Making video games is one of most transformative, exciting things I've done in my two decades as a freelance writer. Making video games is also an excruciating journey into Hellmouth itself. Jason Schreier's wonderful book captures both the excitement and the hell. Here, at long last, is a gripping, intelligent glimpse behind a thick (and needlessly secretive) creative curtain.\"--\u003cstrong\u003eTom Bissell\u003c/strong\u003e, author of\u003cem\u003e Extra Lives \u003c/em\u003eand \u003cem\u003eApostle\u003c/em\u003e, and writer on the \u003cem\u003eGears of War\u003c/em\u003e, \u003cem\u003eUncharted\u003c/em\u003e, and \u003cem\u003eBattlefield\u003c/em\u003e franchises\n      ",
+            "TextFormat": "HTML"
+          }
+        },
+        {
+          "TextTypeCode": "Country of final manufacture",
+          "Text": {
+            "Body": "US",
+            "TextFormat": ""
+          }
+        }
+      ],
+      "Imprints": [
+        {
+          "NameCodeType": "02",
+          "NameCodeTypeName": "INGRAM PROPRIETARY",
+          "NameCodeValue": "HR",
+          "ImprintName": ""
+        },
+        {
+          "NameCodeType": "",
+          "NameCodeTypeName": "",
+          "NameCodeValue": "",
+          "ImprintName": "Harper Paperbacks"
+        }
+      ],
+      "Publisher": {
+        "PublishingRole": "01",
+        "PublisherName": "HarperCollins"
+      },
+      "PublishingStatus": {
+        "Body": "04",
+        "Datestamp": "20190928"
+      },
+      "PublicationDate": "20170905",
+      "SalesRights": [
+        {
+          "SalesRightsType": "02",
+          "RightsCountry": "AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW",
+          "RightsTerritory": ""
+        }
+      ],
+      "Measures": [
+        {
+          "MeasureTypeCode": "Height",
+          "Measurement": 8,
+          "MeasureUnitCode": "in"
+        },
+        {
+          "MeasureTypeCode": "Width",
+          "Measurement": 5.3,
+          "MeasureUnitCode": "in"
+        },
+        {
+          "MeasureTypeCode": "Thickness",
+          "Measurement": 0.7,
+          "MeasureUnitCode": "in"
+        },
+        {
+          "MeasureTypeCode": "Unit weight",
+          "Measurement": 0.5,
+          "MeasureUnitCode": "lb"
+        }
+      ],
+      "RelatedProducts": [
+        {
+          "RelationCode": "00",
+          "Productidentifier": [
+            {
+              "ProductIDType": "GTIN-13",
+              "IDValue": "9780062651242"
+            }
+          ],
+          "ProductForm": "DG"
+        },
+        {
+          "RelationCode": "00",
+          "Productidentifier": [
+            {
+              "ProductIDType": "GTIN-13",
+              "IDValue": "9780062790903"
+            }
+          ],
+          "ProductForm": "AJ"
+        },
+        {
+          "RelationCode": "00",
+          "Productidentifier": [
+            {
+              "ProductIDType": "GTIN-13",
+              "IDValue": "9781538453933"
+            }
+          ],
+          "ProductForm": "AC"
+        },
+        {
+          "RelationCode": "06",
+          "Productidentifier": [
+            {
+              "ProductIDType": "GTIN-13",
+              "IDValue": "9791162241028"
+            }
+          ],
+          "ProductForm": "BC"
+        }
+      ],
+      "SupplyDetail": {
+        "SupplierName": "Ingram Book Company",
+        "SupplierRole": "04",
+        "ReturnsCodeType": "02",
+        "ReturnsCode": "Y",
+        "ProductAvailability": "21",
+        "PackQuantity": 64,
+        "Prices": [
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "7"
+              }
+            ],
+            "PriceAmount": 21,
+            "CurrencyCode": "CAD",
+            "CountryCode": "CA"
+          },
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "7"
+              }
+            ],
+            "PriceAmount": 16.99,
+            "CurrencyCode": "USD",
+            "CountryCode": "US"
+          }
+        ]
+      }
+    },
+    {
+      "RecordReference": "072583711",
+      "NotificationType": "02",
+      "Productidentifiers": [
+        {
+          "ProductIDType": "ISBN-10",
+          "IDValue": "1839214112"
+        },
+        {
+          "ProductIDType": "GTIN-13",
+          "IDValue": "9781839214110"
+        },
+        {
+          "ProductIDType": "GTIN-14",
+          "IDValue": "09781839214110"
+        },
+        {
+          "ProductIDType": "ISBN-13",
+          "IDValue": "9781839214110"
+        }
+      ],
+      "ProductForm": "BC",
+      "ProductFormDetail": [
+        "B102",
+        "B305"
+      ],
+      "ProductClassification": {
+        "ProductClassificationType": "01",
+        "ProductClassificationCode": "4901.99.0075"
+      },
+      "NoSeries": true,
+      "Title": {
+        "TextCase": "02",
+        "Language": "eng",
+        "TitleType": "01",
+        "TitleText": "Node.js Design Patterns - Third edition",
+        "Subtitle": "Design and implement production-grade Node.js applications using proven patterns and techniques"
+      },
+      "Contributor": {
+        "ContributorRole": "A01",
+        "NamesBeforeKey": "Luciano",
+        "KeyNames": "Mammino",
+        "BiographicalNote": "Luciano Mammino wrote his first line of code at the age of 12 on his father's old i386. Since then he has never stopped coding. He is currently working at FabFitFun as principal software engineer where he builds microservices to serve millions of users every day. Luciano also runs bespoke training courses to foster serverless adoption and Fullstack Bulletin, a free weekly newsletter for full-stack developers."
+      },
+      "Language": {
+        "LanguageRole": "01",
+        "LanguageCode": "eng"
+      },
+      "NumberOfPages": 660,
+      "BASICMainSubject": "COM051260",
+      "MainSubject": {
+        "MainSubjectSchemeIdentifier": 10,
+        "SubjectCode": "COM051260",
+        "SubjectHeadingText": "Computers/Languages - JavaScript"
+      },
+      "Subjects": [
+        {
+          "SubjectSchemeIdentifier": "BISAC Subject Heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "COM060180",
+          "SubjectHeadingText": "\n        Computers/Internet - Web Services \u0026 APIs\n      "
+        },
+        {
+          "SubjectSchemeIdentifier": "BISAC Subject Heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "COM060160",
+          "SubjectHeadingText": "Computers/Internet - Web Programming"
+        },
+        {
+          "SubjectSchemeIdentifier": "Keywords",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "Node.js; JavaScript; Software Design; Web Applications; Redis"
+        },
+        {
+          "SubjectSchemeIdentifier": "Proprietary subject scheme",
+          "SubjectSchemeName": "INGRAM SUBJECT",
+          "SubjectCode": "XL",
+          "SubjectHeadingText": "Computers / Languages / Programming"
+        }
+      ],
+      "AudienceCode": "01",
+      "OtherTexts": [
+        {
+          "TextTypeCode": "Long description",
+          "Text": {
+            "Body": "\n        \u003cp\u003e\u003cstrong\u003eLearn proven patterns, techniques, and tricks to take full advantage of the Node.js platform. Master well-known design principles to create applications that are readable, extensible, and that can grow big.\u003c/strong\u003e\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eKey Features\u003c/strong\u003e\u003c/p\u003e \u003cul\u003e \u003cli\u003eLearn how to create solid server-side applications by leveraging the full power of Node.js 14\u003c/li\u003e \u003cli\u003eUnderstand how Node.js works and learn how to take full advantage of its core components as well as the solutions offered by its ecosystem\u003c/li\u003e \u003cli\u003eAvoid common mistakes and use proven patterns to create production grade Node.js applications\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e\u003cstrong\u003eBook Description\u003c/strong\u003e\u003c/p\u003e \u003cp\u003eIn this book, we will show you how to implement a series of best practices and design patterns to help you create efficient and robust Node.js applications with ease.\u003c/p\u003e \u003cp\u003eWe kick off by exploring the basics of Node.js, analyzing its asynchronous event driven architecture and its fundamental design patterns. We then show you how to build asynchronous control flow patterns with callbacks, promises and async/await. Next, we dive into Node.js streams, unveiling their power and showing you how to use them at their full capacity. Following streams is an analysis of different creational, structural, and behavioral design patterns that take full advantage of JavaScript and Node.js. Lastly, the book dives into more advanced concepts such as Universal JavaScript, scalability and messaging patterns to help you build enterprise-grade distributed applications.\u003c/p\u003e \u003cp\u003eThroughout the book, you'll see Node.js in action with the help of several real-life examples leveraging technologies such as LevelDB, Redis, RabbitMQ, ZeroMQ, and many others. They will be used to demonstrate a pattern or technique, but they will also give you a great introduction to the Node.js ecosystem and its set of solutions.\u003c/p\u003e \u003cp\u003e\u003cstrong\u003eWhat you will learn\u003c/strong\u003e\u003c/p\u003e \u003cul\u003e \u003cli\u003eBecome comfortable with writing asynchronous code by leveraging callbacks, promises, and the async/await syntax\u003c/li\u003e \u003cli\u003eLeverage Node.js streams to create data-driven asynchronous processing pipelines\u003c/li\u003e \u003cli\u003eImplement well-known software design patterns to create production grade applications\u003c/li\u003e \u003cli\u003eShare code between Node.js and the browser and take advantage of full-stack JavaScript\u003c/li\u003e \u003cli\u003eBuild and scale microservices and distributed systems powered by Node.js\u003c/li\u003e \u003cli\u003eUse Node.js in conjunction with other powerful technologies such as Redis, RabbitMQ, ZeroMQ, and LevelDB\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e\u003cstrong\u003eWho this book is for\u003c/strong\u003e\u003c/p\u003e \u003cp\u003eThis book is for developers and software architects who have some prior basic knowledge of JavaScript and Node.js and now want to get the most out of these technologies in terms of productivity, design quality, and scalability. Software professionals with intermediate experience in Node.js and JavaScript will also find valuable the more advanced patterns and techniques presented in this book.\u003c/p\u003e \u003cp\u003eThis book assumes that you have an intermediate understanding of web application development, databases, and software design principles.\u003c/p\u003e\n      ",
+            "TextFormat": "HTML"
+          }
+        },
+        {
+          "TextTypeCode": "Country of final manufacture",
+          "Text": {
+            "Body": "US",
+            "TextFormat": ""
+          }
+        }
+      ],
+      "Imprints": [
+        {
+          "NameCodeType": "02",
+          "NameCodeTypeName": "INGRAM PROPRIETARY",
+          "NameCodeValue": "PKUH",
+          "ImprintName": ""
+        },
+        {
+          "NameCodeType": "",
+          "NameCodeTypeName": "",
+          "NameCodeValue": "",
+          "ImprintName": "Packt Publishing"
+        }
+      ],
+      "Publisher": {
+        "PublishingRole": "01",
+        "PublisherName": "Packt Publishing"
+      },
+      "PublishingStatus": {
+        "Body": "04",
+        "Datestamp": "20200729"
+      },
+      "PublicationDate": "20200728",
+      "SalesRights": [
+        {
+          "SalesRightsType": "01",
+          "RightsCountry": "AU CA DE GB US",
+          "RightsTerritory": ""
+        }
+      ],
+      "Measures": [
+        {
+          "MeasureTypeCode": "Height",
+          "Measurement": 9.25,
+          "MeasureUnitCode": "in"
+        },
+        {
+          "MeasureTypeCode": "Width",
+          "Measurement": 7.52,
+          "MeasureUnitCode": "in"
+        },
+        {
+          "MeasureTypeCode": "Thickness",
+          "Measurement": 1.33,
+          "MeasureUnitCode": "in"
+        },
+        {
+          "MeasureTypeCode": "Unit weight",
+          "Measurement": 2.46,
+          "MeasureUnitCode": "lb"
+        }
+      ],
+      "RelatedProducts": null,
+      "SupplyDetail": {
+        "SupplierName": "Ingram Book Company",
+        "SupplierRole": "04",
+        "ReturnsCodeType": "02",
+        "ReturnsCode": "N",
+        "ProductAvailability": "21",
+        "PackQuantity": 6,
+        "Prices": [
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "A"
+              }
+            ],
+            "PriceAmount": 71.99,
+            "CurrencyCode": "AUD",
+            "CountryCode": "AU"
+          },
+          {
+            "PriceTypeCode": "02",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "LSI",
+                "DiscountCode": "15"
+              }
+            ],
+            "PriceAmount": 79.19,
+            "CurrencyCode": "AUD",
+            "CountryCode": "AU"
+          },
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "A"
+              }
+            ],
+            "PriceAmount": 65.99,
+            "CurrencyCode": "CAD",
+            "CountryCode": "CA"
+          },
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "A"
+              }
+            ],
+            "PriceAmount": 37.99,
+            "CurrencyCode": "EUR",
+            "CountryCode": "DE"
+          },
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "A"
+              }
+            ],
+            "PriceAmount": 37.99,
+            "CurrencyCode": "GBP",
+            "CountryCode": "GB"
+          },
+          {
+            "PriceTypeCode": "02",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "A"
+              }
+            ],
+            "PriceAmount": 37.99,
+            "CurrencyCode": "GBP",
+            "CountryCode": "GB"
+          },
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "A"
+              }
+            ],
+            "PriceAmount": 49.99,
+            "CurrencyCode": "USD",
+            "CountryCode": "US"
+          }
+        ]
+      }
+    },
+    {
+      "RecordReference": "034560312",
+      "NotificationType": "02",
+      "Productidentifiers": [
+        {
+          "ProductIDType": "ISBN-10",
+          "IDValue": "1593276672"
+        },
+        {
+          "ProductIDType": "GTIN-13",
+          "IDValue": "9781593276676"
+        },
+        {
+          "ProductIDType": "LCCN",
+          "IDValue": "2015023925"
+        },
+        {
+          "ProductIDType": "GTIN-14",
+          "IDValue": "09781593276676"
+        },
+        {
+          "ProductIDType": "ISBN-13",
+          "IDValue": "9781593276676"
+        }
+      ],
+      "ProductForm": "BC",
+      "ProductFormDetail": [
+        "B102",
+        "B305"
+      ],
+      "ProductClassification": {
+        "ProductClassificationType": "01",
+        "ProductClassificationCode": "4901.99.0075"
+      },
+      "NoSeries": true,
+      "Title": {
+        "TextCase": "02",
+        "Language": "eng",
+        "TitleType": "01",
+        "TitleText": "The Maker's Guide to the Zombie Apocalypse",
+        "Subtitle": "Defend Your Base with Simple Circuits, Arduino, and Raspberry Pi"
+      },
+      "Contributor": {
+        "ContributorRole": "A01",
+        "NamesBeforeKey": "Simon",
+        "KeyNames": "Monk",
+        "BiographicalNote": "\n        \u003cp\u003eSimon Monk is a full-time author and maker, mostly writing about electronics for makers. Some of his better-known books include \u003ci\u003eProgramming Arduino: Getting Started with Sketches, Raspberry Pi Cookbook\u003c/i\u003e, and \u003ci\u003eHacking Electronics\u003c/i\u003e. He is also the co-author of \u003ci\u003ePractical Electronics for Inventors\u003c/i\u003e and wrote \u003ci\u003eMinecraft Mastery\u003c/i\u003e with his son, Matthew Monk.\u003c/p\u003e\n      "
+      },
+      "Language": {
+        "LanguageRole": "01",
+        "LanguageCode": "eng"
+      },
+      "NumberOfPages": 296,
+      "BASICMainSubject": "TEC008000",
+      "MainSubject": {
+        "MainSubjectSchemeIdentifier": 10,
+        "SubjectCode": "TEC008000",
+        "SubjectHeadingText": "\n        Technology \u0026 Engineering/Electronics - General\n      "
+      },
+      "Subjects": [
+        {
+          "SubjectSchemeIdentifier": "BISAC Subject Heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "COM041000",
+          "SubjectHeadingText": "\n        Computers/Hardware - Chips \u0026 Processors\n      "
+        },
+        {
+          "SubjectSchemeIdentifier": "BISAC Subject Heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "COM067000",
+          "SubjectHeadingText": "Computers/Hardware - General"
+        },
+        {
+          "SubjectSchemeIdentifier": "Keywords",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "DIY; electronics; survival; technology; engineering; crafts; inventions; hobbies; electricity; craft; arts and crafts; craft books; engineer; arts and crafts for adults; crafts for adults; engineering books; diy books; engineer gifts; craft books for adults; craft projects; invention; craft gifts; crafting gifts; gifts for crafters; computer; how to; programming; ideas; physics; computers; business; security; reference; makerspace; maker; education; guide; geek; strategy; networking; weather; robotics; design; chemistry; gaming; cars"
+        },
+        {
+          "SubjectSchemeIdentifier": "Dewey",
+          "SubjectSchemeName": "",
+          "SubjectCode": "621.381",
+          "SubjectHeadingText": ""
+        },
+        {
+          "SubjectSchemeIdentifier": "LC subject heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "Microcontrollers"
+        },
+        {
+          "SubjectSchemeIdentifier": "LC subject heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "Electronic circuits"
+        },
+        {
+          "SubjectSchemeIdentifier": "LC subject heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "Electronic apparatus and appliances - Design and construction"
+        },
+        {
+          "SubjectSchemeIdentifier": "LC subject heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "Raspberry Pi (Computer)"
+        },
+        {
+          "SubjectSchemeIdentifier": "LC subject heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "Arduino (Programmable controller)"
+        },
+        {
+          "SubjectSchemeIdentifier": "Proprietary subject scheme",
+          "SubjectSchemeName": "INGRAM SUBJECT",
+          "SubjectCode": "TE",
+          "SubjectHeadingText": "\n        Technology \u0026 Industrial Arts\n      "
+        },
+        {
+          "SubjectSchemeIdentifier": "Thema subject category",
+          "SubjectSchemeName": "",
+          "SubjectCode": "TJF",
+          "SubjectHeadingText": ""
+        },
+        {
+          "SubjectSchemeIdentifier": "Thema subject category",
+          "SubjectSchemeName": "",
+          "SubjectCode": "WF",
+          "SubjectHeadingText": ""
+        },
+        {
+          "SubjectSchemeIdentifier": "Thema subject category",
+          "SubjectSchemeName": "",
+          "SubjectCode": "TBY",
+          "SubjectHeadingText": ""
+        }
+      ],
+      "AudienceCode": "01",
+      "OtherTexts": [
+        {
+          "TextTypeCode": "Short description/annotation",
+          "Text": {
+            "Body": "\"A collection of DIY hardware projects using circuits, Arduino, and Raspberry Pi to store electricity, detect invading zombies, generate solar power, and create communication and surveillance devices. Projects include alarms, low-power LED lighting, an FM radio frequency hopper, a periscope, a wind turbine, and flash, movement, and noise makers\"--",
+            "TextFormat": ""
+          }
+        },
+        {
+          "TextTypeCode": "Long description",
+          "Text": {
+            "Body": "\n        Where will you be when the zombie apocalypse hits? Trapping yourself in the basement? Roasting the family pet? Beheading reanimated neighbors? \u003cp/\u003eNo way. You'll be building fortresses, setting traps, and hoarding supplies, because you, savvy survivor, have snatched up your copy of \u003ci\u003eThe Maker's Guide to the Zombie Apocalypse\u003c/i\u003e before it's too late. This indispensable guide to survival after Z-day, written by hardware hacker and zombie anthropologist Simon Monk, will teach you how to generate your own electricity, salvage parts, craft essential electronics, and out-survive the undead., p\u003eTake charge of your environment: \u003cbr\u003e-Monitor zombie movement with trip wires and motion sensors\u003cbr\u003e-Keep vigilant watch over your compound with Arduino and Raspberry Pi surveillance systems\u003cbr\u003e-Power zombie defense devices with car batteries, bicycle generators, and solar power \u003cp/\u003eEscape imminent danger: \u003cbr\u003e-Repurpose old disposable cameras for zombie-distracting flashbangs\u003cbr\u003e-Open doors remotely for a successful sprint home\u003cbr\u003e-Forestall subplot disasters with fire and smoke detectors \u003cp/\u003eCommunicate with other survivors: \u003cbr\u003e-Hail nearby humans using Morse code\u003cbr\u003e-Pass silent messages with two-way vibration walkie-talkies\u003cbr\u003e-Fervently scan the airwaves with a frequency hopper \u003cp/\u003eFor anyone from the budding maker to the keen hobbyist, \u003ci\u003eThe Maker's Guide to the Zombie Apocalypse\u003c/i\u003e is an essential survival tool. \u003cp/\u003e\u003cb\u003eUses the Arduino Uno board and Raspberry Pi Model B+ or Model 2 \u003c/b\u003e\n      ",
+            "TextFormat": "HTML"
+          }
+        },
+        {
+          "TextTypeCode": "Biographical note",
+          "Text": {
+            "Body": "\n        \u003cb\u003eSimon Monk\u003c/b\u003e is a full-time author and maker, mostly writing about electronics for makers. Some of his better-known books include \u003ci\u003eProgramming Arduino: Getting Started with Sketches\u003c/i\u003e, \u003ci\u003eRaspberry Pi Cookbook\u003c/i\u003e, and \u003ci\u003eHacking Electronics\u003c/i\u003e. He is also the co-author of \u003ci\u003ePractical Electronics for Inventors\u003c/i\u003e and wrote \u003ci\u003eMinecraft Mastery\u003c/i\u003e with his son, Matthew Monk.\n      ",
+            "TextFormat": "HTML"
+          }
+        },
+        {
+          "TextTypeCode": "Country of final manufacture",
+          "Text": {
+            "Body": "US",
+            "TextFormat": ""
+          }
+        }
+      ],
+      "Imprints": [
+        {
+          "NameCodeType": "02",
+          "NameCodeTypeName": "INGRAM PROPRIETARY",
+          "NameCodeValue": "NSCH",
+          "ImprintName": ""
+        },
+        {
+          "NameCodeType": "",
+          "NameCodeTypeName": "",
+          "NameCodeValue": "",
+          "ImprintName": "No Starch Press"
+        }
+      ],
+      "Publisher": {
+        "PublishingRole": "01",
+        "PublisherName": "No Starch Press"
+      },
+      "PublishingStatus": {
+        "Body": "04",
+        "Datestamp": "20170829"
+      },
+      "PublicationDate": "20151001",
+      "SalesRights": [
+        {
+          "SalesRightsType": "01",
+          "RightsCountry": "AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW",
+          "RightsTerritory": ""
+        }
+      ],
+      "Measures": [
+        {
+          "MeasureTypeCode": "Height",
+          "Measurement": 9.2,
+          "MeasureUnitCode": "in"
+        },
+        {
+          "MeasureTypeCode": "Width",
+          "Measurement": 7,
+          "MeasureUnitCode": "in"
+        },
+        {
+          "MeasureTypeCode": "Thickness",
+          "Measurement": 0.7,
+          "MeasureUnitCode": "in"
+        },
+        {
+          "MeasureTypeCode": "Unit weight",
+          "Measurement": 1.2,
+          "MeasureUnitCode": "lb"
+        }
+      ],
+      "RelatedProducts": null,
+      "SupplyDetail": {
+        "SupplierName": "Ingram Book Company",
+        "SupplierRole": "04",
+        "ReturnsCodeType": "02",
+        "ReturnsCode": "Y",
+        "ProductAvailability": "21",
+        "PackQuantity": 24,
+        "Prices": [
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "B"
+              }
+            ],
+            "PriceAmount": 28.95,
+            "CurrencyCode": "CAD",
+            "CountryCode": "CA"
+          },
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "B"
+              }
+            ],
+            "PriceAmount": 22.5,
+            "CurrencyCode": "EUR",
+            "CountryCode": "DE"
+          },
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "B"
+              }
+            ],
+            "PriceAmount": 19.99,
+            "CurrencyCode": "GBP",
+            "CountryCode": "GB"
+          },
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "B"
+              }
+            ],
+            "PriceAmount": 24.95,
+            "CurrencyCode": "USD",
+            "CountryCode": "US"
+          }
+        ]
+      }
+    },
+    {
+      "RecordReference": "012930411",
+      "NotificationType": "02",
+      "Productidentifiers": [
+        {
+          "ProductIDType": "ISBN-10",
+          "IDValue": "0486478831"
+        },
+        {
+          "ProductIDType": "GTIN-13",
+          "IDValue": "9780486478838"
+        },
+        {
+          "ProductIDType": "LCCN",
+          "IDValue": "2010031017"
+        },
+        {
+          "ProductIDType": "GTIN-14",
+          "IDValue": "09780486478838"
+        },
+        {
+          "ProductIDType": "ISBN-13",
+          "IDValue": "9780486478838"
+        }
+      ],
+      "ProductForm": "BC",
+      "ProductFormDetail": [
+        "B102",
+        "B305"
+      ],
+      "ProductClassification": {
+        "ProductClassificationType": "01",
+        "ProductClassificationCode": "4901.99.0075"
+      },
+      "NoSeries": false,
+      "Title": {
+        "TextCase": "02",
+        "Language": "eng",
+        "TitleType": "01",
+        "TitleText": "An Introduction to Functional Programming Through Lambda Calculus",
+        "Subtitle": ""
+      },
+      "Contributor": {
+        "ContributorRole": "A01",
+        "NamesBeforeKey": "Greg",
+        "KeyNames": "Michaelson",
+        "BiographicalNote": ""
+      },
+      "Language": {
+        "LanguageRole": "01",
+        "LanguageCode": "eng"
+      },
+      "NumberOfPages": 320,
+      "BASICMainSubject": "COM051210",
+      "MainSubject": {
+        "MainSubjectSchemeIdentifier": 12,
+        "SubjectCode": "UMN",
+        "SubjectHeadingText": "Object-oriented programming (OOP)"
+      },
+      "Subjects": [
+        {
+          "SubjectSchemeIdentifier": "BISAC Subject Heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "COM051010",
+          "SubjectHeadingText": "Computers/Languages - General"
+        },
+        {
+          "SubjectSchemeIdentifier": "Keywords",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "mit press; functional language; paul graham; type classes; programming paradigms; time complexity; computer languages; teach computer; program design; pattern matching; logic programming; lisp programming; programming experience; memory management; language concepts; programming skills; linked lists; object-oriented programming; programming concepts; type system; category theory; purely functional; software engineers; data structures; visual basic; negative reviewers; science student; write code; computer scientists; programming languages; fundamental concepts; socratic method; software engineering; computer programs; complex systems; teach yourself; computer programming; gentle introduction; mathematically inclined; introductory text; computer science; serious student; poorly designed; waste time; artificial intelligence; recursions; non-deterministic; github; abelson; recursively; evaluator; clojure; monads; knuth; prolog; scala; zippers; sussman; computation; computational; haskell; recursive; compiler; algorithms; abstractions; schemer; java; programmers; computing; implementation; interpreter; imperative; syntax; cartoons; functions; freely; exercises; scheme; books on language concepts; books on type classes; books on teach computers; books on programming paradigms; books on object-oriented programmings; books on program designs; teaching computer; books on functional languages; books on programming experiences; books on mit presses; books on paul graham; books on logic programmings; books on computer languages; books on programming concepts; mathematical logic; software; computer engineering; standard ml; common lisp; variable binding and substitution; model of computation; programming paradigm; building computer programs; formal system; function definition; function application; recursion; computers; technology"
+        },
+        {
+          "SubjectSchemeIdentifier": "Dewey",
+          "SubjectSchemeName": "",
+          "SubjectCode": "005.114",
+          "SubjectHeadingText": ""
+        },
+        {
+          "SubjectSchemeIdentifier": "LC subject heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "Functional programming (Computer science)"
+        },
+        {
+          "SubjectSchemeIdentifier": "LC subject heading",
+          "SubjectSchemeName": "",
+          "SubjectCode": "",
+          "SubjectHeadingText": "Lambda calculus"
+        },
+        {
+          "SubjectSchemeIdentifier": "Proprietary subject scheme",
+          "SubjectSchemeName": "INGRAM SUBJECT",
+          "SubjectCode": "XL",
+          "SubjectHeadingText": "Computers / Languages / Programming"
+        }
+      ],
+      "AudienceCode": "01",
+      "OtherTexts": [
+        {
+          "TextTypeCode": "Short description/annotation",
+          "Text": {
+            "Body": "Well-respected text for computer science students provides an accessible introduction to functional programming. Cogent examples illuminate the central ideas, and numerous exercises offer reinforcement. Includes solutions. 1989 edition.",
+            "TextFormat": ""
+          }
+        },
+        {
+          "TextTypeCode": "Long description",
+          "Text": {
+            "Body": "Functional programming is rooted in lambda calculus, which constitutes the world's smallest programming language. This well-respected text offers an accessible introduction to functional programming concepts and techniques for students of mathematics and computer science. The treatment is as nontechnical as possible, and it assumes no prior knowledge of mathematics or functional programming. Cogent examples illuminate the central ideas, and numerous exercises appear throughout the text, offering reinforcement of key concepts. All problems feature complete solutions.",
+            "TextFormat": ""
+          }
+        },
+        {
+          "TextTypeCode": "Biographical note",
+          "Text": {
+            "Body": "Gregory Michaelson is a Professor of Computer Science and Mathematics at Heriot-Watt University in Edinburgh, Scotland.",
+            "TextFormat": ""
+          }
+        },
+        {
+          "TextTypeCode": "Country of final manufacture",
+          "Text": {
+            "Body": "US",
+            "TextFormat": ""
+          }
+        }
+      ],
+      "Imprints": [
+        {
+          "NameCodeType": "02",
+          "NameCodeTypeName": "INGRAM PROPRIETARY",
+          "NameCodeValue": "DOVR",
+          "ImprintName": ""
+        },
+        {
+          "NameCodeType": "",
+          "NameCodeTypeName": "",
+          "NameCodeValue": "",
+          "ImprintName": "Dover Publications"
+        }
+      ],
+      "Publisher": {
+        "PublishingRole": "01",
+        "PublisherName": "Dover Publications"
+      },
+      "PublishingStatus": {
+        "Body": "04",
+        "Datestamp": "20110801"
+      },
+      "PublicationDate": "20110818",
+      "SalesRights": [
+        {
+          "SalesRightsType": "02",
+          "RightsCountry": "AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW",
+          "RightsTerritory": ""
+        }
+      ],
+      "Measures": [
+        {
+          "MeasureTypeCode": "Height",
+          "Measurement": 9.27,
+          "MeasureUnitCode": "in"
+        },
+        {
+          "MeasureTypeCode": "Width",
+          "Measurement": 6.56,
+          "MeasureUnitCode": "in"
+        },
+        {
+          "MeasureTypeCode": "Thickness",
+          "Measurement": 0.68,
+          "MeasureUnitCode": "in"
+        },
+        {
+          "MeasureTypeCode": "Unit weight",
+          "Measurement": 1.02,
+          "MeasureUnitCode": "lb"
+        }
+      ],
+      "RelatedProducts": null,
+      "SupplyDetail": {
+        "SupplierName": "Ingram Book Company",
+        "SupplierRole": "04",
+        "ReturnsCodeType": "02",
+        "ReturnsCode": "N",
+        "ProductAvailability": "21",
+        "PackQuantity": 24,
+        "Prices": [
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "7"
+              }
+            ],
+            "PriceAmount": 36.32,
+            "CurrencyCode": "AUD",
+            "CountryCode": "AU"
+          },
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "7"
+              }
+            ],
+            "PriceAmount": 35.25,
+            "CurrencyCode": "CAD",
+            "CountryCode": "CA"
+          },
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "7"
+              }
+            ],
+            "PriceAmount": 23.99,
+            "CurrencyCode": "GBP",
+            "CountryCode": "GB"
+          },
+          {
+            "PriceTypeCode": "01",
+            "DiscountCodeds": [
+              {
+                "DiscountCodeType": "Proprietary discount code",
+                "DiscountCodeTypeName": "INGRAM PROPRIETARY",
+                "DiscountCode": "7"
+              }
+            ],
+            "PriceAmount": 25.95,
+            "CurrencyCode": "USD",
+            "CountryCode": "US"
+          }
+        ]
+      }
+    }
+  ]
+}

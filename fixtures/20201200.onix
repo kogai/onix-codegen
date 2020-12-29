@@ -1,0 +1,1202 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ONIXmessage SYSTEM "http://www.editeur.org/onix/2.1/short/onix-international.dtd">
+<ONIXmessage>
+  <header>
+    <m174>Ingram Book Company</m174>
+    <m182>20201119</m182>
+    <m184>eng</m184>
+    <m185>01</m185>
+    <m186>USD</m186>
+  </header>
+  <product>
+    <a001>062124983</a001>
+    <a002>02</a002>
+    <productidentifier>
+      <b221>02</b221>
+      <b244>1680506366</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>03</b221>
+      <b244>9781680506365</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>14</b221>
+      <b244>09781680506365</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>15</b221>
+      <b244>9781680506365</b244>
+    </productidentifier>
+    <b012>BC</b012>
+    <b333>B102</b333>
+    <b333>B305</b333>
+    <productclassification>
+      <b274>01</b274>
+      <b275>4901.99.0075</b275>
+    </productclassification>
+    <n338 />
+    <title textcase="02" language="eng">
+      <b202>01</b202>
+      <b203>Programming Webassembly with Rust</b203>
+      <b029>Unified Development for Web, Mobile, and Embedded Applications</b029>
+    </title>
+    <contributor>
+      <b035>A01</b035>
+      <b039>Kevin</b039>
+      <b040>Hoffman</b040>
+      <b044>
+        <![CDATA[<p><b>Kevin Hoffman</b> got his start programming at the age of 10 with a Commodore VIC-20, a cassette drive, and a hand-altered floppy disc drive from a Commodore 64. He has worked in dozens of industries from gaming to waste management, from drones to biometric security, and finance. He has written or co-written over 20 technology books and looks forward to someday completing his fantasy trilogy - the Sigilord Chronicles.</p>]]>
+      </b044>
+    </contributor>
+    <language>
+      <b253>01</b253>
+      <b252>eng</b252>
+    </language>
+    <b061>240</b061>
+    <b064>COM060160</b064>
+    <mainsubject>
+      <b191>10</b191>
+      <b069>COM060160</b069>
+      <b070>Computers/Internet - Web Programming</b070>
+    </mainsubject>
+    <subject>
+      <b067>10</b067>
+      <b069>COM051000</b069>
+      <b070>Computers/Programming - General</b070>
+    </subject>
+    <subject>
+      <b067>10</b067>
+      <b069>COM051010</b069>
+      <b070>Computers/Languages - General</b070>
+    </subject>
+    <subject>
+      <b067>10</b067>
+      <b069>COM051230</b069>
+      <b070>
+        <![CDATA[Computers/Software Development & Engineering - General]]>
+      </b070>
+    </subject>
+    <subject>
+      <b067>10</b067>
+      <b069>COM060180</b069>
+      <b070>
+        <![CDATA[Computers/Internet - Web Services & APIs]]>
+      </b070>
+    </subject>
+    <subject>
+      <b067>20</b067>
+      <b070>JavaScript; Rust; WebAssembly; cross-platform development; front-end applications; modular development; wasm; web applications</b070>
+    </subject>
+    <subject>
+      <b067>24</b067>
+      <b171>INGRAM SUBJECT</b171>
+      <b069>XB</b069>
+      <b070>Computer / Internet</b070>
+    </subject>
+    <b073>01</b073>
+    <othertext>
+      <d102>03</d102>
+      <d104 textformat="02">
+        <![CDATA[<p>WebAssembly fulfills the long-awaited promise of web technologies: fast code, type-safe at compile time, execution in the browser, on embedded devices, or anywhere else. Rust delivers the power of C in a language that strictly enforces type safety. Combine both languages and you can write for the web like never before! Learn how to integrate with JavaScript, run code on platforms other than the browser, and take a step into IoT. Discover the easy way to build cross-platform applications without sacrificing power, and change the way you write code for the web.</p> <p>WebAssembly is more than just a revolutionary new technology. It's reshaping how we build applications for the web and beyond. Where technologies like ActiveX and Flash have failed, you can now write code in whatever language you prefer and compile to WebAssembly for fast, type-safe code that runs in the browser, on mobile devices, embedded devices, and more. Combining WebAssembly's portable, high-performance modules with Rust's safety and power is a perfect development combination.</p> <p>Learn how WebAssembly's stack machine architecture works, install low-level wasm tools, and discover the dark art of writing raw wast code. Build on that foundation and learn how to compile WebAssembly modules from Rust by implementing the logic for a checkers game. Create wasm modules in Rust to interoperate with JavaScript in many compelling ways. Apply your new skills to the world of non-web hosts, and create everything from an app running on a Raspberry Pi that controls a lighting system, to a fully-functioning online multiplayer game engine where developers upload their own arena-bound WebAssembly combat modules.</p> <p>Get started with WebAssembly today, and change the way you think about the web.</p> <p><b>What You Need: </b></p> <p>You'll need a Linux, Mac, or Windows workstation with an Internet connection. You'll need an up-to-date web browser that supports WebAssembly. To work with the sample code, you can use your favorite text editor or IDE. The book will guide you through installing the Rust and WebAssembly tools needed for each chapter.</p>]]>
+      </d104>
+    </othertext>
+    <othertext>
+      <d102>13</d102>
+      <d104 textformat="02">
+        <![CDATA[<p><b>Kevin Hoffman</b> got his start programming at the age of 10 with a Commodore VIC-20, a cassette drive, and a hand-altered floppy disc drive from a Commodore 64. He has worked in dozens of industries from gaming to waste management, from drones to biometric security, and finance. He has written or co-written over 20 technology books and looks forward to someday completing his fantasy trilogy - the Sigilord Chronicles.</p>]]>
+      </d104>
+    </othertext>
+    <othertext>
+      <d102>99</d102>
+      <d104>US</d104>
+    </othertext>
+    <imprint>
+      <b241>02</b241>
+      <b242>INGRAM PROPRIETARY</b242>
+      <b243>PGIB</b243>
+    </imprint>
+    <imprint>
+      <b079>Pragmatic Bookshelf</b079>
+    </imprint>
+    <publisher>
+      <b291>01</b291>
+      <b081>Pragmatic Bookshelf</b081>
+    </publisher>
+    <b394 datestamp="20190325">04</b394>
+    <b003>20190331</b003>
+    <salesrights>
+      <b089>01</b089>
+      <b090>US CA</b090>
+    </salesrights>
+    <salesrights>
+      <b089>02</b089>
+      <b388>WORLD</b388>
+    </salesrights>
+    <measure>
+      <c093>01</c093>
+      <c094>9.25</c094>
+      <c095>in</c095>
+    </measure>
+    <measure>
+      <c093>02</c093>
+      <c094>7.50</c094>
+      <c095>in</c095>
+    </measure>
+    <measure>
+      <c093>03</c093>
+      <c094>0.51</c094>
+      <c095>in</c095>
+    </measure>
+    <measure>
+      <c093>08</c093>
+      <c094>0.9200</c094>
+      <c095>lb</c095>
+    </measure>
+    <relatedproduct>
+      <h208>00</h208>
+      <productidentifier>
+        <b221>03</b221>
+        <b244>9781680506839</b244>
+      </productidentifier>
+      <b012>DG</b012>
+    </relatedproduct>
+    <relatedproduct>
+      <h208>00</h208>
+      <productidentifier>
+        <b221>03</b221>
+        <b244>9781680506860</b244>
+      </productidentifier>
+      <b012>DG</b012>
+    </relatedproduct>
+    <supplydetail>
+      <j137>Ingram Publisher Services</j137>
+      <j292>02</j292>
+      <j268>02</j268>
+      <j269>Y</j269>
+      <j396>21</j396>
+      <j145>16</j145>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>C</j364>
+        </discountcoded>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>S007</j378>
+          <j364>SDS007</j364>
+        </discountcoded>
+        <j151>60.95</j151>
+        <j152>CAD</j152>
+        <b251>CA</b251>
+      </price>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>C</j364>
+        </discountcoded>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>S007</j378>
+          <j364>SDS007</j364>
+        </discountcoded>
+        <j151>42.00</j151>
+        <j152>EUR</j152>
+        <b251>DE</b251>
+      </price>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>C</j364>
+        </discountcoded>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>S007</j378>
+          <j364>SDS007</j364>
+        </discountcoded>
+        <j151>36.99</j151>
+        <j152>GBP</j152>
+        <b251>GB</b251>
+      </price>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>C</j364>
+        </discountcoded>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>S007</j378>
+          <j364>SDS007</j364>
+        </discountcoded>
+        <j151>45.95</j151>
+        <j152>USD</j152>
+        <b251>US</b251>
+      </price>
+    </supplydetail>
+  </product>
+  <product>
+    <a001>050569283</a001>
+    <a002>02</a002>
+    <productidentifier>
+      <b221>02</b221>
+      <b244>0062651234</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>03</b221>
+      <b244>9780062651235</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>13</b221>
+      <b244>2017015481</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>14</b221>
+      <b244>09780062651235</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>15</b221>
+      <b244>9780062651235</b244>
+    </productidentifier>
+    <b246>01</b246>
+    <b012>BC</b012>
+    <b333>B102</b333>
+    <b333>B305</b333>
+    <productclassification>
+      <b274>01</b274>
+      <b275>4901.99.0075</b275>
+    </productclassification>
+    <n338 />
+    <title textcase="02" language="eng">
+      <b202>01</b202>
+      <b203>Blood, Sweat, and Pixels</b203>
+      <b029>The Triumphant, Turbulent Stories Behind How Video Games Are Made</b029>
+    </title>
+    <contributor>
+      <b035>A01</b035>
+      <b039>Jason</b039>
+      <b040>Schreier</b040>
+      <b044>
+        <![CDATA[<p><strong>Jason Schreier</strong> is the news editor at <em>Kotaku</em>, a leading website covering the industry and culture of video games. He has also covered the video game world for <em>Wired</em>, and has contributed to a wide range of outlets including <em>The New York Times, Edge, Paste, Kill Screen, </em> and <em>The Onion News Network</em>. <em>Blood, Sweat, and Pixels</em> is his first book.<strong></strong></p>]]>
+      </b044>
+    </contributor>
+    <language>
+      <b253>01</b253>
+      <b252>eng</b252>
+    </language>
+    <b061>304</b061>
+    <b064>GAM013000</b064>
+    <mainsubject>
+      <b191>10</b191>
+      <b069>GAM013000</b069>
+      <b070>
+        <![CDATA[Games & Activities/Video & Mobile]]>
+      </b070>
+    </mainsubject>
+    <subject>
+      <b067>10</b067>
+      <b069>BUS070110</b069>
+      <b070>
+        <![CDATA[Business & Economics/Industries - Entertainment]]>
+      </b070>
+    </subject>
+    <subject>
+      <b067>10</b067>
+      <b069>BUS070030</b069>
+      <b070>
+        <![CDATA[Business & Economics/Industries - Computers & Information Technology]]>
+      </b070>
+    </subject>
+    <subject>
+      <b067>20</b067>
+      <b070>blood, sweat, and pixels; blood sweat and pixels; blood, sweat, and video games; blood sweat and video games; jason schreier; jason schrer; jason schreir; jason schrier; kotaku; pillars of eternity; dragon age: inquisition; dragon age inquisition; dragon age; stardew valley; diablo; diablo 3; diablo iii; the witcher; witcher; the witcher 3; witcher 3; witcher iii; uncharted; uncharted 4; uncharted iv; destiny; shovel knight; destiny 2; star wars; star wars 1313; cancelled star wars game; star wars game; halo wars; halo; how to make video games; making video games; video game development; development hell; video game careers; playstation; playstation 4; xbox; xbox 360; xbox one; nintendo; e3; video game demos; crunch; video game crunch; bioware; lucasarts; bungie; microsoft; games; 2016; 2017; 2018</b070>
+    </subject>
+    <subject>
+      <b067>01</b067>
+      <b069>794.8</b069>
+    </subject>
+    <subject>
+      <b067>04</b067>
+      <b070>Video games</b070>
+    </subject>
+    <subject>
+      <b067>04</b067>
+      <b070>Video games - Design</b070>
+    </subject>
+    <subject>
+      <b067>04</b067>
+      <b070>Video games industry</b070>
+    </subject>
+    <subject>
+      <b067>04</b067>
+      <b070>Video games - Economic aspects</b070>
+    </subject>
+    <subject>
+      <b067>04</b067>
+      <b070>
+        <![CDATA[GAMES / Video & Electronic]]>
+      </b070>
+    </subject>
+    <subject>
+      <b067>04</b067>
+      <b070>
+        <![CDATA[BUSINESS & ECONOMICS / Industries / Computer Industry]]>
+      </b070>
+    </subject>
+    <subject>
+      <b067>24</b067>
+      <b171>INGRAM SUBJECT</b171>
+      <b069>GA</b069>
+      <b070>Games / Gamebooks / Crosswords</b070>
+    </subject>
+    <b073>01</b073>
+    <othertext>
+      <d102>02</d102>
+      <d104>"You've got your dream job--making video games. You have a great project, great designs, and clever controls. One morning, you get a call from your producer. Turns out that wall-jumping trick won't work because the artists don't have time to design a separate animation just for the plumber to move that way. Also, your lead designer keeps micromanaging the programmers, which is driving them crazy. Your E3 demo is due in two weeks, and you know there's no way you can get it done in less than four. You'll have to cut out some of the game's biggest features just to hit your deadlines. And suddenly the investor is asking if maybe you can slash that $10 million budget down to $8 million, even if you have to fire a few people to make it happen? Welcome to video game development. In his years covering the industry, Jason Schreier has often heard developers say that any game actually released is a miracle. In Blood, Sweat, and Pixels, Schreier takes you behind the scenes of some of the biggest recent games to share never-before-told stories of the struggles and failures the development teams faced along the way. His reputation for great storytelling and fly-on-the-wall detail will provide readers with the clearest picture yet of what actually goes on behind the scenes. Each chapter will cover a different game, from major studios with nine-figure budgets to indie games with half a dozen people on their teams. The chapters will also focus on a variety of subjects in the process, from building the basics to adjusting for fan reaction post-launch. Blood, Sweat, and Pixels will give readers an unparallelled inside look at one of the biggest entertainment industries in the world"--</d104>
+    </othertext>
+    <othertext>
+      <d102>03</d102>
+      <d104 textformat="02">
+        <![CDATA[<p>NATIONAL BESTSELLER</p><p>Developing video games--hero's journey or fool's errand? The creative and technical logistics that go into building today's hottest games can be more harrowing and complex than the games themselves, often seeming like an endless maze or a bottomless abyss. In <em>Blood, Sweat, and Pixels, </em>Jason Schreier takes readers on a fascinating odyssey behind the scenes of video game development, where the creator may be a team of 600 overworked underdogs or a solitary geek genius. Exploring the artistic challenges, technical impossibilities, marketplace demands, and Donkey Kong-sized monkey wrenches thrown into the works by corporate, <em>Blood, Sweat, and Pixels </em>reveals how bringing any game to completion is more than Sisyphean--it's nothing short of miraculous.</p><p>Taking some of the most popular, bestselling recent games, Schreier immerses readers in the hellfire of the development process, whether it's RPG studio Bioware's challenge to beat an impossible schedule and overcome countless technical nightmares to build <em>Dragon Age: Inquisition</em>; indie developer Eric Barone's single-handed efforts to grow country-life RPG <em>Stardew Valley </em>from one man's vision into a multi-million-dollar franchise; or Bungie spinning out from their corporate overlords at Microsoft to create <em>Destiny</em>, a brand new universe that they hoped would become as iconic as <em>Star Wars</em> and <em>Lord of the Rings</em>--even as it nearly ripped their studio apart. </p><p>Documenting the round-the-clock crunches, buggy-eyed burnout, and last-minute saves, <em>Blood, Sweat, and Pixels </em>is a journey through development hell--and ultimately a tribute to the dedicated diehards and unsung heroes who scale mountains of obstacles in their quests to create the best games imaginable.</p>]]>
+      </d104>
+    </othertext>
+    <othertext>
+      <d102>18</d102>
+      <d104 textformat="02">
+        <![CDATA[<p>The creative and technical logistics that go into building today's hottest games can be more fraught with challenges and complex than the games themselves, often seeming like an endless maze or a bottomless abyss. In <em>Blood, Sweat, and Pixels</em>, Jason Schreier takes readers on a fascinating odyssey behind the scenes of video game development, where the creator may be a team of six hundred overworked underdogs or a solitary geek genius. Exploring the artistic challenges, technical impossibilities, marketplace demands, and Donkey Kong-sized monkey wrenches thrown into the works by corporate, <em>Blood, Sweat, and Pixels</em> reveals how bringing any game to completion is more than Sisyphean--it's nothing short of miraculous.</p><p>Examining some of the bestselling games and most infamous failures, Schreier immerses readers in the hellfire of the development process, whether it's RPG studio BioWare's challenge to beat an impossible schedule and overcome countless technical nightmares to build <em>Dragon Age: Inquisition</em>; indie developer Eric Barone's single-handed efforts to grow country-life RPG <em>Stardew Valley</em> from one man's vision into a multimillion-dollar franchise; or Bungie employees spinning out from their corporate overlords at Microsoft to create <em>Destiny</em>, a brand-new universe that they hoped would become as iconic as <em>Star Wars</em> and <em>Lord of the Rings</em>--even as it nearly ripped their studio apart.</p><p><em>Blood, Sweat, and Pixels</em> is a journey through development hell--and ultimately a tribute to the dedicated diehards and unsung heroes who scale mountains of obstacles in their quests to create the best games imaginable.</p>]]>
+      </d104>
+    </othertext>
+    <othertext>
+      <d102>08</d102>
+      <d104 textformat="02">
+        <![CDATA["...his enthusiasm is contagious; even if you've never played one of these games, you'll be riveted by the account of how they came to be."--<em>Booklist</em>]]>
+      </d104>
+    </othertext>
+    <othertext>
+      <d102>08</d102>
+      <d104>"Blood, Sweat, and Pixels is the instruction manual to the game industry I never realized I needed."--GameCritics.com</d104>
+    </othertext>
+    <othertext>
+      <d102>08</d102>
+      <d104>"Schreier creates a compellingly warts-and-all portrait of a profession that so many who grew up playing games idolized."--Wired</d104>
+    </othertext>
+    <othertext>
+      <d102>08</d102>
+      <d104 textformat="02">
+        <![CDATA["Lively writing... For fans of video games, <em>Blood, Sweat, and Pixels </em>is a must read, but anyone interested in stories about the hard process of making art is also sure to enjoy it."--Shelf Awareness]]>
+      </d104>
+    </othertext>
+    <othertext>
+      <d102>08</d102>
+      <d104>"One of the most insightful pieces of text I've ever read... It's a well-written tale of real sacrifice, struggles, and more, it's almost inspiring despite how sad it can be at times."--GameZone</d104>
+    </othertext>
+    <othertext>
+      <d102>08</d102>
+      <d104 textformat="02">
+        <![CDATA["Necessary to read... by the end, my only complaint about <em>Blood, Sweat, and Pixels </em>is that there wasn't more to read."--Forbes.com]]>
+      </d104>
+    </othertext>
+    <othertext>
+      <d102>08</d102>
+      <d104>"Schreier covers the notoriously secretive gaming industry... and he knows it well... He also clearly respects [the] developers and their achievements, and treats their rueful tales of selfless struggle with an admiring deference...a useful survey of the landscape of game production at this cultural moment."--GQ</d104>
+    </othertext>
+    <othertext>
+      <d102>08</d102>
+      <d104>"Schreier sets each scene with admirable prowess, giving the reader just enough information to feel the weight of each story. For anyone who has ever wondered how some of the most successful games are made, this book is a real eye-opener... At its heart, Blood, Sweat, and Pixels is an ode to the people who put every fiber of their being into making memorable experiences for gamers all over the world."--Fiction Southeast</d104>
+    </othertext>
+    <othertext>
+      <d102>08</d102>
+      <d104 textformat="02">
+        <![CDATA["A meticulously researched, well-written, and painful at times account of many developers' and studios' highs and lows. May need to make it required reading for the developers at my studio."--<strong>Cliff Bleszinski</strong>, creator of Gears of War</em> and founder of Boss Key Productions]]>
+      </d104>
+    </othertext>
+    <othertext>
+      <d102>08</d102>
+      <d104 textformat="02">
+        <![CDATA["Jason Schreier brilliantly exposes the truth about how video games are made. Brutal, honest, yet ultimately uplifting; I've been gaming for thirty years, yet I was surprised by every page. Turns out what I didn't know about my favorite hobby could fill a book. This book! Can't recommend it enough to any serious fan of this generation's greatest new art form."--<strong>Adam Conover</strong>, executive producer and host of truTV's Adam Ruins Everything</em>]]>
+      </d104>
+    </othertext>
+    <othertext>
+      <d102>08</d102>
+      <d104 textformat="02">
+        <![CDATA["The stories in this book make for a fascinating and remarkably complete pantheon of just about every common despair and every joy related to game development."--<strong>Rami Ismail</strong>, cofounder of Vlambeer and developer of Nuclear Throne</em>]]>
+      </d104>
+    </othertext>
+    <othertext>
+      <d102>08</d102>
+      <d104 textformat="02">
+        <![CDATA["Making video games is one of most transformative, exciting things I've done in my two decades as a freelance writer. Making video games is also an excruciating journey into Hellmouth itself. Jason Schreier's wonderful book captures both the excitement and the hell. Here, at long last, is a gripping, intelligent glimpse behind a thick (and needlessly secretive) creative curtain."--<strong>Tom Bissell</strong>, author of<em> Extra Lives </em>and <em>Apostle</em>, and writer on the <em>Gears of War</em>, <em>Uncharted</em>, and <em>Battlefield</em> franchises]]>
+      </d104>
+    </othertext>
+    <othertext>
+      <d102>99</d102>
+      <d104>US</d104>
+    </othertext>
+    <imprint>
+      <b241>02</b241>
+      <b242>INGRAM PROPRIETARY</b242>
+      <b243>HR</b243>
+    </imprint>
+    <imprint>
+      <b079>Harper Paperbacks</b079>
+    </imprint>
+    <publisher>
+      <b291>01</b291>
+      <b081>HarperCollins</b081>
+    </publisher>
+    <b394 datestamp="20190928">04</b394>
+    <b003>20170905</b003>
+    <salesrights>
+      <b089>02</b089>
+      <b090>AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW</b090>
+    </salesrights>
+    <measure>
+      <c093>01</c093>
+      <c094>8.00</c094>
+      <c095>in</c095>
+    </measure>
+    <measure>
+      <c093>02</c093>
+      <c094>5.30</c094>
+      <c095>in</c095>
+    </measure>
+    <measure>
+      <c093>03</c093>
+      <c094>0.70</c094>
+      <c095>in</c095>
+    </measure>
+    <measure>
+      <c093>08</c093>
+      <c094>0.5000</c094>
+      <c095>lb</c095>
+    </measure>
+    <relatedproduct>
+      <h208>00</h208>
+      <productidentifier>
+        <b221>03</b221>
+        <b244>9780062651242</b244>
+      </productidentifier>
+      <b012>DG</b012>
+    </relatedproduct>
+    <relatedproduct>
+      <h208>00</h208>
+      <productidentifier>
+        <b221>03</b221>
+        <b244>9780062790903</b244>
+      </productidentifier>
+      <b012>AJ</b012>
+    </relatedproduct>
+    <relatedproduct>
+      <h208>00</h208>
+      <productidentifier>
+        <b221>03</b221>
+        <b244>9781538453933</b244>
+      </productidentifier>
+      <b012>AC</b012>
+    </relatedproduct>
+    <relatedproduct>
+      <h208>06</h208>
+      <productidentifier>
+        <b221>03</b221>
+        <b244>9791162241028</b244>
+      </productidentifier>
+      <b012>BC</b012>
+    </relatedproduct>
+    <supplydetail>
+      <j137>Ingram Book Company</j137>
+      <j292>04</j292>
+      <j268>02</j268>
+      <j269>Y</j269>
+      <j396>21</j396>
+      <j145>64</j145>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>7</j364>
+        </discountcoded>
+        <j151>21.00</j151>
+        <j152>CAD</j152>
+        <b251>CA</b251>
+      </price>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>7</j364>
+        </discountcoded>
+        <j151>16.99</j151>
+        <j152>USD</j152>
+        <b251>US</b251>
+      </price>
+    </supplydetail>
+  </product>
+  <product>
+    <a001>072583711</a001>
+    <a002>02</a002>
+    <productidentifier>
+      <b221>02</b221>
+      <b244>1839214112</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>03</b221>
+      <b244>9781839214110</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>14</b221>
+      <b244>09781839214110</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>15</b221>
+      <b244>9781839214110</b244>
+    </productidentifier>
+    <b012>BC</b012>
+    <b333>B102</b333>
+    <b333>B305</b333>
+    <productclassification>
+      <b274>01</b274>
+      <b275>4901.99.0075</b275>
+    </productclassification>
+    <n338 />
+    <title textcase="02" language="eng">
+      <b202>01</b202>
+      <b203>Node.js Design Patterns - Third edition</b203>
+      <b029>Design and implement production-grade Node.js applications using proven patterns and techniques</b029>
+    </title>
+    <contributor>
+      <b035>A01</b035>
+      <b039>Mario</b039>
+      <b040>Casciaro</b040>
+      <b044>Mario Casciaro is a software engineer and entrepreneur. Mario worked at IBM for a number of years, first in Rome, then in Dublin Software Lab. He currently splits his time between Var7 Technologies-his own software company-and his role as lead engineer at D4H Technologies where he creates software for emergency response teams.</b044>
+    </contributor>
+    <contributor>
+      <b035>A01</b035>
+      <b039>Luciano</b039>
+      <b040>Mammino</b040>
+      <b044>Luciano Mammino wrote his first line of code at the age of 12 on his father's old i386. Since then he has never stopped coding. He is currently working at FabFitFun as principal software engineer where he builds microservices to serve millions of users every day. Luciano also runs bespoke training courses to foster serverless adoption and Fullstack Bulletin, a free weekly newsletter for full-stack developers.</b044>
+    </contributor>
+    <language>
+      <b253>01</b253>
+      <b252>eng</b252>
+    </language>
+    <b061>660</b061>
+    <b064>COM051260</b064>
+    <mainsubject>
+      <b191>10</b191>
+      <b069>COM051260</b069>
+      <b070>Computers/Languages - JavaScript</b070>
+    </mainsubject>
+    <subject>
+      <b067>10</b067>
+      <b069>COM060180</b069>
+      <b070>
+        <![CDATA[Computers/Internet - Web Services & APIs]]>
+      </b070>
+    </subject>
+    <subject>
+      <b067>10</b067>
+      <b069>COM060160</b069>
+      <b070>Computers/Internet - Web Programming</b070>
+    </subject>
+    <subject>
+      <b067>20</b067>
+      <b070>Node.js; JavaScript; Software Design; Web Applications; Redis</b070>
+    </subject>
+    <subject>
+      <b067>24</b067>
+      <b171>INGRAM SUBJECT</b171>
+      <b069>XL</b069>
+      <b070>Computers / Languages / Programming</b070>
+    </subject>
+    <b073>01</b073>
+    <othertext>
+      <d102>03</d102>
+      <d104 textformat="02">
+        <![CDATA[<p><strong>Learn proven patterns, techniques, and tricks to take full advantage of the Node.js platform. Master well-known design principles to create applications that are readable, extensible, and that can grow big.</strong></p><p><strong>Key Features</strong></p> <ul> <li>Learn how to create solid server-side applications by leveraging the full power of Node.js 14</li> <li>Understand how Node.js works and learn how to take full advantage of its core components as well as the solutions offered by its ecosystem</li> <li>Avoid common mistakes and use proven patterns to create production grade Node.js applications</li> </ul> <p><strong>Book Description</strong></p> <p>In this book, we will show you how to implement a series of best practices and design patterns to help you create efficient and robust Node.js applications with ease.</p> <p>We kick off by exploring the basics of Node.js, analyzing its asynchronous event driven architecture and its fundamental design patterns. We then show you how to build asynchronous control flow patterns with callbacks, promises and async/await. Next, we dive into Node.js streams, unveiling their power and showing you how to use them at their full capacity. Following streams is an analysis of different creational, structural, and behavioral design patterns that take full advantage of JavaScript and Node.js. Lastly, the book dives into more advanced concepts such as Universal JavaScript, scalability and messaging patterns to help you build enterprise-grade distributed applications.</p> <p>Throughout the book, you'll see Node.js in action with the help of several real-life examples leveraging technologies such as LevelDB, Redis, RabbitMQ, ZeroMQ, and many others. They will be used to demonstrate a pattern or technique, but they will also give you a great introduction to the Node.js ecosystem and its set of solutions.</p> <p><strong>What you will learn</strong></p> <ul> <li>Become comfortable with writing asynchronous code by leveraging callbacks, promises, and the async/await syntax</li> <li>Leverage Node.js streams to create data-driven asynchronous processing pipelines</li> <li>Implement well-known software design patterns to create production grade applications</li> <li>Share code between Node.js and the browser and take advantage of full-stack JavaScript</li> <li>Build and scale microservices and distributed systems powered by Node.js</li> <li>Use Node.js in conjunction with other powerful technologies such as Redis, RabbitMQ, ZeroMQ, and LevelDB</li> </ul> <p><strong>Who this book is for</strong></p> <p>This book is for developers and software architects who have some prior basic knowledge of JavaScript and Node.js and now want to get the most out of these technologies in terms of productivity, design quality, and scalability. Software professionals with intermediate experience in Node.js and JavaScript will also find valuable the more advanced patterns and techniques presented in this book.</p> <p>This book assumes that you have an intermediate understanding of web application development, databases, and software design principles.</p>]]>
+      </d104>
+    </othertext>
+    <othertext>
+      <d102>99</d102>
+      <d104>US</d104>
+    </othertext>
+    <imprint>
+      <b241>02</b241>
+      <b242>INGRAM PROPRIETARY</b242>
+      <b243>PKUH</b243>
+    </imprint>
+    <imprint>
+      <b079>Packt Publishing</b079>
+    </imprint>
+    <publisher>
+      <b291>01</b291>
+      <b081>Packt Publishing</b081>
+    </publisher>
+    <b394 datestamp="20200729">04</b394>
+    <b003>20200728</b003>
+    <salesrights>
+      <b089>01</b089>
+      <b090>AU CA DE GB US</b090>
+    </salesrights>
+    <measure>
+      <c093>01</c093>
+      <c094>9.25</c094>
+      <c095>in</c095>
+    </measure>
+    <measure>
+      <c093>02</c093>
+      <c094>7.52</c094>
+      <c095>in</c095>
+    </measure>
+    <measure>
+      <c093>03</c093>
+      <c094>1.33</c094>
+      <c095>in</c095>
+    </measure>
+    <measure>
+      <c093>08</c093>
+      <c094>2.4600</c094>
+      <c095>lb</c095>
+    </measure>
+    <supplydetail>
+      <j137>Ingram Book Company</j137>
+      <j292>04</j292>
+      <j268>02</j268>
+      <j269>N</j269>
+      <j396>21</j396>
+      <j145>6</j145>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>A</j364>
+        </discountcoded>
+        <j151>71.99</j151>
+        <j152>AUD</j152>
+        <b251>AU</b251>
+      </price>
+      <price>
+        <j148>02</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>LSI</j378>
+          <j364>15</j364>
+        </discountcoded>
+        <j151>79.19</j151>
+        <j152>AUD</j152>
+        <b251>AU</b251>
+      </price>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>A</j364>
+        </discountcoded>
+        <j151>65.99</j151>
+        <j152>CAD</j152>
+        <b251>CA</b251>
+      </price>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>A</j364>
+        </discountcoded>
+        <j151>37.99</j151>
+        <j152>EUR</j152>
+        <b251>DE</b251>
+      </price>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>A</j364>
+        </discountcoded>
+        <j151>37.99</j151>
+        <j152>GBP</j152>
+        <b251>GB</b251>
+      </price>
+      <price>
+        <j148>02</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>A</j364>
+        </discountcoded>
+        <j151>37.99</j151>
+        <j152>GBP</j152>
+        <b251>GB</b251>
+      </price>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>A</j364>
+        </discountcoded>
+        <j151>49.99</j151>
+        <j152>USD</j152>
+        <b251>US</b251>
+      </price>
+    </supplydetail>
+  </product>
+  <product>
+    <a001>034560312</a001>
+    <a002>02</a002>
+    <productidentifier>
+      <b221>02</b221>
+      <b244>1593276672</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>03</b221>
+      <b244>9781593276676</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>13</b221>
+      <b244>2015023925</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>14</b221>
+      <b244>09781593276676</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>15</b221>
+      <b244>9781593276676</b244>
+    </productidentifier>
+    <b246>11</b246>
+    <b012>BC</b012>
+    <b333>B102</b333>
+    <b333>B305</b333>
+    <productformfeature>
+      <b334>01</b334>
+      <b335>ZZZ</b335>
+    </productformfeature>
+    <productformfeature>
+      <b334>12</b334>
+      <b335>22</b335>
+    </productformfeature>
+    <productclassification>
+      <b274>01</b274>
+      <b275>4901.99.0075</b275>
+    </productclassification>
+    <n338 />
+    <title textcase="02" language="eng">
+      <b202>01</b202>
+      <b203>The Maker's Guide to the Zombie Apocalypse</b203>
+      <b030>The</b030>
+      <b031>Maker's Guide to the Zombie Apocalypse</b031>
+      <b029>Defend Your Base with Simple Circuits, Arduino, and Raspberry Pi</b029>
+    </title>
+    <contributor>
+      <b035>A01</b035>
+      <b039>Simon</b039>
+      <b040>Monk</b040>
+      <b044>
+        <![CDATA[<p>Simon Monk is a full-time author and maker, mostly writing about electronics for makers. Some of his better-known books include <i>Programming Arduino: Getting Started with Sketches, Raspberry Pi Cookbook</i>, and <i>Hacking Electronics</i>. He is also the co-author of <i>Practical Electronics for Inventors</i> and wrote <i>Minecraft Mastery</i> with his son, Matthew Monk.</p>]]>
+      </b044>
+    </contributor>
+    <language>
+      <b253>01</b253>
+      <b252>eng</b252>
+    </language>
+    <b061>296</b061>
+    <illustrations>
+      <b256>09</b256>
+    </illustrations>
+    <b064>TEC008000</b064>
+    <mainsubject>
+      <b191>10</b191>
+      <b069>TEC008000</b069>
+      <b070>
+        <![CDATA[Technology & Engineering/Electronics - General]]>
+      </b070>
+    </mainsubject>
+    <subject>
+      <b067>10</b067>
+      <b069>COM041000</b069>
+      <b070>
+        <![CDATA[Computers/Hardware - Chips & Processors]]>
+      </b070>
+    </subject>
+    <subject>
+      <b067>10</b067>
+      <b069>COM067000</b069>
+      <b070>Computers/Hardware - General</b070>
+    </subject>
+    <subject>
+      <b067>20</b067>
+      <b070>DIY; electronics; survival; technology; engineering; crafts; inventions; hobbies; electricity; craft; arts and crafts; craft books; engineer; arts and crafts for adults; crafts for adults; engineering books; diy books; engineer gifts; craft books for adults; craft projects; invention; craft gifts; crafting gifts; gifts for crafters; computer; how to; programming; ideas; physics; computers; business; security; reference; makerspace; maker; education; guide; geek; strategy; networking; weather; robotics; design; chemistry; gaming; cars</b070>
+    </subject>
+    <subject>
+      <b067>01</b067>
+      <b069>621.381</b069>
+    </subject>
+    <subject>
+      <b067>04</b067>
+      <b070>Microcontrollers</b070>
+    </subject>
+    <subject>
+      <b067>04</b067>
+      <b070>Electronic circuits</b070>
+    </subject>
+    <subject>
+      <b067>04</b067>
+      <b070>Electronic apparatus and appliances - Design and construction</b070>
+    </subject>
+    <subject>
+      <b067>04</b067>
+      <b070>Raspberry Pi (Computer)</b070>
+    </subject>
+    <subject>
+      <b067>04</b067>
+      <b070>Arduino (Programmable controller)</b070>
+    </subject>
+    <subject>
+      <b067>24</b067>
+      <b171>INGRAM SUBJECT</b171>
+      <b069>TE</b069>
+      <b070>
+        <![CDATA[Technology & Industrial Arts]]>
+      </b070>
+    </subject>
+    <subject>
+      <b067>93</b067>
+      <b069>TJF</b069>
+    </subject>
+    <subject>
+      <b067>93</b067>
+      <b069>WF</b069>
+    </subject>
+    <subject>
+      <b067>93</b067>
+      <b069>TBY</b069>
+    </subject>
+    <b073>01</b073>
+    <othertext>
+      <d102>02</d102>
+      <d104>"A collection of DIY hardware projects using circuits, Arduino, and Raspberry Pi to store electricity, detect invading zombies, generate solar power, and create communication and surveillance devices. Projects include alarms, low-power LED lighting, an FM radio frequency hopper, a periscope, a wind turbine, and flash, movement, and noise makers"--</d104>
+    </othertext>
+    <othertext>
+      <d102>03</d102>
+      <d104 textformat="02">
+        <![CDATA[Where will you be when the zombie apocalypse hits? Trapping yourself in the basement? Roasting the family pet? Beheading reanimated neighbors? <p/>No way. You'll be building fortresses, setting traps, and hoarding supplies, because you, savvy survivor, have snatched up your copy of <i>The Maker's Guide to the Zombie Apocalypse</i> before it's too late. This indispensable guide to survival after Z-day, written by hardware hacker and zombie anthropologist Simon Monk, will teach you how to generate your own electricity, salvage parts, craft essential electronics, and out-survive the undead., p>Take charge of your environment: <br>-Monitor zombie movement with trip wires and motion sensors<br>-Keep vigilant watch over your compound with Arduino and Raspberry Pi surveillance systems<br>-Power zombie defense devices with car batteries, bicycle generators, and solar power <p/>Escape imminent danger: <br>-Repurpose old disposable cameras for zombie-distracting flashbangs<br>-Open doors remotely for a successful sprint home<br>-Forestall subplot disasters with fire and smoke detectors <p/>Communicate with other survivors: <br>-Hail nearby humans using Morse code<br>-Pass silent messages with two-way vibration walkie-talkies<br>-Fervently scan the airwaves with a frequency hopper <p/>For anyone from the budding maker to the keen hobbyist, <i>The Maker's Guide to the Zombie Apocalypse</i> is an essential survival tool. <p/><b>Uses the Arduino Uno board and Raspberry Pi Model B+ or Model 2 </b>]]>
+      </d104>
+    </othertext>
+    <othertext>
+      <d102>13</d102>
+      <d104 textformat="02">
+        <![CDATA[<b>Simon Monk</b> is a full-time author and maker, mostly writing about electronics for makers. Some of his better-known books include <i>Programming Arduino: Getting Started with Sketches</i>, <i>Raspberry Pi Cookbook</i>, and <i>Hacking Electronics</i>. He is also the co-author of <i>Practical Electronics for Inventors</i> and wrote <i>Minecraft Mastery</i> with his son, Matthew Monk.]]>
+      </d104>
+    </othertext>
+    <othertext>
+      <d102>99</d102>
+      <d104>US</d104>
+    </othertext>
+    <imprint>
+      <b241>02</b241>
+      <b242>INGRAM PROPRIETARY</b242>
+      <b243>NSCH</b243>
+    </imprint>
+    <imprint>
+      <b079>No Starch Press</b079>
+    </imprint>
+    <publisher>
+      <b291>01</b291>
+      <b081>No Starch Press</b081>
+    </publisher>
+    <b083>US</b083>
+    <b394 datestamp="20170829">04</b394>
+    <b003>20151001</b003>
+    <salesrights>
+      <b089>01</b089>
+      <b090>AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW</b090>
+    </salesrights>
+    <measure>
+      <c093>01</c093>
+      <c094>9.20</c094>
+      <c095>in</c095>
+    </measure>
+    <measure>
+      <c093>02</c093>
+      <c094>7.00</c094>
+      <c095>in</c095>
+    </measure>
+    <measure>
+      <c093>03</c093>
+      <c094>0.70</c094>
+      <c095>in</c095>
+    </measure>
+    <measure>
+      <c093>08</c093>
+      <c094>1.2000</c094>
+      <c095>lb</c095>
+    </measure>
+    <supplydetail>
+      <j137>Ingram Book Company</j137>
+      <j292>04</j292>
+      <j268>02</j268>
+      <j269>Y</j269>
+      <j396>21</j396>
+      <j145>24</j145>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>B</j364>
+        </discountcoded>
+        <j151>28.95</j151>
+        <j152>CAD</j152>
+        <b251>CA</b251>
+      </price>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>B</j364>
+        </discountcoded>
+        <j151>22.50</j151>
+        <j152>EUR</j152>
+        <b251>DE</b251>
+      </price>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>B</j364>
+        </discountcoded>
+        <j151>19.99</j151>
+        <j152>GBP</j152>
+        <b251>GB</b251>
+      </price>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>B</j364>
+        </discountcoded>
+        <j151>24.95</j151>
+        <j152>USD</j152>
+        <b251>US</b251>
+      </price>
+    </supplydetail>
+  </product>
+  <product>
+    <a001>012930411</a001>
+    <a002>02</a002>
+    <productidentifier>
+      <b221>02</b221>
+      <b244>0486478831</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>03</b221>
+      <b244>9780486478838</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>13</b221>
+      <b244>2010031017</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>14</b221>
+      <b244>09780486478838</b244>
+    </productidentifier>
+    <productidentifier>
+      <b221>15</b221>
+      <b244>9780486478838</b244>
+    </productidentifier>
+    <b246>11</b246>
+    <b012>BC</b012>
+    <b333>B102</b333>
+    <b333>B305</b333>
+    <productclassification>
+      <b274>01</b274>
+      <b275>4901.99.0075</b275>
+    </productclassification>
+    <series>
+      <b018>Dover Books on Mathematics</b018>
+    </series>
+    <title textcase="02" language="eng">
+      <b202>01</b202>
+      <b203>An Introduction to Functional Programming Through Lambda Calculus</b203>
+      <b030>An</b030>
+      <b031>Introduction to Functional Programming Through Lambda Calculus</b031>
+    </title>
+    <contributor>
+      <b035>A01</b035>
+      <b039>Greg</b039>
+      <b040>Michaelson</b040>
+      <persondate>
+        <b305>007</b305>
+        <j260>05</j260>
+        <b306>1953</b306>
+      </persondate>
+    </contributor>
+    <language>
+      <b253>01</b253>
+      <b252>eng</b252>
+    </language>
+    <b061>320</b061>
+    <b064>COM051210</b064>
+    <b065>UMN</b065>
+    <mainsubject>
+      <b191>10</b191>
+      <b069>COM051210</b069>
+      <b070>Computers/Programming - Object Oriented</b070>
+    </mainsubject>
+    <mainsubject>
+      <b191>12</b191>
+      <b069>UMN</b069>
+      <b070>Object-oriented programming (OOP)</b070>
+    </mainsubject>
+    <subject>
+      <b067>10</b067>
+      <b069>COM051010</b069>
+      <b070>Computers/Languages - General</b070>
+    </subject>
+    <subject>
+      <b067>20</b067>
+      <b070>mit press; functional language; paul graham; type classes; programming paradigms; time complexity; computer languages; teach computer; program design; pattern matching; logic programming; lisp programming; programming experience; memory management; language concepts; programming skills; linked lists; object-oriented programming; programming concepts; type system; category theory; purely functional; software engineers; data structures; visual basic; negative reviewers; science student; write code; computer scientists; programming languages; fundamental concepts; socratic method; software engineering; computer programs; complex systems; teach yourself; computer programming; gentle introduction; mathematically inclined; introductory text; computer science; serious student; poorly designed; waste time; artificial intelligence; recursions; non-deterministic; github; abelson; recursively; evaluator; clojure; monads; knuth; prolog; scala; zippers; sussman; computation; computational; haskell; recursive; compiler; algorithms; abstractions; schemer; java; programmers; computing; implementation; interpreter; imperative; syntax; cartoons; functions; freely; exercises; scheme; books on language concepts; books on type classes; books on teach computers; books on programming paradigms; books on object-oriented programmings; books on program designs; teaching computer; books on functional languages; books on programming experiences; books on mit presses; books on paul graham; books on logic programmings; books on computer languages; books on programming concepts; mathematical logic; software; computer engineering; standard ml; common lisp; variable binding and substitution; model of computation; programming paradigm; building computer programs; formal system; function definition; function application; recursion; computers; technology</b070>
+    </subject>
+    <subject>
+      <b067>01</b067>
+      <b069>005.114</b069>
+    </subject>
+    <subject>
+      <b067>04</b067>
+      <b070>Functional programming (Computer science)</b070>
+    </subject>
+    <subject>
+      <b067>04</b067>
+      <b070>Lambda calculus</b070>
+    </subject>
+    <subject>
+      <b067>24</b067>
+      <b171>INGRAM SUBJECT</b171>
+      <b069>XL</b069>
+      <b070>Computers / Languages / Programming</b070>
+    </subject>
+    <b073>01</b073>
+    <othertext>
+      <d102>02</d102>
+      <d104>Well-respected text for computer science students provides an accessible introduction to functional programming. Cogent examples illuminate the central ideas, and numerous exercises offer reinforcement. Includes solutions. 1989 edition.</d104>
+    </othertext>
+    <othertext>
+      <d102>03</d102>
+      <d104>Functional programming is rooted in lambda calculus, which constitutes the world's smallest programming language. This well-respected text offers an accessible introduction to functional programming concepts and techniques for students of mathematics and computer science. The treatment is as nontechnical as possible, and it assumes no prior knowledge of mathematics or functional programming. Cogent examples illuminate the central ideas, and numerous exercises appear throughout the text, offering reinforcement of key concepts. All problems feature complete solutions.</d104>
+    </othertext>
+    <othertext>
+      <d102>13</d102>
+      <d104>Gregory Michaelson is a Professor of Computer Science and Mathematics at Heriot-Watt University in Edinburgh, Scotland.</d104>
+    </othertext>
+    <othertext>
+      <d102>99</d102>
+      <d104>US</d104>
+    </othertext>
+    <imprint>
+      <b241>02</b241>
+      <b242>INGRAM PROPRIETARY</b242>
+      <b243>DOVR</b243>
+    </imprint>
+    <imprint>
+      <b079>Dover Publications</b079>
+    </imprint>
+    <publisher>
+      <b291>01</b291>
+      <b081>Dover Publications</b081>
+    </publisher>
+    <b209>Mineola, NY</b209>
+    <b083>US</b083>
+    <b394 datestamp="20110801">04</b394>
+    <b003>20110818</b003>
+    <salesrights>
+      <b089>02</b089>
+      <b090>AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW</b090>
+    </salesrights>
+    <measure>
+      <c093>01</c093>
+      <c094>9.27</c094>
+      <c095>in</c095>
+    </measure>
+    <measure>
+      <c093>02</c093>
+      <c094>6.56</c094>
+      <c095>in</c095>
+    </measure>
+    <measure>
+      <c093>03</c093>
+      <c094>0.68</c094>
+      <c095>in</c095>
+    </measure>
+    <measure>
+      <c093>08</c093>
+      <c094>1.0200</c094>
+      <c095>lb</c095>
+    </measure>
+    <supplydetail>
+      <j137>Ingram Book Company</j137>
+      <j292>04</j292>
+      <j268>02</j268>
+      <j269>N</j269>
+      <j396>21</j396>
+      <j145>24</j145>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>7</j364>
+        </discountcoded>
+        <j151>36.32</j151>
+        <j152>AUD</j152>
+        <b251>AU</b251>
+      </price>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>7</j364>
+        </discountcoded>
+        <j151>35.25</j151>
+        <j152>CAD</j152>
+        <b251>CA</b251>
+      </price>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>7</j364>
+        </discountcoded>
+        <j151>23.99</j151>
+        <j152>GBP</j152>
+        <b251>GB</b251>
+      </price>
+      <price>
+        <j148>01</j148>
+        <discountcoded>
+          <j363>02</j363>
+          <j378>INGRAM PROPRIETARY</j378>
+          <j364>7</j364>
+        </discountcoded>
+        <j151>25.95</j151>
+        <j152>USD</j152>
+        <b251>US</b251>
+      </price>
+    </supplydetail>
+  </product>
+</ONIXmessage>
