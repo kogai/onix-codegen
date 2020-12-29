@@ -593,9 +593,3 @@ type IngramContentOnix struct {
 	Header   Header    `xml:"header"`
 	Products []Product `xml:"product"`
 }
-
-// ToUploadable converts raw XML to Shopify specified data structure.
-// TODO: It may needs some *.gql file and client generator.
-func (c *IngramContentOnix) ToUploadable() error {
-	return nil
-}
