@@ -5,8 +5,9 @@ module Lib
   )
 where
 
-import Control.Exception
+import Control.Exception (Exception, throw)
 import Data.Typeable
+import Text.Mustache
 
 someFunc :: String -> IO ()
 someFunc = putStrLn
@@ -15,17 +16,18 @@ data Language
   = Go
   | TypeScript
 
-data Empty = Empty
+data Empty = Unimplemented
   deriving (Show, Typeable)
 
 instance Exception Empty
 
-render :: Language -> String
-render Go = "abc"
-render TypeScript = throw Empty
+render :: Language -> IO ()
+render TypeScript = throw Unimplemented
+render Go = do
+  let searchSpace = ["."]
+      templateName = "model.mustache"
 
--- type IngramContentOnix struct {
--- 	XMLName  xml.Name  `xml:"ONIXmessage"`
--- 	Header   Header    `xml:"header"`
--- 	Products []Product `xml:"product"`
--- }
+  compiled <- automaticCompile searchSpace templateName
+  case compiled of
+    Left err -> print err
+    Right t -> print t

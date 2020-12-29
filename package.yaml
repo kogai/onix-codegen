@@ -17,7 +17,7 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description: Please see the README on GitHub at <https://github.com/githubuser/onix#readme>
+description: Please see the README on GitHub at <https://github.com/kogai/onix#readme>
 
 dependencies:
   - base >= 4.7 && < 5
@@ -29,6 +29,9 @@ library:
     - -Werror
     - -fwarn-incomplete-patterns
     - -fwarn-incomplete-uni-patterns
+  dependencies:
+    - mustache == 2.3.1
+
 executables:
   onix-exe:
     main: Main.hs
@@ -54,3 +57,4 @@ tests:
       - -with-rtsopts=-N
     dependencies:
       - onix
+      - HUnit == 1.6.1.0

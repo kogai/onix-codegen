@@ -4,4 +4,4 @@ import Lib
 
 main :: IO ()
 main =
-  someFunc $ render Go
+  someFunc "Hello world"
