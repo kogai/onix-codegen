@@ -1,6 +1,5 @@
 module Lib
-  ( someFunc,
-    render,
+  ( render,
     compile,
     Language (..),
   )
@@ -8,11 +7,8 @@ where
 
 import Control.Exception (Exception, throw)
 import Data.Text (unpack)
-import Data.Typeable
-import Text.Mustache
-
-someFunc :: String -> IO ()
-someFunc = putStrLn
+import Data.Typeable (Typeable)
+import Text.Mustache (automaticCompile, substitute)
 
 data Language
   = Go
