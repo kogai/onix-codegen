@@ -33,33 +33,6 @@ func (c *Productidentifiers) FindByIDType(idType ProductIDType) *string {
 	return nil
 }
 
-// DiscountCodeType is not documented yet.
-type DiscountCodeType string
-
-// UnmarshalXML is not documented yet.
-func (c *DiscountCodeType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	// TODO: Define as enum
-	case "01":
-		*c = "BIC discount group code"
-	case "02":
-		*c = "Proprietary discount code"
-	case "03":
-		*c = "Boeksoort"
-	case "04":
-		*c = "German terms code"
-	case "05":
-		*c = "Proprietary commission code"
-	case "06":
-		*c = "BIC commission group code"
-	default:
-		return fmt.Errorf("undefined code has been passed, got [%s]", v)
-	}
-	return nil
-}
-
 // Price is not documented yet.
 type Price struct {
 	PriceTypeCode  string `xml:"j148"`

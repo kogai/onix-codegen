@@ -5,57 +5,24 @@ import (
 	"fmt"
 )
 
-// ProductIDType Product identifier type code, List 5
-type ProductIDType string
+{{#.}}
 
-// UnmarshalXML is not documented yet.
-func (c *ProductIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+// {{xmlReferenceName}} {{description}}
+type {{xmlReferenceName}} string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *{{xmlReferenceName}}) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	var v string
 	d.DecodeElement(&v, &start)
 	switch v {
-  {{#.}}
+  {{#codes}}
   // {{&notes}}
   case "{{value}}":
 		*c = "{{description}}"
-  {{/.}}
-	case "04":
-		*c = "UPC"
-	case "05":
-		*c = "ISMN-10"
-	case "06":
-		*c = "DOI"
-	case "13":
-		*c = "LCCN"
-	case "14":
-		*c = "GTIN-14"
-	case "15":
-		*c = "ISBN-13"
-	case "17":
-		*c = "Legal deposit number"
-	case "22":
-		*c = "URN"
-	case "23":
-		*c = "OCLC number"
-	case "24":
-		*c = "Co-publisher’s ISBN-13"
-	case "25":
-		*c = "ISMN-13"
-	case "26":
-		*c = "ISBN-A"
-	case "27":
-		*c = "JP e-code"
-	case "28":
-		*c = "OLCC number"
-	case "29":
-		*c = "JP Magazine ID"
-	case "30":
-		*c = "UPC12+5"
-	case "31":
-		*c = "BNF Control number"
-	case "35":
-		*c = "ARK"
+  {{/codes}}
 	default:
-		return fmt.Errorf("undefined code has been passed, got [%s]", v)
+		return fmt.Errorf("undefined code for {{xmlReferenceName}} has been passed, got [%s]", v)
 	}
 	return nil
 }
+{{/.}}

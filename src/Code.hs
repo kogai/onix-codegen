@@ -2,27 +2,24 @@
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
 
-module Code (Code (..), code) where
+module Code (code, codeType, codeTypes) where
 
--- import Control.Exception (Exception, throw)
--- import Data.HashMap.Strict (HashMap)
--- import qualified Data.HashMap.Strict as HM
 import Data.Text
--- import Data.Typeable (Typeable)
--- import Data.Vector (Vector)
-import Data.Yaml (FromJSON (..))
--- import qualified Data.Yaml as Y
+import Data.Vector (Vector, fromList)
 import qualified Data.Yaml.Aeson as A
 import GHC.Generics
 import Text.Mustache
 
--- import qualified Text.Mustache.Types as MT
-
-data Code = Code {value :: Text, description :: Text, notes :: Text} deriving (Generic, Show)
+data Code = Code
+  { value :: Text,
+    description :: Text,
+    notes :: Text
+  }
+  deriving (Generic, Show)
 
 instance A.ToJSON Code
 
-instance FromJSON Code
+instance A.FromJSON Code
 
 instance ToMustache Code where
   toMustache Code {value, description, notes} =
@@ -33,4 +30,41 @@ instance ToMustache Code where
       ]
 
 code :: String -> String -> String -> Code
-code v d n = Code {value = pack v, description = pack d, notes = pack n}
+code v d n =
+  Code
+    { value = pack v,
+      description = pack d,
+      notes = pack n
+    }
+
+data CodeType = CodeType
+  { xmlReferenceName :: Text,
+    description :: Text,
+    codes :: Vector Code
+  }
+  deriving (Generic, Show)
+
+instance A.ToJSON CodeType
+
+instance A.FromJSON CodeType
+
+instance ToMustache CodeType where
+  toMustache CodeType {xmlReferenceName, description, codes} =
+    object
+      [ pack "xmlReferenceName" ~> xmlReferenceName,
+        pack "description" ~> description,
+        pack "codes" ~> toMustache codes
+      ]
+
+codeType :: String -> String -> [Code] -> CodeType
+codeType n d cs =
+  CodeType
+    { xmlReferenceName = pack n,
+      description = pack d,
+      codes = fromList cs
+    }
+
+type CodeTypes = Vector CodeType
+
+codeTypes :: [CodeType] -> CodeTypes
+codeTypes = fromList
