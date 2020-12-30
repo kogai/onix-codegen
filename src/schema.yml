@@ -1,0 +1,43 @@
+type Onix struct {
+	XMLName  xml.Name  `xml:"ONIXmessage"`
+	Header   Header    `xml:"header"`
+	Products []Product `xml:"product"`
+}
+xmlName:
+  xmlRefrenceName: XMLName
+  key: ONIXmessage
+  description:
+  kind: tag
+  model: xml.Name
+header:
+  xmlRefrenceName: Header
+  key: header
+  description: Message header
+  kind: tag
+  model: Header
+  bodies:
+    - xmlRefrenceName: FromCompany
+      key: m174
+      description: Sender company name
+      kind: tag
+      model: string
+    - xmlRefrenceName: SentDate
+      key: m182
+      description: Message creation date/time
+      kind: tag
+      model: string
+    - xmlRefrenceName: DefaultLanguageOfText
+      key: m184
+      description: Default language of text
+      kind: tag
+      model: string
+    - xmlRefrenceName: DefaultPriceTypeCode
+      key: m185
+      description: Default price type
+      kind: tag
+      model: string
+    - xmlRefrenceName: DefaultCurrencyCode
+      key: m186
+      description: Default currency
+      kind: tag
+      model: string
