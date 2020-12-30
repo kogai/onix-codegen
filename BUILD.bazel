@@ -8,11 +8,10 @@ ts_project(
     source_map = True,
     tsconfig = "tsconfig.json",
     deps = [
-        "@npm//@types/js-yaml",
         "@npm//@types/node",
-        "@npm//js-yaml",
         "@npm//node-html-parser",
         "@npm//strip-indent",
+        "@npm//yaml",
     ],
 )
 

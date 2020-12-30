@@ -1,8 +1,11 @@
 import path from "path";
 import { promises as fs } from "fs";
 import { parse } from "node-html-parser";
-import { safeDump } from "js-yaml";
+import yaml from "yaml";
 import strip from "strip-indent";
+
+// @ts-ignore
+yaml.scalarOptions.str.defaultType = "QUOTE_SINGLE";
 
 const main = async () => {
   const codelistsRoot = path.join(
@@ -47,7 +50,7 @@ const main = async () => {
       };
     })
   );
-  await fs.writeFile("code.yml", safeDump(yml).trim());
+  await fs.writeFile("code.yml", yaml.stringify(yml).trim());
 };
 
 main();
