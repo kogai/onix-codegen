@@ -30,6 +30,7 @@ data Renderer
   = Model
   | Decoder
   | Reader
+  deriving (Show)
 
 -- instance Show Renderer =>
 data Empty
@@ -51,11 +52,12 @@ instance FromJSON SchemaKind where
     _ -> fail "string is not one of known enum values"
 
 instance ToMustache SchemaKind where
-  toMustache s = toMustache s
+  toMustache Tag = toMustache "tag"
+  toMustache Attribute = toMustache "attribute"
 
 data SchemaBody = SchemaBody
   { key :: Text,
-    xmlRefrenceName :: Text,
+    xmlReferenceName :: Text,
     description :: Text,
     kind :: SchemaKind,
     -- TODO: Should be injectable by Language respectively.
@@ -66,10 +68,10 @@ data SchemaBody = SchemaBody
 instance FromJSON SchemaBody
 
 instance ToMustache SchemaBody where
-  toMustache SchemaBody {key, xmlRefrenceName, description, model, kind} =
+  toMustache SchemaBody {key, xmlReferenceName, description, model, kind} =
     object
       [ pack "key" ~> key,
-        pack "xmlRefrenceName" ~> xmlRefrenceName,
+        pack "xmlReferenceName" ~> xmlReferenceName,
         pack "description" ~> description,
         pack "kind" ~> kind,
         pack "model" ~> model
@@ -84,9 +86,6 @@ data SchemaNode
   deriving (Generic, Show)
 
 instance FromJSON SchemaNode
-
--- where
---   parseJSON (Leaf v) = v
 
 instance ToMustache SchemaNode where
   toMustache (Leaf s) = toMustache s

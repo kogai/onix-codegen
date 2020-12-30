@@ -589,7 +589,8 @@ func (c *BoolIfElementPresent) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 
 // Onix is not documented yet.
 type Onix struct {
-	XMLName  xml.Name  `xml:"ONIXmessage"`
+	// Root of XML
+	XMLName xml.Name `xml:"ONIXmessage"`
 	Header   Header    `xml:"header"`
 	Products []Product `xml:"product"`
 }
