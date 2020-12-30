@@ -1,6 +1,5 @@
-- 'xmlReferenceName': 'ONIX Code List 1 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 1: Notification or
-    update type code'
+- 'xmlReferenceName': 'NotificationOrUpdateTypeCode'
+  'description': 'List 1: Notification or update type code'
   'codes':
     - 'value': '01'
       'description': 'Early notification'
@@ -61,8 +60,8 @@
       'notes': 'Record may be processed for test purposes, but data should be
         discarded. Sender must ensure the <RecordReference> does not match any
         previously-sent live product record'
-- 'xmlReferenceName': 'ONIX Code List 10 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 10: Epublication type code'
+- 'xmlReferenceName': 'EpublicationTypeCode'
+  'description': 'List 10: Epublication type code'
   'codes':
     - 'value': '000'
       'description': 'Epublication ‘content package’'
@@ -306,8 +305,8 @@
     - 'value': '099'
       'description': 'Unspecified'
       'notes': 'Unknown, or no code yet assigned for this format'
-- 'xmlReferenceName': 'ONIX Code List 100 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 100: Discount code type'
+- 'xmlReferenceName': 'DiscountCodeType'
+  'description': 'List 100: Discount code type'
   'codes':
     - 'value': '01'
       'description': 'BIC discount group code'
@@ -337,8 +336,8 @@
         specified by BIC to ensure uniqueness. Format is identical to BIC
         discount group code, but indicates a commission rather than a discount
         (applies to goods supplied on agency terms)'
-- 'xmlReferenceName': 'ONIX Code List 101 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 101: Person name identifier type'
+- 'xmlReferenceName': 'PersonNameIdentifierType'
+  'description': 'List 101: Person name identifier type'
   'codes':
     - 'value': '01'
       'description': 'Proprietary'
@@ -362,9 +361,8 @@
       'notes': 'Gemeinsame Normdatei – Joint Authority File in the German-speaking
         countries. See http://www.dnb.de/EN/gnd (English). Combines the PND, SWD
         and GKD into a single authority file, and should be used in preference'
-- 'xmlReferenceName': 'ONIX Code List 102 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 102: Sales outlet
-    identifier type'
+- 'xmlReferenceName': 'SalesOutletIdentifierType'
+  'description': 'List 102: Sales outlet identifier type'
   'codes':
     - 'value': '01'
       'description': 'Proprietary'
@@ -376,8 +374,8 @@
     - 'value': '03'
       'description': 'ONIX retail sales outlet ID code'
       'notes': 'Use with ONIX retail and other end-user sales outlet IDs from List 139'
-- 'xmlReferenceName': 'ONIX Code List 11 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 11: Epublication format code'
+- 'xmlReferenceName': 'EpublicationFormatCode'
+  'description': 'List 11: Epublication format code'
   'codes':
     - 'value': '01'
       'description': 'HTML'
@@ -413,8 +411,8 @@
     - 'value': '11'
       'description': 'MobiPocket format'
       'notes': 'Proprietary file format used for the MobiPocket reader software'
-- 'xmlReferenceName': 'ONIX Code List 12 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 12: Trade category code'
+- 'xmlReferenceName': 'TradeCategoryCode'
+  'description': 'List 12: Trade category code'
   'codes':
     - 'value': '01'
       'description': 'UK open market edition'
@@ -484,9 +482,8 @@
       'notes': '‘Short’ e-book (sometimes also called a ‘single’), typically
         containing a single short story, an essay or piece of long-form
         journalism'
-- 'xmlReferenceName': 'ONIX Code List 121 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 121: Text script code
-    – ISO 15924'
+- 'xmlReferenceName': 'TextScriptCodeIso15924'
+  'description': 'List 121: Text script code – ISO 15924'
   'codes':
     - 'value': 'Afak'
       'description': 'Afaka'
@@ -968,8 +965,8 @@
     - 'value': 'Zzzz'
       'description': 'Code for uncoded script'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 13 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 13: Series identifier type code'
+- 'xmlReferenceName': 'SeriesIdentifierTypeCode'
+  'description': 'List 13: Series identifier type code'
   'codes':
     - 'value': '01'
       'description': 'Proprietary'
@@ -1005,8 +1002,8 @@
       'description': 'ARK'
       'notes': 'Archival Resource Key, as a URL (including the address of the ARK
         resolver provided by eg a national library)'
-- 'xmlReferenceName': 'ONIX Code List 138 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 138: Transliteration scheme code'
+- 'xmlReferenceName': 'TransliterationSchemeCode'
+  'description': 'List 138: Transliteration scheme code'
   'codes':
     - 'value': 'SFS4900'
       'description': 'Finnish standard SFS 4900'
@@ -1026,9 +1023,8 @@
     - 'value': 'ISO7098'
       'description': 'ISO 7098'
       'notes': 'Information and documentation – Romanization of Chinese'
-- 'xmlReferenceName': 'ONIX Code List 139 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 139: ONIX retail
-    sales outlet IDs'
+- 'xmlReferenceName': 'OnixRetailSalesOutletIDs'
+  'description': 'List 139: ONIX retail sales outlet IDs'
   'codes':
     - 'value': 'SYM'
       'description': '24Symbols'
@@ -1462,8 +1458,8 @@
     - 'value': 'ZZZ'
       'description': 'Other'
       'notes': 'Include retailer name in <SalesOutletName>'
-- 'xmlReferenceName': 'ONIX Code List 14 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 14: Text case flag'
+- 'xmlReferenceName': 'TextCaseFlag'
+  'description': 'List 14: Text case flag'
   'codes':
     - 'value': '00'
       'description': 'Undefined'
@@ -1482,9 +1478,8 @@
     - 'value': '03'
       'description': 'All capitals'
       'notes': 'For example, ‘THE CONQUEST OF MEXICO’'
-- 'xmlReferenceName': 'ONIX Code List 140 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 140: US CPSIA choking
-    hazard warning code'
+- 'xmlReferenceName': 'UsCpsiaChokingHazardWarningCode'
+  'description': 'List 140: US CPSIA choking hazard warning code'
   'codes':
     - 'value': '01'
       'description': 'WARNING: CHOKING HAZARD – Small parts | Not for children under 3 yrs.'
@@ -1517,8 +1512,8 @@
     - 'value': '07'
       'description': 'No choking hazard warning necessary'
       'notes': 'List withdrawn – use List 143'
-- 'xmlReferenceName': 'ONIX Code List 141 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 141: Barcode indicator'
+- 'xmlReferenceName': 'BarcodeIndicator'
+  'description': 'List 141: Barcode indicator'
   'codes':
     - 'value': '00'
       'description': 'Not barcoded'
@@ -1550,8 +1545,8 @@
     - 'value': '09'
       'description': 'UPC-12+5 (price-point)'
       'notes': 'AKA price/item'
-- 'xmlReferenceName': 'ONIX Code List 142 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 142: Position on product'
+- 'xmlReferenceName': 'PositionOnProduct'
+  'description': 'List 142: Position on product'
   'codes':
     - 'value': '00'
       'description': 'Unknown / unspecified'
@@ -1590,9 +1585,8 @@
       'description': 'On removable wrapping'
       'notes': 'Used only for products packaged in shrink-wrap or other removable
         wrapping'
-- 'xmlReferenceName': 'ONIX Code List 143 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 143: US CPSIA hazard
-    warning code'
+- 'xmlReferenceName': 'UsCpsiaHazardWarningCode'
+  'description': 'List 143: US CPSIA hazard warning code'
   'codes':
     - 'value': '01'
       'description': 'WARNING: CHOKING HAZARD – Small parts | Not for children under 3 yrs.'
@@ -1632,9 +1626,8 @@
         by additional text: Swallowed magnets can stick together across
         intestines causing serious infections and death. Seek immediate medical
         attention if magnet(s) are swallowed or inhaled'
-- 'xmlReferenceName': 'ONIX Code List 144 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 144: E-publication
-    technical protection'
+- 'xmlReferenceName': 'EPublicationTechnicalProtection'
+  'description': 'List 144: E-publication technical protection'
   'codes':
     - 'value': '00'
       'description': 'None'
@@ -1664,8 +1657,8 @@
     - 'value': '07'
       'description': 'Sony DRM'
       'notes': 'Has Sony DADC User Rights Management (URMS) DRM protection applied'
-- 'xmlReferenceName': 'ONIX Code List 145 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 145: Usage type'
+- 'xmlReferenceName': 'UsageType'
+  'description': 'List 145: Usage type'
   'codes':
     - 'value': '01'
       'description': 'Preview'
@@ -1710,8 +1703,8 @@
       'description': 'Multi-user license'
       'notes': 'E-publication license is multi-user. Maximum number of concurrent
         users licensed to use the product should be given in <EpubUsageLimit>'
-- 'xmlReferenceName': 'ONIX Code List 146 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 146: Usage status'
+- 'xmlReferenceName': 'UsageStatus'
+  'description': 'List 146: Usage status'
   'codes':
     - 'value': '01'
       'description': 'Permitted unlimited'
@@ -1722,8 +1715,8 @@
     - 'value': '03'
       'description': 'Prohibited'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 147 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 147: Unit of usage'
+- 'xmlReferenceName': 'UnitOfUsage'
+  'description': 'List 147: Unit of usage'
   'codes':
     - 'value': '01'
       'description': 'Copies'
@@ -1808,8 +1801,8 @@
         absolute page number, counting the cover as page 1. (This type of page
         numbering should not be used where the e-publication has no fixed
         pagination). Use with Start page to specify pages allowed in a preview'
-- 'xmlReferenceName': 'ONIX Code List 148 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 148: Collection type'
+- 'xmlReferenceName': 'CollectionType'
+  'description': 'List 148: Collection type'
   'codes':
     - 'value': '00'
       'description': 'Unspecified (default)'
@@ -1838,8 +1831,8 @@
       'notes': 'The collection has been defined and identified by a party in the
         metadata supply chain other than the publisher, typically an
         aggregator.'
-- 'xmlReferenceName': 'ONIX Code List 149 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 149: Title element level'
+- 'xmlReferenceName': 'TitleElementLevel'
+  'description': 'List 149: Title element level'
   'codes':
     - 'value': '01'
       'description': 'Product'
@@ -1866,8 +1859,8 @@
       'notes': 'The title element refers to an intermediate level of a bibliographic
         collection that is a subdivision of a sub-collection (a third level of
         collective identity)'
-- 'xmlReferenceName': 'ONIX Code List 15 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 15: Title type code'
+- 'xmlReferenceName': 'TitleTypeCode'
+  'description': 'List 15: Title type code'
   'codes':
     - 'value': '00'
       'description': 'Undefined'
@@ -1928,8 +1921,8 @@
       'description': 'Alternative title'
       'notes': 'An alternative title that the book is widely known by, whether it
         appears on the book or not'
-- 'xmlReferenceName': 'ONIX Code List 150 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 150: Product form'
+- 'xmlReferenceName': 'ProductForm'
+  'description': 'List 150: Product form'
   'codes':
     - 'value': '00'
       'description': 'Undefined'
@@ -2373,8 +2366,8 @@
     - 'value': 'ZZ'
       'description': 'Other merchandise'
       'notes': 'Other merchandise not specified by ZB to ZY'
-- 'xmlReferenceName': 'ONIX Code List 151 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 151: Contributor place relator'
+- 'xmlReferenceName': 'ContributorPlaceRelator'
+  'description': 'List 151: Contributor place relator'
   'codes':
     - 'value': '01'
       'description': 'Born in'
@@ -2400,9 +2393,8 @@
     - 'value': '08'
       'description': 'Citizen of'
       'notes': 'Or nationality. For use with country codes only'
-- 'xmlReferenceName': 'ONIX Code List 152 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 152: Illustrated /
-    not illustrated'
+- 'xmlReferenceName': 'Illustrated /NotIllustrated'
+  'description': 'List 152: Illustrated / not illustrated'
   'codes':
     - 'value': '01'
       'description': 'No'
@@ -2410,8 +2402,8 @@
     - 'value': '02'
       'description': 'Yes'
       'notes': 'Illustrated'
-- 'xmlReferenceName': 'ONIX Code List 153 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 153: Text type'
+- 'xmlReferenceName': 'TextType'
+  'description': 'List 153: Text type'
   'codes':
     - 'value': '01'
       'description': 'Sender-defined text'
@@ -2515,8 +2507,8 @@
       'notes': 'JSON-LD snippet suitable for use within an HTML <script
         type="application/ld+json"> tag, containing structured metadata suitable
         for use with schema.org'
-- 'xmlReferenceName': 'ONIX Code List 154 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 154: Content audience'
+- 'xmlReferenceName': 'ContentAudience'
+  'description': 'List 154: Content audience'
   'codes':
     - 'value': '00'
       'description': 'Unrestricted'
@@ -2551,8 +2543,8 @@
       'description': 'Search engine index'
       'notes': 'Text not intended for display, but may be used (in addition to any
         less restricted text) for indexing and search'
-- 'xmlReferenceName': 'ONIX Code List 155 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 155: Content date role'
+- 'xmlReferenceName': 'ContentDateRole'
+  'description': 'List 155: Content date role'
   'codes':
     - 'value': '01'
       'description': 'Publication date'
@@ -2587,8 +2579,8 @@
       'notes': 'Date until which a supporting resource is available for download. Note
         that this date does not imply it must be removed from display to the
         intended audience on this date – for this, use Until date (code 15)'
-- 'xmlReferenceName': 'ONIX Code List 156 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 156: Cited content type'
+- 'xmlReferenceName': 'CitedContentType'
+  'description': 'List 156: Cited content type'
   'codes':
     - 'value': '01'
       'description': 'Review'
@@ -2603,8 +2595,8 @@
       'description': '‘One locality, one book’ program'
       'notes': '(North America) Inclusion in a program such as ‘Chicago Reads’,
         ‘Seattle Reads’'
-- 'xmlReferenceName': 'ONIX Code List 157 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 157: Content source type'
+- 'xmlReferenceName': 'ContentSourceType'
+  'description': 'List 157: Content source type'
   'codes':
     - 'value': '01'
       'description': 'Printed media'
@@ -2618,8 +2610,8 @@
     - 'value': '04'
       'description': 'TV'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 158 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 158: Resource content type'
+- 'xmlReferenceName': 'ResourceContentType'
+  'description': 'List 158: Resource content type'
   'codes':
     - 'value': '01'
       'description': 'Front cover'
@@ -2768,8 +2760,8 @@
       'notes': 'Link to a license covering permitted usage of the product content.
         Deprecated in favor of <EpubLicense>. This was a temporary workaround in
         ONIX 3.0, and use of <EpubLicense> is strongly preferred'
-- 'xmlReferenceName': 'ONIX Code List 159 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 159: Resource mode'
+- 'xmlReferenceName': 'ResourceMode'
+  'description': 'List 159: Resource mode'
   'codes':
     - 'value': '01'
       'description': 'Application'
@@ -2790,8 +2782,8 @@
       'description': 'Multi-mode'
       'notes': 'A website or other supporting resource delivering content in a variety
         of modes'
-- 'xmlReferenceName': 'ONIX Code List 16 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 16: Work identifier type code'
+- 'xmlReferenceName': 'WorkIdentifierTypeCode'
+  'description': 'List 16: Work identifier type code'
   'codes':
     - 'value': '01'
       'description': 'Proprietary'
@@ -2826,8 +2818,8 @@
     - 'value': '33'
       'description': 'OWI'
       'notes': 'OCLC Work Identifier'
-- 'xmlReferenceName': 'ONIX Code List 160 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 160: Resource feature type'
+- 'xmlReferenceName': 'ResourceFeatureType'
+  'description': 'List 160: Resource feature type'
   'codes':
     - 'value': '01'
       'description': 'Required credit'
@@ -2862,8 +2854,8 @@
         product has more than a single contributor. <FeatureValue> contains the
         proprietary ID, which must match a proprietary ID given in an instance
         of <Contributor>'
-- 'xmlReferenceName': 'ONIX Code List 161 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 161: Resource form'
+- 'xmlReferenceName': 'ResourceForm'
+  'description': 'List 161: Resource form'
   'codes':
     - 'value': '01'
       'description': 'Linkable resource'
@@ -2888,9 +2880,8 @@
       'notes': 'An application which is supplied in a form which can be embedded into
         a third-party webpage. As type 02, except the resource contains active
         content such as JavaScript, Flash, etc'
-- 'xmlReferenceName': 'ONIX Code List 162 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 162: Resource version
-    feature type'
+- 'xmlReferenceName': 'ResourceVersionFeatureType'
+  'description': 'List 162: Resource version feature type'
   'codes':
     - 'value': '01'
       'description': 'File format'
@@ -2925,8 +2916,8 @@
         should contain the 256-bit digest value (as 64 hexadecimal digits). Can
         be used as a cryptographic check on the integrity of a resource after it
         has been retrieved'
-- 'xmlReferenceName': 'ONIX Code List 163 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 163: Publishing date role'
+- 'xmlReferenceName': 'PublishingDateRole'
+  'description': 'List 163: Publishing date role'
   'codes':
     - 'value': '01'
       'description': 'Publication date'
@@ -3000,8 +2991,8 @@
     - 'value': '29'
       'description': 'Date of production'
       'notes': 'For an audiovisual work (eg on DVD)'
-- 'xmlReferenceName': 'ONIX Code List 164 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 164: Work relation code'
+- 'xmlReferenceName': 'WorkRelationCode'
+  'description': 'List 164: Work relation code'
   'codes':
     - 'value': '01'
       'description': 'Manifestation of'
@@ -3026,8 +3017,8 @@
       'description': 'Other work by same contributor'
       'notes': 'Product X is a manifestation of a work by the same contributor(s) as
         related work Y'
-- 'xmlReferenceName': 'ONIX Code List 165 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 165: Supplier own code type'
+- 'xmlReferenceName': 'SupplierOwnCodeType'
+  'description': 'List 165: Supplier own code type'
   'codes':
     - 'value': '01'
       'description': 'Supplier’s sales classification'
@@ -3057,8 +3048,8 @@
       'notes': 'Code is the ISBN of another book that had sales (both in terms of copy
         numbers and customer profile) comparable to that the publisher estimates
         for the product. <SupplierCodeValue> must be an ISBN-13 or GTIN-13'
-- 'xmlReferenceName': 'ONIX Code List 166 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 166: Supply date role'
+- 'xmlReferenceName': 'SupplyDateRole'
+  'description': 'List 166: Supply date role'
   'codes':
     - 'value': '02'
       'description': 'Embargo date'
@@ -3092,8 +3083,8 @@
         would typically be the day before the new supplier start date, but they
         may overlap if there is an agreement to forward any orders between old
         and new supplier for fulfillment'
-- 'xmlReferenceName': 'ONIX Code List 167 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 167: Price condition type'
+- 'xmlReferenceName': 'PriceConditionType'
+  'description': 'List 167: Price condition type'
   'codes':
     - 'value': '00'
       'description': 'No conditions'
@@ -3132,9 +3123,8 @@
         rental uses a different product identifier. Separate price constraint
         with time limited licence duration (code 07) specifies the new combined
         rental duration'
-- 'xmlReferenceName': 'ONIX Code List 168 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 168: Price condition
-    quantity type'
+- 'xmlReferenceName': 'PriceConditionQuantityType'
+  'description': 'List 168: Price condition quantity type'
   'codes':
     - 'value': '01'
       'description': 'Time period'
@@ -3142,8 +3132,8 @@
     - 'value': '02'
       'description': 'Number of updates'
       'notes': 'The price condition quantity is a number of updates'
-- 'xmlReferenceName': 'ONIX Code List 169 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 169: Quantity unit'
+- 'xmlReferenceName': 'QuantityUnit'
+  'description': 'List 169: Quantity unit'
   'codes':
     - 'value': '00'
       'description': 'Units'
@@ -3160,8 +3150,8 @@
     - 'value': '10'
       'description': 'Years'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 17 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 17: Contributor role code'
+- 'xmlReferenceName': 'ContributorRoleCode'
+  'description': 'List 17: Contributor role code'
   'codes':
     - 'value': 'A01'
       'description': 'By (author)'
@@ -3509,8 +3499,8 @@
     - 'value': 'Z99'
       'description': 'Other'
       'notes': 'Other creative responsibility not falling within A to F above'
-- 'xmlReferenceName': 'ONIX Code List 170 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 170: Discount type'
+- 'xmlReferenceName': 'DiscountType'
+  'description': 'List 170: Discount type'
   'codes':
     - 'value': '01'
       'description': 'Rising discount'
@@ -3526,8 +3516,8 @@
       'description': 'Progressive discount (cumulative)'
       'notes': 'Previous orders within a specific time period are counted when
         calculating a progressive discount'
-- 'xmlReferenceName': 'ONIX Code List 171 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 171: Tax type'
+- 'xmlReferenceName': 'TaxType'
+  'description': 'List 171: Tax type'
   'codes':
     - 'value': '01'
       'description': 'VAT'
@@ -3540,15 +3530,15 @@
       'notes': '‘Green’ or eco-tax, levied to encourage responsible production or
         disposal, used only where this is identified separately from value-added
         or sales taxes'
-- 'xmlReferenceName': 'ONIX Code List 172 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 172: Currency zone'
+- 'xmlReferenceName': 'CurrencyZone'
+  'description': 'List 172: Currency zone'
   'codes':
     - 'value': 'EUR'
       'description': 'Eurozone'
       'notes': 'Countries that at the time being have the Euro as their national
         currency. Deprecated'
-- 'xmlReferenceName': 'ONIX Code List 173 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 173: Price date role'
+- 'xmlReferenceName': 'PriceDateRole'
+  'description': 'List 173: Price date role'
   'codes':
     - 'value': '14'
       'description': 'From date'
@@ -3560,8 +3550,8 @@
       'description': 'From… until date'
       'notes': 'Combines From date and Until date to define a period (both dates are
         inclusive). Use with for example dateformat 06'
-- 'xmlReferenceName': 'ONIX Code List 174 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 174: Printed on product'
+- 'xmlReferenceName': 'PrintedOnProduct'
+  'description': 'List 174: Printed on product'
   'codes':
     - 'value': '01'
       'description': 'No'
@@ -3569,8 +3559,8 @@
     - 'value': '02'
       'description': 'Yes'
       'notes': 'Price printed on product'
-- 'xmlReferenceName': 'ONIX Code List 175 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 175: Product form detail'
+- 'xmlReferenceName': 'ProductFormDetail'
+  'description': 'List 175: Product form detail'
   'codes':
     - 'value': 'A101'
       'description': 'CD standard audio format'
@@ -4457,9 +4447,8 @@
     - 'value': 'V221'
       'description': 'Classroom use'
       'notes': 'Licensed for use in education'
-- 'xmlReferenceName': 'ONIX Code List 176 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 176: Product form
-    feature value – operating system'
+- 'xmlReferenceName': 'ProductFormFeatureValueOperatingSystem'
+  'description': 'List 176: Product form feature value – operating system'
   'codes':
     - 'value': '01'
       'description': 'Android'
@@ -4514,9 +4503,8 @@
       'description': 'Windows Phone 7'
       'notes': 'A proprietary operating system supplied by Microsoft for mobile
         devices, successor to Windows Mobile'
-- 'xmlReferenceName': 'ONIX Code List 177 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 177: Person /
-    organization date role'
+- 'xmlReferenceName': 'Person /OrganizationDateRole'
+  'description': 'List 177: Person / organization date role'
   'codes':
     - 'value': '50'
       'description': 'Date of birth'
@@ -4528,9 +4516,8 @@
       'description': 'Flourished around'
       'notes': '(‘Floruit’). To date the height of or most productive period during a
         career'
-- 'xmlReferenceName': 'ONIX Code List 178 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 178: Supporting
-    resource file format'
+- 'xmlReferenceName': 'SupportingResourceFileFormat'
+  'description': 'List 178: Supporting resource file format'
   'codes':
     - 'value': 'A103'
       'description': 'MP3'
@@ -4626,8 +4613,8 @@
     - 'value': 'E140'
       'description': 'CEBX'
       'notes': 'Founder Apabi’s proprietary XML e-book format'
-- 'xmlReferenceName': 'ONIX Code List 179 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 179: Price code type'
+- 'xmlReferenceName': 'PriceCodeType'
+  'description': 'List 179: Price code type'
   'codes':
     - 'value': '01'
       'description': 'Proprietary'
@@ -4642,9 +4629,8 @@
       'description': 'Finnish Miki Book price code'
       'notes': 'Price Code scheme for Finnish Miki Books (Miki-kirjojen hintaryhmä).
         Price codes expressed as an integer 1–n in <PriceCode>'
-- 'xmlReferenceName': 'ONIX Code List 18 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 18: Person /
-    organization name type'
+- 'xmlReferenceName': 'Person /OrganizationNameType'
+  'description': 'List 18: Person / organization name type'
   'codes':
     - 'value': '00'
       'description': 'Unspecified'
@@ -4670,9 +4656,8 @@
     - 'value': '06'
       'description': 'Later name'
       'notes': 'Use only within <AlternativeName>'
-- 'xmlReferenceName': 'ONIX Code List 184 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 184: EU Toy Safety
-    Directive hazard warning'
+- 'xmlReferenceName': 'EuToySafetyDirectiveHazardWarning'
+  'description': 'List 184: EU Toy Safety Directive hazard warning'
   'codes':
     - 'value': '00'
       'description': 'No warning'
@@ -4714,8 +4699,8 @@
       'notes': 'Declaration of Conformity (the document that backs up the CE mark)
         available online, typically as a PDF file or similar.
         <ProductFormFeatureDescription> must carry the URL of the document'
-- 'xmlReferenceName': 'ONIX Code List 19 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 19: Unnamed person(s)'
+- 'xmlReferenceName': 'UnnamedPerson(s)'
+  'description': 'List 19: Unnamed person(s)'
   'codes':
     - 'value': '01'
       'description': 'Unknown'
@@ -4741,9 +4726,8 @@
       'description': 'Synthesized voice – unspecified'
       'notes': 'Use with Contributor role code E07 ‘read by’, for audio books for the
         blind'
-- 'xmlReferenceName': 'ONIX Code List 196 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 196: E-publication
-    Accessibility Details'
+- 'xmlReferenceName': 'EPublicationAccessibilityDetails'
+  'description': 'List 196: E-publication Accessibility Details'
   'codes':
     - 'value': '01'
       'description': 'LIA Compliance Scheme'
@@ -4890,8 +4874,8 @@
       'notes': '<ProductFormFeatureDescription> carries the e-mail address for a
         contact at the publisher to whom detailed questions about accessibility
         of this product may be directed'
-- 'xmlReferenceName': 'ONIX Code List 197 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 197: Collection sequence type'
+- 'xmlReferenceName': 'CollectionSequenceType'
+  'description': 'List 197: Collection sequence type'
   'codes':
     - 'value': '01'
       'description': 'Proprietary'
@@ -4913,8 +4897,8 @@
       'description': 'Original publication order'
       'notes': 'Original publication order, for a republished collection or collected
         works originally published outside a collection'
-- 'xmlReferenceName': 'ONIX Code List 198 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 198: Product contact role'
+- 'xmlReferenceName': 'ProductContactRole'
+  'description': 'List 198: Product contact role'
   'codes':
     - 'value': '01'
       'description': 'Accessibility request contact'
@@ -4936,8 +4920,8 @@
     - 'value': '06'
       'description': 'Permissions contact'
       'notes': 'Eg for requests to reproduce or repurpose parts of the publication'
-- 'xmlReferenceName': 'ONIX Code List 2 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 2: Product composition'
+- 'xmlReferenceName': 'ProductComposition'
+  'description': 'List 2: Product composition'
   'codes':
     - 'value': '00'
       'description': 'Single-item retail product'
@@ -4964,8 +4948,8 @@
         single item. Use instead of Multiple item trade pack (code 30) only if
         the data provider specifically wishes to make explicit that the pack may
         optionally be retailed as a whole'
-- 'xmlReferenceName': 'ONIX Code List 20 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 20: Event role'
+- 'xmlReferenceName': 'EventRole'
+  'description': 'List 20: Event role'
   'codes':
     - 'value': '01'
       'description': 'Publication linked to conference'
@@ -4995,8 +4979,8 @@
     - 'value': '32'
       'description': 'Programme or guide for exposition'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 203 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 203: ONIX Adult Audience rating'
+- 'xmlReferenceName': 'OnixAdultAudienceRating'
+  'description': 'List 203: ONIX Adult Audience rating'
   'codes':
     - 'value': '00'
       'description': 'Unrated'
@@ -5029,9 +5013,8 @@
       'description': 'Content warning (intolerance)'
       'notes': 'The publisher warns the product includes content involving intolerance
         of particular groups (eg religious, ethnic, racial, social)'
-- 'xmlReferenceName': 'ONIX Code List 204 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 204: ONIX Returns
-    conditions code'
+- 'xmlReferenceName': 'OnixReturnsConditionsCode'
+  'description': 'List 204: ONIX Returns conditions code'
   'codes':
     - 'value': '00'
       'description': 'Unspecified'
@@ -5062,8 +5045,8 @@
         to an end consumer, but all inventory remains physically located at the
         supplier (thus there can be no returns of unsold inventory). When
         ordered by the retailer, the goods are delivered direct to the consumer'
-- 'xmlReferenceName': 'ONIX Code List 21 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 21: Edition type code'
+- 'xmlReferenceName': 'EditionTypeCode'
+  'description': 'List 21: Edition type code'
   'codes':
     - 'value': 'ABR'
       'description': 'Abridged edition'
@@ -5218,8 +5201,8 @@
       'description': 'Variorum edition'
       'notes': 'Content includes notes by various commentators, and/or includes and
         compares several variant texts of the same work'
-- 'xmlReferenceName': 'ONIX Code List 215 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 215: Proximity'
+- 'xmlReferenceName': 'Proximity'
+  'description': 'List 215: Proximity'
   'codes':
     - 'value': '01'
       'description': 'Less than'
@@ -5250,8 +5233,8 @@
     - 'value': '07'
       'description': 'More than'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 216 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 216: Velocity'
+- 'xmlReferenceName': 'Velocity'
+  'description': 'List 216: Velocity'
   'codes':
     - 'value': '01'
       'description': 'Mean daily sale'
@@ -5280,8 +5263,8 @@
     - 'value': '09'
       'description': 'Minimum monthly sale'
       'notes': 'Typically measured over the most recent rolling 6 month period'
-- 'xmlReferenceName': 'ONIX Code List 217 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 217: Price identifier type code'
+- 'xmlReferenceName': 'PriceIdentifierTypeCode'
+  'description': 'List 217: Price identifier type code'
   'codes':
     - 'value': '01'
       'description': 'Proprietary'
@@ -5318,9 +5301,8 @@
         independent of the price amount and currency. A product with the same
         product price type identififer may carry differing price amounts,
         currencies at different points in time'
-- 'xmlReferenceName': 'ONIX Code List 218 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 218: License
-    expression type code'
+- 'xmlReferenceName': 'LicenseExpressionTypeCode'
+  'description': 'List 218: License expression type code'
   'codes':
     - 'value': '01'
       'description': 'Human readable'
@@ -5332,8 +5314,8 @@
     - 'value': '10'
       'description': 'ONIX-PL'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 219 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 219: Rights type code'
+- 'xmlReferenceName': 'RightsTypeCode'
+  'description': 'List 219: Rights type code'
   'codes':
     - 'value': 'C'
       'description': 'Copyright'
@@ -5345,8 +5327,8 @@
     - 'value': 'D'
       'description': 'Database right'
       'notes': 'Sui generis database right'
-- 'xmlReferenceName': 'ONIX Code List 22 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 22: Language role code'
+- 'xmlReferenceName': 'LanguageRoleCode'
+  'description': 'List 22: Language role code'
   'codes':
     - 'value': '01'
       'description': 'Language of text'
@@ -5392,9 +5374,8 @@
       'description': 'Language of notes'
       'notes': 'Use for the language of footnotes, endnotes, annotations or
         commentary, where it is different from the language of the main text'
-- 'xmlReferenceName': 'ONIX Code List 220 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 220: E-publication
-    version number'
+- 'xmlReferenceName': 'EPublicationVersionNumber'
+  'description': 'List 220: E-publication version number'
   'codes':
     - 'value': '101A'
       'description': 'EPUB 2.0.1'
@@ -5414,8 +5395,8 @@
     - 'value': '116B'
       'description': 'Kindle KF8'
       'notes': 'Use only with <ProductFormDetail> code E116'
-- 'xmlReferenceName': 'ONIX Code List 221 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 221: Message status'
+- 'xmlReferenceName': 'MessageStatus'
+  'description': 'List 221: Message status'
   'codes':
     - 'value': '00'
       'description': 'Message received'
@@ -5441,8 +5422,8 @@
       'notes': 'Original ONIX message parsed and processed in full, and at least SOME
         of the data records have been ingested, in whole or in part), Results
         MUST be summarised in the remainder of the Acknowledgement Message'
-- 'xmlReferenceName': 'ONIX Code List 222 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 222: Message status date role'
+- 'xmlReferenceName': 'MessageStatusDateRole'
+  'description': 'List 222: Message status date role'
   'codes':
     - 'value': '01'
       'description': 'Ingest date'
@@ -5453,8 +5434,8 @@
       'notes': 'Expected or actual date for data to be available from the recipient’s
         system to downstream supply chain partners (or where the recipient is a
         retailer, to consumers)'
-- 'xmlReferenceName': 'ONIX Code List 223 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 223: Status detail code type'
+- 'xmlReferenceName': 'StatusDetailCodeType'
+  'description': 'List 223: Status detail code type'
   'codes':
     - 'value': '01'
       'description': 'Proprietary'
@@ -5462,8 +5443,8 @@
     - 'value': '02'
       'description': 'ONIX Status detail code'
       'notes': 'Status detail code is taken from List 225'
-- 'xmlReferenceName': 'ONIX Code List 224 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 224: Status detail type severity'
+- 'xmlReferenceName': 'StatusDetailTypeSeverity'
+  'description': 'List 224: Status detail type severity'
   'codes':
     - 'value': 'U'
       'description': 'Unclassifiable'
@@ -5496,9 +5477,8 @@
         unrecoverable error due to not meeting the requirements of the standard.
         The entire ONIX record has been rejected (or the entire message, if used
         within <MessageStatusDetail>)'
-- 'xmlReferenceName': 'ONIX Code List 225 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 225: Message / Record
-    status detail code'
+- 'xmlReferenceName': 'Message /RecordStatusDetailCode'
+  'description': 'List 225: Message / Record status detail code'
   'codes':
     - 'value': '000'
       'description': 'Unknown error'
@@ -5506,8 +5486,8 @@
     - 'value': '001'
       'description': 'Unknown warning'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 226 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 226: Record status'
+- 'xmlReferenceName': 'RecordStatus'
+  'description': 'List 226: Record status'
   'codes':
     - 'value': '00'
       'description': 'No record errors'
@@ -5541,8 +5521,8 @@
       'notes': 'Record status reported in an earlier Acknowledgement message, based on
         partial processing of ONIX message. The record MUST NOT have a Product
         record in this Acknowledgement. Code not valid in <RecordStatusDetail>'
-- 'xmlReferenceName': 'ONIX Code List 227 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 227: Chinese School Grade Code'
+- 'xmlReferenceName': 'ChineseSchoolGradeCode'
+  'description': 'List 227: Chinese School Grade Code'
   'codes':
     - 'value': 'P'
       'description': 'Preschool'
@@ -5601,15 +5581,14 @@
     - 'value': '17'
       'description': 'Graduate level'
       'notes': 'Typical age 22+'
-- 'xmlReferenceName': 'ONIX Code List 228 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 228: Grant identifier type code'
+- 'xmlReferenceName': 'GrantIdentifierTypeCode'
+  'description': 'List 228: Grant identifier type code'
   'codes':
     - 'value': '01'
       'description': 'Proprietary'
       'notes': 'Note that <IDTypeName> is required with proprietary identifiers'
-- 'xmlReferenceName': 'ONIX Code List 229 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 229: Gender code
-    – based on ISO 5218'
+- 'xmlReferenceName': 'GenderCode  basedOnIso5218'
+  'description': 'List 229: Gender code – based on ISO 5218'
   'codes':
     - 'value': 'u'
       'description': 'Unknown or unspecified'
@@ -5621,8 +5600,8 @@
     - 'value': 'm'
       'description': 'Male'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 23 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 23: Extent type code'
+- 'xmlReferenceName': 'ExtentTypeCode'
+  'description': 'List 23: Extent type code'
   'codes':
     - 'value': '00'
       'description': 'Main content page count'
@@ -5732,8 +5711,8 @@
     - 'value': '22'
       'description': 'Filesize'
       'notes': 'The size of a digital file, expressed in the specified extent unit'
-- 'xmlReferenceName': 'ONIX Code List 230 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 230: Price constraint type'
+- 'xmlReferenceName': 'PriceConstraintType'
+  'description': 'List 230: Price constraint type'
   'codes':
     - 'value': '00'
       'description': 'No constraints'
@@ -5761,8 +5740,8 @@
       'notes': 'E-publication license is multi-user. Maximum number of concurrent
         users licensed to use the product should be given in
         <PriceConstraintLimit>'
-- 'xmlReferenceName': 'ONIX Code List 24 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 24: Extent unit code'
+- 'xmlReferenceName': 'ExtentUnitCode'
+  'description': 'List 24: Extent unit code'
   'codes':
     - 'value': '02'
       'description': 'Words'
@@ -5805,9 +5784,8 @@
     - 'value': '19'
       'description': 'Mbytes'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 25 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 25: Illustration and
-    other content type code'
+- 'xmlReferenceName': 'IllustrationAndOtherContentTypeCode'
+  'description': 'List 25: Illustration and other content type code'
   'codes':
     - 'value': '00'
       'description': 'Unspecified, see description'
@@ -5906,9 +5884,8 @@
     - 'value': '29'
       'description': 'Glossary'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 26 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 26: Main subject
-    scheme identifier code'
+- 'xmlReferenceName': 'MainSubjectSchemeIdentifierCode'
+  'description': 'List 26: Main subject scheme identifier code'
   'codes':
     - 'value': '01'
       'description': 'Dewey'
@@ -6295,9 +6272,8 @@
       'description': 'BISG Educational Taxonomy'
       'notes': 'Controlled vocabulary for educational objectives. See
         https://www.bisg.org/educational-taxonomy'
-- 'xmlReferenceName': 'ONIX Code List 27 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 27: Subject scheme
-    identifier code'
+- 'xmlReferenceName': 'SubjectSchemeIdentifierCode'
+  'description': 'List 27: Subject scheme identifier code'
   'codes':
     - 'value': '01'
       'description': 'Dewey'
@@ -6732,8 +6708,8 @@
         for indexing and search purposes. Where multiple character names are
         sent, this should be in a single instance of <SubjectHeadingText>, and
         it is recommended they should be separated by semi-colons'
-- 'xmlReferenceName': 'ONIX Code List 28 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 28: Audience code'
+- 'xmlReferenceName': 'AudienceCode'
+  'description': 'List 28: Audience code'
   'codes':
     - 'value': '01'
       'description': 'General/trade'
@@ -6767,8 +6743,8 @@
       'notes': 'Intended for use in teaching second languages, for example teaching
         German to Spanish speakers. Prefer code 07 for products specific to
         teaching English'
-- 'xmlReferenceName': 'ONIX Code List 29 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 29: Audience code type'
+- 'xmlReferenceName': 'AudienceCodeType'
+  'description': 'List 29: Audience code type'
   'codes':
     - 'value': '01'
       'description': 'ONIX audience codes'
@@ -6887,8 +6863,8 @@
       'description': 'Gymnasieprogram'
       'notes': 'Code indicating the intended curriculum (eg Naturvetenskapsprogrammet,
         Estetica programmet) in Swedish higher secondary education'
-- 'xmlReferenceName': 'ONIX Code List 3 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 3: Record source type code'
+- 'xmlReferenceName': 'RecordSourceTypeCode'
+  'description': 'List 3: Record source type code'
   'codes':
     - 'value': '00'
       'description': 'Unspecified'
@@ -6944,8 +6920,8 @@
       'description': 'Library'
       'notes': 'Library service providing enhanced metadata to publishers or other
         parties'
-- 'xmlReferenceName': 'ONIX Code List 30 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 30: Audience range qualifier'
+- 'xmlReferenceName': 'AudienceRangeQualifier'
+  'description': 'List 30: Audience range qualifier'
   'codes':
     - 'value': '11'
       'description': 'US school grade range'
@@ -7005,8 +6981,8 @@
       'notes': 'French educational level classification scolomfr-voc-022, used for
         example on WizWiz.fr. See
         http://www.lom-fr.fr/scolomfr/vocabulaires/consultation-des-vocabulaires.html'
-- 'xmlReferenceName': 'ONIX Code List 31 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 31: Audience range precision'
+- 'xmlReferenceName': 'AudienceRangePrecision'
+  'description': 'List 31: Audience range precision'
   'codes':
     - 'value': '01'
       'description': 'Exact'
@@ -7017,9 +6993,8 @@
     - 'value': '04'
       'description': 'To'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 32 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 32: Complexity scheme
-    identifier code'
+- 'xmlReferenceName': 'ComplexitySchemeIdentifierCode'
+  'description': 'List 32: Complexity scheme identifier code'
   'codes':
     - 'value': '01'
       'description': 'Lexile code'
@@ -7065,8 +7040,8 @@
       'description': 'Reading Recovery Level'
       'notes': 'Used for books aimed at K-2 literacy intervention. <ComplexityCode> is
         an integer between 1 and 20'
-- 'xmlReferenceName': 'ONIX Code List 33 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 33: Other text type code'
+- 'xmlReferenceName': 'OtherTextTypeCode'
+  'description': 'List 33: Other text type code'
   'codes':
     - 'value': '01'
       'description': 'Main description'
@@ -7244,8 +7219,8 @@
         of final manufacture of the product. (This functionality is provided as
         a workaround in ONIX 2.1. ONIX 3.0 has specific provision for country of
         manufacture as a separate element)'
-- 'xmlReferenceName': 'ONIX Code List 34 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 34: Text format code'
+- 'xmlReferenceName': 'TextFormatCode'
+  'description': 'List 34: Text format code'
   'codes':
     - 'value': '00'
       'description': 'ASCII text'
@@ -7305,8 +7280,8 @@
     - 'value': '15'
       'description': 'XPS'
       'notes': 'XML Paper Specification'
-- 'xmlReferenceName': 'ONIX Code List 35 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 35: Text link type code'
+- 'xmlReferenceName': 'TextLinkTypeCode'
+  'description': 'List 35: Text link type code'
   'codes':
     - 'value': '01'
       'description': 'URL'
@@ -7326,9 +7301,8 @@
     - 'value': '06'
       'description': 'filename'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 36 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 36: Front cover image
-    file format code'
+- 'xmlReferenceName': 'FrontCoverImageFileFormatCode'
+  'description': 'List 36: Front cover image file format code'
   'codes':
     - 'value': '02'
       'description': 'GIF'
@@ -7339,9 +7313,8 @@
     - 'value': '05'
       'description': 'TIF'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 37 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 37: Front cover image
-    file link type code'
+- 'xmlReferenceName': 'FrontCoverImageFileLinkTypeCode'
+  'description': 'List 37: Front cover image file link type code'
   'codes':
     - 'value': '01'
       'description': 'URL'
@@ -7361,9 +7334,8 @@
     - 'value': '06'
       'description': 'filename'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 38 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 38: Image/audio/video
-    file type code'
+- 'xmlReferenceName': 'Image/audio/videoFileTypeCode'
+  'description': 'List 38: Image/audio/video file type code'
   'codes':
     - 'value': '01'
       'description': 'Whole product'
@@ -7495,9 +7467,8 @@
     - 'value': '52'
       'description': 'Application: promotional material'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 39 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 39: Image/audio/video
-    file format code'
+- 'xmlReferenceName': 'Image/audio/videoFileFormatCode'
+  'description': 'List 39: Image/audio/video file format code'
   'codes':
     - 'value': '02'
       'description': 'GIF'
@@ -7556,9 +7527,8 @@
     - 'value': '20'
       'description': 'WebM'
       'notes': 'WebM container format (includes .webm and .mkv)'
-- 'xmlReferenceName': 'ONIX Code List 40 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 40: Image/audio/video
-    file link type'
+- 'xmlReferenceName': 'Image/audio/videoFileLinkType'
+  'description': 'List 40: Image/audio/video file link type'
   'codes':
     - 'value': '01'
       'description': 'URL'
@@ -7578,9 +7548,8 @@
     - 'value': '06'
       'description': 'filename'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 41 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 41: Prize or award
-    achievement code'
+- 'xmlReferenceName': 'PrizeOrAwardAchievementCode'
+  'description': 'List 41: Prize or award achievement code'
   'codes':
     - 'value': '01'
       'description': 'Winner'
@@ -7612,8 +7581,8 @@
       'notes': 'Selected by judging panel or an official nominating process for final
         consideration for a prize, award or honour for which no ‘short-list’ or
         ‘long list’ exists'
-- 'xmlReferenceName': 'ONIX Code List 42 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 42: Text item type code'
+- 'xmlReferenceName': 'TextItemTypeCode'
+  'description': 'List 42: Text item type code'
   'codes':
     - 'value': '01'
       'description': 'Textual work'
@@ -7668,9 +7637,8 @@
     - 'value': '21'
       'description': 'Obituary'
       'notes': 'For journals'
-- 'xmlReferenceName': 'ONIX Code List 43 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 43: Text item
-    identifier type code'
+- 'xmlReferenceName': 'TextItemIdentifierTypeCode'
+  'description': 'List 43: Text item identifier type code'
   'codes':
     - 'value': '01'
       'description': 'Proprietary'
@@ -7694,8 +7662,8 @@
     - 'value': '15'
       'description': 'ISBN-13'
       'notes': '(Unhyphenated)'
-- 'xmlReferenceName': 'ONIX Code List 44 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 44: Name code type'
+- 'xmlReferenceName': 'NameCodeType'
+  'description': 'List 44: Name code type'
   'codes':
     - 'value': '01'
       'description': 'Proprietary'
@@ -7820,8 +7788,8 @@
       'description': 'ARK'
       'notes': 'Archival Resource Key, as a URL (including the address of the ARK
         resolver provided by eg a national library)'
-- 'xmlReferenceName': 'ONIX Code List 45 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 45: Publishing role code'
+- 'xmlReferenceName': 'PublishingRoleCode'
+  'description': 'List 45: Publishing role code'
   'codes':
     - 'value': '01'
       'description': 'Publisher'
@@ -7904,8 +7872,8 @@
         product, when neither Printer nor Binder is directly appropriate (for
         example, with disc or tape products, or digital products on a physical
         carrier)'
-- 'xmlReferenceName': 'ONIX Code List 46 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 46: Sales rights type code'
+- 'xmlReferenceName': 'SalesRightsTypeCode'
+  'description': 'List 46: Sales rights type code'
   'codes':
     - 'value': '00'
       'description': 'Sales rights unknown or unstated for any reason'
@@ -7942,8 +7910,8 @@
       'description': 'For sale with non-exclusive rights in the specified countries or
         territories (sales restriction applies)'
       'notes': 'Only for use with ONIX 3. Deprecated'
-- 'xmlReferenceName': 'ONIX Code List 47 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 47: Rights region'
+- 'xmlReferenceName': 'RightsRegion'
+  'description': 'List 47: Rights region'
   'codes':
     - 'value': '000'
       'description': 'World'
@@ -7957,8 +7925,8 @@
     - 'value': '003'
       'description': 'UK ‘open market’'
       'notes': 'Use when an open market edition is published under its own ISBN'
-- 'xmlReferenceName': 'ONIX Code List 48 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 48: Measure type code'
+- 'xmlReferenceName': 'MeasureTypeCode'
+  'description': 'List 48: Measure type code'
   'codes':
     - 'value': '01'
       'description': 'Height'
@@ -8004,8 +7972,8 @@
       'notes': 'The length of a side of the cross-section of a long triangular or
         square package, usually carrying a rolled sheet product. Use 01 ‘Height’
         for the height or length of the package'
-- 'xmlReferenceName': 'ONIX Code List 49 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 49: Region code'
+- 'xmlReferenceName': 'RegionCode'
+  'description': 'List 49: Region code'
   'codes':
     - 'value': 'AU-CT'
       'description': 'Australian Capital Territory'
@@ -8963,8 +8931,8 @@
     - 'value': 'WORLD'
       'description': 'World'
       'notes': 'In ONIX 3, may ONLY be used in <RegionsIncluded>'
-- 'xmlReferenceName': 'ONIX Code List 5 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 5: Product identifier type code'
+- 'xmlReferenceName': 'ProductIdentifierTypeCode'
+  'description': 'List 5: Product identifier type code'
   'codes':
     - 'value': '01'
       'description': 'Proprietary'
@@ -9064,8 +9032,8 @@
       'description': 'ARK'
       'notes': 'Archival Resource Key, as a URL (including the address of the ARK
         resolver provided by eg a national library)'
-- 'xmlReferenceName': 'ONIX Code List 50 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 50: Measure unit code'
+- 'xmlReferenceName': 'MeasureUnitCode'
+  'description': 'List 50: Measure unit code'
   'codes':
     - 'value': 'cm'
       'description': 'Centimeters'
@@ -9091,8 +9059,8 @@
     - 'value': 'px'
       'description': 'Pixels'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 51 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 51: Product relation code'
+- 'xmlReferenceName': 'ProductRelationCode'
+  'description': 'List 51: Product relation code'
   'codes':
     - 'value': '00'
       'description': 'Unspecified'
@@ -9280,14 +9248,14 @@
       'description': 'Is later edition of first edition'
       'notes': '<Product> is a later edition of <RelatedProduct>, where the related
         product is the first edition'
-- 'xmlReferenceName': 'ONIX Code List 52 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 52: Supply-to region code'
+- 'xmlReferenceName': 'SupplyToRegionCode'
+  'description': 'List 52: Supply-to region code'
   'codes':
     - 'value': '004'
       'description': 'UK ‘open market’'
       'notes': 'When the same ISBN is used for open market and UK editions'
-- 'xmlReferenceName': 'ONIX Code List 53 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 53: Returns conditions code type'
+- 'xmlReferenceName': 'ReturnsConditionsCodeType'
+  'description': 'List 53: Returns conditions code type'
   'codes':
     - 'value': '00'
       'description': 'Proprietary'
@@ -9309,8 +9277,8 @@
       'description': 'ONIX Returns conditions code'
       'notes': 'Returns conditions values in <ReturnsCode> should be taken from List
         204'
-- 'xmlReferenceName': 'ONIX Code List 54 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 54: Availability status code'
+- 'xmlReferenceName': 'AvailabilityStatusCode'
+  'description': 'List 54: Availability status code'
   'codes':
     - 'value': 'AB'
       'description': 'Cancelled'
@@ -9394,8 +9362,8 @@
     - 'value': 'WS'
       'description': 'Withdrawn from sale'
       'notes': 'Typically, withdrawn indefinitely for legal reasons'
-- 'xmlReferenceName': 'ONIX Code List 55 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 55: Date format'
+- 'xmlReferenceName': 'DateFormat'
+  'description': 'List 55: Date format'
   'codes':
     - 'value': '00'
       'description': 'YYYYMMDD'
@@ -9465,8 +9433,8 @@
       'description': 'Text string (H)'
       'notes': 'For complex, approximate or uncertain dates (Hijri calendar), text
         would usually be in Arabic script'
-- 'xmlReferenceName': 'ONIX Code List 56 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 56: Audience restriction flag'
+- 'xmlReferenceName': 'AudienceRestrictionFlag'
+  'description': 'List 56: Audience restriction flag'
   'codes':
     - 'value': 'R'
       'description': 'Restrictions apply, see note'
@@ -9474,8 +9442,8 @@
     - 'value': 'X'
       'description': 'Indiziert'
       'notes': 'Indexed for the German market – in Deutschland indiziert'
-- 'xmlReferenceName': 'ONIX Code List 57 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 57: Unpriced item type code'
+- 'xmlReferenceName': 'UnpricedItemTypeCode'
+  'description': 'List 57: Unpriced item type code'
   'codes':
     - 'value': '01'
       'description': 'Free of charge'
@@ -9500,8 +9468,8 @@
     - 'value': '06'
       'description': 'Revenue share'
       'notes': 'Unpriced, but available via a pre-determined revenue share agreement'
-- 'xmlReferenceName': 'ONIX Code List 58 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 58: Price type code'
+- 'xmlReferenceName': 'PriceTypeCode'
+  'description': 'List 58: Price type code'
   'codes':
     - 'value': '01'
       'description': 'RRP excluding tax'
@@ -9629,8 +9597,8 @@
       'description': 'Publishers retail price including tax'
       'notes': 'For a product supplied on agency terms, the retail price set by the
         publisher, including sales or value-added tax if applicable'
-- 'xmlReferenceName': 'ONIX Code List 59 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 59: Price type qualifier'
+- 'xmlReferenceName': 'PriceTypeQualifier'
+  'description': 'List 59: Price type qualifier'
   'codes':
     - 'value': '00'
       'description': 'Unqualified price'
@@ -9711,8 +9679,8 @@
     - 'value': '16'
       'description': 'Public library price'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 6 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 6: Barcode indicator'
+- 'xmlReferenceName': 'BarcodeIndicator'
+  'description': 'List 6: Barcode indicator'
   'codes':
     - 'value': '00'
       'description': 'Not barcoded'
@@ -9956,8 +9924,8 @@
     - 'value': '75'
       'description': 'EAN13+5 on outer sleeve/back (CAN dollar price encoded)'
       'notes': 'To be used only on products packaged in outer sleeves'
-- 'xmlReferenceName': 'ONIX Code List 60 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 60: Unit of pricing code'
+- 'xmlReferenceName': 'UnitOfPricingCode'
+  'description': 'List 60: Unit of pricing code'
   'codes':
     - 'value': '00'
       'description': 'Per copy of whole product'
@@ -9965,8 +9933,8 @@
     - 'value': '01'
       'description': 'Per page for printed loose-leaf content only'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 61 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 61: Price status code'
+- 'xmlReferenceName': 'PriceStatusCode'
+  'description': 'List 61: Price status code'
   'codes':
     - 'value': '00'
       'description': 'Unspecified'
@@ -9977,8 +9945,8 @@
     - 'value': '02'
       'description': 'Firm'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 62 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 62: Tax rate, coded'
+- 'xmlReferenceName': 'TaxRate,Coded'
+  'description': 'List 62: Tax rate, coded'
   'codes':
     - 'value': 'H'
       'description': 'Higher rate'
@@ -9997,12 +9965,11 @@
     - 'value': 'Z'
       'description': 'Zero-rated'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 63 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 63: Intermediary
-    supplier availability'
+- 'xmlReferenceName': 'IntermediarySupplierAvailability'
+  'description': 'List 63: Intermediary supplier availability'
   'codes': []
-- 'xmlReferenceName': 'ONIX Code List 64 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 64: Publishing status'
+- 'xmlReferenceName': 'PublishingStatus'
+  'description': 'List 64: Publishing status'
   'codes':
     - 'value': '00'
       'description': 'Unspecified'
@@ -10107,8 +10074,8 @@
       'notes': 'Withdrawn permanently from sale in all markets. Effectively synonymous
         with ‘Out of print’ (code 07), but specific to downloadable and online
         digital products (where no ‘stock’ would remain in the supply chain)'
-- 'xmlReferenceName': 'ONIX Code List 65 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 65: Product availability'
+- 'xmlReferenceName': 'ProductAvailability'
+  'description': 'List 65: Product availability'
   'codes':
     - 'value': '01'
       'description': 'Cancelled'
@@ -10243,8 +10210,8 @@
     - 'value': '99'
       'description': 'Contact supplier'
       'notes': 'Availability not known to sender'
-- 'xmlReferenceName': 'ONIX Code List 66 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 66: BISAC returnable indicator'
+- 'xmlReferenceName': 'BisacReturnableIndicator'
+  'description': 'List 66: BISAC returnable indicator'
   'codes':
     - 'value': 'N'
       'description': 'No, not returnable'
@@ -10258,8 +10225,8 @@
     - 'value': 'C'
       'description': 'Conditional'
       'notes': 'Contact publisher for requirements and/or authorization'
-- 'xmlReferenceName': 'ONIX Code List 67 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 67: Market date role'
+- 'xmlReferenceName': 'MarketDateRole'
+  'description': 'List 67: Market date role'
   'codes':
     - 'value': '01'
       'description': 'Publication date'
@@ -10271,8 +10238,8 @@
       'notes': 'If there is an embargo on retail sales in this market before a certain
         date, the date from which the embargo is lifted and retail sales are
         permitted'
-- 'xmlReferenceName': 'ONIX Code List 68 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 68: Market publishing status'
+- 'xmlReferenceName': 'MarketPublishingStatus'
+  'description': 'List 68: Market publishing status'
   'codes':
     - 'value': '00'
       'description': 'Unspecified'
@@ -10368,8 +10335,8 @@
         or technical reasons. In ONIX 3.0, must be accompanied by expected
         availability date coded ‘22’ within the <MarketPublishingDate>
         composite, except in exceptional circumstances where no date is known'
-- 'xmlReferenceName': 'ONIX Code List 69 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 69: Agent role'
+- 'xmlReferenceName': 'AgentRole'
+  'description': 'List 69: Agent role'
   'codes':
     - 'value': '05'
       'description': 'Exclusive sales agent'
@@ -10385,8 +10352,8 @@
       'notes': 'Publisher’s sales agent in a specific territory. Use only where
         exclusive / non-exclusive status is not known. Prefer 05 or 06 as
         appropriate, where possible'
-- 'xmlReferenceName': 'ONIX Code List 7 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 7: Product form code'
+- 'xmlReferenceName': 'ProductFormCode'
+  'description': 'List 7: Product form code'
   'codes':
     - 'value': '00'
       'description': 'Undefined'
@@ -10824,8 +10791,8 @@
     - 'value': 'ZZ'
       'description': 'Other merchandise'
       'notes': 'Other merchandise not specified by ZB to ZY'
-- 'xmlReferenceName': 'ONIX Code List 70 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 70: Stock quantity code type'
+- 'xmlReferenceName': 'StockQuantityCodeType'
+  'description': 'List 70: Stock quantity code type'
   'codes':
     - 'value': '01'
       'description': 'Proprietary'
@@ -10833,8 +10800,8 @@
     - 'value': '02'
       'description': 'APA stock quantity code'
       'notes': 'Code scheme defined by the Australian Publishers Association'
-- 'xmlReferenceName': 'ONIX Code List 71 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 71: Sales restriction type code'
+- 'xmlReferenceName': 'SalesRestrictionTypeCode'
+  'description': 'List 71: Sales restriction type code'
   'codes':
     - 'value': '00'
       'description': 'Unspecified – see text'
@@ -10898,8 +10865,8 @@
     - 'value': '15'
       'description': 'Online retail only'
       'notes': 'Exclusive to online retail outlets'
-- 'xmlReferenceName': 'ONIX Code List 72 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 72: Thesis type code'
+- 'xmlReferenceName': 'ThesisTypeCode'
+  'description': 'List 72: Thesis type code'
   'codes':
     - 'value': '01'
       'description': 'Habilitationsschrift'
@@ -10923,8 +10890,8 @@
     - 'value': '07'
       'description': 'Masterarbeit'
       'notes': 'Masters degree thesis'
-- 'xmlReferenceName': 'ONIX Code List 73 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 73: Website role'
+- 'xmlReferenceName': 'WebsiteRole'
+  'description': 'List 73: Website role'
   'codes':
     - 'value': '00'
       'description': 'Unspecified, see website description'
@@ -11082,8 +11049,8 @@
     - 'value': '45'
       'description': 'Publisher’s or third party website for permissions requests'
       'notes': 'For example, a service offering click-through licensing of extracts'
-- 'xmlReferenceName': 'ONIX Code List 74 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 74: Language code – ISO 639-2/B'
+- 'xmlReferenceName': 'LanguageCodeIso6392/b'
+  'description': 'List 74: Language code – ISO 639-2/B'
   'codes':
     - 'value': 'aar'
       'description': 'Afar'
@@ -12582,8 +12549,8 @@
     - 'value': 'zza'
       'description': 'Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki'
       'notes': 'Macrolanguage'
-- 'xmlReferenceName': 'ONIX Code List 75 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 75: Person date role'
+- 'xmlReferenceName': 'PersonDateRole'
+  'description': 'List 75: Person date role'
   'codes':
     - 'value': '007'
       'description': 'Date of birth'
@@ -12591,9 +12558,8 @@
     - 'value': '008'
       'description': 'Date of death'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 76 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 76: Product form
-    feature value – DVD region codes'
+- 'xmlReferenceName': 'ProductFormFeatureValueDvdRegionCodes'
+  'description': 'List 76: Product form feature value – DVD region codes'
   'codes':
     - 'value': '0'
       'description': 'All regions'
@@ -12636,9 +12602,8 @@
       'description': 'Blu-Ray region C'
       'notes': 'India, Bangladesh, Nepal, Mainland China, Pakistan, Russia, Ukraine,
         Belarus, Central, and South Asia'
-- 'xmlReferenceName': 'ONIX Code List 77 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 77: US and Canada
-    (excluding Québec) school or college grade'
+- 'xmlReferenceName': 'UsAndCanada (excludingQuébec)SchoolOrCollegeGrade'
+  'description': 'List 77: US and Canada (excluding Québec) school or college grade'
   'codes':
     - 'value': 'P'
       'description': 'Preschool'
@@ -12697,8 +12662,8 @@
     - 'value': '17'
       'description': 'College Graduate Student'
       'notes': 'Age typically 22+ years'
-- 'xmlReferenceName': 'ONIX Code List 78 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 78: Product form detail'
+- 'xmlReferenceName': 'ProductFormDetail'
+  'description': 'List 78: Product form detail'
   'codes':
     - 'value': 'A101'
       'description': 'CD standard audio format'
@@ -13391,8 +13356,8 @@
     - 'value': 'V221'
       'description': 'Classroom use'
       'notes': 'Licensed for use in education'
-- 'xmlReferenceName': 'ONIX Code List 79 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 79: Product form feature type'
+- 'xmlReferenceName': 'ProductFormFeatureType'
+  'description': 'List 79: Product form feature type'
   'codes':
     - 'value': '01'
       'description': 'Color of cover'
@@ -13546,8 +13511,8 @@
       'notes': 'Product made from paper produced using environmentally-conscious
         technology. <ProductFormFeatureDescription> may carry free text with a
         more detailed statement'
-- 'xmlReferenceName': 'ONIX Code List 8 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 8: Book form detail'
+- 'xmlReferenceName': 'BookFormDetail'
+  'description': 'List 8: Book form detail'
   'codes':
     - 'value': '01'
       'description': 'A-format paperback'
@@ -13570,8 +13535,8 @@
     - 'value': '07'
       'description': 'Reinforced binding'
       'notes': 'DEPRECATED'
-- 'xmlReferenceName': 'ONIX Code List 80 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 80: Product packaging type'
+- 'xmlReferenceName': 'ProductPackagingType'
+  'description': 'List 80: Product packaging type'
   'codes':
     - 'value': '00'
       'description': 'No outer packaging'
@@ -13652,8 +13617,8 @@
       'description': 'In tin'
       'notes': 'Individual item, items or set in metal box or can with separate or
         hinged lid'
-- 'xmlReferenceName': 'ONIX Code List 81 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 81: Product content type'
+- 'xmlReferenceName': 'ProductContentType'
+  'description': 'List 81: Product content type'
   'codes':
     - 'value': '10'
       'description': 'Text (eye-readable)'
@@ -13794,8 +13759,8 @@
     - 'value': '39'
       'description': 'Advertising – third party textual'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 82 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 82: Bible contents'
+- 'xmlReferenceName': 'BibleContents'
+  'description': 'List 82: Bible contents'
   'codes':
     - 'value': 'AP'
       'description': 'Apocrypha (Catholic canon)'
@@ -13867,8 +13832,8 @@
     - 'value': 'ZZ'
       'description': 'Other portions'
       'notes': 'Selected books of either the OT or NT not otherwise noted'
-- 'xmlReferenceName': 'ONIX Code List 83 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 83: Bible version'
+- 'xmlReferenceName': 'BibleVersion'
+  'description': 'List 83: Bible version'
   'codes':
     - 'value': 'ALV'
       'description': 'Alberto Vaccari'
@@ -14153,8 +14118,8 @@
     - 'value': 'ZZZ'
       'description': 'Other'
       'notes': 'Other translations not otherwise noted'
-- 'xmlReferenceName': 'ONIX Code List 84 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 84: Study Bible type'
+- 'xmlReferenceName': 'StudyBibleType'
+  'description': 'List 84: Study Bible type'
   'codes':
     - 'value': 'CAM'
       'description': 'Cambridge Annotated'
@@ -14194,8 +14159,8 @@
       'description': 'Spirit Filled'
       'notes': 'A transdenominational study Bible for persons from the
         Pentecostal/Charismatic traditions'
-- 'xmlReferenceName': 'ONIX Code List 85 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 85: Bible purpose'
+- 'xmlReferenceName': 'BiblePurpose'
+  'description': 'List 85: Bible purpose'
   'codes':
     - 'value': 'AW'
       'description': 'Award'
@@ -14289,8 +14254,8 @@
       'description': 'Youth'
       'notes': 'A Bible (or selected Biblical text) containing special study and
         devotional helps designed specifically for the needs of teenagers'
-- 'xmlReferenceName': 'ONIX Code List 86 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 86: Bible text organization'
+- 'xmlReferenceName': 'BibleTextOrganization'
+  'description': 'List 86: Bible text organization'
   'codes':
     - 'value': 'CHR'
       'description': 'Chronological'
@@ -14310,8 +14275,8 @@
     - 'value': 'STN'
       'description': 'Standard'
       'notes': 'A Bible in which the text is presented in the traditional order'
-- 'xmlReferenceName': 'ONIX Code List 87 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 87: Bible reference location'
+- 'xmlReferenceName': 'BibleReferenceLocation'
+  'description': 'List 87: Bible reference location'
   'codes':
     - 'value': 'CCL'
       'description': 'Center column'
@@ -14333,19 +14298,18 @@
     - 'value': 'ZZZ'
       'description': 'Other'
       'notes': 'Other locations not otherwise identified'
-- 'xmlReferenceName': 'ONIX Code List 88 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 88: Religious text identifier'
+- 'xmlReferenceName': 'ReligiousTextIdentifier'
+  'description': 'List 88: Religious text identifier'
   'codes': []
-- 'xmlReferenceName': 'ONIX Code List 89 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 89: Religious text feature type'
+- 'xmlReferenceName': 'ReligiousTextFeatureType'
+  'description': 'List 89: Religious text feature type'
   'codes':
     - 'value': '01'
       'description': 'Church season or activity'
       'notes': 'A church season or activity for which a religious text is intended.
         Religious text feature code must be taken from List 90'
-- 'xmlReferenceName': 'ONIX Code List 9 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 9: Product
-    classification type code'
+- 'xmlReferenceName': 'ProductClassificationTypeCode'
+  'description': 'List 9: Product classification type code'
   'codes':
     - 'value': '01'
       'description': 'WCO Harmonized System'
@@ -14395,8 +14359,8 @@
       'description': 'Electre genre'
       'notes': 'Typologie de marché géré par Electre (Market segment code maintained
         by Electre)'
-- 'xmlReferenceName': 'ONIX Code List 90 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 90: Religious text feature code'
+- 'xmlReferenceName': 'ReligiousTextFeatureCode'
+  'description': 'List 90: Religious text feature code'
   'codes':
     - 'value': '01'
       'description': 'Academic year'
@@ -14432,8 +14396,8 @@
     - 'value': '11'
       'description': 'Marian themes'
       'notes': 'Use with code 01 in <ReligiousTextFeatureType>'
-- 'xmlReferenceName': 'ONIX Code List 91 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 91: Country code – ISO 3166-1'
+- 'xmlReferenceName': 'CountryCodeIso31661'
+  'description': 'List 91: Country code – ISO 3166-1'
   'codes':
     - 'value': 'AD'
       'description': 'Andorra'
@@ -15191,8 +15155,8 @@
     - 'value': 'ZW'
       'description': 'Zimbabwe'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 92 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 92: Supplier identifier type'
+- 'xmlReferenceName': 'SupplierIdentifierType'
+  'description': 'List 92: Supplier identifier type'
   'codes':
     - 'value': '01'
       'description': 'Proprietary'
@@ -15229,8 +15193,8 @@
         See http://en.wikipedia.org/wiki/VAT_identification_number for non-EU
         countries that maintain similar identifiers. Spaces, dashes etc should
         be omitted'
-- 'xmlReferenceName': 'ONIX Code List 93 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 93: Supplier role'
+- 'xmlReferenceName': 'SupplierRole'
+  'description': 'List 93: Supplier role'
   'codes':
     - 'value': '00'
       'description': 'Unspecified'
@@ -15279,8 +15243,8 @@
       'description': 'Distributor to end-customers'
       'notes': 'Use only where exclusive/non-exclusive status is not known. Prefer 10
         or 11 as appropriate, where possible'
-- 'xmlReferenceName': 'ONIX Code List 94 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 94: Default linear unit'
+- 'xmlReferenceName': 'DefaultLinearUnit'
+  'description': 'List 94: Default linear unit'
   'codes':
     - 'value': 'cm'
       'description': 'Centimeters'
@@ -15291,8 +15255,8 @@
     - 'value': 'mm'
       'description': 'Millimeters'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 95 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 95: Default unit of weight'
+- 'xmlReferenceName': 'DefaultUnitOfWeight'
+  'description': 'List 95: Default unit of weight'
   'codes':
     - 'value': 'lb'
       'description': 'Pounds (US)'
@@ -15303,8 +15267,8 @@
     - 'value': 'oz'
       'description': 'Ounces (US)'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 96 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 96: Currency code – ISO 4217'
+- 'xmlReferenceName': 'CurrencyCodeIso4217'
+  'description': 'List 96: Currency code – ISO 4217'
   'codes':
     - 'value': 'AED'
       'description': 'UAE Dirham'
@@ -15928,15 +15892,14 @@
     - 'value': 'ZWL'
       'description': 'Zimbabwe Dollar'
       'notes': 'Zimbabwe'
-- 'xmlReferenceName': 'ONIX Code List 97 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 97: Bible text feature'
+- 'xmlReferenceName': 'BibleTextFeature'
+  'description': 'List 97: Bible text feature'
   'codes':
     - 'value': 'RL'
       'description': 'Red letter'
       'notes': 'Words spoken by Christ are printed in red'
-- 'xmlReferenceName': 'ONIX Code List 98 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 98: Product form
-    feature value – binding or page edge color'
+- 'xmlReferenceName': 'ProductFormFeatureValueBindingOrPageEdgeColor'
+  'description': 'List 98: Product form feature value – binding or page edge color'
   'codes':
     - 'value': 'BLK'
       'description': 'Black'
@@ -16007,9 +15970,8 @@
     - 'value': 'ZZZ'
       'description': 'Other'
       'notes': ''
-- 'xmlReferenceName': 'ONIX Code List 99 [Issue 36]'
-  'description': 'ONIX Code Lists Issue 36, January 2017List 99: Product form
-    feature value – special cover material'
+- 'xmlReferenceName': 'ProductFormFeatureValueSpecialCoverMaterial'
+  'description': 'List 99: Product form feature value – special cover material'
   'codes':
     - 'value': '01'
       'description': 'Berkshire leather'

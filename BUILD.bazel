@@ -9,6 +9,7 @@ ts_project(
     tsconfig = "tsconfig.json",
     deps = [
         "@npm//@types/node",
+        "@npm//camelcase",
         "@npm//node-html-parser",
         "@npm//strip-indent",
         "@npm//yaml",

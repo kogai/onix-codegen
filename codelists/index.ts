@@ -3,6 +3,7 @@ import { promises as fs } from "fs";
 import { parse } from "node-html-parser";
 import yaml from "yaml";
 import strip from "strip-indent";
+import camelcase from "camelcase";
 
 // @ts-ignore
 yaml.scalarOptions.str.defaultType = "QUOTE_SINGLE";
@@ -23,9 +24,16 @@ const main = async () => {
         encoding: "utf-8",
       });
 
+      const codeDescription = parse(data)
+        .querySelector(".listHeading")
+        .text.replace("ONIX Code Lists Issue 36, January 2017", "");
       // TODO: codelist.html does not contain xmlReferenceName. maybe need to parse pdf?
-      const xmlReferenceName = parse(data).querySelector("title").text;
-      const codeDescription = parse(data).querySelector(".listHeading").text;
+      const xmlReferenceName = camelcase(
+        codeDescription.split(":")[1].replace("–", ""),
+        {
+          pascalCase: true,
+        }
+      );
 
       const codes = parse(data)
         .querySelectorAll("table tr")
