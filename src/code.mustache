@@ -13,13 +13,11 @@ func (c *ProductIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 	var v string
 	d.DecodeElement(&v, &start)
 	switch v {
-	case "01":
-		*c = "Proprietary"
-	case "02":
-		*c = "ISBN-10"
-	// NOTE: GS1 Global Trade Item Number, formerly known as EAN article number (13 digits)
-	case "03":
-		*c = "GTIN-13"
+  {{#.}}
+  // {{&Notes}}
+  case "{{Value}}":
+		*c = "{{Description}}"
+  {{/.}}
 	case "04":
 		*c = "UPC"
 	case "05":

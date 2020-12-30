@@ -13,12 +13,14 @@ func (c *ProductIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 	var v string
 	d.DecodeElement(&v, &start)
 	switch v {
-	case "01":
+  // For example, a publisher’s or wholesaler’s product number. Note that <IDTypeName> is required with proprietary identifiers
+  case "01":
 		*c = "Proprietary"
-	case "02":
+  // International Standard Book Number, pre-2007, unhyphenated (10 characters) – now DEPRECATED in ONIX for Books, except where providing historical information for compatibility with legacy systems. It should only be used in relation to products published before 2007 – when ISBN-13 superseded it – and should never be used as the ONLY identifier (it should always be accompanied by the correct GTIN-13 / ISBN-13) For example, a publisher’s or wholesaler’s product number. Note that <IDTypeName> is required with proprietary identifiers
+  case "02":
 		*c = "ISBN-10"
-	// NOTE: GS1 Global Trade Item Number, formerly known as EAN article number (13 digits)
-	case "03":
+  // GS1 Global Trade Item Number, formerly known as EAN article number (13 digits)
+  case "03":
 		*c = "GTIN-13"
 	case "04":
 		*c = "UPC"
