@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 2a759b6246688d7002e1526c3b48dfd0961bf7783d19d4b2e6e588ffe6454304
+-- hash: c4de36cd17c5d2bbe75398d0c315c6404d1da0688fafacbd1695710f8eb004ca
 
 name:           onix
 version:        0.1.0.0
@@ -38,6 +38,7 @@ library
     , mustache ==2.3.1
     , text ==1.2.4.0
     , unordered-containers ==0.2.10.0
+    , vector ==0.12.1.2
     , yaml ==0.11.5.0
   default-language: Haskell2010
 

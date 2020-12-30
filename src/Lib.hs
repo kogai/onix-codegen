@@ -1,8 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
-
 -- {-# LANGUAGE GeneralizedNewtypeDeriving #-}
--- {-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE NamedFieldPuns #-}
 
 module Lib
   ( render,
@@ -13,13 +12,15 @@ where
 
 import Control.Exception (Exception, throw)
 import Data.HashMap.Strict (HashMap)
-import Data.Text (Text, unpack)
+import qualified Data.HashMap.Strict as HM
+import Data.Text (Text, pack, unpack)
 import Data.Typeable (Typeable)
+import Data.Vector (Vector)
 import Data.Yaml (FromJSON (..))
 import qualified Data.Yaml as Y
 import GHC.Generics
-import Text.Mustache (ToMustache, automaticCompile, substitute, toMustache)
-import Text.Mustache.Types (Object)
+import Text.Mustache
+import qualified Text.Mustache.Types as MT
 
 data Language
   = Go
@@ -49,43 +50,51 @@ instance FromJSON SchemaKind where
     "attribute" -> return Tag
     _ -> fail "string is not one of known enum values"
 
+instance ToMustache SchemaKind where
+  toMustache s = toMustache s
+
 data SchemaBody = SchemaBody
-  { key :: String,
-    xmlRefrenceName :: String,
-    description :: String,
+  { key :: Text,
+    xmlRefrenceName :: Text,
+    description :: Text,
     kind :: SchemaKind,
     -- TODO: Should be injectable by Language respectively.
-    model :: String
+    model :: Text
   }
   deriving (Generic, Show)
 
 instance FromJSON SchemaBody
 
+instance ToMustache SchemaBody where
+  toMustache SchemaBody {key, xmlRefrenceName, description, model, kind} =
+    object
+      [ pack "key" ~> key,
+        pack "xmlRefrenceName" ~> xmlRefrenceName,
+        pack "description" ~> description,
+        pack "kind" ~> kind,
+        pack "model" ~> model
+      ]
+
 data SchemaNode
   = Leaf SchemaBody
   | Node
-      { children :: [SchemaNode],
+      { children :: Vector SchemaNode,
         body :: SchemaBody
       }
   deriving (Generic, Show)
 
 instance FromJSON SchemaNode
 
--- instance ToMustache Schema where
---   toMustache = Object . fmap toMustache
+-- where
+--   parseJSON (Leaf v) = v
+
+instance ToMustache SchemaNode where
+  toMustache (Leaf s) = toMustache s
+  toMustache Node {children, body} =
+    let cdr = (MT.Array . fmap toMustache) children
+     in toMustache $ HM.fromList [("body", toMustache body), ("children", cdr)]
 
 type Schema = HashMap Text SchemaNode
-
--- instance FromJSON Schema
-
--- ToMustache = id
-
---   toMustache s = throw Unimplemented
-
--- M.object
---   [("headers", (M.~= "headers" headers))]
-
--- [M.~= "headers" headers]
 
 compile :: Renderer -> Language -> IO (Maybe String)
 compile _ TypeScript = throw Unimplemented
@@ -103,7 +112,6 @@ compile r Go = do
       compiled <- automaticCompile searchSpace name
       -- TODO: Use Either
       yml <- Y.decodeFileThrow "./src/schema.yml"
-      print yml
       let txt =
             ( case compiled of
                 --  TODO: Handle Either properly
