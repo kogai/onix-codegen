@@ -1,0 +1,3 @@
+build --verbose_failures
+run --verbose_failures
+test --verbose_failures

@@ -122,13 +122,13 @@ compile r Go = do
       -- TODO: Use Either
       yml <- Y.decodeFileThrow "./src/schema.yml"
       print (yml :: Schema)
-      let ct =
+      let _ct =
             C.codeTypes
               [ C.codeType
                   "ProductIDType"
                   "Product identifier type code, List 5"
-              [ C.code "01" "Proprietary" "For example, a publisher’s or wholesaler’s product number. Note that <IDTypeName> is required with proprietary identifiers",
-                C.code "02" "ISBN-10" "International Standard Book Number, pre-2007, unhyphenated (10 characters) – now DEPRECATED in ONIX for Books, except where providing historical information for compatibility with legacy systems. It should only be used in relation to products published before 2007 – when ISBN-13 superseded it – and should never be used as the ONLY identifier (it should always be accompanied by the correct GTIN-13 / ISBN-13) For example, a publisher’s or wholesaler’s product number. Note that <IDTypeName> is required with proprietary identifiers",
+                  [ C.code "01" "Proprietary" "For example, a publisher’s or wholesaler’s product number. Note that <IDTypeName> is required with proprietary identifiers",
+                    C.code "02" "ISBN-10" "International Standard Book Number, pre-2007, unhyphenated (10 characters) – now DEPRECATED in ONIX for Books, except where providing historical information for compatibility with legacy systems. It should only be used in relation to products published before 2007 – when ISBN-13 superseded it – and should never be used as the ONLY identifier (it should always be accompanied by the correct GTIN-13 / ISBN-13) For example, a publisher’s or wholesaler’s product number. Note that <IDTypeName> is required with proprietary identifiers",
                     C.code "03" "GTIN-13" "GS1 Global Trade Item Number, formerly known as EAN article number (13 digits)",
                     C.code "04" "UPC" "UPC product number (12 digits)",
                     C.code "05" "ISMN-10" "International Standard Music Number (M plus nine digits). Pre-2008 – now DEPRECATED in ONIX for Books, except where providing historical information for compatibility with legacy systems. It should only be used in relation to products published before 2008 – when ISMN-13 superseded it – and should never be used as the ONLY identifier (it should always be accompanied by the correct ISMN-13)",

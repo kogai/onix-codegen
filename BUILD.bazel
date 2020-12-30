@@ -1,0 +1,30 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_project")
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
+
+ts_project(
+    name = "lib",
+    srcs = glob(["codelists/**/*.ts"]),
+    declaration = True,
+    source_map = True,
+    tsconfig = "tsconfig.json",
+    deps = [
+        "@npm//@types/node",
+        # "@npm//@types/lodash"
+    ],
+)
+
+filegroup(
+    name = "codelists",
+    data = [
+        "@org_editeur_release//:ONIX_for_Books_Release2-1_rev03_docs+codes_Issue_36/codelists/onix-codelist-1.htm",
+    ],
+)
+
+nodejs_binary(
+    name = "bin",
+    data = [
+        ":codelists",
+        ":lib",
+    ],
+    entry_point = "codelists/index.ts",
+)
