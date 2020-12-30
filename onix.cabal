@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c4de36cd17c5d2bbe75398d0c315c6404d1da0688fafacbd1695710f8eb004ca
+-- hash: 70e2c9d6017d04fcaed282e821825d7089f6e4f60487dc36daaf36c5800de288
 
 name:           onix
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      Code
       Lib
   other-modules:
       Paths_onix
@@ -58,7 +59,6 @@ test-suite onix-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      TestUtils
       Paths_onix
   hs-source-dirs:
       test

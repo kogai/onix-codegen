@@ -14,9 +14,9 @@ func (c *ProductIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 	d.DecodeElement(&v, &start)
 	switch v {
   {{#.}}
-  // {{&Notes}}
-  case "{{Value}}":
-		*c = "{{Description}}"
+  // {{&notes}}
+  case "{{value}}":
+		*c = "{{description}}"
   {{/.}}
 	case "04":
 		*c = "UPC"

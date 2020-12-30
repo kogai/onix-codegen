@@ -10,6 +10,7 @@ module Lib
   )
 where
 
+import qualified Code as C
 import Control.Exception (Exception, throw)
 import Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as HM
@@ -18,6 +19,7 @@ import Data.Typeable (Typeable)
 import Data.Vector (Vector)
 import Data.Yaml (FromJSON (..))
 import qualified Data.Yaml as Y
+import qualified Data.Yaml.Aeson as A
 import GHC.Generics
 import Text.Mustache
 import qualified Text.Mustache.Types as MT
@@ -28,6 +30,7 @@ data Language
 
 data Renderer
   = Model
+  | Code
   | Decoder
   | Reader
   deriving (Show)
@@ -95,6 +98,12 @@ instance ToMustache SchemaNode where
 
 type Schema = HashMap Text SchemaNode
 
+-- type Schema = Vector SchemaNode
+
+-- - Value: "01"
+--   Description: Proprietary
+--   Notes: For example, a publisher’s or wholesaler’s product number. Note that <IDTypeName> is required with proprietary identifiers
+
 compile :: Renderer -> Language -> IO (Maybe String)
 compile _ TypeScript = throw Unimplemented
 compile r Go = do
@@ -103,6 +112,7 @@ compile r Go = do
         Model -> Just "model"
         Decoder -> Nothing
         Reader -> Just "reader"
+        Code -> Just "code"
 
   case templateName of
     Nothing -> return Nothing
@@ -111,6 +121,14 @@ compile r Go = do
       compiled <- automaticCompile searchSpace name
       -- TODO: Use Either
       yml <- Y.decodeFileThrow "./src/schema.yml"
+      print (yml :: Schema)
+      -- Product identifier type code
+      let conf =
+            A.toJSON
+              [ C.code "01" "Proprietary" "For example, a publisher’s or wholesaler’s product number. Note that <IDTypeName> is required with proprietary identifiers",
+                C.code "02" "ISBN-10" "International Standard Book Number, pre-2007, unhyphenated (10 characters) – now DEPRECATED in ONIX for Books, except where providing historical information for compatibility with legacy systems. It should only be used in relation to products published before 2007 – when ISBN-13 superseded it – and should never be used as the ONLY identifier (it should always be accompanied by the correct GTIN-13 / ISBN-13) For example, a publisher’s or wholesaler’s product number. Note that <IDTypeName> is required with proprietary identifiers",
+                C.code "03" "GTIN-13" "GS1 Global Trade Item Number, formerly known as EAN article number (13 digits)"
+              ]
       let txt =
             ( case compiled of
                 --  TODO: Handle Either properly
