@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 2262a85f304f44ae779bc04b60fe3a6ecc5213e6793d981c23971f60ef38a2d9
+-- hash: 242686ee28beac8b460791d7db554a6e9b037640e8007ddd2bc241faf0d32589
 
 name:           onix
 version:        0.1.0.0
@@ -29,6 +29,7 @@ library
   exposed-modules:
       Code
       Lib
+      Model
       Schema
   other-modules:
       Paths_onix
@@ -39,6 +40,7 @@ library
       base >=4.7 && <5
     , flow ==1.0.21
     , mustache ==2.3.1
+    , parsec ==3.1.14.0
     , text ==1.2.4.0
     , unordered-containers ==0.2.10.0
     , vector ==0.12.1.2
