@@ -35,11 +35,12 @@ data Model = Model
 instance FromJSON Model
 
 instance ToMustache Model where
-  toMustache Model {shortname, xmlReferenceName, kind} =
+  toMustache Model {shortname, xmlReferenceName, kind, elements} =
     object
       [ pack "shortname" ~> shortname,
         pack "xmlReferenceName" ~> xmlReferenceName,
-        pack "kind" ~> kind
+        pack "kind" ~> kind,
+        pack "elements" ~> elements
       ]
 
 model :: Text -> Text -> Kind -> [Model] -> Model

@@ -5,15 +5,6 @@ import (
 	"fmt"
 )
 
-// Header is not documented yet.
-type Header struct {
-	FromCompany           string `xml:"m174"`
-	SentDate              string `xml:"m182"`
-	DefaultLanguageOfText string `xml:"m184"`
-	DefaultPriceTypeCode  string `xml:"m185"`
-	DefaultCurrencyCode   string `xml:"m186"`
-}
-
 // Productidentifier is not documented yet.
 type Productidentifier struct {
 	ProductIDType ProductIDType `xml:"b221"`
@@ -241,9 +232,18 @@ func (c *BoolIfElementPresent) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 	return nil
 }
 
+
+// Header is not documented.
+type Header struct {
+	FromCompany string `xml:"m174"` 
+	SentDate string `xml:"m182"` 
+	DefaultLanguageOfText string `xml:"m184"` 
+	DefaultPriceTypeCode string `xml:"m185"` 
+	DefaultCurrencyCode string `xml:"m186"` 
+}
+
 // Onix is not documented yet.
 type Onix struct {
-	// Root of XML
 	XMLName  xml.Name  `xml:"ONIXmessage"`
 	Header   Header    `xml:"header"`
 	Products []Product `xml:"product"`

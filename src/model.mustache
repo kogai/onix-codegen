@@ -5,15 +5,6 @@ import (
 	"fmt"
 )
 
-// Header is not documented yet.
-type Header struct {
-	FromCompany           string `xml:"m174"`
-	SentDate              string `xml:"m182"`
-	DefaultLanguageOfText string `xml:"m184"`
-	DefaultPriceTypeCode  string `xml:"m185"`
-	DefaultCurrencyCode   string `xml:"m186"`
-}
-
 // Productidentifier is not documented yet.
 type Productidentifier struct {
 	ProductIDType ProductIDType `xml:"b221"`
@@ -68,43 +59,6 @@ type SupplyDetail struct {
 	ProductAvailability string `xml:"j396"`
 	PackQuantity        int    `xml:"j145"`
 	Prices              Prices `xml:"price"`
-}
-
-// MeasureTypeCode is not documented yet.
-type MeasureTypeCode string
-
-// UnmarshalXML is not documented yet.
-func (c *MeasureTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	// TODO: Define as enum
-	case "01":
-		*c = "Height"
-	case "02":
-		*c = "Width"
-	case "03":
-		*c = "Thickness"
-	case "04":
-		*c = "Page trim height"
-	case "05":
-		*c = "Page trim width"
-	case "08":
-		*c = "Unit weight"
-	case "09":
-		*c = "Diameter (sphere)"
-	case "10":
-		*c = "Unfolded/unrolled sheet height"
-	case "11":
-		*c = "Unfolded/unrolled sheet width"
-	case "12":
-		*c = "Diameter (tube or cylinder)"
-	case "13":
-		*c = "Rolled sheet package side measure"
-	default:
-		return fmt.Errorf("undefined code has been passed, got [%s]", v)
-	}
-	return nil
 }
 
 // Measure is not documented yet.
@@ -278,10 +232,19 @@ func (c *BoolIfElementPresent) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 	return nil
 }
 
+{{#.}}
+
+// {{xmlReferenceName}} is not documented.
+type {{xmlReferenceName}} struct {
+  {{#elements}}
+	{{xmlReferenceName}} string `xml:"{{shortname}}"` {{@index}}
+  {{/elements}}
+}
+{{/.}}
+
 // Onix is not documented yet.
 type Onix struct {
-	// {{ xmlName.description }}
-	{{ xmlName.xmlReferenceName }} {{ xmlName.model }} `xml:"{{ xmlName.key }}"`
+	XMLName  xml.Name  `xml:"ONIXmessage"`
 	Header   Header    `xml:"header"`
 	Products []Product `xml:"product"`
 }
