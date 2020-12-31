@@ -1,5 +1,11 @@
 # onix
 
+ONIX for Books clients aimed to
+
+- Auto generated from Schema
+- Language Agnostic
+- Support 2.x and 3.x
+
 ## Prior Art
 
 - [C#](https://github.com/jaerith/ONIX-Data)
