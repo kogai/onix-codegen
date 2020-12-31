@@ -1,0 +1,48 @@
+xmlName:
+  tag: Leaf
+  contents:
+    xmlReferenceName: XMLName
+    key: ONIXmessage
+    description: "Root of XML"
+    kind: tag
+    model: xml.Name
+# header:
+#   tag: Node
+#   body:
+#     tag: Leaf
+#     xmlReferenceName: Header
+#     key: header
+#     description: Message header
+#     kind: tag
+#     model: Header
+#   children:
+#     - xmlReferenceName: FromCompany
+#       key: m174
+#       description: Sender company name
+#       kind: tag
+#       model: string
+#       tag: Leaf
+#     - xmlReferenceName: SentDate
+#       key: m182
+#       description: Message creation date/time
+#       kind: tag
+#       model: string
+#       tag: Leaf
+#     - xmlReferenceName: DefaultLanguageOfText
+#       key: m184
+#       description: Default language of text
+#       kind: tag
+#       model: string
+#       tag: Leaf
+#     - xmlReferenceName: DefaultPriceTypeCode
+#       key: m185
+#       description: Default price type
+#       kind: tag
+#       model: string
+#       tag: Leaf
+#     - xmlReferenceName: DefaultCurrencyCode
+#       key: m186
+#       description: Default currency
+#       kind: tag
+#       model: string
+#       tag: Leaf

@@ -1,0 +1,27 @@
+{
+  "name": "onix",
+  "version": "1.0.0",
+  "description": "## Prior Art",
+  "main": "sandbox.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@bazel/bazelisk": "1.7.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kogai/onix.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kogai/onix/issues"
+  },
+  "homepage": "https://github.com/kogai/onix#readme"
+}

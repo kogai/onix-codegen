@@ -1,0 +1,29 @@
+package onix
+
+import (
+	"encoding/xml"
+	"fmt"
+)
+
+{{#.}}
+
+// {{xmlReferenceName}} {{description}}
+type {{xmlReferenceName}} string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *{{xmlReferenceName}}) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+  {{#codes}}
+
+  // {{&notes}}
+  case "{{value}}":
+		*c = `{{description}}`
+  {{/codes}}
+	default:
+		return fmt.Errorf("undefined code for {{xmlReferenceName}} has been passed, got [%s]", v)
+	}
+	return nil
+}
+{{/.}}
