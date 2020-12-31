@@ -2,7 +2,7 @@
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
 
-module Code (code, codeType, codeTypes, CodeTypes) where
+module Code (code, codeType, codeTypes, CodeTypes, CodeType, Code) where
 
 import Data.Text (Text, pack)
 import Data.Vector (Vector, fromList)
@@ -29,12 +29,12 @@ instance ToMustache Code where
         pack "notes" ~> notes
       ]
 
-code :: String -> String -> String -> Code
+code :: Text -> Text -> Text -> Code
 code v d n =
   Code
-    { value = pack v,
-      description = pack d,
-      notes = pack n
+    { value = v,
+      description = d,
+      notes = n
     }
 
 data CodeType = CodeType

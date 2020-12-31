@@ -16,15 +16,15 @@ type Header struct {
 
 // Productidentifier is not documented yet.
 type Productidentifier struct {
-	ProductIDType ProductIdentifierTypeCode `xml:"b221"`
-	IDValue       string                    `xml:"b244"` // EAN
+	ProductIDType ProductIDType `xml:"b221"`
+	IDValue       string        `xml:"b244"` // EAN
 }
 
 // Productidentifiers is not documented yet.
 type Productidentifiers []Productidentifier
 
 // FindByIDType findx identifier by id-type.
-func (c *Productidentifiers) FindByIDType(idType ProductIdentifierTypeCode) *string {
+func (c *Productidentifiers) FindByIDType(idType ProductIDType) *string {
 	for _, p := range *c {
 		if p.ProductIDType == idType {
 			return &p.IDValue
@@ -109,158 +109,6 @@ func (c *Measures) FindByType(ty MeasureTypeCode) *Measure {
 	return nil
 }
 
-// TextTypeCode is not documented yet.
-type TextTypeCode string
-
-// UnmarshalXML is not documented yet.
-func (c *TextTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	// TODO: Define as enum
-	case "01":
-		*c = "Main description"
-	case "02":
-		*c = "Short description/annotation"
-	case "03":
-		*c = "Long description"
-	case "04":
-		*c = "Table of contents"
-	case "05":
-		*c = "Review quote, restricted length"
-	case "06":
-		*c = "Quote from review of previous edition"
-	case "07":
-		*c = "Review text"
-	case "08":
-		*c = "Review quote"
-	case "09":
-		*c = "Promotional ‘headline’"
-	case "10":
-		*c = "Previous review quote"
-	case "11":
-		*c = "Author comments"
-	case "12":
-		*c = "Description for reader"
-	case "13":
-		*c = "Biographical note"
-	case "14":
-		*c = "Description for Reading Group Guide"
-	case "15":
-		*c = "Discussion question for Reading Group Guide"
-	case "16":
-		*c = "Competing titles"
-	case "17":
-		*c = "Flap copy"
-	case "18":
-		*c = "Back cover copy"
-	case "19":
-		*c = "Feature"
-	case "20":
-		*c = "New feature"
-	case "21":
-		*c = "Publisher’s notice"
-	case "22":
-		*c = "Index"
-	case "23":
-		*c = "Excerpt from book"
-	case "24":
-		*c = "First chapter"
-	case "25":
-		*c = "Description for sales people"
-	case "26":
-		*c = "Description for press or other media"
-	case "27":
-		*c = "Description for subsidiary rights department"
-	case "28":
-		*c = "Description for teachers/educators"
-	case "30":
-		*c = "Unpublished endorsement"
-	case "31":
-		*c = "Description for bookstore"
-	case "32":
-		*c = "Description for library"
-	case "33":
-		*c = "Introduction or preface"
-	case "34":
-		*c = "Full text"
-	case "35":
-		*c = "Promotional text"
-	case "40":
-		*c = "Author interview / QandA"
-	case "41":
-		*c = "Reading Group Guide"
-	case "42":
-		*c = "Commentary / discussion"
-	case "43":
-		*c = "Short description for series or set"
-	case "44":
-		*c = "Long description for series or set"
-	case "45":
-		*c = "Contributor event schedule"
-	case "46":
-		*c = "License"
-	case "47":
-		*c = "Open access statement"
-	case "48":
-		*c = "Digital exclusivity statement"
-	case "49":
-		*c = "Official recommendation"
-	case "98":
-		*c = "Master brand name"
-	case "99":
-		*c = "Country of final manufacture"
-	default:
-		return fmt.Errorf("undefined code has been passed, got [%s]", v)
-	}
-	return nil
-}
-
-// TextFormat is not documented yet.
-type TextFormat string
-
-// UnmarshalXMLAttr is not documented yet.
-func (c *TextFormat) UnmarshalXMLAttr(d xml.Attr) error {
-	switch d.Value {
-	// TODO: Define as enum
-	case "00":
-		*c = "ASCII text"
-	case "01":
-		*c = "SGML"
-	case "02":
-		*c = "HTML"
-	case "03":
-		*c = "XML"
-	case "04":
-		*c = "PDF"
-	case "05":
-		*c = "XHTML"
-	case "06":
-		*c = "Default text format"
-	case "07":
-		*c = "Basic ASCII text"
-	case "08":
-		*c = "PDF"
-	case "09":
-		*c = "Microsoft rich text format (RTF)"
-	case "10":
-		*c = "Microsoft Word binary format (DOC)"
-	case "11":
-		*c = "ECMA 376 WordprocessingML"
-	case "12":
-		*c = "ISO 26300 ODF"
-	case "13":
-		*c = "Corel Wordperfect binary format (DOC)"
-	case "14":
-		*c = "EPUB"
-	case "15":
-		*c = "XPS"
-	default:
-		return fmt.Errorf("undefined code has been passed, got [%s]", d.Value)
-	}
-	return nil
-}
-
 // Text is not documented yet.
 type Text struct {
 	Body       string     `xml:",cdata"`
@@ -282,77 +130,6 @@ func (c *OtherTexts) FindByType(ty TextTypeCode) *OtherText {
 		if p.TextTypeCode == ty {
 			return &p
 		}
-	}
-	return nil
-}
-
-// SubjectSchemeIdentifier is Main subject scheme identifier code.
-type SubjectSchemeIdentifier string
-
-// UnmarshalXML is not documented yet.
-func (c *SubjectSchemeIdentifier) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	// TODO: Define as enum
-	case "01":
-		*c = "Dewey"
-	case "02":
-		*c = "Abridged Dewey"
-	case "03":
-		*c = "LC classification"
-	case "04":
-		*c = "LC subject heading"
-	case "05":
-		*c = "NLM classification"
-	case "06":
-		*c = "MeSH heading"
-	case "07":
-		*c = "NAL subject heading"
-	case "08":
-		*c = "AAT"
-	case "09":
-		*c = "UDC"
-	case "10":
-		*c = "BISAC Subject Heading"
-	case "11":
-		*c = "BISAC region code"
-	case "12":
-		*c = "BIC subject category"
-	case "13":
-		*c = "BIC geographical qualifier"
-	case "14":
-		*c = "BIC language qualifier (language as subject)"
-	case "15":
-		*c = "BIC time period qualifier"
-	case "16":
-		*c = "BIC educational purpose qualifier"
-	case "17":
-		*c = "BIC reading level and special interest qualifier"
-	case "18":
-		*c = "DDC-Sachgruppen der Deutschen Nationalbibliografie"
-	case "19":
-		*c = "LC fiction genre heading"
-	case "20":
-		*c = "Keywords"
-	case "21":
-		*c = "BIC children’s book marketing category"
-	case "22":
-		*c = "BISAC Merchandising Theme"
-	case "23":
-		*c = "Publisher’s own category code"
-	case "24":
-		*c = "Proprietary subject scheme"
-	case "25":
-		*c = "Tabla de materias ISBN"
-	case "26":
-		*c = "Warengruppen-Systematik des deutschen Buchhandels"
-	case "27":
-		*c = "SWD"
-	case "93":
-		*c = "Thema subject category"
-	default:
-		return fmt.Errorf("undefined code has been passed, got [%s]. See ONIX_for_Books_Release2-1_rev03_docs+codes_Issue_36/codelists/onix-codelist-26.htm", v)
 	}
 	return nil
 }

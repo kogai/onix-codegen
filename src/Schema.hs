@@ -2,86 +2,83 @@
 
 module Schema where
 
--- import Code (code, codeType, codeTypes)
-
-import Data.Maybe (fromMaybe, listToMaybe)
+import Code (Code, CodeType, CodeTypes, code, codeType, codeTypes)
 import Data.Text (Text, pack)
 import qualified Data.Text as T
-import Debug.Trace (trace)
-import Flow
 import qualified Text.XML as XML
 import Text.XML.Cursor
+
+type ReferenceName = Text
+
+type ListName = Text
+
+type ReferenceNameAndListName = (ReferenceName, ListName)
 
 name :: String -> XML.Name
 name x = XML.Name (pack x) (Just "http://www.w3.org/2001/XMLSchema") (Just "xs")
 
-isStartWith :: Text -> Cursor -> Bool
-isStartWith s c =
-  let attrs = attribute "name" c
-   in any (T.isPrefixOf s) attrs
-
-findReferenceName :: Text -> Cursor -> Maybe Text
-findReferenceName listName root =
-  let xs =
-        root
-          $// ( element (name "extension")
-                  >=> attributeIs "base" listName
-                  &// content
+referenceNames :: Cursor -> [ReferenceNameAndListName]
+referenceNames rootOfRef =
+  let ys =
+        rootOfRef
+          $// ( element (name "element")
+                  >=> check (hasAttribute "name")
+                  &// element (name "simpleContent")
+                  &// element (name "extension")
+                  >=> check
+                    ( \c ->
+                        let attrs = attribute "base" c
+                         in any (T.isPrefixOf "List") attrs
+                    )
               )
-      _ys = trace "query=" (root $// element (name "extension"))
-   in listToMaybe xs
+      zs =
+        map
+          ( \c ->
+              let listName = attribute "base" c
+                  attr =
+                    c
+                      $// ( element (name "attribute")
+                              >=> check (attributeIs "name" "refname")
+                              >=> attribute "fixed"
+                          )
+               in (T.concat attr, T.concat listName)
+          )
+          ys
+   in zs
 
--- <xs:extension base="List44">
--- 	<xs:attribute name="refname" type="xs:NMTOKEN" fixed="AddresseeIDType"/>
--- 	<xs:attribute name="shortname" type="xs:NMTOKEN" fixed="m380"/>
--- 	<xs:attributeGroup ref="generalAttributes"/>
+establishCodes :: Cursor -> [Code]
+establishCodes simpleType =
+  let enumerations = simpleType $// element (name "enumeration")
+   in map
+        ( \e ->
+            let value = T.concat $ attribute "value" e
+                docs = e $// element (name "documentation") &// content
+             in code value (head docs) (last docs)
+        )
+        enumerations
 
-readSchema :: IO ()
+establishCodeType :: ReferenceNameAndListName -> Cursor -> CodeType
+establishCodeType (refNm, _listNm) simpleType =
+  let docWithSrc = element (name "documentation") >=> check (hasAttribute "source")
+      description1 = T.concat $ simpleType $// docWithSrc >=> attribute "source"
+      description2 = T.concat $ simpleType $// docWithSrc &// content
+      description = T.concat [description1, " ", description2]
+   in codeType refNm description $ establishCodes simpleType
+
+findSimpleTypeBy :: Text -> Cursor -> [Cursor]
+findSimpleTypeBy listNm = element (name "simpleType") >=> check (attributeIs "name" listNm)
+
+readSchema :: IO CodeTypes
 readSchema = do
   xmlCodeLists <- XML.readFile XML.def "./2_1_rev03_schema/ONIX_BookProduct_CodeLists.xsd"
   xmlReference <- XML.readFile XML.def "./2_1_rev03_schema/ONIX_BookProduct_Release2.1_reference.xsd"
-  let rootofCodeLists = fromDocument xmlCodeLists
+  let rootOfCodeLists = fromDocument xmlCodeLists
       rootOfRef = fromDocument xmlReference
-      query =
-        rootofCodeLists
-          $// ( element (name "simpleType")
-                  >=> check (isStartWith "List")
-              )
-      codeTypes_ =
-        query
-          |> map
-            ( \c ->
-                let listName = c |> attribute "name" |> T.concat
-                    description1 =
-                      T.concat $
-                        c $// element (name "documentation")
-                          >=> check (hasAttribute "source")
-                          >=> attribute "source"
-                    description2 =
-                      T.concat $
-                        c $// element (name "documentation")
-                          >=> check (hasAttribute "source")
-                          &// content
-                    _description = T.concat [description1, " ", description2]
-                 in [fromMaybe "" (findReferenceName listName rootOfRef)]
-            )
-      ys =
-        rootOfRef
-          $// ( element (name "extension")
-                  >=> check (attributeIs "base" "List44")
-                  -- >=> attribute "base"
-              )
-
-  -- f = map (attribute "name")
-  -- listIDs = query >>= f
-  -- cursor $// element "h2"
-  --      >=> attributeIs "class" "bar"
-  --      >=> precedingSibling
-  --      >=> element "h1"
-  --      &// content
-  print $ length query
-  -- print $ map (attribute "name") query
-  print ys
-  print $ length ys
-  print codeTypes_
-  print $ length codeTypes_
+      codeLists =
+        map
+          ( \(refNm, listNm) ->
+              let sympleTypes = head $ rootOfCodeLists $// findSimpleTypeBy listNm
+               in establishCodeType (refNm, listNm) sympleTypes
+          )
+          (referenceNames rootOfRef)
+  return $ codeTypes codeLists

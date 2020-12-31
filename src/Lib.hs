@@ -10,9 +10,9 @@ module Lib
   )
 where
 
-import qualified Code as C
+-- import qualified Code as C
 import Control.Exception (Exception, throw)
-import Data.HashMap.Strict (HashMap)
+-- import Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as HM
 import Data.Text (Text, pack, unpack)
 import Data.Typeable (Typeable)
@@ -21,6 +21,7 @@ import Data.Yaml (FromJSON (..))
 import qualified Data.Yaml as Y
 -- import qualified Data.Yaml.Aeson as A
 import GHC.Generics
+import qualified Schema as S
 import Text.Mustache
 import qualified Text.Mustache.Types as MT
 
@@ -96,7 +97,7 @@ instance ToMustache SchemaNode where
     let cdr = (MT.Array . fmap toMustache) children
      in toMustache $ HM.fromList [("body", toMustache body), ("children", cdr)]
 
-type Schema = HashMap Text SchemaNode
+-- type Schema = HashMap Text SchemaNode
 
 -- type Schema = Vector SchemaNode
 
@@ -120,10 +121,11 @@ compile r Go = do
       let name = n ++ ".mustache"
       compiled <- automaticCompile searchSpace name
       -- TODO: Use Either
-      yml <- Y.decodeFileThrow "./src/schema.yml"
-      codeYml <- Y.decodeFileThrow "./src/code.yml"
-      print (yml :: Schema)
-      let codeTypes = (codeYml :: C.CodeTypes)
+      -- yml <- Y.decodeFileThrow "./src/schema.yml"
+      codeTypes <- S.readSchema
+      -- Y.decodeFileThrow "./src/code.yml"
+      -- print (yml :: Schema)
+      -- let codeTypes = (codeYml :: C.CodeTypes)
       print codeTypes
       -- C.codeTypes
       --   [ C.codeType
