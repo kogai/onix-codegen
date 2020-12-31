@@ -16,15 +16,15 @@ type Header struct {
 
 // Productidentifier is not documented yet.
 type Productidentifier struct {
-	ProductIDType ProductIDType `xml:"b221"`
-	IDValue       string        `xml:"b244"` // EAN
+	ProductIDType ProductIdentifierTypeCode `xml:"b221"`
+	IDValue       string                    `xml:"b244"` // EAN
 }
 
 // Productidentifiers is not documented yet.
 type Productidentifiers []Productidentifier
 
 // FindByIDType findx identifier by id-type.
-func (c *Productidentifiers) FindByIDType(idType ProductIDType) *string {
+func (c *Productidentifiers) FindByIDType(idType ProductIdentifierTypeCode) *string {
 	for _, p := range *c {
 		if p.ProductIDType == idType {
 			return &p.IDValue
@@ -68,43 +68,6 @@ type SupplyDetail struct {
 	ProductAvailability string `xml:"j396"`
 	PackQuantity        int    `xml:"j145"`
 	Prices              Prices `xml:"price"`
-}
-
-// MeasureTypeCode is not documented yet.
-type MeasureTypeCode string
-
-// UnmarshalXML is not documented yet.
-func (c *MeasureTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	// TODO: Define as enum
-	case "01":
-		*c = "Height"
-	case "02":
-		*c = "Width"
-	case "03":
-		*c = "Thickness"
-	case "04":
-		*c = "Page trim height"
-	case "05":
-		*c = "Page trim width"
-	case "08":
-		*c = "Unit weight"
-	case "09":
-		*c = "Diameter (sphere)"
-	case "10":
-		*c = "Unfolded/unrolled sheet height"
-	case "11":
-		*c = "Unfolded/unrolled sheet width"
-	case "12":
-		*c = "Diameter (tube or cylinder)"
-	case "13":
-		*c = "Rolled sheet package side measure"
-	default:
-		return fmt.Errorf("undefined code has been passed, got [%s]", v)
-	}
-	return nil
 }
 
 // Measure is not documented yet.

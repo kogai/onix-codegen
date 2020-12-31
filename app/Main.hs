@@ -1,7 +1,11 @@
 module Main where
 
-import Lib
+-- import Lib
+import Schema
 
 main :: IO ()
 main =
-  render Go
+  readSchema
+
+-- main =
+--   render Go

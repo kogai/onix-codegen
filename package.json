@@ -7,7 +7,9 @@
     "test": "test"
   },
   "dependencies": {
-    "mustache": "^4.1.0"
+    "mustache": "^4.1.0",
+    "xmldom": "^0.4.0",
+    "xpath": "0.0.32"
   },
   "devDependencies": {
     "@bazel/bazelisk": "1.7.3",

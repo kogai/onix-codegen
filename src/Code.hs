@@ -4,7 +4,7 @@
 
 module Code (code, codeType, codeTypes, CodeTypes) where
 
-import Data.Text
+import Data.Text (Text, pack)
 import Data.Vector (Vector, fromList)
 import qualified Data.Yaml.Aeson as A
 import GHC.Generics
@@ -56,11 +56,11 @@ instance ToMustache CodeType where
         pack "codes" ~> toMustache codes
       ]
 
-codeType :: String -> String -> [Code] -> CodeType
+codeType :: Text -> Text -> [Code] -> CodeType
 codeType n d cs =
   CodeType
-    { xmlReferenceName = pack n,
-      description = pack d,
+    { xmlReferenceName = n,
+      description = d,
       codes = fromList cs
     }
 
