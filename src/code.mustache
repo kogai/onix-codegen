@@ -16,9 +16,10 @@ func (c *{{xmlReferenceName}}) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 	d.DecodeElement(&v, &start)
 	switch v {
   {{#codes}}
+
   // {{&notes}}
   case "{{value}}":
-		*c = "{{description}}"
+		*c = `{{description}}`
   {{/codes}}
 	default:
 		return fmt.Errorf("undefined code for {{xmlReferenceName}} has been passed, got [%s]", v)

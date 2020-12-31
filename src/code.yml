@@ -1497,9 +1497,7 @@
         suffocate on uninflated or broken balloons. Adult supervision
 
         \t\t\t\t\trequired | Keep uninflated balloons from children.
-        Discard broken balloons at once.
-
-        \t\t\t\t"
+        Discard broken balloons at once."
       'notes': 'List withdrawn – use List 143'
     - 'value': '05'
       'description': 'WARNING: CHOKING HAZARD – This toy is a marble | Not for
@@ -1596,9 +1594,7 @@
         suffocate on uninflated or broken balloons. Adult supervision
 
         \t\t\t\t\trequired | Keep uninflated balloons from children.
-        Discard broken balloons at once.
-
-        \t\t\t\t"
+        Discard broken balloons at once."
       'notes': 'Required on applicable products sold in the US'
     - 'value': '03'
       'description': 'WARNING: CHOKING HAZARD – This toy is a small ball | Not for
@@ -2393,7 +2389,7 @@
     - 'value': '08'
       'description': 'Citizen of'
       'notes': 'Or nationality. For use with country codes only'
-- 'xmlReferenceName': 'Illustrated /NotIllustrated'
+- 'xmlReferenceName': 'IllustratedNotIllustrated'
   'description': 'List 152: Illustrated / not illustrated'
   'codes':
     - 'value': '01'
@@ -4503,7 +4499,7 @@
       'description': 'Windows Phone 7'
       'notes': 'A proprietary operating system supplied by Microsoft for mobile
         devices, successor to Windows Mobile'
-- 'xmlReferenceName': 'Person /OrganizationDateRole'
+- 'xmlReferenceName': 'PersonOrganizationDateRole'
   'description': 'List 177: Person / organization date role'
   'codes':
     - 'value': '50'
@@ -4629,7 +4625,7 @@
       'description': 'Finnish Miki Book price code'
       'notes': 'Price Code scheme for Finnish Miki Books (Miki-kirjojen hintaryhmä).
         Price codes expressed as an integer 1–n in <PriceCode>'
-- 'xmlReferenceName': 'Person /OrganizationNameType'
+- 'xmlReferenceName': 'PersonOrganizationNameType'
   'description': 'List 18: Person / organization name type'
   'codes':
     - 'value': '00'
@@ -4699,7 +4695,7 @@
       'notes': 'Declaration of Conformity (the document that backs up the CE mark)
         available online, typically as a PDF file or similar.
         <ProductFormFeatureDescription> must carry the URL of the document'
-- 'xmlReferenceName': 'UnnamedPerson(s)'
+- 'xmlReferenceName': 'UnnamedPersons'
   'description': 'List 19: Unnamed person(s)'
   'codes':
     - 'value': '01'
@@ -5477,7 +5473,7 @@
         unrecoverable error due to not meeting the requirements of the standard.
         The entire ONIX record has been rejected (or the entire message, if used
         within <MessageStatusDetail>)'
-- 'xmlReferenceName': 'Message /RecordStatusDetailCode'
+- 'xmlReferenceName': 'MessageRecordStatusDetailCode'
   'description': 'List 225: Message / Record status detail code'
   'codes':
     - 'value': '000'
@@ -5587,7 +5583,7 @@
     - 'value': '01'
       'description': 'Proprietary'
       'notes': 'Note that <IDTypeName> is required with proprietary identifiers'
-- 'xmlReferenceName': 'GenderCode  basedOnIso5218'
+- 'xmlReferenceName': 'GenderCodeBasedOnIso5218'
   'description': 'List 229: Gender code – based on ISO 5218'
   'codes':
     - 'value': 'u'
@@ -7334,7 +7330,7 @@
     - 'value': '06'
       'description': 'filename'
       'notes': ''
-- 'xmlReferenceName': 'Image/audio/videoFileTypeCode'
+- 'xmlReferenceName': 'ImageaudiovideoFileTypeCode'
   'description': 'List 38: Image/audio/video file type code'
   'codes':
     - 'value': '01'
@@ -7467,7 +7463,7 @@
     - 'value': '52'
       'description': 'Application: promotional material'
       'notes': ''
-- 'xmlReferenceName': 'Image/audio/videoFileFormatCode'
+- 'xmlReferenceName': 'ImageaudiovideoFileFormatCode'
   'description': 'List 39: Image/audio/video file format code'
   'codes':
     - 'value': '02'
@@ -7527,7 +7523,7 @@
     - 'value': '20'
       'description': 'WebM'
       'notes': 'WebM container format (includes .webm and .mkv)'
-- 'xmlReferenceName': 'Image/audio/videoFileLinkType'
+- 'xmlReferenceName': 'ImageaudiovideoFileLinkType'
   'description': 'List 40: Image/audio/video file link type'
   'codes':
     - 'value': '01'
@@ -9945,7 +9941,7 @@
     - 'value': '02'
       'description': 'Firm'
       'notes': ''
-- 'xmlReferenceName': 'TaxRate,Coded'
+- 'xmlReferenceName': 'TaxRateCoded'
   'description': 'List 62: Tax rate, coded'
   'codes':
     - 'value': 'H'
@@ -11049,7 +11045,7 @@
     - 'value': '45'
       'description': 'Publisher’s or third party website for permissions requests'
       'notes': 'For example, a service offering click-through licensing of extracts'
-- 'xmlReferenceName': 'LanguageCodeIso6392/b'
+- 'xmlReferenceName': 'LanguageCodeIso6392B'
   'description': 'List 74: Language code – ISO 639-2/B'
   'codes':
     - 'value': 'aar'
@@ -12602,7 +12598,7 @@
       'description': 'Blu-Ray region C'
       'notes': 'India, Bangladesh, Nepal, Mainland China, Pakistan, Russia, Ukraine,
         Belarus, Central, and South Asia'
-- 'xmlReferenceName': 'UsAndCanada (excludingQuébec)SchoolOrCollegeGrade'
+- 'xmlReferenceName': 'UsAndCanadaExcludingQuébecSchoolOrCollegeGrade'
   'description': 'List 77: US and Canada (excluding Québec) school or college grade'
   'codes':
     - 'value': 'P'

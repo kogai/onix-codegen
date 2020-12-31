@@ -27,9 +27,13 @@ const main = async () => {
       const codeDescription = parse(data)
         .querySelector(".listHeading")
         .text.replace("ONIX Code Lists Issue 36, January 2017", "");
+
       // TODO: codelist.html does not contain xmlReferenceName. maybe need to parse pdf?
       const xmlReferenceName = camelcase(
-        codeDescription.split(":")[1].replace("–", ""),
+        codeDescription
+          .split(":")[1]
+          .replace(/[–(),/]/g, "")
+          .replace(/\s\s/, " "),
         {
           pascalCase: true,
         }
@@ -43,7 +47,16 @@ const main = async () => {
           const [value, description, notes] = t.querySelectorAll("td");
           return {
             value: value.text,
-            description: description.text,
+            description: description.text.trimRight(),
+            // description: /^WARNING/.test(description.text)
+            //   ? camelcase(
+            //       description.text
+            //         .split("\n")
+            //         .map((s) => strip(s))
+            //         .join(" ")
+            //         .trimEnd()
+            //     )
+            //   : description.text,
             notes: notes.text
               .split("\n")
               .map((s) => strip(s))

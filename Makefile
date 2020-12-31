@@ -3,7 +3,7 @@ HS_FILES := $(shell find ./ -type f -name '*.hs' | grep -v '.stack-work')
 BZL_BIN := $(shell npx bazel info bazel-bin)
 
 .PHONY: run
-run: build
+run: build src/code.yml
 	stack exec onix-exe
 
 .stack-work: $(HS_FILES) package.yaml stack.yaml

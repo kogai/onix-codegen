@@ -2,7 +2,7 @@
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
 
-module Code (code, codeType, codeTypes) where
+module Code (code, codeType, codeTypes, CodeTypes) where
 
 import Data.Text
 import Data.Vector (Vector, fromList)
