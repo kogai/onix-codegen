@@ -24,19 +24,6 @@ func (c *Productidentifiers) FindByIDType(idType ProductIDType) *string {
 	return nil
 }
 
-// Price is not documented yet.
-type Price struct {
-	PriceTypeCode  string `xml:"j148"`
-	DiscountCodeds []struct {
-		DiscountCodeType     DiscountCodeType `xml:"j363"`
-		DiscountCodeTypeName string           `xml:"j378"`
-		DiscountCode         string           `xml:"j364"`
-	} `xml:"discountcoded"`
-	PriceAmount  float64 `xml:"j151"`
-	CurrencyCode string  `xml:"j152"`
-	CountryCode  string  `xml:"b251"`
-}
-
 // Prices is not documented yet.
 type Prices []Price
 
@@ -48,24 +35,6 @@ func (c *Prices) FindByType(ty string) *Price {
 		}
 	}
 	return nil
-}
-
-// SupplyDetail is not documented yet.
-type SupplyDetail struct {
-	SupplierName        string `xml:"j137"`
-	SupplierRole        string `xml:"j292"`
-	ReturnsCodeType     string `xml:"j268"`
-	ReturnsCode         string `xml:"j269"`
-	ProductAvailability string `xml:"j396"`
-	PackQuantity        int    `xml:"j145"`
-	Prices              Prices `xml:"price"`
-}
-
-// Measure is not documented yet.
-type Measure struct {
-	MeasureTypeCode MeasureTypeCode `xml:"c093"`
-	Measurement     float64         `xml:"c094"`
-	MeasureUnitCode string          `xml:"c095"`
 }
 
 const kirogramPerPound float64 = 0.4535924277
@@ -107,11 +76,6 @@ type Text struct {
 }
 
 // OtherText is not documented yet.
-type OtherText struct {
-	TextTypeCode TextTypeCode `xml:"d102"`
-	Text         Text         `xml:"d104"`
-}
-
 // OtherTexts is not documented yet.
 type OtherTexts []OtherText
 
@@ -125,14 +89,6 @@ func (c *OtherTexts) FindByType(ty TextTypeCode) *OtherText {
 	return nil
 }
 
-// Subject is not documented yet.
-type Subject struct {
-	SubjectSchemeIdentifier SubjectSchemeIdentifier `xml:"b067"`
-	SubjectSchemeName       string                  `xml:"b171,omitempty"`
-	SubjectCode             string                  `xml:"b069,omitempty"`
-	SubjectHeadingText      string                  `xml:"b070,omitempty"`
-}
-
 // Subjects is not documented yet.
 type Subjects []Subject
 
@@ -144,14 +100,6 @@ func (c *Subjects) FindByIDType(idType SubjectSchemeIdentifier) *Subject {
 		}
 	}
 	return nil
-}
-
-// Imprint is not documented yet.
-type Imprint struct {
-	NameCodeType     string `xml:"b241"`
-	NameCodeTypeName string `xml:"b242"`
-	NameCodeValue    string `xml:"b243"`
-	ImprintName      string `xml:"b079"`
 }
 
 // Imprints is not documented yet.
