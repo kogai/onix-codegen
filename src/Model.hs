@@ -3,6 +3,7 @@
 
 module Model (Kind (..), Models, Model, models, model, readSchema) where
 
+import Data.List (elemIndex)
 import Data.Text (Text, pack, unpack)
 import qualified Data.Text as T
 import Data.Vector (Vector, fromList)
@@ -22,7 +23,7 @@ name x = XML.Name (pack x) Nothing Nothing
 data Kind
   = Tag
   | Attribute
-  deriving (Generic, Show)
+  deriving (Generic, Show, Eq)
 
 instance FromJSON Kind where
   parseJSON = withText "kind" $ \t -> case unpack t of
@@ -39,17 +40,20 @@ data Model = Model
     xmlReferenceName :: Text,
     typeName :: Maybe Text,
     kind :: Kind,
+    optional :: Bool,
     elements :: [Model]
   }
-  deriving (Generic, Show)
+  deriving (Generic, Show, Eq)
 
 instance FromJSON Model
 
 instance ToMustache Model where
-  toMustache Model {shortname, xmlReferenceName, kind, elements, typeName} =
+  toMustache Model {shortname, xmlReferenceName, kind, elements, typeName, optional} =
     let typeName_ = case typeName of
           Nothing -> []
           Just t -> [pack "typeName" ~> t]
+        -- optional_ = if optional then [pack "optional" ~> optional] else []
+        optional_ = ([pack "optional" ~> optional | optional])
      in object $
           [ pack "shortname" ~> shortname,
             pack "xmlReferenceName" ~> xmlReferenceName,
@@ -57,9 +61,18 @@ instance ToMustache Model where
             pack "elements" ~> elements
           ]
             ++ typeName_
+            ++ optional_
 
-model :: Text -> Text -> Maybe Text -> Kind -> [Model] -> Model
-model shortname xmlReferenceName typeName kind elements = Model {shortname, xmlReferenceName, kind, elements, typeName}
+model :: Text -> Text -> Maybe Text -> Kind -> Bool -> [Model] -> Model
+model shortname xmlReferenceName typeName kind optional elements =
+  Model
+    { shortname,
+      xmlReferenceName,
+      kind,
+      elements,
+      typeName,
+      optional
+    }
 
 type Models = Vector Model
 
@@ -78,24 +91,42 @@ collectElements docOfRef =
               )
         )
 
+findFixedOf :: String -> Cursor -> [Text]
+findFixedOf s =
+  element (nameNs "attribute")
+    >=> check (attributeIs (name "name") (pack s))
+    >=> attribute (name "fixed")
+
+modelOfElement :: Cursor -> Cursor -> Model
+modelOfElement docOfRef c =
+  let ref = T.concat $ attribute (name "ref") c
+      shrtnm =
+        docOfRef $// element (nameNs "element") >=> check (attributeIs (name "name") ref)
+          |> map (\s -> s $// findFixedOf "shortname")
+          |> concat
+          |> T.concat
+   in model shrtnm ref (Just ref) Tag False []
+
+-- TODO: Branching by language
+-- Since the Go language does not have a sum type, all choices should be optional.
+modelsOfElement :: Cursor -> [Cursor] -> [Model]
+modelsOfElement docOfRef elements =
+  elements
+    |> map (modelOfElement docOfRef)
+    |> foldr
+      ( \x acc ->
+          case elemIndex x acc of
+            Just i -> x {optional = True} : drop i acc
+            Nothing -> x : acc
+      )
+      []
+
 tagElement :: Cursor -> Cursor -> Model
 tagElement docOfRef csr =
-  let findFixedOf s =
-        element (nameNs "attribute")
-          >=> check (attributeIs (name "name") (pack s))
-          >=> attribute (name "fixed")
-      xmlReferenceName = T.concat $ csr $// findFixedOf "refname"
+  let xmlReferenceName = T.concat $ csr $// findFixedOf "refname"
       shortname = T.concat $ csr $// findFixedOf "shortname"
       elements = csr $// element (nameNs "sequence") &// element (nameNs "element")
-      modelOfElement c =
-        let ref = T.concat $ attribute (name "ref") c
-            shrtnm =
-              docOfRef $// element (nameNs "element") >=> check (attributeIs (name "name") ref)
-                |> map (\s -> s $// findFixedOf "shortname")
-                |> concat
-                |> T.concat
-         in model shrtnm ref (Just ref) Tag []
-   in model shortname xmlReferenceName Nothing Tag (map modelOfElement elements)
+   in model shortname xmlReferenceName Nothing Tag False (modelsOfElement docOfRef elements)
 
 readSchema :: IO Models
 readSchema = do
@@ -104,6 +135,4 @@ readSchema = do
   let _docOfCodeLists = fromDocument xmlCodeLists
       docOfRef = fromDocument xmlReference
       targetElements = collectElements docOfRef
-  print $ length targetElements
-  print $ head targetElements
   return $ models $ map (tagElement docOfRef) targetElements
