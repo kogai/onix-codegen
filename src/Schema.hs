@@ -7,6 +7,18 @@ import Data.Text (Text, pack)
 import qualified Data.Text as T
 import qualified Text.XML as XML
 import Text.XML.Cursor
+  ( Cursor,
+    attribute,
+    attributeIs,
+    check,
+    content,
+    element,
+    fromDocument,
+    hasAttribute,
+    ($//),
+    (&//),
+    (>=>),
+  )
 
 type ReferenceName = Text
 

@@ -1,7 +1,4 @@
--- {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
--- {-# LANGUAGE GeneralizedNewtypeDeriving #-}
--- {-# LANGUAGE NamedFieldPuns #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 module Lib
@@ -14,14 +11,9 @@ where
 import Control.Exception (Exception, throw)
 import Data.Text (unpack)
 import Data.Typeable (Typeable)
--- import Data.Vector (Vector)
--- import Data.Yaml (FromJSON (..))
--- import qualified Data.Yaml as Y
--- import GHC.Generics
 import qualified Model as M
 import qualified Schema as S
 import Text.Mustache (automaticCompile, substitute)
--- import qualified Text.Mustache.Types as MT
 import Text.Parsec.Error (ParseError)
 
 data Language
@@ -62,29 +54,7 @@ compile r Go = do
         Model -> do
           let name = "model.mustache"
           compiled <- automaticCompile searchSpace name
-          let models =
-                M.models
-                  [ M.model
-                      ""
-                      "Onix"
-                      Nothing
-                      M.Tag
-                      [ M.model "ONIXmessage" "XMLName" (Just "xml.Name") M.Tag [],
-                        M.model "header" "Header" (Just "Header") M.Tag [],
-                        M.model "product" "Products" (Just "[]Product") M.Tag []
-                      ],
-                    M.model
-                      "header"
-                      "Header"
-                      Nothing
-                      M.Tag
-                      [ M.model "m174" "FromCompany" (Just "string") M.Tag [],
-                        M.model "m182" "SentDate" (Just "string") M.Tag [],
-                        M.model "m184" "DefaultLanguageOfText" (Just "string") M.Tag [],
-                        M.model "m185" "DefaultPriceTypeCode" (Just "string") M.Tag [],
-                        M.model "m186" "DefaultCurrencyCode" (Just "string") M.Tag []
-                      ]
-                  ]
+          models <- M.readSchema
           let txt =
                 ( case compiled of
                     Left err -> throw $ ParseErr err
