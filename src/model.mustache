@@ -5,12 +5,6 @@ import (
 	"fmt"
 )
 
-// Productidentifier is not documented yet.
-type Productidentifier struct {
-	ProductIDType ProductIDType `xml:"b221"`
-	IDValue       string        `xml:"b244"` // EAN
-}
-
 // Productidentifiers is not documented yet.
 type Productidentifiers []Productidentifier
 
@@ -69,13 +63,6 @@ func (c *Measures) FindByType(ty MeasureTypeCode) *Measure {
 	return nil
 }
 
-// Text is not documented yet.
-type Text struct {
-	Body       string     `xml:",cdata"`
-	TextFormat TextFormat `xml:"textformat,attr"`
-}
-
-// OtherText is not documented yet.
 // OtherTexts is not documented yet.
 type OtherTexts []OtherText
 
@@ -100,72 +87,6 @@ func (c *Subjects) FindByIDType(idType SubjectSchemeIdentifier) *Subject {
 		}
 	}
 	return nil
-}
-
-// Imprints is not documented yet.
-type Imprints = []Imprint
-
-// Product is not documented yet.
-type Product struct {
-	RecordReference       string             `xml:"a001"`
-	NotificationType      string             `xml:"a002"`
-	Productidentifiers    Productidentifiers `xml:"productidentifier"`
-	ProductForm           string             `xml:"b012"`
-	ProductFormDetail     []string           `xml:"b333"`
-	ProductClassification struct {
-		ProductClassificationType string `xml:"b274"`
-		ProductClassificationCode string `xml:"b275"`
-	} `xml:"productclassification"`
-	NoSeries BoolIfElementPresent `xml:"n338"`
-	Title    struct {
-		TextCase  string `xml:"textcase,attr"`
-		Language  string `xml:"language,attr"`
-		TitleType string `xml:"b202"`
-		TitleText string `xml:"b203"`
-		Subtitle  string `xml:"b029,omitempty"`
-	} `xml:"title"`
-	Contributor struct {
-		ContributorRole  string `xml:"b035"`
-		NamesBeforeKey   string `xml:"b039"`
-		KeyNames         string `xml:"b040"`
-		BiographicalNote string `xml:"b044"`
-	} `xml:"contributor"`
-	Language struct {
-		LanguageRole string `xml:"b253"`
-		LanguageCode string `xml:"b252"`
-	} `xml:"language"`
-	NumberOfPages    int    `xml:"b061"`
-	BASICMainSubject string `xml:"b064"`
-	MainSubject      struct {
-		MainSubjectSchemeIdentifier int    `xml:"b191"`
-		SubjectCode                 string `xml:"b069"`
-		SubjectHeadingText          string `xml:"b070"`
-	} `xml:"mainsubject"`
-	Subjects     Subjects   `xml:"subject"`
-	AudienceCode string     `xml:"b073"`
-	OtherTexts   OtherTexts `xml:"othertext"`
-	Imprints     Imprints   `xml:"imprint"`
-	Publisher    struct {
-		PublishingRole string `xml:"b291"`
-		PublisherName  string `xml:"b081"`
-	} `xml:"publisher"`
-	PublishingStatus struct {
-		Body      string `xml:",innerxml"`
-		Datestamp string `xml:"datestamp,attr"`
-	} `xml:"b394"`
-	PublicationDate string `xml:"b003"`
-	SalesRights     []struct {
-		SalesRightsType string `xml:"b089"`
-		RightsCountry   string `xml:"b090"`
-		RightsTerritory string `xml:"b388"`
-	} `xml:"salesrights"`
-	Measures        Measures `xml:"measure"`
-	RelatedProducts []struct {
-		RelationCode      string              `xml:"h208"`
-		Productidentifier []Productidentifier `xml:"productidentifier"`
-		ProductForm       string              `xml:"b012"`
-	} `xml:"relatedproduct"`
-	SupplyDetail SupplyDetail `xml:"supplydetail"`
 }
 
 // BoolIfElementPresent represent whether exsits self-closing tag.
