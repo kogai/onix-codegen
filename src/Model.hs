@@ -85,7 +85,11 @@ tagElement csr =
           >=> attribute (name "fixed")
       xmlReferenceName = T.concat $ csr $// findFixedOf "refname"
       shortname = T.concat $ csr $// findFixedOf "shortname"
-   in model shortname xmlReferenceName Nothing Tag []
+      elements = csr $// element (nameNs "sequence") &// element (nameNs "element")
+      modelOfElement c =
+        let ref = T.concat $ attribute (name "ref") c
+         in model (pack "product") ref (Just $ pack "string") Tag []
+   in model shortname xmlReferenceName Nothing Tag (map modelOfElement elements)
 
 readSchema :: IO Models
 readSchema = do
