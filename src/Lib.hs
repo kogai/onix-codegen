@@ -65,14 +65,24 @@ compile r Go = do
           let models =
                 M.models
                   [ M.model
+                      ""
+                      "Onix"
+                      Nothing
+                      M.Tag
+                      [ M.model "ONIXmessage" "XMLName" (Just "xml.Name") M.Tag [],
+                        M.model "header" "Header" (Just "Header") M.Tag [],
+                        M.model "product" "Products" (Just "[]Product") M.Tag []
+                      ],
+                    M.model
                       "header"
                       "Header"
+                      Nothing
                       M.Tag
-                      [ M.model "m174" "FromCompany" M.Tag [],
-                        M.model "m182" "SentDate" M.Tag [],
-                        M.model "m184" "DefaultLanguageOfText" M.Tag [],
-                        M.model "m185" "DefaultPriceTypeCode" M.Tag [],
-                        M.model "m186" "DefaultCurrencyCode" M.Tag []
+                      [ M.model "m174" "FromCompany" (Just "string") M.Tag [],
+                        M.model "m182" "SentDate" (Just "string") M.Tag [],
+                        M.model "m184" "DefaultLanguageOfText" (Just "string") M.Tag [],
+                        M.model "m185" "DefaultPriceTypeCode" (Just "string") M.Tag [],
+                        M.model "m186" "DefaultCurrencyCode" (Just "string") M.Tag []
                       ]
                   ]
           let txt =

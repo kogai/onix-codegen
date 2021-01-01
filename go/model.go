@@ -233,6 +233,13 @@ func (c *BoolIfElementPresent) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 }
 
 
+// Onix is not documented.
+type Onix struct {
+	XMLName xml.Name `xml:"ONIXmessage"` 
+	Header Header `xml:"header"` 
+	Products []Product `xml:"product"` 
+}
+
 // Header is not documented.
 type Header struct {
 	FromCompany string `xml:"m174"` 
@@ -240,11 +247,4 @@ type Header struct {
 	DefaultLanguageOfText string `xml:"m184"` 
 	DefaultPriceTypeCode string `xml:"m185"` 
 	DefaultCurrencyCode string `xml:"m186"` 
-}
-
-// Onix is not documented yet.
-type Onix struct {
-	XMLName  xml.Name  `xml:"ONIXmessage"`
-	Header   Header    `xml:"header"`
-	Products []Product `xml:"product"`
 }

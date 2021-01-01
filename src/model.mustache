@@ -237,14 +237,7 @@ func (c *BoolIfElementPresent) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 // {{xmlReferenceName}} is not documented.
 type {{xmlReferenceName}} struct {
   {{#elements}}
-	{{xmlReferenceName}} string `xml:"{{shortname}}"` {{@index}}
+	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}}"` {{@index}}
   {{/elements}}
 }
 {{/.}}
-
-// Onix is not documented yet.
-type Onix struct {
-	XMLName  xml.Name  `xml:"ONIXmessage"`
-	Header   Header    `xml:"header"`
-	Products []Product `xml:"product"`
-}
