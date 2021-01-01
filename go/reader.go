@@ -8,13 +8,13 @@ import (
 )
 
 // Read read ONIX for Books 2.1 format file.
-func Read(input string) (*Onix, error) {
+func Read(input string) (*ONIXMessage, error) {
 	file, err := ioutil.ReadFile(input)
 	if err != nil {
 		return nil, err
 	}
 
-	var data Onix
+	var data ONIXMessage
 	decoder := xml.NewDecoder(bytes.NewReader(file))
 	decoder.CharsetReader = func(label string, input io.Reader) (io.Reader, error) {
 		return input, nil

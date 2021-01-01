@@ -5,7 +5,6 @@ import (
 	"fmt"
 )
 
-
 // AddresseeIDType ONIX Code List 44 Name code type
 type AddresseeIDType string
 

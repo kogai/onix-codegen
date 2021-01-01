@@ -5,21 +5,6 @@ import (
 	"fmt"
 )
 
-// Header is not documented yet.
-type Header struct {
-	FromCompany           string `xml:"m174"`
-	SentDate              string `xml:"m182"`
-	DefaultLanguageOfText string `xml:"m184"`
-	DefaultPriceTypeCode  string `xml:"m185"`
-	DefaultCurrencyCode   string `xml:"m186"`
-}
-
-// Productidentifier is not documented yet.
-type Productidentifier struct {
-	ProductIDType ProductIDType `xml:"b221"`
-	IDValue       string        `xml:"b244"` // EAN
-}
-
 // Productidentifiers is not documented yet.
 type Productidentifiers []Productidentifier
 
@@ -33,19 +18,6 @@ func (c *Productidentifiers) FindByIDType(idType ProductIDType) *string {
 	return nil
 }
 
-// Price is not documented yet.
-type Price struct {
-	PriceTypeCode  string `xml:"j148"`
-	DiscountCodeds []struct {
-		DiscountCodeType     DiscountCodeType `xml:"j363"`
-		DiscountCodeTypeName string           `xml:"j378"`
-		DiscountCode         string           `xml:"j364"`
-	} `xml:"discountcoded"`
-	PriceAmount  float64 `xml:"j151"`
-	CurrencyCode string  `xml:"j152"`
-	CountryCode  string  `xml:"b251"`
-}
-
 // Prices is not documented yet.
 type Prices []Price
 
@@ -57,61 +29,6 @@ func (c *Prices) FindByType(ty string) *Price {
 		}
 	}
 	return nil
-}
-
-// SupplyDetail is not documented yet.
-type SupplyDetail struct {
-	SupplierName        string `xml:"j137"`
-	SupplierRole        string `xml:"j292"`
-	ReturnsCodeType     string `xml:"j268"`
-	ReturnsCode         string `xml:"j269"`
-	ProductAvailability string `xml:"j396"`
-	PackQuantity        int    `xml:"j145"`
-	Prices              Prices `xml:"price"`
-}
-
-// MeasureTypeCode is not documented yet.
-type MeasureTypeCode string
-
-// UnmarshalXML is not documented yet.
-func (c *MeasureTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	// TODO: Define as enum
-	case "01":
-		*c = "Height"
-	case "02":
-		*c = "Width"
-	case "03":
-		*c = "Thickness"
-	case "04":
-		*c = "Page trim height"
-	case "05":
-		*c = "Page trim width"
-	case "08":
-		*c = "Unit weight"
-	case "09":
-		*c = "Diameter (sphere)"
-	case "10":
-		*c = "Unfolded/unrolled sheet height"
-	case "11":
-		*c = "Unfolded/unrolled sheet width"
-	case "12":
-		*c = "Diameter (tube or cylinder)"
-	case "13":
-		*c = "Rolled sheet package side measure"
-	default:
-		return fmt.Errorf("undefined code has been passed, got [%s]", v)
-	}
-	return nil
-}
-
-// Measure is not documented yet.
-type Measure struct {
-	MeasureTypeCode MeasureTypeCode `xml:"c093"`
-	Measurement     float64         `xml:"c094"`
-	MeasureUnitCode string          `xml:"c095"`
 }
 
 const kirogramPerPound float64 = 0.4535924277
@@ -146,18 +63,6 @@ func (c *Measures) FindByType(ty MeasureTypeCode) *Measure {
 	return nil
 }
 
-// Text is not documented yet.
-type Text struct {
-	Body       string     `xml:",cdata"`
-	TextFormat TextFormat `xml:"textformat,attr"`
-}
-
-// OtherText is not documented yet.
-type OtherText struct {
-	TextTypeCode TextTypeCode `xml:"d102"`
-	Text         Text         `xml:"d104"`
-}
-
 // OtherTexts is not documented yet.
 type OtherTexts []OtherText
 
@@ -169,14 +74,6 @@ func (c *OtherTexts) FindByType(ty TextTypeCode) *OtherText {
 		}
 	}
 	return nil
-}
-
-// Subject is not documented yet.
-type Subject struct {
-	SubjectSchemeIdentifier SubjectSchemeIdentifier `xml:"b067"`
-	SubjectSchemeName       string                  `xml:"b171,omitempty"`
-	SubjectCode             string                  `xml:"b069,omitempty"`
-	SubjectHeadingText      string                  `xml:"b070,omitempty"`
 }
 
 // Subjects is not documented yet.
@@ -192,80 +89,6 @@ func (c *Subjects) FindByIDType(idType SubjectSchemeIdentifier) *Subject {
 	return nil
 }
 
-// Imprint is not documented yet.
-type Imprint struct {
-	NameCodeType     string `xml:"b241"`
-	NameCodeTypeName string `xml:"b242"`
-	NameCodeValue    string `xml:"b243"`
-	ImprintName      string `xml:"b079"`
-}
-
-// Imprints is not documented yet.
-type Imprints = []Imprint
-
-// Product is not documented yet.
-type Product struct {
-	RecordReference       string             `xml:"a001"`
-	NotificationType      string             `xml:"a002"`
-	Productidentifiers    Productidentifiers `xml:"productidentifier"`
-	ProductForm           string             `xml:"b012"`
-	ProductFormDetail     []string           `xml:"b333"`
-	ProductClassification struct {
-		ProductClassificationType string `xml:"b274"`
-		ProductClassificationCode string `xml:"b275"`
-	} `xml:"productclassification"`
-	NoSeries BoolIfElementPresent `xml:"n338"`
-	Title    struct {
-		TextCase  string `xml:"textcase,attr"`
-		Language  string `xml:"language,attr"`
-		TitleType string `xml:"b202"`
-		TitleText string `xml:"b203"`
-		Subtitle  string `xml:"b029,omitempty"`
-	} `xml:"title"`
-	Contributor struct {
-		ContributorRole  string `xml:"b035"`
-		NamesBeforeKey   string `xml:"b039"`
-		KeyNames         string `xml:"b040"`
-		BiographicalNote string `xml:"b044"`
-	} `xml:"contributor"`
-	Language struct {
-		LanguageRole string `xml:"b253"`
-		LanguageCode string `xml:"b252"`
-	} `xml:"language"`
-	NumberOfPages    int    `xml:"b061"`
-	BASICMainSubject string `xml:"b064"`
-	MainSubject      struct {
-		MainSubjectSchemeIdentifier int    `xml:"b191"`
-		SubjectCode                 string `xml:"b069"`
-		SubjectHeadingText          string `xml:"b070"`
-	} `xml:"mainsubject"`
-	Subjects     Subjects   `xml:"subject"`
-	AudienceCode string     `xml:"b073"`
-	OtherTexts   OtherTexts `xml:"othertext"`
-	Imprints     Imprints   `xml:"imprint"`
-	Publisher    struct {
-		PublishingRole string `xml:"b291"`
-		PublisherName  string `xml:"b081"`
-	} `xml:"publisher"`
-	PublishingStatus struct {
-		Body      string `xml:",innerxml"`
-		Datestamp string `xml:"datestamp,attr"`
-	} `xml:"b394"`
-	PublicationDate string `xml:"b003"`
-	SalesRights     []struct {
-		SalesRightsType string `xml:"b089"`
-		RightsCountry   string `xml:"b090"`
-		RightsTerritory string `xml:"b388"`
-	} `xml:"salesrights"`
-	Measures        Measures `xml:"measure"`
-	RelatedProducts []struct {
-		RelationCode      string              `xml:"h208"`
-		Productidentifier []Productidentifier `xml:"productidentifier"`
-		ProductForm       string              `xml:"b012"`
-	} `xml:"relatedproduct"`
-	SupplyDetail SupplyDetail `xml:"supplydetail"`
-}
-
 // BoolIfElementPresent represent whether exsits self-closing tag.
 type BoolIfElementPresent bool
 
@@ -278,10 +101,17 @@ func (c *BoolIfElementPresent) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 	return nil
 }
 
-// Onix is not documented yet.
-type Onix struct {
-	// {{ xmlName.description }}
-	{{ xmlName.xmlReferenceName }} {{ xmlName.model }} `xml:"{{ xmlName.key }}"`
-	Header   Header    `xml:"header"`
-	Products []Product `xml:"product"`
+{{#.}}
+
+// {{xmlReferenceName}} is not documented.
+type {{xmlReferenceName}} struct {
+{{#elements}}
+{{#optional}}
+	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}},omitempty"`
+{{/optional}}
+{{^optional}}
+	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}}"`
+{{/optional}}
+{{/elements}}
 }
+{{/.}}
