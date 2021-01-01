@@ -1,7 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE NamedFieldPuns #-}
 
-module Model (Kind (..), Models, Model, models, model, readSchema) where
+module Model (Kind (..), Models, Model, models, model, readSchema, dropDuplicate) where
 
 import Data.List (elemIndex)
 import Data.Text (Text, pack, unpack)
@@ -43,7 +43,12 @@ data Model = Model
     optional :: Bool,
     elements :: [Model]
   }
-  deriving (Generic, Show, Eq)
+  deriving (Generic, Show)
+
+instance Eq Model where
+  (==) a b =
+    shortname a == shortname b
+      && xmlReferenceName a == xmlReferenceName b
 
 instance FromJSON Model
 
@@ -52,16 +57,14 @@ instance ToMustache Model where
     let typeName_ = case typeName of
           Nothing -> []
           Just t -> [pack "typeName" ~> t]
-        -- optional_ = if optional then [pack "optional" ~> optional] else []
-        optional_ = ([pack "optional" ~> optional | optional])
      in object $
           [ pack "shortname" ~> shortname,
             pack "xmlReferenceName" ~> xmlReferenceName,
             pack "kind" ~> kind,
+            pack "optional" ~> optional,
             pack "elements" ~> elements
           ]
             ++ typeName_
-            ++ optional_
 
 model :: Text -> Text -> Maybe Text -> Kind -> Bool -> [Model] -> Model
 model shortname xmlReferenceName typeName kind optional elements =
@@ -107,19 +110,25 @@ modelOfElement docOfRef c =
           |> T.concat
    in model shrtnm ref (Just ref) Tag False []
 
+dropDuplicate :: [Model] -> [Model]
+dropDuplicate =
+  foldl
+    ( \acc x ->
+        case elemIndex x acc of
+          Just i ->
+            let (xs, ys) = splitAt i acc
+             in xs ++ [x {optional = True}] ++ tail ys
+          Nothing -> acc ++ [x]
+    )
+    []
+
 -- TODO: Branching by language
 -- Since the Go language does not have a sum type, all choices should be optional.
 modelsOfElement :: Cursor -> [Cursor] -> [Model]
 modelsOfElement docOfRef elements =
   elements
     |> map (modelOfElement docOfRef)
-    |> foldr
-      ( \x acc ->
-          case elemIndex x acc of
-            Just i -> x {optional = True} : drop i acc
-            Nothing -> x : acc
-      )
-      []
+    |> dropDuplicate
 
 tagElement :: Cursor -> Cursor -> Model
 tagElement docOfRef csr =

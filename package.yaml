@@ -68,3 +68,4 @@ tests:
     dependencies:
       - onix
       - HUnit == 1.6.1.0
+      - text == 1.2.4.0

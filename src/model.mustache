@@ -185,7 +185,12 @@ func (c *BoolIfElementPresent) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 // {{xmlReferenceName}} is not documented.
 type {{xmlReferenceName}} struct {
 {{#elements}}
+{{#optional}}
+	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}},omitempty"`
+{{/optional}}
+{{^optional}}
 	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}}"`
+{{/optional}}
 {{/elements}}
 }
 {{/.}}
