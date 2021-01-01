@@ -7,6 +7,7 @@ import Data.Text (Text, pack, unpack)
 import qualified Data.Text as T
 import Data.Vector (Vector, fromList)
 import Data.Yaml (FromJSON (..), withText)
+import Flow
 import GHC.Generics (Generic)
 import Text.Mustache (ToMustache (..), object, (~>))
 import qualified Text.XML as XML
@@ -77,8 +78,8 @@ collectElements docOfRef =
               )
         )
 
-tagElement :: Cursor -> Model
-tagElement csr =
+tagElement :: Cursor -> Cursor -> Model
+tagElement docOfRef csr =
   let findFixedOf s =
         element (nameNs "attribute")
           >=> check (attributeIs (name "name") (pack s))
@@ -88,7 +89,12 @@ tagElement csr =
       elements = csr $// element (nameNs "sequence") &// element (nameNs "element")
       modelOfElement c =
         let ref = T.concat $ attribute (name "ref") c
-         in model (pack "product") ref (Just $ pack "string") Tag []
+            shrtnm =
+              docOfRef $// element (nameNs "element") >=> check (attributeIs (name "name") ref)
+                |> map (\s -> s $// findFixedOf "shortname")
+                |> concat
+                |> T.concat
+         in model shrtnm ref (Just ref) Tag []
    in model shortname xmlReferenceName Nothing Tag (map modelOfElement elements)
 
 readSchema :: IO Models
@@ -98,29 +104,6 @@ readSchema = do
   let _docOfCodeLists = fromDocument xmlCodeLists
       docOfRef = fromDocument xmlReference
       targetElements = collectElements docOfRef
-  -- models_ =
-  --   models
-  --     [ model
-  --         ""
-  --         "Onix"
-  --         Nothing
-  --         Tag
-  --         [ model "ONIXmessage" "XMLName" (Just "xml.Name") Tag [],
-  --           model "header" "Header" (Just "Header") Tag [],
-  --           model "product" "Products" (Just "[]Product") Tag []
-  --         ],
-  --       model
-  --         "header"
-  --         "Header"
-  --         Nothing
-  --         Tag
-  --         [ model "m174" "FromCompany" (Just "string") Tag [],
-  --           model "m182" "SentDate" (Just "string") Tag [],
-  --           model "m184" "DefaultLanguageOfText" (Just "string") Tag [],
-  --           model "m185" "DefaultPriceTypeCode" (Just "string") Tag [],
-  --           model "m186" "DefaultCurrencyCode" (Just "string") Tag []
-  --         ]
-  --     ]
   print $ length targetElements
   print $ head targetElements
-  return $ models $ map tagElement targetElements
+  return $ models $ map (tagElement docOfRef) targetElements
