@@ -4,24 +4,19 @@
 module Model (Kind (..), Models, Model, models, model, readSchema) where
 
 import Data.Text (Text, pack, unpack)
+import qualified Data.Text as T
 import Data.Vector (Vector, fromList)
 import Data.Yaml (FromJSON (..), withText)
 import GHC.Generics (Generic)
 import Text.Mustache (ToMustache (..), object, (~>))
 import qualified Text.XML as XML
 import Text.XML.Cursor
-  ( -- ( Cursor,
-    --   attribute,
-    --   attributeIs,
-    --   check,
-    --   content,
-    --   element,
-    fromDocument,
-    -- hasAttribute,
-    -- ($//),
-    -- (&//),
-    -- (>=>),
-  )
+
+nameNs :: String -> XML.Name
+nameNs x = XML.Name (pack x) (Just $ pack "http://www.w3.org/2001/XMLSchema") (Just $ pack "xs")
+
+name :: String -> XML.Name
+name x = XML.Name (pack x) Nothing Nothing
 
 data Kind
   = Tag
@@ -70,12 +65,35 @@ type Models = Vector Model
 models :: [Model] -> Models
 models = fromList
 
+collectElements :: Cursor -> [Cursor]
+collectElements docOfRef =
+  docOfRef
+    $// ( element (nameNs "element")
+            >=> check (hasAttribute $ name "name")
+            >=> check
+              ( \csr ->
+                  let seqInChildren = csr $// element (nameNs "sequence")
+                   in not $ null seqInChildren
+              )
+        )
+
+tagElement :: Cursor -> Model
+tagElement csr =
+  let findFixedOf s =
+        element (nameNs "attribute")
+          >=> check (attributeIs (name "name") (pack s))
+          >=> attribute (name "fixed")
+      xmlReferenceName = T.concat $ csr $// findFixedOf "refname"
+      shortname = T.concat $ csr $// findFixedOf "shortname"
+   in model shortname xmlReferenceName Nothing Tag []
+
 readSchema :: IO Models
 readSchema = do
   xmlCodeLists <- XML.readFile XML.def "./2_1_rev03_schema/ONIX_BookProduct_CodeLists.xsd"
   xmlReference <- XML.readFile XML.def "./2_1_rev03_schema/ONIX_BookProduct_Release2.1_reference.xsd"
   let _docOfCodeLists = fromDocument xmlCodeLists
-      _docOfRef = fromDocument xmlReference
+      docOfRef = fromDocument xmlReference
+      targetElements = collectElements docOfRef
   -- models_ =
   --   models
   --     [ model
@@ -99,11 +117,6 @@ readSchema = do
   --           model "m186" "DefaultCurrencyCode" (Just "string") Tag []
   --         ]
   --     ]
-  -- codeLists =
-  --   map
-  --     ( \(refNm, listNm) ->
-  --         let sympleTypes = head $ rootOfCodeLists $// findSimpleTypeBy listNm
-  --          in establishCodeType (refNm, listNm) sympleTypes
-  --     )
-  --     (referenceNames rootOfRef)
-  return $ models []
+  print $ length targetElements
+  print $ head targetElements
+  return $ models $ map tagElement targetElements
