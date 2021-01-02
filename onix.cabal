@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 65348ddfe9107998d25fd61a1c01812344f7ebe3ec36d6459daf5c63d5d154ce
+-- hash: 501221ce1a6311b1dadb0466aa0b77cd358f3bb5cdb5f77743bc3f444ea5c617
 
 name:           onix
 version:        0.1.0.0
@@ -38,6 +38,7 @@ library
   ghc-options: -Wall -Werror -fwarn-incomplete-patterns -fwarn-incomplete-uni-patterns
   build-depends:
       base >=4.7 && <5
+    , containers ==0.6.2.1
     , flow ==1.0.21
     , mustache ==2.3.1
     , parsec ==3.1.14.0
@@ -45,6 +46,7 @@ library
     , unordered-containers ==0.2.10.0
     , vector ==0.12.1.2
     , xml-conduit ==1.9.0.0
+    , xsd-parser ==0.1.0.0
     , yaml ==0.11.5.0
   default-language: Haskell2010
 
