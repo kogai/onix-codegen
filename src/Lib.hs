@@ -8,13 +8,11 @@ module Lib
   )
 where
 
-import Control.Exception (Exception, throw)
 import Data.Text (unpack)
-import Data.Typeable (Typeable)
 import qualified Model as M
 import qualified Schema as S
 import Text.Mustache (automaticCompile, substitute)
-import Text.Parsec.Error (ParseError)
+import Util
 
 data Language
   = Go
@@ -26,15 +24,6 @@ data Renderer
   | Decoder
   | Reader
   deriving (Show)
-
--- instance Show Renderer =>
-data Empty
-  = Unimplemented
-  | Unreachable
-  | ParseErr ParseError
-  deriving (Show, Typeable)
-
-instance Exception Empty
 
 compile :: Renderer -> Language -> IO (Maybe String)
 compile _ TypeScript = throw Unimplemented
