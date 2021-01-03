@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:simpleType name="List1">
+    <xs:annotation>
+      <xs:documentation source="ONIX Code List 1">Notification or update type code</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="01">
+        <xs:annotation>
+          <xs:documentation>Early notification</xs:documentation>
+          <xs:documentation>Use for a complete record issued earlier than approximately six months before publication</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="02">
+        <xs:annotation>
+          <xs:documentation>Advance notification (confirmed)</xs:documentation>
+          <xs:documentation>Use for a complete record issued to confirm advance information approximately six months before publication; or for a complete record issued after that date and before information has been confirmed from the book-in-hand</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="03">
+        <xs:annotation>
+          <xs:documentation>Notification confirmed on publication</xs:documentation>
+          <xs:documentation>Use for a complete record issued to confirm advance information at or just before actual publication date; or for a complete record issued at any later date</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="04">
+        <xs:annotation>
+          <xs:documentation>Update (partial)</xs:documentation>
+          <xs:documentation>In ONIX 3.0 only, use when sending a ‘block update’ record. In previous ONIX releases, ONIX updating has generally been by complete record replacement using code 03, and code 04 is not used</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="05">
+        <xs:annotation>
+          <xs:documentation>Delete</xs:documentation>
+          <xs:documentation>Use when sending an instruction to delete a record which was previously issued. Note that a Delete instruction should NOT be used when a product is cancelled, put out of print, or otherwise withdrawn from sale: this should be handled as a change of Publishing status, leaving the receiver to decide whether to retain or delete the record. A Delete instruction is only used when there is a particular reason to withdraw a record completely, eg because it was issued in error</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="08">
+        <xs:annotation>
+          <xs:documentation>Notice of sale</xs:documentation>
+          <xs:documentation>Notice of sale of a product, from one publisher to another: sent by the publisher disposing of the product</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="09">
+        <xs:annotation>
+          <xs:documentation>Notice of acquisition</xs:documentation>
+          <xs:documentation>Notice of acquisition of a product, by one publisher from another: sent by the acquiring publisher</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="12">
+        <xs:annotation>
+          <xs:documentation>Update – SupplyDetail only</xs:documentation>
+          <xs:documentation>ONIX Books 2.1 supply update – &lt;SupplyDetail&gt; only (not used in ONIX 3.0)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="13">
+        <xs:annotation>
+          <xs:documentation>Update – MarketRepresentation only</xs:documentation>
+          <xs:documentation>ONIX Books 2.1 supply update – &lt;MarketRepresentation&gt; only (not used in ONIX 3.0)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="14">
+        <xs:annotation>
+          <xs:documentation>Update – SupplyDetail and MarketRepresentation</xs:documentation>
+          <xs:documentation>ONIX Books 2.1 supply update – both &lt;SupplyDetail&gt; and &lt;MarketRepresentation&gt; (not used in ONIX 3.0)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="88">
+        <xs:annotation>
+          <xs:documentation>Test update (Partial)</xs:documentation>
+          <xs:documentation>ONIX 3.0 only. Record may be processed for test purposes, but data should be discarded. Sender must ensure the &lt;RecordReference&gt; matches a previously-sent Test record</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="89">
+        <xs:annotation>
+          <xs:documentation>Test record</xs:documentation>
+          <xs:documentation>Record may be processed for test purposes, but data should be discarded. Sender must ensure the &lt;RecordReference&gt; does not match any previously-sent live product record</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

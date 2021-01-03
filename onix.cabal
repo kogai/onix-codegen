@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 6fd0b05199576f721edd60964ae7eedcb21eb7d94b09cf3929bef65007d4b593
+-- hash: 2716aaa5a2014e01a18398c7acc2bad747ae9228bbfe901778c3256ac0e32424
 
 name:           onix
 version:        0.1.0.0
@@ -76,6 +76,7 @@ test-suite onix-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      TestModel
       TestParser
       TestUtils
       Paths_onix
@@ -88,4 +89,5 @@ test-suite onix-test
     , containers ==0.6.2.1
     , onix
     , text ==1.2.4.0
+    , xml-conduit ==1.9.0.0
   default-language: Haskell2010

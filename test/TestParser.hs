@@ -91,11 +91,10 @@ expected =
     }
 
 tests =
-  TestList
-    [ TestCase
-        ( do
-            scm <- getSchema "./test/test_parser.xsd"
-            let actual = (head . map snd . M.toList . schemaElements) scm
-            assertEqual "dropDuplicate" expected actual
-        )
-    ]
+  [ TestCase
+      ( do
+          scm <- getSchema "./test/test_parser.xsd"
+          let actual = (head . map snd . M.toList . schemaElements) scm
+          assertEqual "dropDuplicate" expected actual
+      )
+  ]
