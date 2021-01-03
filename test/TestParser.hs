@@ -23,7 +23,37 @@ expected =
                     complexContent =
                       ContentPlain
                         ( PlainContent
-                            { plainContentModel = Just (Sequence []),
+                            { plainContentModel =
+                                Just
+                                  ( Sequence
+                                      [ Inline
+                                          ( ChoiceOfSequence
+                                              [ Inline
+                                                  ( ElementOfChoice
+                                                      [ Ref
+                                                          ( QName
+                                                              { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
+                                                                qnName = "Header"
+                                                              }
+                                                          )
+                                                      ]
+                                                  ),
+                                                Inline
+                                                  ( ElementOfChoice
+                                                      [ Ref
+                                                          ( QName
+                                                              { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
+                                                                qnName = "Product"
+                                                              }
+                                                          ),
+                                                        Ref (QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "MainSeriesRecord"}),
+                                                        Ref (QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "SubSeriesRecord"})
+                                                      ]
+                                                  )
+                                              ]
+                                          )
+                                      ]
+                                  ),
                               plainContentAttributes =
                                 [ InlineAttribute
                                     ( AttributeInline
@@ -66,6 +96,6 @@ tests =
         ( do
             scm <- getSchema "./test/test_parser.xsd"
             let actual = (head . map snd . M.toList . schemaElements) scm
-            assertEqual "dropDuplicate" actual expected
+            assertEqual "dropDuplicate" expected actual
         )
     ]

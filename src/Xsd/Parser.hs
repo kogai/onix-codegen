@@ -316,16 +316,40 @@ parseModelGroup c = do
   allAxis <- makeElemAxis "all"
   case (c $/ sequenceAxis, c $/ choiceAxis, c $/ allAxis) of
     ([], [], []) -> return Nothing
-    ([g], [], []) -> Just <$> parseSequence g
-    ([], [g], []) -> Just <$> parseChoice g
+    ([g], [], []) -> Just <$> (Xsd.Sequence <$> parseSequence g)
+    ([], [g], []) -> Just <$> (Xsd.Choice <$> parseChoice g)
     ([], [], [g]) -> Just <$> parseAll g
     _ -> parseError c "Multiple model groups"
 
-parseSequence :: Cursor -> P Xsd.ModelGroup
-parseSequence c = Xsd.Sequence <$> parseElements c
+flt :: [P [a]] -> P [a]
+flt [] = return []
+flt [x] = x
+flt (x : xs) = do
+  y <- x
+  (y ++) <$> flt xs
 
-parseChoice :: Cursor -> P Xsd.ModelGroup
-parseChoice c = Xsd.Choice <$> parseElements c
+parseSequence :: Cursor -> P [Xsd.RefOr Xsd.SequenceInChild]
+parseSequence c = do
+  choiceAxis <- makeElemAxis "choice"
+  elementAxis <- makeElemAxis "element"
+
+  let choices = (flt . map parseChoice) (c $/ choiceAxis)
+      elements_ = (flt . map parseElements) (c $/ elementAxis) -- TODO: May not work
+  choices' <- choices
+  elements' <- elements_
+
+  return $ case (choices', elements') of
+    ([], []) -> []
+    (xs, []) -> [Xsd.Inline $ Xsd.ChoiceOfSequence xs]
+    ([], xs) -> [Xsd.Inline $ Xsd.ElementOfSequence xs]
+    (xs, ys) -> [Xsd.Inline $ Xsd.ChoiceOfSequence xs, Xsd.Inline $ Xsd.ElementOfSequence ys]
+
+parseChoice :: Cursor -> P [Xsd.RefOr Xsd.ChoiceInChild]
+parseChoice c = do
+  elementAxis <- makeElemAxis "element"
+  case c $/ elementAxis of
+    [] -> return []
+    _ -> (: []) . Xsd.Inline . Xsd.ElementOfChoice <$> parseElements c
 
 parseAll :: Cursor -> P Xsd.ModelGroup
 parseAll c = Xsd.All <$> parseElements c
@@ -399,7 +423,7 @@ parseAnnotations c = do
 -- Section: parser entry points
 
 -- | Specifies modes of operation
-data Config = Config
+newtype Config = Config
   { -- | if not set, parser will check that all relevant xml nodes
     -- live is the correct XMLSchema namespace
     configIgnoreSchemaNamespace :: Bool

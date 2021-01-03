@@ -11,17 +11,6 @@ packages:
       sha256: c42729ab00656f53d6a1114cf498574c62a8c595fa3d877639b5179a70dc6c8d
   original:
     hackage: HUnit-1.6.1.0
-- completed:
-    name: xsd-parser
-    version: 0.1.0.0
-    git: https://github.com/typeable/xsd-parser.git
-    pantry-tree:
-      size: 4810413
-      sha256: 4667e0d16862c182eb86d1d78a9cc390cd6d3f0012fa48957db477efa80f3281
-    commit: e08a37cf08674a492407b9b7f4a61e8faedb1590
-  original:
-    git: https://github.com/typeable/xsd-parser.git
-    commit: e08a37cf08674a492407b9b7f4a61e8faedb1590
 snapshots:
 - completed:
     size: 533252
