@@ -10,7 +10,7 @@ run: build
 debug: build
 	stack exec --trace -- onix-exe +RTS -xc
 
-.PHONY: stack
+.PHONY: test
 test:
 	stack test --trace
 
@@ -21,7 +21,3 @@ build: .stack-work
 
 fixtures/20201200.json: run
 	go run github.com/kogai/onix/go/helper
-
-# src/code.yml: $(TS_FILES)
-# 	npx bazel run //:bin
-# 	cp $(BZL_BIN)/bin.sh.runfiles/__main__/code.yml src/code.yml

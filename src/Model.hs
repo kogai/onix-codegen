@@ -2,7 +2,7 @@
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE NamedFieldPuns #-}
 
-module Model (Kind (..), Models, Model, models, model, readSchema, dropDuplicate, typeToText) where
+module Model (Kind (..), Models, Model, models, model, readSchema, dropDuplicate, typeToText, content, findFixedOf, contentAttributes) where
 
 import Data.List (elemIndex, find)
 import qualified Data.Map as M

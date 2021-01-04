@@ -208,8 +208,8 @@ refOr f g ref = case ref of
   Ref name -> f name
   Inline t -> g t
 
-newtype Constraint
-  = Enumeration Text
+data Constraint
+  = Enumeration Text [Annotation]
   deriving (Show, Eq)
 
 data QName = QName
