@@ -131,5 +131,11 @@ tests =
           scm <- getSchema "./test/test_model_atom_ref_byname.xsd"
           let actual = (typeToText . head . map snd . M.toList . schemaTypes) scm
           assertEqual "can derive referenced type" "TerritoryCodeList" actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./test/test_model_atom_nonempty.xsd"
+          let actual = (typeToText . head . map snd . M.toList . schemaTypes) scm
+          assertEqual "can derive referenced type" "string" actual
       )
   ]

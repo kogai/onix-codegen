@@ -140,7 +140,9 @@ typeToText (X.TypeComplex X.ComplexType {X.complexContent}) = case complexConten
     let qnName = X.qnName simpleExtensionBase
      in if T.isPrefixOf (pack "List") qnName
           then unwrap $ findFixedOf "refname" simpleExtensionAttributes
-          else qnName
+          else case unpack qnName of
+            "NonEmptyString" -> configurableType
+            _ -> qnName
   X.ContentPlain (X.PlainContent _mdg annotations) -> fromMaybe configurableType $ findFixedOf "refname" annotations
   _ -> throw Unimplemented
 

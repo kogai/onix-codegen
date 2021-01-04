@@ -11,7 +11,7 @@ debug: build
 	stack exec --trace -- onix-exe +RTS -xc
 
 .PHONY: stack
-debug:
+test:
 	stack test --trace
 
 .stack-work: $(HS_FILES) package.yaml stack.yaml
