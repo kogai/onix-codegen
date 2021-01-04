@@ -76,6 +76,17 @@ type CodeTypes = Vector CodeType
 
 codeTypes :: [CodeType] -> CodeTypes
 codeTypes = fromList
+
+readSchema :: IO CodeTypes
+readSchema = do
+  xsd <- X.getSchema "./2_1_rev03_schema/ONIX_BookProduct_Release2.1_reference.xsd"
+  ( return
+      . codeTypes
+      . map (topLevelCodeType xsd)
+      . collectCodes
+    )
+    xsd
+
 typeAnnotations :: X.Type -> [X.Annotation]
 typeAnnotations ty =
   case ty of
@@ -83,6 +94,14 @@ typeAnnotations ty =
     (X.TypeSimple (X.ListType _ annotations)) -> annotations
     (X.TypeSimple (X.UnionType _ annotations)) -> annotations
     (X.TypeComplex X.ComplexType {X.complexAnnotations}) -> complexAnnotations
+
+typeConstraints :: X.Type -> [X.Constraint]
+typeConstraints ty =
+  case ty of
+    (X.TypeSimple (X.AtomicType X.SimpleRestriction {X.simpleRestrictionConstraints} _)) -> simpleRestrictionConstraints
+    (X.TypeSimple (X.ListType _ _)) -> []
+    (X.TypeSimple (X.UnionType _ _)) -> []
+    (X.TypeComplex X.ComplexType {X.complexAnnotations = _}) -> []
 
 topLevelCodeType :: X.Schema -> X.Element -> CodeType
 topLevelCodeType scm elm =
@@ -106,8 +125,20 @@ topLevelCodeType scm elm =
         Just t ->
           (T.intercalate (pack ". ") . map (\(X.Documentation x) -> x) . typeAnnotations) t
         Nothing -> pack ""
+      codes_ = case ty of
+        Just t ->
+          let constraints = typeConstraints t
+              enums =
+                map
+                  ( \(X.Enumeration v docs) ->
+                      let docs_ = map (\(X.Documentation d) -> d) docs
+                       in code v (head docs_) (last docs_)
+                  )
+                  constraints
+           in enums
+        Nothing -> []
       refname = unwrap $ findFixedOf "refname" plainContentAttributes
-   in codeType refname desc []
+   in codeType refname desc codes_
 
 collectCodes :: X.Schema -> [X.Element]
 collectCodes =

@@ -22,6 +22,7 @@ import qualified Data.Text as Text
 import Text.Read (readEither)
 import Text.XML
 import Text.XML.Cursor
+import Util
 import Xsd.Types (Xsd (Xsd))
 import qualified Xsd.Types as Xsd
 
@@ -201,7 +202,9 @@ parseConstrains :: Cursor -> P [Xsd.Constraint]
 parseConstrains c = do
   enumerationAxis <- makeElemAxis "enumeration"
   forM (c $/ enumerationAxis) $ \e -> do
-    Xsd.Enumeration <$> theAttribute "value" e
+    val <- theAttribute "value" e
+    cs <- parseAnnotations e
+    return $ Xsd.Enumeration val cs
 
 parseList :: Cursor -> P (Xsd.RefOr Xsd.SimpleType)
 parseList c =

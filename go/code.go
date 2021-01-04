@@ -5,7 +5,8 @@ import (
 	"fmt"
 )
 
-// AddresseeIDType ONIX Code List 44 Name code type
+
+// AddresseeIDType Name code type
 type AddresseeIDType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -143,7 +144,7 @@ func (c *AddresseeIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 	return nil
 }
 
-// AudienceCode ONIX Code List 28 Audience code
+// AudienceCode Audience code
 type AudienceCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -193,7 +194,7 @@ func (c *AudienceCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// AudienceCodeType ONIX Code List 29 Audience code type
+// AudienceCodeType Audience code type
 type AudienceCodeType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -323,7 +324,7 @@ func (c *AudienceCodeType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 	return nil
 }
 
-// AudienceRangePrecision ONIX Code List 31 Audience range precision
+// AudienceRangePrecision Audience range precision
 type AudienceRangePrecision string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -349,7 +350,7 @@ func (c *AudienceRangePrecision) UnmarshalXML(d *xml.Decoder, start xml.StartEle
 	return nil
 }
 
-// AudienceRangeQualifier ONIX Code List 30 Audience range qualifier
+// AudienceRangeQualifier Audience range qualifier
 type AudienceRangeQualifier string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -435,7 +436,7 @@ func (c *AudienceRangeQualifier) UnmarshalXML(d *xml.Decoder, start xml.StartEle
 	return nil
 }
 
-// AudienceRestrictionFlag ONIX Code List 56 Audience restriction flag
+// AudienceRestrictionFlag Audience restriction flag
 type AudienceRestrictionFlag string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -457,7 +458,7 @@ func (c *AudienceRestrictionFlag) UnmarshalXML(d *xml.Decoder, start xml.StartEl
 	return nil
 }
 
-// AvailabilityCode ONIX Code List 54 Availability status code
+// AvailabilityCode Availability status code
 type AvailabilityCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -563,7 +564,7 @@ func (c *AvailabilityCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 	return nil
 }
 
-// Barcode ONIX Code List 6 Barcode indicator
+// Barcode Barcode indicator
 type Barcode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -881,7 +882,7 @@ func (c *Barcode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	return nil
 }
 
-// BibleContents ONIX Code List 82 Bible contents
+// BibleContents Bible contents
 type BibleContents string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -963,7 +964,7 @@ func (c *BibleContents) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 	return nil
 }
 
-// BiblePurpose ONIX Code List 85 Bible purpose
+// BiblePurpose Bible purpose
 type BiblePurpose string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -1069,7 +1070,7 @@ func (c *BiblePurpose) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// BibleReferenceLocation ONIX Code List 87 Bible reference location
+// BibleReferenceLocation Bible reference location
 type BibleReferenceLocation string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -1107,7 +1108,7 @@ func (c *BibleReferenceLocation) UnmarshalXML(d *xml.Decoder, start xml.StartEle
 	return nil
 }
 
-// BibleTextFeature ONIX Code List 97 Bible text feature
+// BibleTextFeature Bible text feature
 type BibleTextFeature string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -1125,7 +1126,7 @@ func (c *BibleTextFeature) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 	return nil
 }
 
-// BibleTextOrganization ONIX Code List 86 Bible text organization
+// BibleTextOrganization Bible text organization
 type BibleTextOrganization string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -1159,7 +1160,7 @@ func (c *BibleTextOrganization) UnmarshalXML(d *xml.Decoder, start xml.StartElem
 	return nil
 }
 
-// BibleVersion ONIX Code List 83 Bible version
+// BibleVersion Bible version
 type BibleVersion string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -1453,7 +1454,7 @@ func (c *BibleVersion) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// BookFormDetail ONIX Code List 8 Book form detail
+// BookFormDetail Book form detail
 type BookFormDetail string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -1495,7 +1496,7 @@ func (c *BookFormDetail) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	return nil
 }
 
-// ComplexitySchemeIdentifier ONIX Code List 32 Complexity scheme identifier code
+// ComplexitySchemeIdentifier Complexity scheme identifier code
 type ComplexitySchemeIdentifier string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -1549,7 +1550,7 @@ func (c *ComplexitySchemeIdentifier) UnmarshalXML(d *xml.Decoder, start xml.Star
 	return nil
 }
 
-// ConferenceRole ONIX Code List 20 Event role
+// ConferenceRole Event role
 type ConferenceRole string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -1599,7 +1600,7 @@ func (c *ConferenceRole) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	return nil
 }
 
-// ConferenceSponsorIDType ONIX Code List 44 Name code type
+// ConferenceSponsorIDType Name code type
 type ConferenceSponsorIDType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -1737,7 +1738,7 @@ func (c *ConferenceSponsorIDType) UnmarshalXML(d *xml.Decoder, start xml.StartEl
 	return nil
 }
 
-// ContributorRole ONIX Code List 17 Contributor role code
+// ContributorRole Contributor role code
 type ContributorRole string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -2171,7 +2172,7 @@ func (c *ContributorRole) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 	return nil
 }
 
-// CopyrightOwnerIDType ONIX Code List 44 Name code type
+// CopyrightOwnerIDType Name code type
 type CopyrightOwnerIDType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -2309,7 +2310,7 @@ func (c *CopyrightOwnerIDType) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 	return nil
 }
 
-// CountryCode ONIX Code List 91 Country code – ISO 3166-1
+// CountryCode Country code – ISO 3166-1
 type CountryCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -3331,7 +3332,7 @@ func (c *CountryCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error
 	return nil
 }
 
-// CountryOfPublication ONIX Code List 91 Country code – ISO 3166-1
+// CountryOfPublication Country code – ISO 3166-1
 type CountryOfPublication string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -4353,7 +4354,7 @@ func (c *CountryOfPublication) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 	return nil
 }
 
-// CoverImageFormatCode ONIX Code List 36 Front cover image file format code
+// CoverImageFormatCode Front cover image file format code
 type CoverImageFormatCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -4379,7 +4380,7 @@ func (c *CoverImageFormatCode) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 	return nil
 }
 
-// CoverImageLinkTypeCode ONIX Code List 37 Front cover image file link type code
+// CoverImageLinkTypeCode Front cover image file link type code
 type CoverImageLinkTypeCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -4417,7 +4418,7 @@ func (c *CoverImageLinkTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartEle
 	return nil
 }
 
-// CurrencyCode ONIX Code List 96 Currency code – ISO 4217
+// CurrencyCode Currency code – ISO 4217
 type CurrencyCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -5203,7 +5204,7 @@ func (c *CurrencyCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// DateFormat ONIX Code List 55 Date format
+// DateFormat Date format
 type DateFormat string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -5293,7 +5294,7 @@ func (c *DateFormat) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 	return nil
 }
 
-// DefaultCurrencyCode ONIX Code List 96 Currency code – ISO 4217
+// DefaultCurrencyCode Currency code – ISO 4217
 type DefaultCurrencyCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -6079,7 +6080,7 @@ func (c *DefaultCurrencyCode) UnmarshalXML(d *xml.Decoder, start xml.StartElemen
 	return nil
 }
 
-// DefaultLanguageOfText ONIX Code List 74 Language code – ISO 639-2/B
+// DefaultLanguageOfText Language code – ISO 639-2/B
 type DefaultLanguageOfText string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -8085,7 +8086,7 @@ func (c *DefaultLanguageOfText) UnmarshalXML(d *xml.Decoder, start xml.StartElem
 	return nil
 }
 
-// DefaultLinearUnit ONIX Code List 94 Default linear unit
+// DefaultLinearUnit Default linear unit
 type DefaultLinearUnit string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -8111,7 +8112,7 @@ func (c *DefaultLinearUnit) UnmarshalXML(d *xml.Decoder, start xml.StartElement)
 	return nil
 }
 
-// DefaultPriceTypeCode ONIX Code List 58 Price type code
+// DefaultPriceTypeCode Price type code
 type DefaultPriceTypeCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -8233,7 +8234,7 @@ func (c *DefaultPriceTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 	return nil
 }
 
-// DefaultWeightUnit ONIX Code List 95 Default unit of weight
+// DefaultWeightUnit Default unit of weight
 type DefaultWeightUnit string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -8259,7 +8260,7 @@ func (c *DefaultWeightUnit) UnmarshalXML(d *xml.Decoder, start xml.StartElement)
 	return nil
 }
 
-// DeletionCode ONIX Code List 2 Product composition
+// DeletionCode Product composition
 type DeletionCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -8297,7 +8298,7 @@ func (c *DeletionCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// DiscountCodeType ONIX Code List 100 Discount code type
+// DiscountCodeType Discount code type
 type DiscountCodeType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -8335,7 +8336,7 @@ func (c *DiscountCodeType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 	return nil
 }
 
-// EditionTypeCode ONIX Code List 21 Edition type code
+// EditionTypeCode Edition type code
 type EditionTypeCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -8501,7 +8502,7 @@ func (c *EditionTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 	return nil
 }
 
-// EpubFormat ONIX Code List 11 Epublication format code
+// EpubFormat Epublication format code
 type EpubFormat string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -8559,7 +8560,7 @@ func (c *EpubFormat) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 	return nil
 }
 
-// EpubSource ONIX Code List 11 Epublication format code
+// EpubSource Epublication format code
 type EpubSource string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -8617,7 +8618,7 @@ func (c *EpubSource) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 	return nil
 }
 
-// EpubType ONIX Code List 10 Epublication type code
+// EpubType Epublication type code
 type EpubType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -8835,7 +8836,7 @@ func (c *EpubType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	return nil
 }
 
-// ExtentType ONIX Code List 23 Extent type code
+// ExtentType Extent type code
 type ExtentType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -8917,7 +8918,7 @@ func (c *ExtentType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 	return nil
 }
 
-// ExtentUnit ONIX Code List 24 Extent unit code
+// ExtentUnit Extent unit code
 type ExtentUnit string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -8979,7 +8980,7 @@ func (c *ExtentUnit) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 	return nil
 }
 
-// IllustrationType ONIX Code List 25 Illustration and other content type code
+// IllustrationType Illustration and other content type code
 type IllustrationType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -9113,7 +9114,7 @@ func (c *IllustrationType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 	return nil
 }
 
-// IntermediaryAvailabilityCode ONIX Code List 63 Intermediary supplier availability
+// IntermediaryAvailabilityCode Intermediary supplier availability
 type IntermediaryAvailabilityCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -9127,7 +9128,7 @@ func (c *IntermediaryAvailabilityCode) UnmarshalXML(d *xml.Decoder, start xml.St
 	return nil
 }
 
-// LanguageCode ONIX Code List 74 Language code – ISO 639-2/B
+// LanguageCode Language code – ISO 639-2/B
 type LanguageCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -11133,7 +11134,7 @@ func (c *LanguageCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// LanguageOfText ONIX Code List 74 Language code – ISO 639-2/B
+// LanguageOfText Language code – ISO 639-2/B
 type LanguageOfText string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -13139,7 +13140,7 @@ func (c *LanguageOfText) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	return nil
 }
 
-// LanguageRole ONIX Code List 22 Language role code
+// LanguageRole Language role code
 type LanguageRole string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -13201,7 +13202,7 @@ func (c *LanguageRole) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// LocationIDType ONIX Code List 92 Supplier identifier type
+// LocationIDType Supplier identifier type
 type LocationIDType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -13251,7 +13252,7 @@ func (c *LocationIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	return nil
 }
 
-// MainSubjectSchemeIdentifier ONIX Code List 26 Main subject scheme identifier code
+// MainSubjectSchemeIdentifier Main subject scheme identifier code
 type MainSubjectSchemeIdentifier string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -13673,7 +13674,7 @@ func (c *MainSubjectSchemeIdentifier) UnmarshalXML(d *xml.Decoder, start xml.Sta
 	return nil
 }
 
-// MeasureTypeCode ONIX Code List 48 Measure type code
+// MeasureTypeCode Measure type code
 type MeasureTypeCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -13731,7 +13732,7 @@ func (c *MeasureTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 	return nil
 }
 
-// MeasureUnitCode ONIX Code List 50 Measure unit code
+// MeasureUnitCode Measure unit code
 type MeasureUnitCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -13777,7 +13778,7 @@ func (c *MeasureUnitCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 	return nil
 }
 
-// MediaFileFormatCode ONIX Code List 39 Image/audio/video file format code
+// MediaFileFormatCode Image/audio/video file format code
 type MediaFileFormatCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -13867,7 +13868,7 @@ func (c *MediaFileFormatCode) UnmarshalXML(d *xml.Decoder, start xml.StartElemen
 	return nil
 }
 
-// MediaFileLinkTypeCode ONIX Code List 40 Image/audio/video file link type
+// MediaFileLinkTypeCode Image/audio/video file link type
 type MediaFileLinkTypeCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -13905,7 +13906,7 @@ func (c *MediaFileLinkTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElem
 	return nil
 }
 
-// MediaFileTypeCode ONIX Code List 38 Image/audio/video file type code
+// MediaFileTypeCode Image/audio/video file type code
 type MediaFileTypeCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -14079,7 +14080,7 @@ func (c *MediaFileTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement)
 	return nil
 }
 
-// NameCodeType ONIX Code List 44 Name code type
+// NameCodeType Name code type
 type NameCodeType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -14217,7 +14218,7 @@ func (c *NameCodeType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// NotificationType ONIX Code List 1 Notification or update type code
+// NotificationType Notification or update type code
 type NotificationType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -14279,7 +14280,7 @@ func (c *NotificationType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 	return nil
 }
 
-// OriginalLanguage ONIX Code List 74 Language code – ISO 639-2/B
+// OriginalLanguage Language code – ISO 639-2/B
 type OriginalLanguage string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -16285,7 +16286,7 @@ func (c *OriginalLanguage) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 	return nil
 }
 
-// PersonDateRole ONIX Code List 75 Person date role
+// PersonDateRole Person date role
 type PersonDateRole string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -16307,7 +16308,7 @@ func (c *PersonDateRole) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	return nil
 }
 
-// PersonNameIDType ONIX Code List 101 Person name identifier type
+// PersonNameIDType Person name identifier type
 type PersonNameIDType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -16341,7 +16342,7 @@ func (c *PersonNameIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 	return nil
 }
 
-// PersonNameType ONIX Code List 18 Person / organization name type
+// PersonNameType Person / organization name type
 type PersonNameType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -16383,7 +16384,7 @@ func (c *PersonNameType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	return nil
 }
 
-// PricePer ONIX Code List 60 Unit of pricing code
+// PricePer Unit of pricing code
 type PricePer string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -16405,7 +16406,7 @@ func (c *PricePer) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	return nil
 }
 
-// PriceQualifier ONIX Code List 59 Price type qualifier
+// PriceQualifier Price type qualifier
 type PriceQualifier string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -16487,7 +16488,7 @@ func (c *PriceQualifier) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	return nil
 }
 
-// PriceStatus ONIX Code List 61 Price status code
+// PriceStatus Price status code
 type PriceStatus string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -16513,7 +16514,7 @@ func (c *PriceStatus) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error
 	return nil
 }
 
-// PriceTypeCode ONIX Code List 58 Price type code
+// PriceTypeCode Price type code
 type PriceTypeCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -16635,7 +16636,7 @@ func (c *PriceTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 	return nil
 }
 
-// PrizeCode ONIX Code List 41 Prize or award achievement code
+// PrizeCode Prize or award achievement code
 type PrizeCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -16677,7 +16678,7 @@ func (c *PrizeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	return nil
 }
 
-// PrizeCountry ONIX Code List 91 Country code – ISO 3166-1
+// PrizeCountry Country code – ISO 3166-1
 type PrizeCountry string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -17699,7 +17700,7 @@ func (c *PrizeCountry) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// ProductAvailability ONIX Code List 65 Product availability
+// ProductAvailability Product availability
 type ProductAvailability string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -17829,7 +17830,7 @@ func (c *ProductAvailability) UnmarshalXML(d *xml.Decoder, start xml.StartElemen
 	return nil
 }
 
-// ProductClassificationType ONIX Code List 9 Product classification type code
+// ProductClassificationType Product classification type code
 type ProductClassificationType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -17891,7 +17892,7 @@ func (c *ProductClassificationType) UnmarshalXML(d *xml.Decoder, start xml.Start
 	return nil
 }
 
-// ProductContentType ONIX Code List 81 Product content type
+// ProductContentType Product content type
 type ProductContentType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -18061,7 +18062,7 @@ func (c *ProductContentType) UnmarshalXML(d *xml.Decoder, start xml.StartElement
 	return nil
 }
 
-// ProductForm ONIX Code List 7 Product form code
+// ProductForm Product form code
 type ProductForm string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -18595,7 +18596,7 @@ func (c *ProductForm) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error
 	return nil
 }
 
-// ProductFormDetail ONIX Code List 78 Product form detail
+// ProductFormDetail Product form detail
 type ProductFormDetail string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -19425,7 +19426,7 @@ func (c *ProductFormDetail) UnmarshalXML(d *xml.Decoder, start xml.StartElement)
 	return nil
 }
 
-// ProductFormFeatureType ONIX Code List 79 Product form feature type
+// ProductFormFeatureType Product form feature type
 type ProductFormFeatureType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -19539,7 +19540,7 @@ func (c *ProductFormFeatureType) UnmarshalXML(d *xml.Decoder, start xml.StartEle
 	return nil
 }
 
-// ProductIDType ONIX Code List 5 Product identifier type code
+// ProductIDType Product identifier type code
 type ProductIDType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -19637,7 +19638,7 @@ func (c *ProductIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 	return nil
 }
 
-// ProductPackaging ONIX Code List 80 Product packaging type
+// ProductPackaging Product packaging type
 type ProductPackaging string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -19739,7 +19740,7 @@ func (c *ProductPackaging) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 	return nil
 }
 
-// PublishingRole ONIX Code List 45 Publishing role code
+// PublishingRole Publishing role code
 type PublishingRole string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -19829,7 +19830,7 @@ func (c *PublishingRole) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	return nil
 }
 
-// PublishingStatus ONIX Code List 64 Publishing status
+// PublishingStatus Publishing status
 type PublishingStatus string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -19911,7 +19912,7 @@ func (c *PublishingStatus) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 	return nil
 }
 
-// RecordSourceIdentifierType ONIX Code List 44 Name code type
+// RecordSourceIdentifierType Name code type
 type RecordSourceIdentifierType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20049,7 +20050,7 @@ func (c *RecordSourceIdentifierType) UnmarshalXML(d *xml.Decoder, start xml.Star
 	return nil
 }
 
-// RecordSourceType ONIX Code List 3 Record source type code
+// RecordSourceType Record source type code
 type RecordSourceType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20119,7 +20120,7 @@ func (c *RecordSourceType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 	return nil
 }
 
-// RelationCode ONIX Code List 51 Product relation code
+// RelationCode Product relation code
 type RelationCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20301,7 +20302,7 @@ func (c *RelationCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// ReligiousTextFeatureCode ONIX Code List 90 Religious text feature code
+// ReligiousTextFeatureCode Religious text feature code
 type ReligiousTextFeatureCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20359,7 +20360,7 @@ func (c *ReligiousTextFeatureCode) UnmarshalXML(d *xml.Decoder, start xml.StartE
 	return nil
 }
 
-// ReligiousTextFeatureType ONIX Code List 89 Religious text feature type
+// ReligiousTextFeatureType Religious text feature type
 type ReligiousTextFeatureType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20377,7 +20378,7 @@ func (c *ReligiousTextFeatureType) UnmarshalXML(d *xml.Decoder, start xml.StartE
 	return nil
 }
 
-// ReligiousTextID ONIX Code List 88 Religious text identifier
+// ReligiousTextID Religious text identifier
 type ReligiousTextID string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20391,7 +20392,7 @@ func (c *ReligiousTextID) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 	return nil
 }
 
-// ReturnsCodeType ONIX Code List 53 Returns conditions code type
+// ReturnsCodeType Returns conditions code type
 type ReturnsCodeType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20425,7 +20426,7 @@ func (c *ReturnsCodeType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 	return nil
 }
 
-// RightsRegion ONIX Code List 47 Rights region
+// RightsRegion Rights region
 type RightsRegion string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20455,7 +20456,7 @@ func (c *RightsRegion) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// SalesOutletIDType ONIX Code List 102 Sales outlet identifier type
+// SalesOutletIDType Sales outlet identifier type
 type SalesOutletIDType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20481,7 +20482,7 @@ func (c *SalesOutletIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement)
 	return nil
 }
 
-// SalesRestrictionType ONIX Code List 71 Sales restriction type code
+// SalesRestrictionType Sales restriction type code
 type SalesRestrictionType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20559,7 +20560,7 @@ func (c *SalesRestrictionType) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 	return nil
 }
 
-// SalesRightsType ONIX Code List 46 Sales rights type code
+// SalesRightsType Sales rights type code
 type SalesRightsType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20609,7 +20610,7 @@ func (c *SalesRightsType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 	return nil
 }
 
-// SenderIDType ONIX Code List 44 Name code type
+// SenderIDType Name code type
 type SenderIDType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20747,7 +20748,7 @@ func (c *SenderIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// SeriesIDType ONIX Code List 13 Series identifier type code
+// SeriesIDType Series identifier type code
 type SeriesIDType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20801,7 +20802,7 @@ func (c *SeriesIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// StockQuantityCodeType ONIX Code List 70 Stock quantity code type
+// StockQuantityCodeType Stock quantity code type
 type StockQuantityCodeType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20823,7 +20824,7 @@ func (c *StockQuantityCodeType) UnmarshalXML(d *xml.Decoder, start xml.StartElem
 	return nil
 }
 
-// StudyBibleType ONIX Code List 84 Study Bible type
+// StudyBibleType Study Bible type
 type StudyBibleType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20877,7 +20878,7 @@ func (c *StudyBibleType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	return nil
 }
 
-// SubjectSchemeIdentifier ONIX Code List 27 Subject scheme identifier code
+// SubjectSchemeIdentifier Subject scheme identifier code
 type SubjectSchemeIdentifier string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -21339,7 +21340,7 @@ func (c *SubjectSchemeIdentifier) UnmarshalXML(d *xml.Decoder, start xml.StartEl
 	return nil
 }
 
-// SupplierIDType ONIX Code List 92 Supplier identifier type
+// SupplierIDType Supplier identifier type
 type SupplierIDType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -21389,7 +21390,7 @@ func (c *SupplierIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	return nil
 }
 
-// SupplierRole ONIX Code List 93 Supplier role
+// SupplierRole Supplier role
 type SupplierRole string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -21455,7 +21456,7 @@ func (c *SupplierRole) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// SupplyToRegion ONIX Code List 52 Supply-to region code
+// SupplyToRegion Supply-to region code
 type SupplyToRegion string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -21473,7 +21474,7 @@ func (c *SupplyToRegion) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	return nil
 }
 
-// TaxRateCode1 ONIX Code List 62 Tax rate, coded
+// TaxRateCode1 Tax rate, coded
 type TaxRateCode1 string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -21507,7 +21508,7 @@ func (c *TaxRateCode1) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// TaxRateCode2 ONIX Code List 62 Tax rate, coded
+// TaxRateCode2 Tax rate, coded
 type TaxRateCode2 string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -21541,7 +21542,7 @@ func (c *TaxRateCode2) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// TextCaseFlag ONIX Code List 14 Text case flag
+// TextCaseFlag Text case flag
 type TextCaseFlag string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -21571,7 +21572,7 @@ func (c *TextCaseFlag) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// TextFormat ONIX Code List 34 Text format code
+// TextFormat Text format code
 type TextFormat string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -21649,7 +21650,7 @@ func (c *TextFormat) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 	return nil
 }
 
-// TextItemIDType ONIX Code List 43 Text item identifier type code
+// TextItemIDType Text item identifier type code
 type TextItemIDType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -21691,7 +21692,7 @@ func (c *TextItemIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	return nil
 }
 
-// TextItemType ONIX Code List 42 Text item type code
+// TextItemType Text item type code
 type TextItemType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -21769,7 +21770,7 @@ func (c *TextItemType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// TextLinkType ONIX Code List 35 Text link type code
+// TextLinkType Text link type code
 type TextLinkType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -21807,7 +21808,7 @@ func (c *TextLinkType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// TextTypeCode ONIX Code List 33 Other text type code
+// TextTypeCode Other text type code
 type TextTypeCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -22005,7 +22006,7 @@ func (c *TextTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	return nil
 }
 
-// ThesisType ONIX Code List 72 Thesis type code
+// ThesisType Thesis type code
 type ThesisType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -22047,7 +22048,7 @@ func (c *ThesisType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 	return nil
 }
 
-// TitleType ONIX Code List 15 Title type code
+// TitleType Title type code
 type TitleType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -22117,7 +22118,7 @@ func (c *TitleType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	return nil
 }
 
-// TradeCategory ONIX Code List 12 Trade category code
+// TradeCategory Trade category code
 type TradeCategory string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -22187,7 +22188,7 @@ func (c *TradeCategory) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 	return nil
 }
 
-// UnnamedPersons ONIX Code List 19 Unnamed person(s)
+// UnnamedPersons Unnamed person(s)
 type UnnamedPersons string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -22229,7 +22230,7 @@ func (c *UnnamedPersons) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	return nil
 }
 
-// UnpricedItemType ONIX Code List 57 Unpriced item type code
+// UnpricedItemType Unpriced item type code
 type UnpricedItemType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -22267,7 +22268,7 @@ func (c *UnpricedItemType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 	return nil
 }
 
-// WebsiteRole ONIX Code List 73 Website role
+// WebsiteRole Website role
 type WebsiteRole string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -22449,7 +22450,7 @@ func (c *WebsiteRole) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error
 	return nil
 }
 
-// WorkIDType ONIX Code List 16 Work identifier type code
+// WorkIDType Work identifier type code
 type WorkIDType string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
