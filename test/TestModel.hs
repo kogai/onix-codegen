@@ -4,9 +4,10 @@ module TestModel (tests) where
 
 import qualified Data.Map as M
 import Data.Text (Text, pack, unpack)
-import Model (Kind (Tag), dropDuplicate, model, models, typeToText)
+import Model (Kind (Tag), dropDuplicate, model, models, topLevelModels, typeToText)
 import Test.HUnit (Test (TestCase, TestList), assertEqual)
 import Text.XML (def, parseText, readFile)
+import Util
 import Xsd
 
 expected1 =
@@ -137,5 +138,27 @@ tests =
           scm <- getSchema "./test/test_model_atom_nonempty.xsd"
           let actual = (typeToText . head . map snd . M.toList . schemaTypes) scm
           assertEqual "can derive referenced type" "string" actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./test/test_model_element.xsd"
+          let key =
+                QName
+                  { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
+                    qnName = "OnOrderDetail"
+                  }
+              actual = (topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
+              expected =
+                model
+                  "onorderdetail"
+                  "OnOrderDetail"
+                  Nothing
+                  Tag
+                  False
+                  False
+                  [ model "j351" "OnOrder" (Just "string") Tag False False [],
+                    model "j302" "ExpectedDate" (Just "string") Tag False False []
+                  ]
+          assertEqual "can derive field of type" expected actual
       )
   ]

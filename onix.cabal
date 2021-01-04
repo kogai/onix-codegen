@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 62ea59e20415703e3b428e90a412639fca8b0bbd299ba3153e22f485e139a20b
+-- hash: 42b2516088c6f9adc49ad11de813c71211df58eda39a31ffbab4c7e153e19292
 
 name:           onix
 version:        0.1.0.0
@@ -30,7 +30,6 @@ library
       Code
       Lib
       Model
-      Schema
       Util
       Xsd
       Xsd.Parser

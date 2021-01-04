@@ -6,6 +6,2306 @@ import (
 )
 
 
+// CountryCodeList Country code – ISO 3166-1
+type CountryCodeList string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *CountryCodeList) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+
+  // Andorra
+  case "AD":
+		*c = `Andorra`
+
+  // United Arab Emirates
+  case "AE":
+		*c = `United Arab Emirates`
+
+  // Afghanistan
+  case "AF":
+		*c = `Afghanistan`
+
+  // Antigua and Barbuda
+  case "AG":
+		*c = `Antigua and Barbuda`
+
+  // Anguilla
+  case "AI":
+		*c = `Anguilla`
+
+  // Albania
+  case "AL":
+		*c = `Albania`
+
+  // Armenia
+  case "AM":
+		*c = `Armenia`
+
+  // Deprecated – use BQ, CW or SX as appropriate
+  case "AN":
+		*c = `Netherlands Antilles`
+
+  // Angola
+  case "AO":
+		*c = `Angola`
+
+  // Antarctica
+  case "AQ":
+		*c = `Antarctica`
+
+  // Argentina
+  case "AR":
+		*c = `Argentina`
+
+  // American Samoa
+  case "AS":
+		*c = `American Samoa`
+
+  // Austria
+  case "AT":
+		*c = `Austria`
+
+  // Australia
+  case "AU":
+		*c = `Australia`
+
+  // Aruba
+  case "AW":
+		*c = `Aruba`
+
+  // Åland Islands
+  case "AX":
+		*c = `Åland Islands`
+
+  // Azerbaijan
+  case "AZ":
+		*c = `Azerbaijan`
+
+  // Bosnia and Herzegovina
+  case "BA":
+		*c = `Bosnia and Herzegovina`
+
+  // Barbados
+  case "BB":
+		*c = `Barbados`
+
+  // Bangladesh
+  case "BD":
+		*c = `Bangladesh`
+
+  // Belgium
+  case "BE":
+		*c = `Belgium`
+
+  // Burkina Faso
+  case "BF":
+		*c = `Burkina Faso`
+
+  // Bulgaria
+  case "BG":
+		*c = `Bulgaria`
+
+  // Bahrain
+  case "BH":
+		*c = `Bahrain`
+
+  // Burundi
+  case "BI":
+		*c = `Burundi`
+
+  // Benin
+  case "BJ":
+		*c = `Benin`
+
+  // Saint Barthélemy
+  case "BL":
+		*c = `Saint Barthélemy`
+
+  // Bermuda
+  case "BM":
+		*c = `Bermuda`
+
+  // Brunei Darussalam
+  case "BN":
+		*c = `Brunei Darussalam`
+
+  // Bolivia, Plurinational State of
+  case "BO":
+		*c = `Bolivia, Plurinational State of`
+
+  // Bonaire, Sint Eustatius and Saba
+  case "BQ":
+		*c = `Bonaire, Sint Eustatius and Saba`
+
+  // Brazil
+  case "BR":
+		*c = `Brazil`
+
+  // Bahamas
+  case "BS":
+		*c = `Bahamas`
+
+  // Bhutan
+  case "BT":
+		*c = `Bhutan`
+
+  // Bouvet Island
+  case "BV":
+		*c = `Bouvet Island`
+
+  // Botswana
+  case "BW":
+		*c = `Botswana`
+
+  // Belarus
+  case "BY":
+		*c = `Belarus`
+
+  // Belize
+  case "BZ":
+		*c = `Belize`
+
+  // Canada
+  case "CA":
+		*c = `Canada`
+
+  // Cocos (Keeling) Islands
+  case "CC":
+		*c = `Cocos (Keeling) Islands`
+
+  // Congo, Democratic Republic of the
+  case "CD":
+		*c = `Congo, Democratic Republic of the`
+
+  // Central African Republic
+  case "CF":
+		*c = `Central African Republic`
+
+  // Congo
+  case "CG":
+		*c = `Congo`
+
+  // Switzerland
+  case "CH":
+		*c = `Switzerland`
+
+  // Cote d’Ivoire
+  case "CI":
+		*c = `Cote d’Ivoire`
+
+  // Cook Islands
+  case "CK":
+		*c = `Cook Islands`
+
+  // Chile
+  case "CL":
+		*c = `Chile`
+
+  // Cameroon
+  case "CM":
+		*c = `Cameroon`
+
+  // China
+  case "CN":
+		*c = `China`
+
+  // Colombia
+  case "CO":
+		*c = `Colombia`
+
+  // Costa Rica
+  case "CR":
+		*c = `Costa Rica`
+
+  // DEPRECATED, replaced by ME – Montenegro and RS – Serbia
+  case "CS":
+		*c = `Serbia and Montenegro`
+
+  // Cuba
+  case "CU":
+		*c = `Cuba`
+
+  // Cabo Verde
+  case "CV":
+		*c = `Cabo Verde`
+
+  // Curaçao
+  case "CW":
+		*c = `Curaçao`
+
+  // Christmas Island
+  case "CX":
+		*c = `Christmas Island`
+
+  // Cyprus
+  case "CY":
+		*c = `Cyprus`
+
+  // Czech Republic
+  case "CZ":
+		*c = `Czech Republic`
+
+  // Germany
+  case "DE":
+		*c = `Germany`
+
+  // Djibouti
+  case "DJ":
+		*c = `Djibouti`
+
+  // Denmark
+  case "DK":
+		*c = `Denmark`
+
+  // Dominica
+  case "DM":
+		*c = `Dominica`
+
+  // Dominican Republic
+  case "DO":
+		*c = `Dominican Republic`
+
+  // Algeria
+  case "DZ":
+		*c = `Algeria`
+
+  // Ecuador
+  case "EC":
+		*c = `Ecuador`
+
+  // Estonia
+  case "EE":
+		*c = `Estonia`
+
+  // Egypt
+  case "EG":
+		*c = `Egypt`
+
+  // Western Sahara
+  case "EH":
+		*c = `Western Sahara`
+
+  // Eritrea
+  case "ER":
+		*c = `Eritrea`
+
+  // Spain
+  case "ES":
+		*c = `Spain`
+
+  // Ethiopia
+  case "ET":
+		*c = `Ethiopia`
+
+  // Finland
+  case "FI":
+		*c = `Finland`
+
+  // Fiji
+  case "FJ":
+		*c = `Fiji`
+
+  // Falkland Islands (Malvinas)
+  case "FK":
+		*c = `Falkland Islands (Malvinas)`
+
+  // Micronesia, Federated States of
+  case "FM":
+		*c = `Micronesia, Federated States of`
+
+  // Faroe Islands
+  case "FO":
+		*c = `Faroe Islands`
+
+  // France
+  case "FR":
+		*c = `France`
+
+  // Gabon
+  case "GA":
+		*c = `Gabon`
+
+  // United Kingdom
+  case "GB":
+		*c = `United Kingdom`
+
+  // Grenada
+  case "GD":
+		*c = `Grenada`
+
+  // Georgia
+  case "GE":
+		*c = `Georgia`
+
+  // French Guiana
+  case "GF":
+		*c = `French Guiana`
+
+  // Guernsey
+  case "GG":
+		*c = `Guernsey`
+
+  // Ghana
+  case "GH":
+		*c = `Ghana`
+
+  // Gibraltar
+  case "GI":
+		*c = `Gibraltar`
+
+  // Greenland
+  case "GL":
+		*c = `Greenland`
+
+  // Gambia
+  case "GM":
+		*c = `Gambia`
+
+  // Guinea
+  case "GN":
+		*c = `Guinea`
+
+  // Guadeloupe
+  case "GP":
+		*c = `Guadeloupe`
+
+  // Equatorial Guinea
+  case "GQ":
+		*c = `Equatorial Guinea`
+
+  // Greece
+  case "GR":
+		*c = `Greece`
+
+  // South Georgia and the South Sandwich Islands
+  case "GS":
+		*c = `South Georgia and the South Sandwich Islands`
+
+  // Guatemala
+  case "GT":
+		*c = `Guatemala`
+
+  // Guam
+  case "GU":
+		*c = `Guam`
+
+  // Guinea-Bissau
+  case "GW":
+		*c = `Guinea-Bissau`
+
+  // Guyana
+  case "GY":
+		*c = `Guyana`
+
+  // Hong Kong
+  case "HK":
+		*c = `Hong Kong`
+
+  // Heard Island and McDonald Islands
+  case "HM":
+		*c = `Heard Island and McDonald Islands`
+
+  // Honduras
+  case "HN":
+		*c = `Honduras`
+
+  // Croatia
+  case "HR":
+		*c = `Croatia`
+
+  // Haiti
+  case "HT":
+		*c = `Haiti`
+
+  // Hungary
+  case "HU":
+		*c = `Hungary`
+
+  // Indonesia
+  case "ID":
+		*c = `Indonesia`
+
+  // Ireland
+  case "IE":
+		*c = `Ireland`
+
+  // Israel
+  case "IL":
+		*c = `Israel`
+
+  // Isle of Man
+  case "IM":
+		*c = `Isle of Man`
+
+  // India
+  case "IN":
+		*c = `India`
+
+  // British Indian Ocean Territory
+  case "IO":
+		*c = `British Indian Ocean Territory`
+
+  // Iraq
+  case "IQ":
+		*c = `Iraq`
+
+  // Iran, Islamic Republic of
+  case "IR":
+		*c = `Iran, Islamic Republic of`
+
+  // Iceland
+  case "IS":
+		*c = `Iceland`
+
+  // Italy
+  case "IT":
+		*c = `Italy`
+
+  // Jersey
+  case "JE":
+		*c = `Jersey`
+
+  // Jamaica
+  case "JM":
+		*c = `Jamaica`
+
+  // Jordan
+  case "JO":
+		*c = `Jordan`
+
+  // Japan
+  case "JP":
+		*c = `Japan`
+
+  // Kenya
+  case "KE":
+		*c = `Kenya`
+
+  // Kyrgyzstan
+  case "KG":
+		*c = `Kyrgyzstan`
+
+  // Cambodia
+  case "KH":
+		*c = `Cambodia`
+
+  // Kiribati
+  case "KI":
+		*c = `Kiribati`
+
+  // Comoros
+  case "KM":
+		*c = `Comoros`
+
+  // Saint Kitts and Nevis
+  case "KN":
+		*c = `Saint Kitts and Nevis`
+
+  // Korea, Democratic People’s Republic of
+  case "KP":
+		*c = `Korea, Democratic People’s Republic of`
+
+  // Korea, Republic of
+  case "KR":
+		*c = `Korea, Republic of`
+
+  // Kuwait
+  case "KW":
+		*c = `Kuwait`
+
+  // Cayman Islands
+  case "KY":
+		*c = `Cayman Islands`
+
+  // Kazakhstan
+  case "KZ":
+		*c = `Kazakhstan`
+
+  // Lao People’s Democratic Republic
+  case "LA":
+		*c = `Lao People’s Democratic Republic`
+
+  // Lebanon
+  case "LB":
+		*c = `Lebanon`
+
+  // Saint Lucia
+  case "LC":
+		*c = `Saint Lucia`
+
+  // Liechtenstein
+  case "LI":
+		*c = `Liechtenstein`
+
+  // Sri Lanka
+  case "LK":
+		*c = `Sri Lanka`
+
+  // Liberia
+  case "LR":
+		*c = `Liberia`
+
+  // Lesotho
+  case "LS":
+		*c = `Lesotho`
+
+  // Lithuania
+  case "LT":
+		*c = `Lithuania`
+
+  // Luxembourg
+  case "LU":
+		*c = `Luxembourg`
+
+  // Latvia
+  case "LV":
+		*c = `Latvia`
+
+  // Libya
+  case "LY":
+		*c = `Libya`
+
+  // Morocco
+  case "MA":
+		*c = `Morocco`
+
+  // Monaco
+  case "MC":
+		*c = `Monaco`
+
+  // Moldova, Repubic of
+  case "MD":
+		*c = `Moldova, Repubic of`
+
+  // Montenegro
+  case "ME":
+		*c = `Montenegro`
+
+  // Saint Martin (French part)
+  case "MF":
+		*c = `Saint Martin (French part)`
+
+  // Madagascar
+  case "MG":
+		*c = `Madagascar`
+
+  // Marshall Islands
+  case "MH":
+		*c = `Marshall Islands`
+
+  // Macedonia, the former Yugoslav Republic of
+  case "MK":
+		*c = `Macedonia, the former Yugoslav Republic of`
+
+  // Mali
+  case "ML":
+		*c = `Mali`
+
+  // Myanmar
+  case "MM":
+		*c = `Myanmar`
+
+  // Mongolia
+  case "MN":
+		*c = `Mongolia`
+
+  // Macao
+  case "MO":
+		*c = `Macao`
+
+  // Northern Mariana Islands
+  case "MP":
+		*c = `Northern Mariana Islands`
+
+  // Martinique
+  case "MQ":
+		*c = `Martinique`
+
+  // Mauritania
+  case "MR":
+		*c = `Mauritania`
+
+  // Montserrat
+  case "MS":
+		*c = `Montserrat`
+
+  // Malta
+  case "MT":
+		*c = `Malta`
+
+  // Mauritius
+  case "MU":
+		*c = `Mauritius`
+
+  // Maldives
+  case "MV":
+		*c = `Maldives`
+
+  // Malawi
+  case "MW":
+		*c = `Malawi`
+
+  // Mexico
+  case "MX":
+		*c = `Mexico`
+
+  // Malaysia
+  case "MY":
+		*c = `Malaysia`
+
+  // Mozambique
+  case "MZ":
+		*c = `Mozambique`
+
+  // Namibia
+  case "NA":
+		*c = `Namibia`
+
+  // New Caledonia
+  case "NC":
+		*c = `New Caledonia`
+
+  // Niger
+  case "NE":
+		*c = `Niger`
+
+  // Norfolk Island
+  case "NF":
+		*c = `Norfolk Island`
+
+  // Nigeria
+  case "NG":
+		*c = `Nigeria`
+
+  // Nicaragua
+  case "NI":
+		*c = `Nicaragua`
+
+  // Netherlands
+  case "NL":
+		*c = `Netherlands`
+
+  // Norway
+  case "NO":
+		*c = `Norway`
+
+  // Nepal
+  case "NP":
+		*c = `Nepal`
+
+  // Nauru
+  case "NR":
+		*c = `Nauru`
+
+  // Niue
+  case "NU":
+		*c = `Niue`
+
+  // New Zealand
+  case "NZ":
+		*c = `New Zealand`
+
+  // Oman
+  case "OM":
+		*c = `Oman`
+
+  // Panama
+  case "PA":
+		*c = `Panama`
+
+  // Peru
+  case "PE":
+		*c = `Peru`
+
+  // French Polynesia
+  case "PF":
+		*c = `French Polynesia`
+
+  // Papua New Guinea
+  case "PG":
+		*c = `Papua New Guinea`
+
+  // Philippines
+  case "PH":
+		*c = `Philippines`
+
+  // Pakistan
+  case "PK":
+		*c = `Pakistan`
+
+  // Poland
+  case "PL":
+		*c = `Poland`
+
+  // Saint Pierre and Miquelon
+  case "PM":
+		*c = `Saint Pierre and Miquelon`
+
+  // Pitcairn
+  case "PN":
+		*c = `Pitcairn`
+
+  // Puerto Rico
+  case "PR":
+		*c = `Puerto Rico`
+
+  // Palestine, State of
+  case "PS":
+		*c = `Palestine, State of`
+
+  // Portugal
+  case "PT":
+		*c = `Portugal`
+
+  // Palau
+  case "PW":
+		*c = `Palau`
+
+  // Paraguay
+  case "PY":
+		*c = `Paraguay`
+
+  // Qatar
+  case "QA":
+		*c = `Qatar`
+
+  // Réunion
+  case "RE":
+		*c = `Réunion`
+
+  // Romania
+  case "RO":
+		*c = `Romania`
+
+  // Serbia
+  case "RS":
+		*c = `Serbia`
+
+  // Russian Federation
+  case "RU":
+		*c = `Russian Federation`
+
+  // Rwanda
+  case "RW":
+		*c = `Rwanda`
+
+  // Saudi Arabia
+  case "SA":
+		*c = `Saudi Arabia`
+
+  // Solomon Islands
+  case "SB":
+		*c = `Solomon Islands`
+
+  // Seychelles
+  case "SC":
+		*c = `Seychelles`
+
+  // Sudan
+  case "SD":
+		*c = `Sudan`
+
+  // Sweden
+  case "SE":
+		*c = `Sweden`
+
+  // Singapore
+  case "SG":
+		*c = `Singapore`
+
+  // Saint Helena, Ascension and Tristan da Cunha
+  case "SH":
+		*c = `Saint Helena, Ascension and Tristan da Cunha`
+
+  // Slovenia
+  case "SI":
+		*c = `Slovenia`
+
+  // Svalbard and Jan Mayen
+  case "SJ":
+		*c = `Svalbard and Jan Mayen`
+
+  // Slovakia
+  case "SK":
+		*c = `Slovakia`
+
+  // Sierra Leone
+  case "SL":
+		*c = `Sierra Leone`
+
+  // San Marino
+  case "SM":
+		*c = `San Marino`
+
+  // Senegal
+  case "SN":
+		*c = `Senegal`
+
+  // Somalia
+  case "SO":
+		*c = `Somalia`
+
+  // Suriname
+  case "SR":
+		*c = `Suriname`
+
+  // South Sudan
+  case "SS":
+		*c = `South Sudan`
+
+  // Sao Tome and Principe
+  case "ST":
+		*c = `Sao Tome and Principe`
+
+  // El Salvador
+  case "SV":
+		*c = `El Salvador`
+
+  // Sint Maarten (Dutch part)
+  case "SX":
+		*c = `Sint Maarten (Dutch part)`
+
+  // Syrian Arab Republic
+  case "SY":
+		*c = `Syrian Arab Republic`
+
+  // Swaziland
+  case "SZ":
+		*c = `Swaziland`
+
+  // Turks and Caicos Islands
+  case "TC":
+		*c = `Turks and Caicos Islands`
+
+  // Chad
+  case "TD":
+		*c = `Chad`
+
+  // French Southern Territories
+  case "TF":
+		*c = `French Southern Territories`
+
+  // Togo
+  case "TG":
+		*c = `Togo`
+
+  // Thailand
+  case "TH":
+		*c = `Thailand`
+
+  // Tajikistan
+  case "TJ":
+		*c = `Tajikistan`
+
+  // Tokelau
+  case "TK":
+		*c = `Tokelau`
+
+  // Timor-Leste
+  case "TL":
+		*c = `Timor-Leste`
+
+  // Turkmenistan
+  case "TM":
+		*c = `Turkmenistan`
+
+  // Tunisia
+  case "TN":
+		*c = `Tunisia`
+
+  // Tonga
+  case "TO":
+		*c = `Tonga`
+
+  // Turkey
+  case "TR":
+		*c = `Turkey`
+
+  // Trinidad and Tobago
+  case "TT":
+		*c = `Trinidad and Tobago`
+
+  // Tuvalu
+  case "TV":
+		*c = `Tuvalu`
+
+  // Taiwan, Province of China
+  case "TW":
+		*c = `Taiwan, Province of China`
+
+  // Tanzania, United Republic of
+  case "TZ":
+		*c = `Tanzania, United Republic of`
+
+  // Ukraine
+  case "UA":
+		*c = `Ukraine`
+
+  // Uganda
+  case "UG":
+		*c = `Uganda`
+
+  // United States Minor Outlying Islands
+  case "UM":
+		*c = `United States Minor Outlying Islands`
+
+  // United States
+  case "US":
+		*c = `United States`
+
+  // Uruguay
+  case "UY":
+		*c = `Uruguay`
+
+  // Uzbekistan
+  case "UZ":
+		*c = `Uzbekistan`
+
+  // Holy See (Vatican City State)
+  case "VA":
+		*c = `Holy See (Vatican City State)`
+
+  // Saint Vincent and the Grenadines
+  case "VC":
+		*c = `Saint Vincent and the Grenadines`
+
+  // Venezuela, Bolivarian Republic of
+  case "VE":
+		*c = `Venezuela, Bolivarian Republic of`
+
+  // Virgin Islands, British
+  case "VG":
+		*c = `Virgin Islands, British`
+
+  // Virgin Islands, US
+  case "VI":
+		*c = `Virgin Islands, US`
+
+  // Viet Nam
+  case "VN":
+		*c = `Viet Nam`
+
+  // Vanuatu
+  case "VU":
+		*c = `Vanuatu`
+
+  // Wallis and Futuna
+  case "WF":
+		*c = `Wallis and Futuna`
+
+  // Samoa
+  case "WS":
+		*c = `Samoa`
+
+  // Yemen
+  case "YE":
+		*c = `Yemen`
+
+  // Mayotte
+  case "YT":
+		*c = `Mayotte`
+
+  // DEPRECATED, replaced by ME – Montenegro and RS – Serbia
+  case "YU":
+		*c = `Yugoslavia`
+
+  // South Africa
+  case "ZA":
+		*c = `South Africa`
+
+  // Zambia
+  case "ZM":
+		*c = `Zambia`
+
+  // Zimbabwe
+  case "ZW":
+		*c = `Zimbabwe`
+	default:
+		return fmt.Errorf("undefined code for CountryCodeList has been passed, got [%s]", v)
+	}
+	return nil
+}
+
+// TerritoryCodeList Region code
+type TerritoryCodeList string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *TerritoryCodeList) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+
+  // Australian Capital Territory
+  case "AU-CT":
+		*c = `Australian Capital Territory`
+
+  // New South Wales
+  case "AU-NS":
+		*c = `New South Wales`
+
+  // Northern Territory
+  case "AU-NT":
+		*c = `Northern Territory`
+
+  // Queensland
+  case "AU-QL":
+		*c = `Queensland`
+
+  // South Australia
+  case "AU-SA":
+		*c = `South Australia`
+
+  // Tasmania
+  case "AU-TS":
+		*c = `Tasmania`
+
+  // Victoria
+  case "AU-VI":
+		*c = `Victoria`
+
+  // Western Australia
+  case "AU-WA":
+		*c = `Western Australia`
+
+  // Alberta
+  case "CA-AB":
+		*c = `Alberta`
+
+  // British Columbia
+  case "CA-BC":
+		*c = `British Columbia`
+
+  // Manitoba
+  case "CA-MB":
+		*c = `Manitoba`
+
+  // New Brunswick
+  case "CA-NB":
+		*c = `New Brunswick`
+
+  // Newfoundland and Labrador
+  case "CA-NL":
+		*c = `Newfoundland and Labrador`
+
+  // Nova Scotia
+  case "CA-NS":
+		*c = `Nova Scotia`
+
+  // Northwest Territories
+  case "CA-NT":
+		*c = `Northwest Territories`
+
+  // Nunavut
+  case "CA-NU":
+		*c = `Nunavut`
+
+  // Ontario
+  case "CA-ON":
+		*c = `Ontario`
+
+  // Prince Edward Island
+  case "CA-PE":
+		*c = `Prince Edward Island`
+
+  // Quebec
+  case "CA-QC":
+		*c = `Quebec`
+
+  // Saskatchewan
+  case "CA-SK":
+		*c = `Saskatchewan`
+
+  // Yukon Territory
+  case "CA-YT":
+		*c = `Yukon Territory`
+
+  // Beijing Municipality
+  case "CN-11":
+		*c = `Beijing Municipality`
+
+  // Tianjin Municipality
+  case "CN-12":
+		*c = `Tianjin Municipality`
+
+  // Hebei Province
+  case "CN-13":
+		*c = `Hebei Province`
+
+  // Shanxi Province
+  case "CN-14":
+		*c = `Shanxi Province`
+
+  // Inner Mongolia Autonomous Region
+  case "CN-15":
+		*c = `Inner Mongolia Autonomous Region`
+
+  // Liaoning Province
+  case "CN-21":
+		*c = `Liaoning Province`
+
+  // Jilin Province
+  case "CN-22":
+		*c = `Jilin Province`
+
+  // Heilongjiang Province
+  case "CN-23":
+		*c = `Heilongjiang Province`
+
+  // Shanghai Municipality
+  case "CN-31":
+		*c = `Shanghai Municipality`
+
+  // Jiangsu Province
+  case "CN-32":
+		*c = `Jiangsu Province`
+
+  // Zhejiang Province
+  case "CN-33":
+		*c = `Zhejiang Province`
+
+  // Anhui Province
+  case "CN-34":
+		*c = `Anhui Province`
+
+  // Fujian Province
+  case "CN-35":
+		*c = `Fujian Province`
+
+  // Jiangxi Province
+  case "CN-36":
+		*c = `Jiangxi Province`
+
+  // Shandong Province
+  case "CN-37":
+		*c = `Shandong Province`
+
+  // Henan Province
+  case "CN-41":
+		*c = `Henan Province`
+
+  // Hubei Province
+  case "CN-42":
+		*c = `Hubei Province`
+
+  // Hunan Province
+  case "CN-43":
+		*c = `Hunan Province`
+
+  // Guangdong Province
+  case "CN-44":
+		*c = `Guangdong Province`
+
+  // Guangxi Zhuang Autonomous Region
+  case "CN-45":
+		*c = `Guangxi Zhuang Autonomous Region`
+
+  // Hainan Province
+  case "CN-46":
+		*c = `Hainan Province`
+
+  // Chongqing Municipality
+  case "CN-50":
+		*c = `Chongqing Municipality`
+
+  // Sichuan Province
+  case "CN-51":
+		*c = `Sichuan Province`
+
+  // Guizhou Province
+  case "CN-52":
+		*c = `Guizhou Province`
+
+  // Yunnan Province
+  case "CN-53":
+		*c = `Yunnan Province`
+
+  // Tibet Autonomous Region
+  case "CN-54":
+		*c = `Tibet Autonomous Region`
+
+  // Shaanxi Province
+  case "CN-61":
+		*c = `Shaanxi Province`
+
+  // Gansu Province
+  case "CN-62":
+		*c = `Gansu Province`
+
+  // Qinghai Province
+  case "CN-63":
+		*c = `Qinghai Province`
+
+  // Ningxia Hui Autonomous Region
+  case "CN-64":
+		*c = `Ningxia Hui Autonomous Region`
+
+  // Xinjiang Uyghur Autonomous Region
+  case "CN-65":
+		*c = `Xinjiang Uyghur Autonomous Region`
+
+  // Prefer code TW (Taiwan, Province of China) from List 91
+  case "CN-71":
+		*c = `Taiwan Province`
+
+  // Prefer code HK (Hong Kong) from List 91
+  case "CN-91":
+		*c = `Hong Kong Special Administrative Region`
+
+  // Prefer code MO (Macao) from List 91
+  case "CN-92":
+		*c = `Macau Special Administrative Region`
+
+  // Canary Islands
+  case "ES-CN":
+		*c = `Canary Islands`
+
+  // Corsica
+  case "FR-H":
+		*c = `Corsica`
+
+  // Airside outlets at UK international airports only
+  case "GB-AIR":
+		*c = `UK airside`
+
+  // All UK airports, including both airside and other outlets
+  case "GB-APS":
+		*c = `UK airports`
+
+  // DEPRECATED, replaced by country codes GG – Guernsey, and JE – Jersey
+  case "GB-CHA":
+		*c = `Channel Islands`
+
+  // England
+  case "GB-ENG":
+		*c = `England`
+
+  // UK excluding Northern Ireland
+  case "GB-EWS":
+		*c = `England, Wales, Scotland`
+
+  // DEPRECATED, replaced by country code IM – Isle of Man
+  case "GB-IOM":
+		*c = `Isle of Man`
+
+  // Northern Ireland
+  case "GB-NIR":
+		*c = `Northern Ireland`
+
+  // Scotland
+  case "GB-SCT":
+		*c = `Scotland`
+
+  // Wales
+  case "GB-WLS":
+		*c = `Wales`
+
+  // Airside outlets at Irish international airports only
+  case "IE-AIR":
+		*c = `Ireland airside`
+
+  // Agrigento
+  case "IT-AG":
+		*c = `Agrigento`
+
+  // Alessandria
+  case "IT-AL":
+		*c = `Alessandria`
+
+  // Ancona
+  case "IT-AN":
+		*c = `Ancona`
+
+  // Aosta
+  case "IT-AO":
+		*c = `Aosta`
+
+  // Arezzo
+  case "IT-AR":
+		*c = `Arezzo`
+
+  // Ascoli Piceno
+  case "IT-AP":
+		*c = `Ascoli Piceno`
+
+  // Asti
+  case "IT-AT":
+		*c = `Asti`
+
+  // Avellino
+  case "IT-AV":
+		*c = `Avellino`
+
+  // Bari
+  case "IT-BA":
+		*c = `Bari`
+
+  // Barletta-Andria-Trani
+  case "IT-BT":
+		*c = `Barletta-Andria-Trani`
+
+  // Belluno
+  case "IT-BL":
+		*c = `Belluno`
+
+  // Benevento
+  case "IT-BN":
+		*c = `Benevento`
+
+  // Bergamo
+  case "IT-BG":
+		*c = `Bergamo`
+
+  // Biella
+  case "IT-BI":
+		*c = `Biella`
+
+  // Bologna
+  case "IT-BO":
+		*c = `Bologna`
+
+  // Bolzano
+  case "IT-BZ":
+		*c = `Bolzano`
+
+  // Brescia
+  case "IT-BS":
+		*c = `Brescia`
+
+  // Brindisi
+  case "IT-BR":
+		*c = `Brindisi`
+
+  // Cagliari
+  case "IT-CA":
+		*c = `Cagliari`
+
+  // Caltanissetta
+  case "IT-CL":
+		*c = `Caltanissetta`
+
+  // Campobasso
+  case "IT-CB":
+		*c = `Campobasso`
+
+  // Carbonia-Iglesias
+  case "IT-CI":
+		*c = `Carbonia-Iglesias`
+
+  // Caserta
+  case "IT-CE":
+		*c = `Caserta`
+
+  // Catania
+  case "IT-CT":
+		*c = `Catania`
+
+  // Catanzaro
+  case "IT-CZ":
+		*c = `Catanzaro`
+
+  // Chieti
+  case "IT-CH":
+		*c = `Chieti`
+
+  // Como
+  case "IT-CO":
+		*c = `Como`
+
+  // Cosenza
+  case "IT-CS":
+		*c = `Cosenza`
+
+  // Cremona
+  case "IT-CR":
+		*c = `Cremona`
+
+  // Crotone
+  case "IT-KR":
+		*c = `Crotone`
+
+  // Cuneo
+  case "IT-CN":
+		*c = `Cuneo`
+
+  // Enna
+  case "IT-EN":
+		*c = `Enna`
+
+  // Fermo
+  case "IT-FM":
+		*c = `Fermo`
+
+  // Ferrara
+  case "IT-FE":
+		*c = `Ferrara`
+
+  // Firenze
+  case "IT-FI":
+		*c = `Firenze`
+
+  // Foggia
+  case "IT-FG":
+		*c = `Foggia`
+
+  // Forlì-Cesena
+  case "IT-FC":
+		*c = `Forlì-Cesena`
+
+  // Frosinone
+  case "IT-FR":
+		*c = `Frosinone`
+
+  // Genova
+  case "IT-GE":
+		*c = `Genova`
+
+  // Gorizia
+  case "IT-GO":
+		*c = `Gorizia`
+
+  // Grosseto
+  case "IT-GR":
+		*c = `Grosseto`
+
+  // Imperia
+  case "IT-IM":
+		*c = `Imperia`
+
+  // Isernia
+  case "IT-IS":
+		*c = `Isernia`
+
+  // La Spezia
+  case "IT-SP":
+		*c = `La Spezia`
+
+  // L’Aquila
+  case "IT-AQ":
+		*c = `L’Aquila`
+
+  // Latina
+  case "IT-LT":
+		*c = `Latina`
+
+  // Lecce
+  case "IT-LE":
+		*c = `Lecce`
+
+  // Lecco
+  case "IT-LC":
+		*c = `Lecco`
+
+  // Livorno
+  case "IT-LI":
+		*c = `Livorno`
+
+  // Lodi
+  case "IT-LO":
+		*c = `Lodi`
+
+  // Lucca
+  case "IT-LU":
+		*c = `Lucca`
+
+  // Macerata
+  case "IT-MC":
+		*c = `Macerata`
+
+  // Mantova
+  case "IT-MN":
+		*c = `Mantova`
+
+  // Massa-Carrara
+  case "IT-MS":
+		*c = `Massa-Carrara`
+
+  // Matera
+  case "IT-MT":
+		*c = `Matera`
+
+  // Medio Campidano
+  case "IT-VS":
+		*c = `Medio Campidano`
+
+  // Messina
+  case "IT-ME":
+		*c = `Messina`
+
+  // Milano
+  case "IT-MI":
+		*c = `Milano`
+
+  // Modena
+  case "IT-MO":
+		*c = `Modena`
+
+  // Monza e Brianza
+  case "IT-MB":
+		*c = `Monza e Brianza`
+
+  // Napoli
+  case "IT-NA":
+		*c = `Napoli`
+
+  // Novara
+  case "IT-NO":
+		*c = `Novara`
+
+  // Nuoro
+  case "IT-NU":
+		*c = `Nuoro`
+
+  // Ogliastra
+  case "IT-OG":
+		*c = `Ogliastra`
+
+  // Olbia-Tempio
+  case "IT-OT":
+		*c = `Olbia-Tempio`
+
+  // Oristano
+  case "IT-OR":
+		*c = `Oristano`
+
+  // Padova
+  case "IT-PD":
+		*c = `Padova`
+
+  // Palermo
+  case "IT-PA":
+		*c = `Palermo`
+
+  // Parma
+  case "IT-PR":
+		*c = `Parma`
+
+  // Pavia
+  case "IT-PV":
+		*c = `Pavia`
+
+  // Perugia
+  case "IT-PG":
+		*c = `Perugia`
+
+  // Pesaro e Urbino
+  case "IT-PU":
+		*c = `Pesaro e Urbino`
+
+  // Pescara
+  case "IT-PE":
+		*c = `Pescara`
+
+  // Piacenza
+  case "IT-PC":
+		*c = `Piacenza`
+
+  // Pisa
+  case "IT-PI":
+		*c = `Pisa`
+
+  // Pistoia
+  case "IT-PT":
+		*c = `Pistoia`
+
+  // Pordenone
+  case "IT-PN":
+		*c = `Pordenone`
+
+  // Potenza
+  case "IT-PZ":
+		*c = `Potenza`
+
+  // Prato
+  case "IT-PO":
+		*c = `Prato`
+
+  // Ragusa
+  case "IT-RG":
+		*c = `Ragusa`
+
+  // Ravenna
+  case "IT-RA":
+		*c = `Ravenna`
+
+  // Reggio Calabria
+  case "IT-RC":
+		*c = `Reggio Calabria`
+
+  // Reggio Emilia
+  case "IT-RE":
+		*c = `Reggio Emilia`
+
+  // Rieti
+  case "IT-RI":
+		*c = `Rieti`
+
+  // Rimini
+  case "IT-RN":
+		*c = `Rimini`
+
+  // Roma
+  case "IT-RM":
+		*c = `Roma`
+
+  // Rovigo
+  case "IT-RO":
+		*c = `Rovigo`
+
+  // Salerno
+  case "IT-SA":
+		*c = `Salerno`
+
+  // Sassari
+  case "IT-SS":
+		*c = `Sassari`
+
+  // Savona
+  case "IT-SV":
+		*c = `Savona`
+
+  // Siena
+  case "IT-SI":
+		*c = `Siena`
+
+  // Siracusa
+  case "IT-SR":
+		*c = `Siracusa`
+
+  // Sondrio
+  case "IT-SO":
+		*c = `Sondrio`
+
+  // Taranto
+  case "IT-TA":
+		*c = `Taranto`
+
+  // Teramo
+  case "IT-TE":
+		*c = `Teramo`
+
+  // Terni
+  case "IT-TR":
+		*c = `Terni`
+
+  // Torino
+  case "IT-TO":
+		*c = `Torino`
+
+  // Trapani
+  case "IT-TP":
+		*c = `Trapani`
+
+  // Trento
+  case "IT-TN":
+		*c = `Trento`
+
+  // Treviso
+  case "IT-TV":
+		*c = `Treviso`
+
+  // Trieste
+  case "IT-TS":
+		*c = `Trieste`
+
+  // Udine
+  case "IT-UD":
+		*c = `Udine`
+
+  // Varese
+  case "IT-VA":
+		*c = `Varese`
+
+  // Venezia
+  case "IT-VE":
+		*c = `Venezia`
+
+  // Verbano-Cusio-Ossola
+  case "IT-VB":
+		*c = `Verbano-Cusio-Ossola`
+
+  // Vercelli
+  case "IT-VC":
+		*c = `Vercelli`
+
+  // Verona
+  case "IT-VR":
+		*c = `Verona`
+
+  // Vibo Valentia
+  case "IT-VV":
+		*c = `Vibo Valentia`
+
+  // Vicenza
+  case "IT-VI":
+		*c = `Vicenza`
+
+  // Viterbo
+  case "IT-VT":
+		*c = `Viterbo`
+
+  // Kosovo-Metohija
+  case "RS-KM":
+		*c = `Kosovo-Metohija`
+
+  // Vojvodina
+  case "RS-VO":
+		*c = `Vojvodina`
+
+  // Republic of Adygeya
+  case "RU-AD":
+		*c = `Republic of Adygeya`
+
+  // Republic of Altay
+  case "RU-AL":
+		*c = `Republic of Altay`
+
+  // Republic of Bashkortostan
+  case "RU-BA":
+		*c = `Republic of Bashkortostan`
+
+  // Republic of Buryatiya
+  case "RU-BU":
+		*c = `Republic of Buryatiya`
+
+  // Chechenskaya Republic
+  case "RU-CE":
+		*c = `Chechenskaya Republic`
+
+  // Chuvashskaya Republic
+  case "RU-CU":
+		*c = `Chuvashskaya Republic`
+
+  // Republic of Dagestan
+  case "RU-DA":
+		*c = `Republic of Dagestan`
+
+  // Republic of Ingushetiya
+  case "RU-IN":
+		*c = `Republic of Ingushetiya`
+
+  // Kabardino-Balkarskaya Republic
+  case "RU-KB":
+		*c = `Kabardino-Balkarskaya Republic`
+
+  // Republic of Kalmykiya
+  case "RU-KL":
+		*c = `Republic of Kalmykiya`
+
+  // Karachayevo-Cherkesskaya Republic
+  case "RU-KC":
+		*c = `Karachayevo-Cherkesskaya Republic`
+
+  // Republic of Kareliya
+  case "RU-KR":
+		*c = `Republic of Kareliya`
+
+  // Republic of Khakasiya
+  case "RU-KK":
+		*c = `Republic of Khakasiya`
+
+  // Republic of Komi
+  case "RU-KO":
+		*c = `Republic of Komi`
+
+  // Republic of Mariy El
+  case "RU-ME":
+		*c = `Republic of Mariy El`
+
+  // Republic of Mordoviya
+  case "RU-MO":
+		*c = `Republic of Mordoviya`
+
+  // Republic of Sakha (Yakutiya)
+  case "RU-SA":
+		*c = `Republic of Sakha (Yakutiya)`
+
+  // Republic of Severnaya Osetiya-Alaniya
+  case "RU-SE":
+		*c = `Republic of Severnaya Osetiya-Alaniya`
+
+  // Republic of Tatarstan
+  case "RU-TA":
+		*c = `Republic of Tatarstan`
+
+  // Republic of Tyva (Tuva)
+  case "RU-TY":
+		*c = `Republic of Tyva (Tuva)`
+
+  // Udmurtskaya Republic
+  case "RU-UD":
+		*c = `Udmurtskaya Republic`
+
+  // Altayskiy Administrative Territory
+  case "RU-ALT":
+		*c = `Altayskiy Administrative Territory`
+
+  // Kamchatskiy Administrative Territory
+  case "RU-KAM":
+		*c = `Kamchatskiy Administrative Territory`
+
+  // Khabarovskiy Administrative Territory
+  case "RU-KHA":
+		*c = `Khabarovskiy Administrative Territory`
+
+  // Krasnodarskiy Administrative Territory
+  case "RU-KDA":
+		*c = `Krasnodarskiy Administrative Territory`
+
+  // Krasnoyarskiy Administrative Territory
+  case "RU-KYA":
+		*c = `Krasnoyarskiy Administrative Territory`
+
+  // Permskiy Administrative Territory
+  case "RU-PER":
+		*c = `Permskiy Administrative Territory`
+
+  // Primorskiy Administrative Territory
+  case "RU-PRI":
+		*c = `Primorskiy Administrative Territory`
+
+  // Stavropol’skiy Administrative Territory
+  case "RU-STA":
+		*c = `Stavropol’skiy Administrative Territory`
+
+  // Zabaykal’skiy Administrative Territory
+  case "RU-ZAB":
+		*c = `Zabaykal’skiy Administrative Territory`
+
+  // Amurskaya Administrative Region
+  case "RU-AMU":
+		*c = `Amurskaya Administrative Region`
+
+  // Arkhangel’skaya Administrative Region
+  case "RU-ARK":
+		*c = `Arkhangel’skaya Administrative Region`
+
+  // Astrakhanskaya Administrative Region
+  case "RU-AST":
+		*c = `Astrakhanskaya Administrative Region`
+
+  // Belgorodskaya Administrative Region
+  case "RU-BEL":
+		*c = `Belgorodskaya Administrative Region`
+
+  // Bryanskaya Administrative Region
+  case "RU-BRY":
+		*c = `Bryanskaya Administrative Region`
+
+  // Chelyabinskaya Administrative Region
+  case "RU-CHE":
+		*c = `Chelyabinskaya Administrative Region`
+
+  // Irkutskaya Administrative Region
+  case "RU-IRK":
+		*c = `Irkutskaya Administrative Region`
+
+  // Ivanovskaya Administrative Region
+  case "RU-IVA":
+		*c = `Ivanovskaya Administrative Region`
+
+  // Kaliningradskaya Administrative Region
+  case "RU-KGD":
+		*c = `Kaliningradskaya Administrative Region`
+
+  // Kaluzhskaya Administrative Region
+  case "RU-KLU":
+		*c = `Kaluzhskaya Administrative Region`
+
+  // Kemerovskaya Administrative Region
+  case "RU-KEM":
+		*c = `Kemerovskaya Administrative Region`
+
+  // Kirovskaya Administrative Region
+  case "RU-KIR":
+		*c = `Kirovskaya Administrative Region`
+
+  // Kostromskaya Administrative Region
+  case "RU-KOS":
+		*c = `Kostromskaya Administrative Region`
+
+  // Kurganskaya Administrative Region
+  case "RU-KGN":
+		*c = `Kurganskaya Administrative Region`
+
+  // Kurskaya Administrative Region
+  case "RU-KRS":
+		*c = `Kurskaya Administrative Region`
+
+  // Leningradskaya Administrative Region
+  case "RU-LEN":
+		*c = `Leningradskaya Administrative Region`
+
+  // Lipetskaya Administrative Region
+  case "RU-LIP":
+		*c = `Lipetskaya Administrative Region`
+
+  // Magadanskaya Administrative Region
+  case "RU-MAG":
+		*c = `Magadanskaya Administrative Region`
+
+  // Moskovskaya Administrative Region
+  case "RU-MOS":
+		*c = `Moskovskaya Administrative Region`
+
+  // Murmanskaya Administrative Region
+  case "RU-MUR":
+		*c = `Murmanskaya Administrative Region`
+
+  // Nizhegorodskaya Administrative Region
+  case "RU-NIZ":
+		*c = `Nizhegorodskaya Administrative Region`
+
+  // Novgorodskaya Administrative Region
+  case "RU-NGR":
+		*c = `Novgorodskaya Administrative Region`
+
+  // Novosibirskaya Administrative Region
+  case "RU-NVS":
+		*c = `Novosibirskaya Administrative Region`
+
+  // Omskaya Administrative Region
+  case "RU-OMS":
+		*c = `Omskaya Administrative Region`
+
+  // Orenburgskaya Administrative Region
+  case "RU-ORE":
+		*c = `Orenburgskaya Administrative Region`
+
+  // Orlovskaya Administrative Region
+  case "RU-ORL":
+		*c = `Orlovskaya Administrative Region`
+
+  // Penzenskaya Administrative Region
+  case "RU-PNZ":
+		*c = `Penzenskaya Administrative Region`
+
+  // Pskovskaya Administrative Region
+  case "RU-PSK":
+		*c = `Pskovskaya Administrative Region`
+
+  // Rostovskaya Administrative Region
+  case "RU-ROS":
+		*c = `Rostovskaya Administrative Region`
+
+  // Ryazanskaya Administrative Region
+  case "RU-RYA":
+		*c = `Ryazanskaya Administrative Region`
+
+  // Sakhalinskaya Administrative Region
+  case "RU-SAK":
+		*c = `Sakhalinskaya Administrative Region`
+
+  // Samarskaya Administrative Region
+  case "RU-SAM":
+		*c = `Samarskaya Administrative Region`
+
+  // Saratovskaya Administrative Region
+  case "RU-SAR":
+		*c = `Saratovskaya Administrative Region`
+
+  // Smolenskaya Administrative Region
+  case "RU-SMO":
+		*c = `Smolenskaya Administrative Region`
+
+  // Sverdlovskaya Administrative Region
+  case "RU-SVE":
+		*c = `Sverdlovskaya Administrative Region`
+
+  // Tambovskaya Administrative Region
+  case "RU-TAM":
+		*c = `Tambovskaya Administrative Region`
+
+  // Tomskaya Administrative Region
+  case "RU-TOM":
+		*c = `Tomskaya Administrative Region`
+
+  // Tul’skaya Administrative Region
+  case "RU-TUL":
+		*c = `Tul’skaya Administrative Region`
+
+  // Tverskaya Administrative Region
+  case "RU-TVE":
+		*c = `Tverskaya Administrative Region`
+
+  // Tyumenskaya Administrative Region
+  case "RU-TYU":
+		*c = `Tyumenskaya Administrative Region`
+
+  // Ul’yanovskaya Administrative Region
+  case "RU-ULY":
+		*c = `Ul’yanovskaya Administrative Region`
+
+  // Vladimirskaya Administrative Region
+  case "RU-VLA":
+		*c = `Vladimirskaya Administrative Region`
+
+  // Volgogradskaya Administrative Region
+  case "RU-VGG":
+		*c = `Volgogradskaya Administrative Region`
+
+  // Vologodskaya Administrative Region
+  case "RU-VLG":
+		*c = `Vologodskaya Administrative Region`
+
+  // Voronezhskaya Administrative Region
+  case "RU-VOR":
+		*c = `Voronezhskaya Administrative Region`
+
+  // Yaroslavskaya Administrative Region
+  case "RU-YAR":
+		*c = `Yaroslavskaya Administrative Region`
+
+  // Moskva City
+  case "RU-MOW":
+		*c = `Moskva City`
+
+  // Sankt-Peterburg City
+  case "RU-SPE":
+		*c = `Sankt-Peterburg City`
+
+  // Yevreyskaya Autonomous Administrative Region
+  case "RU-YEV":
+		*c = `Yevreyskaya Autonomous Administrative Region`
+
+  // Chukotskiy Autonomous District
+  case "RU-CHU":
+		*c = `Chukotskiy Autonomous District`
+
+  // Khanty-Mansiyskiy Autonomous District
+  case "RU-KHM":
+		*c = `Khanty-Mansiyskiy Autonomous District`
+
+  // Nenetskiy Autonomous District
+  case "RU-NEN":
+		*c = `Nenetskiy Autonomous District`
+
+  // Yamalo-Nenetskiy Autonomous District
+  case "RU-YAN":
+		*c = `Yamalo-Nenetskiy Autonomous District`
+
+  // Alaska
+  case "US-AK":
+		*c = `Alaska`
+
+  // Alabama
+  case "US-AL":
+		*c = `Alabama`
+
+  // Arkansas
+  case "US-AR":
+		*c = `Arkansas`
+
+  // Arizona
+  case "US-AZ":
+		*c = `Arizona`
+
+  // California
+  case "US-CA":
+		*c = `California`
+
+  // Colorado
+  case "US-CO":
+		*c = `Colorado`
+
+  // Connecticut
+  case "US-CT":
+		*c = `Connecticut`
+
+  // District of Columbia
+  case "US-DC":
+		*c = `District of Columbia`
+
+  // Delaware
+  case "US-DE":
+		*c = `Delaware`
+
+  // Florida
+  case "US-FL":
+		*c = `Florida`
+
+  // Georgia
+  case "US-GA":
+		*c = `Georgia`
+
+  // Hawaii
+  case "US-HI":
+		*c = `Hawaii`
+
+  // Iowa
+  case "US-IA":
+		*c = `Iowa`
+
+  // Idaho
+  case "US-ID":
+		*c = `Idaho`
+
+  // Illinois
+  case "US-IL":
+		*c = `Illinois`
+
+  // Indiana
+  case "US-IN":
+		*c = `Indiana`
+
+  // Kansas
+  case "US-KS":
+		*c = `Kansas`
+
+  // Kentucky
+  case "US-KY":
+		*c = `Kentucky`
+
+  // Louisiana
+  case "US-LA":
+		*c = `Louisiana`
+
+  // Massachusetts
+  case "US-MA":
+		*c = `Massachusetts`
+
+  // Maryland
+  case "US-MD":
+		*c = `Maryland`
+
+  // Maine
+  case "US-ME":
+		*c = `Maine`
+
+  // Michigan
+  case "US-MI":
+		*c = `Michigan`
+
+  // Minnesota
+  case "US-MN":
+		*c = `Minnesota`
+
+  // Missouri
+  case "US-MO":
+		*c = `Missouri`
+
+  // Mississippi
+  case "US-MS":
+		*c = `Mississippi`
+
+  // Montana
+  case "US-MT":
+		*c = `Montana`
+
+  // North Carolina
+  case "US-NC":
+		*c = `North Carolina`
+
+  // North Dakota
+  case "US-ND":
+		*c = `North Dakota`
+
+  // Nebraska
+  case "US-NE":
+		*c = `Nebraska`
+
+  // New Hampshire
+  case "US-NH":
+		*c = `New Hampshire`
+
+  // New Jersey
+  case "US-NJ":
+		*c = `New Jersey`
+
+  // New Mexico
+  case "US-NM":
+		*c = `New Mexico`
+
+  // Nevada
+  case "US-NV":
+		*c = `Nevada`
+
+  // New York
+  case "US-NY":
+		*c = `New York`
+
+  // Ohio
+  case "US-OH":
+		*c = `Ohio`
+
+  // Oklahoma
+  case "US-OK":
+		*c = `Oklahoma`
+
+  // Oregon
+  case "US-OR":
+		*c = `Oregon`
+
+  // Pennsylvania
+  case "US-PA":
+		*c = `Pennsylvania`
+
+  // Rhode Island
+  case "US-RI":
+		*c = `Rhode Island`
+
+  // South Carolina
+  case "US-SC":
+		*c = `South Carolina`
+
+  // South Dakota
+  case "US-SD":
+		*c = `South Dakota`
+
+  // Tennessee
+  case "US-TN":
+		*c = `Tennessee`
+
+  // Texas
+  case "US-TX":
+		*c = `Texas`
+
+  // Utah
+  case "US-UT":
+		*c = `Utah`
+
+  // Virginia
+  case "US-VA":
+		*c = `Virginia`
+
+  // Vermont
+  case "US-VT":
+		*c = `Vermont`
+
+  // Washington
+  case "US-WA":
+		*c = `Washington`
+
+  // Wisconsin
+  case "US-WI":
+		*c = `Wisconsin`
+
+  // West Virginia
+  case "US-WV":
+		*c = `West Virginia`
+
+  // Wyoming
+  case "US-WY":
+		*c = `Wyoming`
+
+  // Countries geographically within continental Europe which use the Euro as their sole currency. At the time of writing, this is a synonym for ‘AT BE CY EE FI FR DE ES GR IE IT LT LU LV MT NL PT SI SK’ (the official Eurozone 19), plus ‘AD MC SM VA ME’ and Kosovo (other Euro-using countries in continental Europe). Note some other territories using the Euro, but outside continental Europe are excluded from this list, and may need to be specified separately. ONLY valid in ONIX 3, and ONLY within P.26 – and this use is itself DEPRECATED. Use of an explicit list of countries instead of ECZ is strongly encouraged
+  case "ECZ":
+		*c = `Eurozone`
+
+  // World except as otherwise specified. NOT USED in ONIX 3
+  case "ROW":
+		*c = `Rest of world`
+
+  // In ONIX 3, may ONLY be used in <RegionsIncluded>
+  case "WORLD":
+		*c = `World`
+	default:
+		return fmt.Errorf("undefined code for TerritoryCodeList has been passed, got [%s]", v)
+	}
+	return nil
+}
+
 // AddresseeIDType Name code type
 type AddresseeIDType string
 

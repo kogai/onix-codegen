@@ -22,7 +22,6 @@ import qualified Data.Text as Text
 import Text.Read (readEither)
 import Text.XML
 import Text.XML.Cursor
-import Util
 import Xsd.Types (Xsd (Xsd))
 import qualified Xsd.Types as Xsd
 
@@ -334,10 +333,9 @@ flt (x : xs) = do
 parseSequence :: Cursor -> P [Xsd.RefOr Xsd.SequenceInChild]
 parseSequence c = do
   choiceAxis <- makeElemAxis "choice"
-  elementAxis <- makeElemAxis "element"
 
   let choices = (flt . map parseChoice) (c $/ choiceAxis)
-      elements_ = (flt . map parseElements) (c $/ elementAxis) -- TODO: May not work
+      elements_ = parseElements c
   choices' <- choices
   elements' <- elements_
 
