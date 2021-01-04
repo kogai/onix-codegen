@@ -29,14 +29,22 @@ resolver:
 #   subdirs:
 #   - auto-update
 #   - wai
+allow-newer: true
 packages:
   - .
 # Dependency packages to be pulled from upstream that are not in the resolver.
 # These entries can reference officially published versions as well as
 # forks / in-progress versions pinned to a git hash. For example:
 #
+
+build:
+  library-profiling: true
+  executable-profiling: true
+
 extra-deps:
   - HUnit-1.6.1.0
+  - git: https://github.com/typeable/xsd-parser.git
+    commit: e08a37cf08674a492407b9b7f4a61e8faedb1590
 # - acme-missiles-0.3
 # - git: https://github.com/commercialhaskell/stack.git
 #   commit: e7b331f14bcffb8367cd58fbfc8b40ec7642100a

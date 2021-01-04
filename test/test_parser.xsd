@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="ONIXMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice>
+          <xs:element ref="Header" />
+        </xs:choice>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="Product" />
+          <xs:element ref="MainSeriesRecord" />
+          <xs:element ref="SubSeriesRecord" />
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="refname" type="xs:NMTOKEN" fixed="ONIXMessage" />
+      <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="ONIXmessage" />
+      <xs:attribute name="release" type="xs:string" fixed="2.1" />
+      <xs:attributeGroup ref="generalAttributes" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -3,3 +3,4 @@
 /fixtures/*.onix
 !/fixtures/20201200.onix
 /bazel-*
+/*.prof

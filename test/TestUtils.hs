@@ -7,26 +7,25 @@ import Model (Kind (Tag), dropDuplicate, model, models)
 import Test.HUnit (Test (TestCase, TestList), assertEqual)
 
 models' =
-  [ model "m1" "M1" (Just "string") Tag False [],
-    model "m2" "M2" (Just "string") Tag False [],
-    model "m3" "M3" (Just "string") Tag False [],
-    model "m4" "M4" (Just "string") Tag False [],
-    model "m5" "M5" (Just "string") Tag False [],
-    model "m6" "M6" (Just "string") Tag False [],
-    model "m3" "M3" (Just "string") Tag False [],
-    model "m3" "M3" (Just "string") Tag False []
+  [ model "m1" "M1" (Just "string") Tag False False [],
+    model "m2" "M2" (Just "string") Tag False False [],
+    model "m3" "M3" (Just "string") Tag False False [],
+    model "m4" "M4" (Just "string") Tag False False [],
+    model "m5" "M5" (Just "string") Tag False False [],
+    model "m6" "M6" (Just "string") Tag False False [],
+    model "m3" "M3" (Just "string") Tag False False [],
+    model "m3" "M3" (Just "string") Tag False False []
   ]
 
 models'' =
-  [ model "m1" "M1" (Just "string") Tag False [],
-    model "m2" "M2" (Just "string") Tag False [],
-    model "m3" "M3" (Just "string") Tag True [],
-    model "m4" "M4" (Just "string") Tag False [],
-    model "m5" "M5" (Just "string") Tag False [],
-    model "m6" "M6" (Just "string") Tag False []
+  [ model "m1" "M1" (Just "string") Tag False False [],
+    model "m2" "M2" (Just "string") Tag False False [],
+    model "m3" "M3" (Just "string") Tag True False [],
+    model "m4" "M4" (Just "string") Tag False False [],
+    model "m5" "M5" (Just "string") Tag False False [],
+    model "m6" "M6" (Just "string") Tag False False []
   ]
 
 utilTests =
-  TestList
-    [ TestCase (assertEqual "dropDuplicate" models'' (dropDuplicate models'))
-    ]
+  [ TestCase (assertEqual "dropDuplicate" models'' (dropDuplicate models'))
+  ]

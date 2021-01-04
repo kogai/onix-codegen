@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 65348ddfe9107998d25fd61a1c01812344f7ebe3ec36d6459daf5c63d5d154ce
+-- hash: 2716aaa5a2014e01a18398c7acc2bad747ae9228bbfe901778c3256ac0e32424
 
 name:           onix
 version:        0.1.0.0
@@ -31,17 +31,29 @@ library
       Lib
       Model
       Schema
+      Util
+      Xsd
+      Xsd.Parser
+      Xsd.Types
   other-modules:
       Paths_onix
   hs-source-dirs:
       src
-  ghc-options: -Wall -Werror -fwarn-incomplete-patterns -fwarn-incomplete-uni-patterns
+  ghc-options: -Wall -fwarn-incomplete-patterns -fwarn-incomplete-uni-patterns
   build-depends:
       base >=4.7 && <5
+    , bytestring ==0.10.10.1
+    , containers ==0.6.2.1
+    , filepath ==1.4.2.1
     , flow ==1.0.21
+    , http-client ==0.6.4.1
+    , http-client-tls ==0.3.5.3
+    , mtl ==2.2.2
     , mustache ==2.3.1
+    , network-uri ==2.6.3.0
     , parsec ==3.1.14.0
     , text ==1.2.4.0
+    , transformers ==0.5.6.2
     , unordered-containers ==0.2.10.0
     , vector ==0.12.1.2
     , xml-conduit ==1.9.0.0
@@ -54,7 +66,7 @@ executable onix-exe
       Paths_onix
   hs-source-dirs:
       app
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall -Werror -fwarn-incomplete-patterns -fwarn-incomplete-uni-patterns
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall -fwarn-incomplete-patterns -fwarn-incomplete-uni-patterns
   build-depends:
       base >=4.7 && <5
     , onix
@@ -64,6 +76,8 @@ test-suite onix-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      TestModel
+      TestParser
       TestUtils
       Paths_onix
   hs-source-dirs:
@@ -72,6 +86,8 @@ test-suite onix-test
   build-depends:
       HUnit ==1.6.1.0
     , base >=4.7 && <5
+    , containers ==0.6.2.1
     , onix
     , text ==1.2.4.0
+    , xml-conduit ==1.9.0.0
   default-language: Haskell2010
