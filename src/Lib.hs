@@ -60,14 +60,14 @@ render l = do
       writeFile "./go/code.go" c_
     Nothing -> throw Unreachable
 
--- m <- compile Model l
--- -- d <- compile Decoder l
--- -- r <- compile Reader l
--- case m of
---   Just c_ -> do
---     writeFile "./go/model.go" c_
---   Nothing -> throw Unreachable
+  m <- compile Model l
+  case m of
+    Just c_ -> do
+      writeFile "./go/model.go" c_
+    Nothing -> throw Unreachable
 
+-- d <- compile Decoder l
+-- r <- compile Reader l
 -- case (m, d, r) of
 --   (Just m_, Just d_, Just r_) -> do
 --     writeFile "./go/model.go" m_
