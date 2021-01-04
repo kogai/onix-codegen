@@ -7,7 +7,6 @@
         <xs:extension base="List44">
           <xs:attribute name="refname" type="xs:NMTOKEN" fixed="AddresseeIDType" />
           <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="m380" />
-          <xs:attributeGroup ref="generalAttributes" />
         </xs:extension>
       </xs:simpleContent>
     </xs:complexType>
