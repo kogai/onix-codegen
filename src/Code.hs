@@ -1,8 +1,22 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE NamedFieldPuns #-}
 
-module Code (code, codeType, codeTypes, CodeTypes, CodeType, Code, collectCodes, readSchema, topLevelCodeType) where
+module Code
+  ( code,
+    codeType,
+    codeTypes,
+    CodeTypes,
+    CodeType,
+    Code,
+    collectCodes,
+    readSchema,
+    topLevelElementToCode,
+    topLevelTypeToCode,
+    collectTypes,
+  )
+where
 
 import qualified Data.Map as M
 import Data.Text (Text, pack)
@@ -77,12 +91,9 @@ codeTypes = fromList
 readSchema :: IO CodeTypes
 readSchema = do
   xsd <- X.getSchema "./2_1_rev03_schema/ONIX_BookProduct_Release2.1_reference.xsd"
-  ( return
-      . codeTypes
-      . map (topLevelCodeType xsd)
-      . collectCodes
-    )
-    xsd
+  let codeTypesFromTypes = (map (topLevelTypeToCode xsd) . collectTypes) xsd
+  let codeTypesFromElements = (map (topLevelElementToCode xsd) . collectCodes) xsd
+  return $ codeTypes (codeTypesFromTypes ++ codeTypesFromElements)
 
 typeAnnotations :: X.Type -> [X.Annotation]
 typeAnnotations ty =
@@ -100,8 +111,31 @@ typeConstraints ty =
     (X.TypeSimple (X.UnionType _ _)) -> []
     (X.TypeComplex X.ComplexType {X.complexAnnotations = _}) -> []
 
-topLevelCodeType :: X.Schema -> X.Element -> CodeType
-topLevelCodeType scm elm =
+topLevelTypeToCode :: X.Schema -> (X.QName, X.Type) -> CodeType
+topLevelTypeToCode _scm (_, X.TypeSimple (X.AtomicType _ _)) = throw Unreachable
+topLevelTypeToCode scm (ref, X.TypeSimple (X.ListType ty _)) =
+  case ty of
+    X.Ref key_ ->
+      -- NOTE: Codelists does not contain namespaces which refer to `http://www.editeur.org/onix/2.1/reference`
+      let key = X.QName Nothing $ X.qnName key_
+          t = (unwrap . M.lookup key . X.schemaTypes) scm
+          desc = (T.intercalate (pack ". ") . map (\(X.Documentation x) -> x) . typeAnnotations) t
+          constraints = typeConstraints t
+          codes_ =
+            map
+              ( \(X.Enumeration v docs) ->
+                  let docs_ = map (\(X.Documentation d) -> d) docs
+                   in code v (head docs_) (last docs_)
+              )
+              constraints
+          refname = X.qnName ref
+       in codeType refname desc codes_
+    X.Inline _ -> throw Unreachable
+topLevelTypeToCode _scm (_, X.TypeSimple (X.UnionType _ _)) = throw Unreachable
+topLevelTypeToCode _scm (_, X.TypeComplex _) = throw Unreachable
+
+topLevelElementToCode :: X.Schema -> X.Element -> CodeType
+topLevelElementToCode scm elm =
   let plainContentAttributes = contentAttributes elm
       keyOfType = case content elm of
         Just (X.ContentSimple (X.SimpleContentExtension X.SimpleExtension {X.simpleExtensionBase})) ->
@@ -153,3 +187,15 @@ collectCodes =
           Nothing -> False
       )
     . X.schemaElements
+
+collectTypes :: X.Schema -> [(X.QName, X.Type)]
+collectTypes =
+  M.toList
+    . M.filter
+      ( \case
+          X.TypeSimple (X.AtomicType _ _) -> False
+          X.TypeSimple (X.ListType _ _) -> True
+          X.TypeSimple (X.UnionType _ _) -> False
+          X.TypeComplex _ -> False
+      )
+    . X.schemaTypes

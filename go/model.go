@@ -1,10 +1,5 @@
 package onix
 
-import (
-	"encoding/xml"
-	"fmt"
-)
-
 
 // AddresseeIdentifier is not documented.
 type AddresseeIdentifier struct {
@@ -411,30 +406,30 @@ type PersonAsSubject struct {
 type PersonDate struct {
 	PersonDateRole PersonDateRole `xml:"b305"`
 	DateFormat DateFormat `xml:"j260"`
-	Date Date `xml:"b306"`
+	Date string `xml:"b306"`
 }
 
 // PersonNameIdentifier is not documented.
 type PersonNameIdentifier struct {
 	PersonNameIDType PersonNameIDType `xml:"b390"`
-	IDTypeName IDTypeName `xml:"b233"`
-	IDValue IDValue `xml:"b244"`
+	IDTypeName string `xml:"b233"`
+	IDValue string `xml:"b244"`
 }
 
 // Price is not documented.
 type Price struct {
 	PriceTypeCode PriceTypeCode `xml:"j148"`
 	PriceQualifier PriceQualifier `xml:"j261"`
-	PriceTypeDescription PriceTypeDescription `xml:"j262"`
+	PriceTypeDescription string `xml:"j262"`
 	PricePer PricePer `xml:"j239"`
-	MinimumOrderQuantity MinimumOrderQuantity `xml:"j263"`
+	MinimumOrderQuantity string `xml:"j263"`
 	BatchBonus BatchBonus `xml:"batchbonus"`
-	ClassOfTrade ClassOfTrade `xml:"j149"`
-	BICDiscountGroupCode BICDiscountGroupCode `xml:"j150"`
+	ClassOfTrade string `xml:"j149"`
+	BICDiscountGroupCode string `xml:"j150"`
 	DiscountCoded DiscountCoded `xml:"discountcoded"`
-	DiscountPercent DiscountPercent `xml:"j267"`
+	DiscountPercent string `xml:"j267"`
 	PriceStatus PriceStatus `xml:"j266"`
-	PriceAmount PriceAmount `xml:"j151"`
+	PriceAmount string `xml:"j151"`
 	CurrencyCode CurrencyCode `xml:"j152"`
 	CountryCode CountryCode `xml:"b251,omitempty"`
 	Territory Territory `xml:"j303,omitempty"`
@@ -448,14 +443,14 @@ type Price struct {
 	TaxRatePercent2 TaxRatePercent2 `xml:"j158,omitempty"`
 	TaxableAmount2 TaxableAmount2 `xml:"j159,omitempty"`
 	TaxAmount2 TaxAmount2 `xml:"j160,omitempty"`
-	PriceEffectiveFrom PriceEffectiveFrom `xml:"j161"`
-	PriceEffectiveUntil PriceEffectiveUntil `xml:"j162"`
+	PriceEffectiveFrom string `xml:"j161"`
+	PriceEffectiveUntil string `xml:"j162"`
 }
 
 // Prize is not documented.
 type Prize struct {
-	PrizeName PrizeName `xml:"g126"`
-	PrizeYear PrizeYear `xml:"g127"`
+	PrizeName string `xml:"g126"`
+	PrizeYear string `xml:"g127"`
 	PrizeCountry PrizeCountry `xml:"g128"`
 	PrizeCode PrizeCode `xml:"g129"`
 	PrizeJury PrizeJury `xml:"g343"`
@@ -463,10 +458,10 @@ type Prize struct {
 
 // Product is not documented.
 type Product struct {
-	RecordReference RecordReference `xml:"a001"`
+	RecordReference string `xml:"a001"`
 	NotificationType NotificationType `xml:"a002"`
 	DeletionCode DeletionCode `xml:"a198"`
-	DeletionText DeletionText `xml:"a199"`
+	DeletionText string `xml:"a199"`
 	RecordSourceType RecordSourceType `xml:"a194"`
 	RecordSourceIdentifierType RecordSourceIdentifierType `xml:"a195,omitempty"`
 	RecordSourceIdentifier RecordSourceIdentifier `xml:"a196,omitempty"`
@@ -803,12 +798,12 @@ type SubSeriesRecord struct {
 	RecordSourceType RecordSourceType `xml:"a194"`
 	RecordSourceIdentifierType RecordSourceIdentifierType `xml:"a195,omitempty"`
 	RecordSourceIdentifier RecordSourceIdentifier `xml:"a196,omitempty"`
-	RecordSourceName RecordSourceName `xml:"a197"`
+	RecordSourceName string `xml:"a197"`
 	SeriesIdentifier SeriesIdentifier `xml:"seriesidentifier"`
 	ParentIdentifier ParentIdentifier `xml:"parentidentifier"`
-	LevelSequenceNumber LevelSequenceNumber `xml:"b284"`
 	SeriesPartName SeriesPartName `xml:"b282,omitempty"`
 	NumberWithinSeries NumberWithinSeries `xml:"b019,omitempty"`
+	LevelSequenceNumber string `xml:"b284"`
 	Title Title `xml:"title"`
 	Contributor Contributor `xml:"contributor"`
 	OtherText OtherText `xml:"othertext"`
@@ -819,10 +814,10 @@ type SubSeriesRecord struct {
 // Subject is not documented.
 type Subject struct {
 	SubjectSchemeIdentifier SubjectSchemeIdentifier `xml:"b067"`
-	SubjectSchemeName SubjectSchemeName `xml:"b171"`
-	SubjectSchemeVersion SubjectSchemeVersion `xml:"b068"`
 	SubjectCode SubjectCode `xml:"b069,omitempty"`
 	SubjectHeadingText SubjectHeadingText `xml:"b070,omitempty"`
+	SubjectSchemeName string `xml:"b171"`
+	SubjectSchemeVersion string `xml:"b068"`
 }
 
 // SupplierIdentifier is not documented.
@@ -847,12 +842,12 @@ type SupplyDetail struct {
 	SupplyToTerritory SupplyToTerritory `xml:"j397,omitempty"`
 	SupplyToRegion SupplyToRegion `xml:"j139,omitempty"`
 	SupplyToCountryExcluded SupplyToCountryExcluded `xml:"j140,omitempty"`
-	SupplyRestrictionDetail SupplyRestrictionDetail `xml:"j399"`
 	ReturnsCodeType ReturnsCodeType `xml:"j268,omitempty"`
 	ReturnsCode ReturnsCode `xml:"j269,omitempty"`
 	AvailabilityCode AvailabilityCode `xml:"j141,omitempty"`
 	ProductAvailability ProductAvailability `xml:"j396,omitempty"`
 	IntermediaryAvailabilityCode IntermediaryAvailabilityCode `xml:"j348,omitempty"`
+	SupplyRestrictionDetail string `xml:"j399"`
 	LastDateForReturns string `xml:"j387"`
 	NewSupplier NewSupplier `xml:"newsupplier"`
 	DateFormat DateFormat `xml:"j260,omitempty"`
