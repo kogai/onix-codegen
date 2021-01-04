@@ -2,7 +2,21 @@
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE NamedFieldPuns #-}
 
-module Model (Kind (..), Models, Model, models, model, readSchema, dropDuplicate, typeToText, content, findFixedOf, contentAttributes) where
+module Model
+  ( Kind (..),
+    Models,
+    Model,
+    models,
+    model,
+    readSchema,
+    dropDuplicate,
+    typeToText,
+    content,
+    findFixedOf,
+    contentAttributes,
+    topLevelModels,
+  )
+where
 
 import Data.List (elemIndex, find)
 import qualified Data.Map as M
@@ -41,12 +55,7 @@ data Model = Model
     iterable :: Bool,
     elements :: [Model]
   }
-  deriving (Generic, Show)
-
-instance Eq Model where
-  (==) a b =
-    shortname a == shortname b
-      && xmlReferenceName a == xmlReferenceName b
+  deriving (Generic, Show, Eq)
 
 instance FromJSON Model
 
@@ -236,11 +245,11 @@ contentModel el =
 
 topLevelModels :: X.Schema -> X.Element -> Model
 topLevelModels xsd elm =
-  let plainContentModel = contentModel elm
-      plainContentAttributes = contentAttributes elm
-      shortname = unwrap $ findFixedOf "shortname" plainContentAttributes
-      refname = unwrap $ findFixedOf "refname" plainContentAttributes
-      elements = case plainContentModel of
+  let modelGroup = contentModel elm
+      attributes = contentAttributes elm
+      shortname = unwrap $ findFixedOf "shortname" attributes
+      refname = unwrap $ findFixedOf "refname" attributes
+      elements = case modelGroup of
         Just mdgrp -> fieldsOfElement xsd mdgrp
         Nothing -> []
    in model shortname refname Nothing Tag False False elements

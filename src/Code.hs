@@ -1,17 +1,14 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
-{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE NamedFieldPuns #-}
 
 module Code (code, codeType, codeTypes, CodeTypes, CodeType, Code, collectCodes, readSchema, topLevelCodeType) where
 
-import qualified Data.List as L
 import qualified Data.Map as M
 import Data.Text (Text, pack)
 import qualified Data.Text as T
 import Data.Vector (Vector, fromList)
 import qualified Data.Yaml.Aeson as A
-import Debug.Trace
 import GHC.Generics (Generic)
 import Model (content, contentAttributes, findFixedOf)
 import Text.Mustache (ToMustache (..), object, (~>))

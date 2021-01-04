@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="OnOrderDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="OnOrder" />
+        <xs:element ref="ExpectedDate" />
+      </xs:sequence>
+      <xs:attribute name="refname" type="xs:NMTOKEN" fixed="OnOrderDetail" />
+      <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="onorderdetail" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnOrder">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="NonEmptyString">
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="OnOrder" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="j351" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExpectedDate">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="NonEmptyString">
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="ExpectedDate" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="j302" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="NonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

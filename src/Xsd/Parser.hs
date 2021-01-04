@@ -22,7 +22,6 @@ import qualified Data.Text as Text
 import Text.Read (readEither)
 import Text.XML
 import Text.XML.Cursor
-import Util
 import Xsd.Types (Xsd (Xsd))
 import qualified Xsd.Types as Xsd
 

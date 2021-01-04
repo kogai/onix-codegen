@@ -11,7 +11,6 @@ where
 import qualified Code as C
 import Data.Text (unpack)
 import qualified Model as M
-import qualified Schema as S
 import Text.Mustache (automaticCompile, substitute)
 import Util
 
