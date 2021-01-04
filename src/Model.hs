@@ -1,24 +1,20 @@
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE NamedFieldPuns #-}
 
-module Model (Kind (..), Models, Model, models, model, readSchema, dropDuplicate) where
+module Model (Kind (..), Models, Model, models, model, readSchema, dropDuplicate, typeToText) where
 
-import Data.List (elemIndex)
+import Data.List (elemIndex, find)
+import qualified Data.Map as M
+import Data.Maybe (fromMaybe)
 import Data.Text (Text, pack, unpack)
-import qualified Data.Text as T
 import Data.Vector (Vector, fromList)
 import Data.Yaml (FromJSON (..), withText)
-import Flow
+import Debug.Trace
 import GHC.Generics (Generic)
 import Text.Mustache (ToMustache (..), object, (~>))
-import qualified Text.XML as XML
-import Text.XML.Cursor
-
-nameNs :: String -> XML.Name
-nameNs x = XML.Name (pack x) (Just $ pack "http://www.w3.org/2001/XMLSchema") (Just $ pack "xs")
-
-name :: String -> XML.Name
-name x = XML.Name (pack x) Nothing Nothing
+import Util
+import qualified Xsd as X
 
 data Kind
   = Tag
@@ -41,6 +37,7 @@ data Model = Model
     typeName :: Maybe Text,
     kind :: Kind,
     optional :: Bool,
+    iterable :: Bool,
     elements :: [Model]
   }
   deriving (Generic, Show)
@@ -53,7 +50,7 @@ instance Eq Model where
 instance FromJSON Model
 
 instance ToMustache Model where
-  toMustache Model {shortname, xmlReferenceName, kind, elements, typeName, optional} =
+  toMustache Model {shortname, xmlReferenceName, kind, elements, typeName, optional, iterable} =
     let typeName_ = case typeName of
           Nothing -> []
           Just t -> [pack "typeName" ~> t]
@@ -62,19 +59,21 @@ instance ToMustache Model where
             pack "xmlReferenceName" ~> xmlReferenceName,
             pack "kind" ~> kind,
             pack "optional" ~> optional,
+            pack "iterable" ~> iterable,
             pack "elements" ~> elements
           ]
             ++ typeName_
 
-model :: Text -> Text -> Maybe Text -> Kind -> Bool -> [Model] -> Model
-model shortname xmlReferenceName typeName kind optional elements =
+model :: Text -> Text -> Maybe Text -> Kind -> Bool -> Bool -> [Model] -> Model
+model shortname xmlReferenceName typeName kind optional iterable elements =
   Model
     { shortname,
       xmlReferenceName,
       kind,
       elements,
       typeName,
-      optional
+      optional,
+      iterable
     }
 
 type Models = Vector Model
@@ -82,33 +81,40 @@ type Models = Vector Model
 models :: [Model] -> Models
 models = fromList
 
-collectElements :: Cursor -> [Cursor]
-collectElements docOfRef =
-  docOfRef
-    $// ( element (nameNs "element")
-            >=> check (hasAttribute $ name "name")
-            >=> check
-              ( \csr ->
-                  let seqInChildren = csr $// element (nameNs "sequence")
-                   in not $ null seqInChildren
-              )
-        )
+collectElements :: X.Schema -> [X.Element]
+collectElements =
+  map snd
+    . M.toList
+    . M.filter
+      ( \case
+          X.Element
+            { X.elementType = X.Inline (X.TypeComplex X.ComplexType {X.complexContent = X.ContentPlain _}),
+              X.elementName = X.QName {X.qnNamespace = Just _}
+            } -> True
+          _ -> False
+      )
+    . X.schemaElements
 
-findFixedOf :: String -> Cursor -> [Text]
+configurableType :: Text
+configurableType = pack "string"
+
+findFixedOf :: String -> [X.Attribute] -> Maybe Text
 findFixedOf s =
-  element (nameNs "attribute")
-    >=> check (attributeIs (name "name") (pack s))
-    >=> attribute (name "fixed")
-
-modelOfElement :: Cursor -> Cursor -> Model
-modelOfElement docOfRef c =
-  let ref = T.concat $ attribute (name "ref") c
-      shrtnm =
-        docOfRef $// element (nameNs "element") >=> check (attributeIs (name "name") ref)
-          |> map (\s -> s $// findFixedOf "shortname")
-          |> concat
-          |> T.concat
-   in model shrtnm ref (Just ref) Tag False []
+  ( \case
+      Just (Just x) -> Just x
+      Just Nothing -> Nothing
+      Nothing -> Nothing
+  )
+    . fmap
+      ( \case
+          X.InlineAttribute X.AttributeInline {X.attributeInlineFixed} -> attributeInlineFixed
+          _ -> Nothing
+      )
+    . find
+      ( \case
+          X.InlineAttribute X.AttributeInline {X.attributeInlineName = X.QName {X.qnName}} -> unpack qnName == s
+          _ -> False
+      )
 
 dropDuplicate :: [Model] -> [Model]
 dropDuplicate =
@@ -122,26 +128,123 @@ dropDuplicate =
     )
     []
 
+typeToText :: X.Type -> Text
+typeToText (X.TypeSimple (X.AtomicType X.SimpleRestriction {X.simpleRestrictionBase} [])) =
+  X.refOr (\X.QName {X.qnName} -> qnName) (throw Unreachable) simpleRestrictionBase
+typeToText (X.TypeSimple (X.AtomicType _ty _annotations)) = throw Unimplemented
+typeToText (X.TypeSimple (X.ListType _ty _annotations)) = throw Unimplemented
+typeToText (X.TypeSimple (X.UnionType _ty _annotations)) = throw Unimplemented
+typeToText (X.TypeComplex X.ComplexType {X.complexContent}) = case complexContent of
+  X.ContentSimple (X.SimpleContentExtension X.SimpleExtension {X.simpleExtensionAttributes}) ->
+    unwrap $ findFixedOf "refname" simpleExtensionAttributes
+  X.ContentPlain (X.PlainContent _mdg annotations) -> fromMaybe configurableType $ findFixedOf "refname" annotations
+  _ -> throw Unimplemented
+
+elementToModel :: X.Schema -> X.Element -> Model
+elementToModel docOfRef x =
+  let shortname = (unwrap . findFixedOf "shortname" . contentAttributes) x
+      refname = (unwrap . findFixedOf "refname" . contentAttributes) x
+      iterable = case X.elementOccurs x of
+        (_, X.MaxOccurs 1) -> False
+        (_, X.MaxOccurs _) -> True
+        (_, X.MaxOccursUnbound) -> True
+      ty = case X.elementType x of
+        X.Ref key -> (M.lookup key . X.schemaTypes) docOfRef
+        X.Inline val -> Just val
+   in model shortname refname (fmap typeToText ty) Tag (X.elementNillable x) iterable []
+
 -- TODO: Branching by language
 -- Since the Go language does not have a sum type, all choices should be optional.
-modelsOfElement :: Cursor -> [Cursor] -> [Model]
-modelsOfElement docOfRef elements =
-  elements
-    |> map (modelOfElement docOfRef)
-    |> dropDuplicate
+fieldsOfElement :: X.Schema -> X.ModelGroup -> [Model]
+fieldsOfElement docOfRef (X.Sequence xs) =
+  concatMap
+    ( \case
+        (X.Ref key) ->
+          let plainContentModel = (contentModel . unwrap . M.lookup key . X.schemaElements) docOfRef
+           in case plainContentModel of
+                Just mdgrp -> fieldsOfElement docOfRef mdgrp
+                Nothing -> []
+        (X.Inline (X.ElementOfSequence ys)) ->
+          map
+            ( X.refOr
+                ( \key -> case ((M.lookup key . X.schemaElements) docOfRef, (M.lookup key . X.schemaTypes) docOfRef) of
+                    (Just x, Nothing) -> elementToModel docOfRef x
+                    (Nothing, Just _) -> throw Unreachable
+                    _ -> throw Unreachable
+                )
+                (elementToModel docOfRef)
+            )
+            ys
+        (X.Inline (X.ChoiceOfSequence ys)) ->
+          concatMap
+            ( X.refOr
+                (\key -> [(elementToModel docOfRef . unwrap . M.lookup key . X.schemaElements) docOfRef])
+                -- TODO: Make optional
+                ( \(X.ElementOfChoice choices) ->
+                    map
+                      ( \case
+                          X.Ref key -> (elementToModel docOfRef . unwrap . M.lookup key . X.schemaElements) docOfRef
+                          X.Inline value -> elementToModel docOfRef value
+                      )
+                      choices
+                )
+            )
+            ys
+    )
+    xs
+fieldsOfElement _docOfRef (X.Choice _xs) = []
+fieldsOfElement _docOfRef (X.All _xs) = []
 
-tagElement :: Cursor -> Cursor -> Model
-tagElement docOfRef csr =
-  let xmlReferenceName = T.concat $ csr $// findFixedOf "refname"
-      shortname = T.concat $ csr $// findFixedOf "shortname"
-      elements = csr $// element (nameNs "sequence") &// element (nameNs "element")
-   in model shortname xmlReferenceName Nothing Tag False (modelsOfElement docOfRef elements)
+content :: X.Element -> Maybe X.Content
+content
+  X.Element
+    { X.elementType =
+        X.Inline
+          ( X.TypeComplex
+              X.ComplexType
+                { X.complexContent
+                }
+            )
+    } = Just complexContent
+content _ = Nothing
+
+contentAttributes :: X.Element -> [X.Attribute]
+contentAttributes el =
+  case content el of
+    Just (X.ContentComplex (X.ComplexContentExtension X.ComplexExtension {X.complexExtensionAttributes})) -> complexExtensionAttributes
+    Just (X.ContentComplex (X.ComplexContentRestriction X.ComplexRestriction {X.complexRestrictionAttributes})) -> complexRestrictionAttributes
+    Just (X.ContentSimple (X.SimpleContentExtension X.SimpleExtension {X.simpleExtensionAttributes})) -> simpleExtensionAttributes
+    Just (X.ContentSimple (X.SimpleContentRestriction _)) -> []
+    Just (X.ContentPlain X.PlainContent {X.plainContentAttributes}) -> plainContentAttributes
+    Nothing -> []
+
+contentModel :: X.Element -> Maybe X.ModelGroup
+contentModel el =
+  case content el of
+    Just (X.ContentComplex (X.ComplexContentExtension X.ComplexExtension {X.complexExtensionModel})) -> complexExtensionModel
+    Just (X.ContentComplex (X.ComplexContentRestriction X.ComplexRestriction {X.complexRestrictionModel})) -> complexRestrictionModel
+    Just (X.ContentSimple (X.SimpleContentExtension X.SimpleExtension {})) -> Nothing
+    Just (X.ContentSimple (X.SimpleContentRestriction _)) -> Nothing
+    Just (X.ContentPlain X.PlainContent {X.plainContentModel}) -> plainContentModel
+    Nothing -> Nothing
+
+topLevelModels :: X.Schema -> X.Element -> Model
+topLevelModels xsd elm =
+  let plainContentModel = contentModel elm
+      plainContentAttributes = contentAttributes elm
+      shortname = unwrap $ findFixedOf "shortname" plainContentAttributes
+      refname = unwrap $ findFixedOf "refname" plainContentAttributes
+      elements = case plainContentModel of
+        Just mdgrp -> fieldsOfElement xsd mdgrp
+        Nothing -> []
+   in model shortname refname Nothing Tag False False elements
 
 readSchema :: IO Models
 readSchema = do
-  xmlCodeLists <- XML.readFile XML.def "./2_1_rev03_schema/ONIX_BookProduct_CodeLists.xsd"
-  xmlReference <- XML.readFile XML.def "./2_1_rev03_schema/ONIX_BookProduct_Release2.1_reference.xsd"
-  let _docOfCodeLists = fromDocument xmlCodeLists
-      docOfRef = fromDocument xmlReference
-      targetElements = collectElements docOfRef
-  return $ models $ map (tagElement docOfRef) targetElements
+  xsd <- X.getSchema "./2_1_rev03_schema/ONIX_BookProduct_Release2.1_reference.xsd"
+  ( return
+      . models
+      . map (topLevelModels xsd)
+      . collectElements
+    )
+    xsd
