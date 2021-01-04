@@ -105,9 +105,6 @@ tests =
     TestCase
       ( do
           scm <- getSchema "./test/test_model_list.xsd"
-          print ""
-          (print . schemaTypes) scm
-          print ""
           let actual = (head . map snd . M.toList . schemaTypes) scm
           assertEqual "can parse simple list type" expected2 actual
       ),
@@ -128,5 +125,11 @@ tests =
           scm <- getSchema "./test/test_model_atom_ref_bylist.xsd"
           let actual = typeToText expected4
           assertEqual "can derive referenced type" "BibleContents" actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./test/test_model_atom_ref_byname.xsd"
+          let actual = (typeToText . head . map snd . M.toList . schemaTypes) scm
+          assertEqual "can derive referenced type" "TerritoryCodeList" actual
       )
   ]

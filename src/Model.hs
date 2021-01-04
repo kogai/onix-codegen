@@ -8,6 +8,7 @@ import Data.List (elemIndex, find)
 import qualified Data.Map as M
 import Data.Maybe (fromMaybe)
 import Data.Text (Text, pack, unpack)
+import qualified Data.Text as T
 import Data.Vector (Vector, fromList)
 import Data.Yaml (FromJSON (..), withText)
 import Debug.Trace
@@ -135,8 +136,11 @@ typeToText (X.TypeSimple (X.AtomicType _ty _annotations)) = throw Unimplemented
 typeToText (X.TypeSimple (X.ListType _ty _annotations)) = throw Unimplemented
 typeToText (X.TypeSimple (X.UnionType _ty _annotations)) = throw Unimplemented
 typeToText (X.TypeComplex X.ComplexType {X.complexContent}) = case complexContent of
-  X.ContentSimple (X.SimpleContentExtension X.SimpleExtension {X.simpleExtensionAttributes}) ->
-    unwrap $ findFixedOf "refname" simpleExtensionAttributes
+  X.ContentSimple (X.SimpleContentExtension X.SimpleExtension {X.simpleExtensionBase, X.simpleExtensionAttributes}) ->
+    let qnName = X.qnName simpleExtensionBase
+     in if T.isPrefixOf (pack "List") qnName
+          then unwrap $ findFixedOf "refname" simpleExtensionAttributes
+          else qnName
   X.ContentPlain (X.PlainContent _mdg annotations) -> fromMaybe configurableType $ findFixedOf "refname" annotations
   _ -> throw Unimplemented
 
