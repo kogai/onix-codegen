@@ -6,6 +6,10 @@ BZL_BIN := $(shell npx bazel info bazel-bin)
 run: build
 	stack exec onix-exe
 
+.PHONY: debug
+debug: build
+	stack exec --trace -- onix-exe +RTS -xc
+
 .stack-work: $(HS_FILES) package.yaml stack.yaml
 	stack build
 
