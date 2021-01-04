@@ -3,8 +3,9 @@
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE NamedFieldPuns #-}
 
-module Code (code, codeType, codeTypes, CodeTypes, CodeType, Code, collectCodes, readSchema) where
+module Code (code, codeType, codeTypes, CodeTypes, CodeType, Code, collectCodes, readSchema, topLevelCodeType) where
 
+import qualified Data.List as L
 import qualified Data.Map as M
 import Data.Text (Text, pack)
 import qualified Data.Text as T
@@ -22,7 +23,7 @@ data Code = Code
     description :: Text,
     notes :: Text
   }
-  deriving (Generic, Show)
+  deriving (Generic, Show, Eq)
 
 instance A.ToJSON Code
 
@@ -49,7 +50,7 @@ data CodeType = CodeType
     description :: Text,
     codes :: Vector Code
   }
-  deriving (Generic, Show)
+  deriving (Generic, Show, Eq)
 
 instance A.ToJSON CodeType
 
@@ -75,6 +76,39 @@ type CodeTypes = Vector CodeType
 
 codeTypes :: [CodeType] -> CodeTypes
 codeTypes = fromList
+typeAnnotations :: X.Type -> [X.Annotation]
+typeAnnotations ty =
+  case ty of
+    (X.TypeSimple (X.AtomicType _ annotations)) -> annotations
+    (X.TypeSimple (X.ListType _ annotations)) -> annotations
+    (X.TypeSimple (X.UnionType _ annotations)) -> annotations
+    (X.TypeComplex X.ComplexType {X.complexAnnotations}) -> complexAnnotations
+
+topLevelCodeType :: X.Schema -> X.Element -> CodeType
+topLevelCodeType scm elm =
+  let plainContentAttributes = contentAttributes elm
+      keyOfType = case content elm of
+        Just (X.ContentSimple (X.SimpleContentExtension X.SimpleExtension {X.simpleExtensionBase})) ->
+          let qnName = X.qnName simpleExtensionBase
+           in if T.isPrefixOf (pack "List") qnName then Just simpleExtensionBase else Nothing
+        Just (X.ContentSimple (X.SimpleContentRestriction _)) -> Nothing
+        Just (X.ContentPlain X.PlainContent {}) -> Nothing
+        Just (X.ContentComplex (X.ComplexContentExtension X.ComplexExtension {})) -> Nothing
+        Just (X.ContentComplex (X.ComplexContentRestriction X.ComplexRestriction {})) -> Nothing
+        Nothing -> Nothing
+      ty = case keyOfType of
+        Just key_ ->
+          -- NOTE: Codelists does not contain namespaces which refer to `http://www.editeur.org/onix/2.1/reference`
+          let key = X.QName Nothing $ X.qnName key_
+           in (M.lookup key . X.schemaTypes) scm
+        Nothing -> Nothing
+      desc = case ty of
+        Just t ->
+          (T.intercalate (pack ". ") . map (\(X.Documentation x) -> x) . typeAnnotations) t
+        Nothing -> pack ""
+      refname = unwrap $ findFixedOf "refname" plainContentAttributes
+   in codeType refname desc []
+
 collectCodes :: X.Schema -> [X.Element]
 collectCodes =
   map snd

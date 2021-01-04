@@ -8,6 +8,7 @@ module Lib
   )
 where
 
+import qualified Code as C
 import Data.Text (unpack)
 import qualified Model as M
 import qualified Schema as S
@@ -33,7 +34,7 @@ compile r Go = do
         Code -> do
           let name = "code.mustache"
           compiled <- automaticCompile searchSpace name
-          codeTypes <- S.readSchema
+          codeTypes <- C.readSchema
           let txt =
                 ( case compiled of
                     Left err -> throw $ ParseErr err
@@ -54,19 +55,19 @@ compile r Go = do
 
 render :: Language -> IO ()
 render l = do
-  -- c <- compile Code l
-  -- case c of
-  --   Just c_ -> do
-  --     writeFile "./go/code.go" c_
-  --   Nothing -> throw Unreachable
-
-  m <- compile Model l
-  -- d <- compile Decoder l
-  -- r <- compile Reader l
-  case m of
+  c <- compile Code l
+  case c of
     Just c_ -> do
-      writeFile "./go/model.go" c_
+      writeFile "./go/code.go" c_
     Nothing -> throw Unreachable
+
+-- m <- compile Model l
+-- -- d <- compile Decoder l
+-- -- r <- compile Reader l
+-- case m of
+--   Just c_ -> do
+--     writeFile "./go/model.go" c_
+--   Nothing -> throw Unreachable
 
 -- case (m, d, r) of
 --   (Just m_, Just d_, Just r_) -> do

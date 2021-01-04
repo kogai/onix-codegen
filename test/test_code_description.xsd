@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="test_code_description_codelists.xsd" />
+  <xs:element name="AddresseeIDType">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="List44">
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="AddresseeIDType" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="m380" />
+          <xs:attributeGroup ref="generalAttributes" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
