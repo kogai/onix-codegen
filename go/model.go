@@ -6,14 +6,6 @@ import (
 )
 
 
-// ONIXMessage is not documented.
-type ONIXMessage struct {
-	Header Header `xml:"header"`
-	Product Product `xml:"product"`
-	MainSeriesRecord MainSeriesRecord `xml:"mainseriesrecord"`
-	SubSeriesRecord SubSeriesRecord `xml:"subseriesrecord"`
-}
-
 // AddresseeIdentifier is not documented.
 type AddresseeIdentifier struct {
 	AddresseeIDType AddresseeIDType `xml:"m380"`
@@ -355,6 +347,14 @@ type NotForSale struct {
 	EAN13 string `xml:"b005"`
 	ProductIdentifier ProductIdentifier `xml:"productidentifier"`
 	PublisherName string `xml:"b081"`
+}
+
+// ONIXMessage is not documented.
+type ONIXMessage struct {
+	Header Header `xml:"header"`
+	Product Product `xml:"product"`
+	MainSeriesRecord MainSeriesRecord `xml:"mainseriesrecord"`
+	SubSeriesRecord SubSeriesRecord `xml:"subseriesrecord"`
 }
 
 // OnOrderDetail is not documented.
