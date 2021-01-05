@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="../2_1_rev03_schema/ONIX_XHTML_Subset.xsd" />
+  <xs:element name="ConferenceSponsor">
+    <xs:complexType>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element ref="ConferenceSponsorIdentifier" />
+          <xs:choice minOccurs="0">
+            <xs:element ref="PersonName" />
+            <xs:element ref="CorporateName" />
+          </xs:choice>
+        </xs:sequence>
+        <xs:element ref="PersonName" />
+        <xs:element ref="CorporateName" />
+      </xs:choice>
+      <xs:attribute name="refname" type="xs:NMTOKEN" fixed="ConferenceSponsor" />
+      <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="conferencesponsor" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConferenceSponsorIdentifier">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="NonEmptyString">
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="PersonName" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="b036" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonName">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="NonEmptyString">
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="PersonName" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="b036" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CorporateName">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="NonEmptyString">
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="CorporateName" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="b047" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="NonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
