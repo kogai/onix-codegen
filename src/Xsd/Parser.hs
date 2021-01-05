@@ -347,10 +347,11 @@ parseSequence c = do
 
 parseChoice :: Cursor -> P [Xsd.RefOr Xsd.ChoiceInChild]
 parseChoice c = do
-  elementAxis <- makeElemAxis "element"
-  case c $/ elementAxis of
-    [] -> return []
-    _ -> (: []) . Xsd.Inline . Xsd.ElementOfChoice <$> parseElements c
+  sequenceAxis <- makeElemAxis "sequence"
+  elements' <- Xsd.ElementOfChoice <$> parseElements c
+  sequences' <- Xsd.SequenceOfChoice <$> (flt . map parseSequence) (c $/ sequenceAxis)
+
+  return $ map Xsd.Inline [elements', sequences']
 
 parseAll :: Cursor -> P Xsd.ModelGroup
 parseAll c = Xsd.All <$> parseElements c
