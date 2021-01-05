@@ -22,8 +22,8 @@
     <xs:complexType>
       <xs:simpleContent>
         <xs:extension base="NonEmptyString">
-          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="PersonName" />
-          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="b036" />
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="ConferenceSponsorIdentifier" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="conferencesponsoridentifier" />
         </xs:extension>
       </xs:simpleContent>
     </xs:complexType>

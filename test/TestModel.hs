@@ -178,9 +178,9 @@ tests =
                   Tag
                   False
                   False
-                  [ model "conferencesponsoridentifier" "ConferenceSponsorIdentifier" (Just "string") Tag True False [],
-                    model "b036" "PersonName" (Just "string") Tag True False [],
-                    model "b047" "CorporateName" (Just "string") Tag True False []
+                  [ model "b036" "PersonName" (Just "string") Tag True False [],
+                    model "b047" "CorporateName" (Just "string") Tag True False [],
+                    model "conferencesponsoridentifier" "ConferenceSponsorIdentifier" (Just "string") Tag True False []
                   ]
           assertEqual "can parse sum type" expected actual
       )

@@ -168,6 +168,29 @@ elementToModel docOfRef x =
         X.Inline val -> Just val
    in model shortname refname (fmap typeToText ty) Tag (X.elementNillable x) iterable []
 
+modelByKey :: X.Schema -> X.QName -> Model
+modelByKey docOfRef key = (elementToModel docOfRef . unwrap . M.lookup key . X.schemaElements) docOfRef
+
+makeOptional :: Model -> Model
+makeOptional x = x {optional = True}
+
+fieldsOfElementOfChoiceInChild :: X.Schema -> [X.RefOr X.ChoiceInChild] -> [Model]
+fieldsOfElementOfChoiceInChild docOfRef =
+  concatMap
+    ( X.refOr
+        (\key -> [modelByKey docOfRef key])
+        ( \case
+            (X.ElementOfChoice es) ->
+              map
+                ( \case
+                    X.Ref key -> (elementToModel docOfRef . unwrap . M.lookup key . X.schemaElements) docOfRef
+                    X.Inline value -> elementToModel docOfRef value
+                )
+                es
+            (X.SequenceOfChoice ss) -> fieldsOfElement docOfRef $ X.Sequence ss
+        )
+    )
+
 -- TODO: Branching by language
 -- Since the Go language does not have a sum type, all choices should be optional.
 fieldsOfElement :: X.Schema -> X.ModelGroup -> [Model]
@@ -180,34 +203,11 @@ fieldsOfElement docOfRef (X.Sequence xs) =
                 Just mdgrp -> fieldsOfElement docOfRef mdgrp
                 Nothing -> []
         (X.Inline (X.ElementOfSequence ys)) ->
-          map
-            ( X.refOr
-                ( \key -> case ((M.lookup key . X.schemaElements) docOfRef, (M.lookup key . X.schemaTypes) docOfRef) of
-                    (Just x, Nothing) -> elementToModel docOfRef x
-                    (Nothing, Just _) -> throw Unreachable
-                    _ -> throw Unreachable
-                )
-                (elementToModel docOfRef)
-            )
-            ys
-        (X.Inline (X.ChoiceOfSequence ys)) ->
-          concatMap
-            ( X.refOr
-                (\key -> [(elementToModel docOfRef . unwrap . M.lookup key . X.schemaElements) docOfRef])
-                -- TODO: Make optional
-                ( \(X.ElementOfChoice choices) ->
-                    map
-                      ( \case
-                          X.Ref key -> (elementToModel docOfRef . unwrap . M.lookup key . X.schemaElements) docOfRef
-                          X.Inline value -> elementToModel docOfRef value
-                      )
-                      choices
-                )
-            )
-            ys
+          map (X.refOr (modelByKey docOfRef) (elementToModel docOfRef)) ys
+        (X.Inline (X.ChoiceOfSequence ys)) -> fieldsOfElementOfChoiceInChild docOfRef ys
     )
     xs
-fieldsOfElement _docOfRef (X.Choice _xs) = []
+fieldsOfElement docOfRef (X.Choice xs) = (dropDuplicate . map makeOptional . fieldsOfElementOfChoiceInChild docOfRef) xs
 fieldsOfElement _docOfRef (X.All _xs) = []
 
 content :: X.Element -> Maybe X.Content
