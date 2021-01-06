@@ -230,6 +230,7 @@ parseComplexType :: Cursor -> P Xsd.ComplexType
 parseComplexType c = do
   annotations <- parseAnnotations c
   cont <- parseContent c
+
   return
     Xsd.ComplexType
       { Xsd.complexAnnotations = annotations,
@@ -348,10 +349,15 @@ parseSequence c = do
 parseChoice :: Cursor -> P [Xsd.RefOr Xsd.ChoiceInChild]
 parseChoice c = do
   sequenceAxis <- makeElemAxis "sequence"
-  elements' <- Xsd.ElementOfChoice <$> parseElements c
-  sequences' <- Xsd.SequenceOfChoice <$> (flt . map parseSequence) (c $/ sequenceAxis)
+  elements' <- parseElements c
+  sequences' <- (flt . map parseSequence) (c $/ sequenceAxis)
 
-  return $ map Xsd.Inline [elements', sequences']
+  let choices = case (elements', sequences') of
+        (xs, []) -> [Xsd.ElementOfChoice xs]
+        ([], xs) -> [Xsd.SequenceOfChoice xs]
+        (xs, ys) -> [Xsd.ElementOfChoice xs, Xsd.SequenceOfChoice ys]
+
+  return $ map Xsd.Inline choices
 
 parseAll :: Cursor -> P Xsd.ModelGroup
 parseAll c = Xsd.All <$> parseElements c

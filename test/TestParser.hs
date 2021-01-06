@@ -40,12 +40,7 @@ expected =
                                                   ),
                                                 Inline
                                                   ( ElementOfChoice
-                                                      [ Ref
-                                                          ( QName
-                                                              { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
-                                                                qnName = "Product"
-                                                              }
-                                                          ),
+                                                      [ Ref (QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "Product"}),
                                                         Ref (QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "MainSeriesRecord"}),
                                                         Ref (QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "SubSeriesRecord"})
                                                       ]

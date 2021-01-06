@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 module Model
   ( Kind (..),
@@ -20,12 +21,11 @@ where
 
 import Data.List (elemIndex, find)
 import qualified Data.Map as M
-import Data.Maybe (fromMaybe)
+import Data.Maybe (fromMaybe, mapMaybe)
 import Data.Text (Text, pack, unpack)
 import qualified Data.Text as T
 import Data.Vector (Vector, fromList)
 import Data.Yaml (FromJSON (..), withText)
-import Debug.Trace
 import GHC.Generics (Generic)
 import Text.Mustache (ToMustache (..), object, (~>))
 import Util
@@ -43,8 +43,8 @@ instance FromJSON Kind where
     _ -> fail "string is not one of known enum values"
 
 instance ToMustache Kind where
-  toMustache Tag = toMustache "tag"
-  toMustache Attribute = toMustache "attribute"
+  toMustache Tag = toMustache ("tag" :: String)
+  toMustache Attribute = toMustache ("attribute" :: String)
 
 data Model = Model
   { shortname :: Text,
@@ -55,9 +55,14 @@ data Model = Model
     iterable :: Bool,
     elements :: [Model]
   }
-  deriving (Generic, Show, Eq)
+  deriving (Generic, Show)
 
 instance FromJSON Model
+
+instance Eq Model where
+  (==) a b =
+    shortname a == shortname b
+      && xmlReferenceName a == xmlReferenceName b
 
 instance ToMustache Model where
   toMustache Model {shortname, xmlReferenceName, kind, elements, typeName, optional, iterable} =
@@ -168,8 +173,8 @@ elementToModel docOfRef x =
         X.Inline val -> Just val
    in model shortname refname (fmap typeToText ty) Tag (X.elementNillable x) iterable []
 
-modelByKey :: X.Schema -> X.QName -> Model
-modelByKey docOfRef key = (elementToModel docOfRef . unwrap . M.lookup key . X.schemaElements) docOfRef
+modelByKey :: X.Schema -> X.QName -> Maybe Model
+modelByKey docOfRef key = elementToModel docOfRef <$> (M.lookup key . X.schemaElements) docOfRef
 
 makeOptional :: Model -> Model
 makeOptional x = x {optional = True}
@@ -178,13 +183,13 @@ fieldsOfElementOfChoiceInChild :: X.Schema -> [X.RefOr X.ChoiceInChild] -> [Mode
 fieldsOfElementOfChoiceInChild docOfRef =
   concatMap
     ( X.refOr
-        (\key -> [modelByKey docOfRef key])
+        (\key -> [unwrap $ modelByKey docOfRef key])
         ( \case
             (X.ElementOfChoice es) ->
-              map
+              mapMaybe
                 ( \case
-                    X.Ref key -> (elementToModel docOfRef . unwrap . M.lookup key . X.schemaElements) docOfRef
-                    X.Inline value -> elementToModel docOfRef value
+                    X.Ref key -> modelByKey docOfRef key
+                    X.Inline value -> (Just . elementToModel docOfRef) value
                 )
                 es
             (X.SequenceOfChoice ss) -> fieldsOfElement docOfRef $ X.Sequence ss
@@ -203,7 +208,12 @@ fieldsOfElement docOfRef (X.Sequence xs) =
                 Just mdgrp -> fieldsOfElement docOfRef mdgrp
                 Nothing -> []
         (X.Inline (X.ElementOfSequence ys)) ->
-          map (X.refOr (modelByKey docOfRef) (elementToModel docOfRef)) ys
+          mapMaybe
+            ( X.refOr
+                (modelByKey docOfRef)
+                (Just . elementToModel docOfRef)
+            )
+            ys
         (X.Inline (X.ChoiceOfSequence ys)) -> fieldsOfElementOfChoiceInChild docOfRef ys
     )
     xs
