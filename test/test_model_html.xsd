@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="../2_1_rev03_schema/ONIX_XHTML_Subset.xsd" />
+  <xs:element name="Annotation">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="h1" />
+        <xs:element ref="h2" />
+        <xs:element ref="h3" />
+        <xs:element ref="h4" />
+        <xs:element ref="h5" />
+        <xs:element ref="h6" />
+        <xs:element ref="div" />
+        <xs:element ref="ul" />
+        <xs:element ref="ol" />
+        <xs:element ref="dl" />
+        <xs:element ref="pre" />
+        <xs:element ref="hr" />
+        <xs:element ref="blockquote" />
+        <xs:element ref="address" />
+        <xs:element ref="table" />
+        <xs:element ref="a" />
+        <xs:element ref="br" />
+        <xs:element ref="span" />
+        <xs:element ref="bdo" />
+        <xs:element ref="object" />
+        <xs:element ref="img" />
+        <xs:element ref="map" />
+        <xs:element ref="tt" />
+        <xs:element ref="i" />
+        <xs:element ref="b" />
+        <xs:element ref="big" />
+        <xs:element ref="small" />
+        <xs:element ref="em" />
+        <xs:element ref="strong" />
+        <xs:element ref="dfn" />
+        <xs:element ref="code" />
+        <xs:element ref="q" />
+        <xs:element ref="sub" />
+        <xs:element ref="sup" />
+        <xs:element ref="samp" />
+        <xs:element ref="kbd" />
+        <xs:element ref="var" />
+        <xs:element ref="cite" />
+        <xs:element ref="abbr" />
+        <xs:element ref="acronym" />
+      </xs:choice>
+      <xs:attribute name="refname" type="xs:NMTOKEN" fixed="Annotation" />
+      <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="d100" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
