@@ -4,7 +4,8 @@ module TestModel (tests) where
 
 import qualified Data.Map as M
 import Data.Text (Text, pack, unpack)
-import Model (Kind (Tag), dropDuplicate, model, models, topLevelModels, typeToText)
+import Model
+import qualified Model as Md
 import Test.HUnit (Test (TestCase, TestList), assertEqual)
 import Text.XML (def, parseText, readFile)
 import Util
@@ -203,5 +204,26 @@ tests =
                   False
                   []
           assertEqual "can parse choice of html string" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_model_iterable.xsd"
+          let key =
+                QName
+                  { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
+                    qnName = "Bible"
+                  }
+              actual = (topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
+              es = Md.elements actual
+              a100 = head es
+              a101 = es !! 1
+              a102 = es !! 2
+
+          assertEqual "a100 optional" True (Md.optional a100)
+          assertEqual "a100 iterable" False (Md.iterable a100)
+          assertEqual "a101 optional" True (Md.optional a101)
+          assertEqual "a101 iterable" True (Md.iterable a101)
+          assertEqual "a102 optional" False (Md.optional a102)
+          assertEqual "a102 iterable" True (Md.iterable a102)
       )
   ]
