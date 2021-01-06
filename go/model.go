@@ -67,9 +67,9 @@ type Conference struct {
 
 // ConferenceSponsor is not documented.
 type ConferenceSponsor struct {
-	ConferenceSponsorIdentifier ConferenceSponsorIdentifier `xml:"conferencesponsoridentifier"`
-	PersonName PersonName `xml:"b036"`
-	CorporateName CorporateName `xml:"b047"`
+	PersonName string `xml:"b036,omitempty"`
+	CorporateName string `xml:"b047,omitempty"`
+	ConferenceSponsorIdentifier ConferenceSponsorIdentifier `xml:"conferencesponsoridentifier,omitempty"`
 }
 
 // ConferenceSponsorIdentifier is not documented.
@@ -149,9 +149,9 @@ type Contributor struct {
 
 // CopyrightOwner is not documented.
 type CopyrightOwner struct {
-	CopyrightOwnerIdentifier CopyrightOwnerIdentifier `xml:"copyrightowneridentifier"`
-	PersonName PersonName `xml:"b036"`
-	CorporateName CorporateName `xml:"b047"`
+	PersonName string `xml:"b036,omitempty"`
+	CorporateName string `xml:"b047,omitempty"`
+	CopyrightOwnerIdentifier CopyrightOwnerIdentifier `xml:"copyrightowneridentifier,omitempty"`
 }
 
 // CopyrightOwnerIdentifier is not documented.
@@ -192,12 +192,12 @@ type Header struct {
 	ToEANNumber ToEANNumber `xml:"m176"`
 	ToSAN ToSAN `xml:"m177"`
 	AddresseeIdentifier AddresseeIdentifier `xml:"addresseeidentifier"`
-	ToCompany ToCompany `xml:"m178"`
-	ToPerson ToPerson `xml:"m179"`
-	MessageNumber MessageNumber `xml:"m180"`
-	MessageRepeat MessageRepeat `xml:"m181"`
-	SentDate SentDate `xml:"m182"`
-	MessageNote MessageNote `xml:"m183"`
+	ToCompany string `xml:"m178"`
+	ToPerson string `xml:"m179"`
+	MessageNumber string `xml:"m180"`
+	MessageRepeat string `xml:"m181"`
+	SentDate string `xml:"m182"`
+	MessageNote string `xml:"m183"`
 	DefaultLanguageOfText DefaultLanguageOfText `xml:"m184"`
 	DefaultPriceTypeCode DefaultPriceTypeCode `xml:"m185"`
 	DefaultCurrencyCode DefaultCurrencyCode `xml:"m186"`
@@ -215,10 +215,10 @@ type Illustrations struct {
 
 // Imprint is not documented.
 type Imprint struct {
-	NameCodeType NameCodeType `xml:"b241"`
-	NameCodeTypeName NameCodeTypeName `xml:"b242"`
-	NameCodeValue NameCodeValue `xml:"b243"`
-	ImprintName ImprintName `xml:"b079"`
+	ImprintName string `xml:"b079,omitempty"`
+	NameCodeType NameCodeType `xml:"b241,omitempty"`
+	NameCodeTypeName string `xml:"b242,omitempty"`
+	NameCodeValue string `xml:"b243,omitempty"`
 }
 
 // Language is not documented.
@@ -692,8 +692,9 @@ type RelatedProduct struct {
 
 // ReligiousText is not documented.
 type ReligiousText struct {
-	ReligiousTextID ReligiousTextID `xml:"b376"`
-	ReligiousTextFeature ReligiousTextFeature `xml:"religioustextfeature"`
+	Bible Bible `xml:"bible,omitempty"`
+	ReligiousTextID ReligiousTextID `xml:"b376,omitempty"`
+	ReligiousTextFeature ReligiousTextFeature `xml:"religioustextfeature,omitempty"`
 }
 
 // ReligiousTextFeature is not documented.
@@ -705,8 +706,8 @@ type ReligiousTextFeature struct {
 
 // SalesOutlet is not documented.
 type SalesOutlet struct {
-	SalesOutletIdentifier SalesOutletIdentifier `xml:"salesoutletidentifier"`
-	SalesOutletName SalesOutletName `xml:"b382"`
+	SalesOutletName string `xml:"b382,omitempty"`
+	SalesOutletIdentifier SalesOutletIdentifier `xml:"salesoutletidentifier,omitempty"`
 }
 
 // SalesOutletIdentifier is not documented.

@@ -160,5 +160,48 @@ tests =
                     model "j302" "ExpectedDate" (Just "string") Tag False False []
                   ]
           assertEqual "can derive field of type" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./test/test_model_choice.xsd"
+          let key =
+                QName
+                  { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
+                    qnName = "ConferenceSponsor"
+                  }
+              actual = (topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
+              expected =
+                model
+                  "conferencesponsor"
+                  "ConferenceSponsor"
+                  Nothing
+                  Tag
+                  False
+                  False
+                  [ model "b036" "PersonName" (Just "string") Tag True False [],
+                    model "b047" "CorporateName" (Just "string") Tag True False [],
+                    model "conferencesponsoridentifier" "ConferenceSponsorIdentifier" (Just "string") Tag True False []
+                  ]
+          assertEqual "can parse sum type" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./test/test_model_html.xsd"
+          let key =
+                QName
+                  { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
+                    qnName = "Annotation"
+                  }
+              actual = (topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
+              expected =
+                model
+                  "d100"
+                  "Annotation"
+                  Nothing
+                  Tag
+                  False
+                  False
+                  []
+          assertEqual "can parse choice of html string" expected actual
       )
   ]

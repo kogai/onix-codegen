@@ -12,10 +12,10 @@ debug: build
 
 .PHONY: test
 test:
-	stack test --trace
+	stack test --trace --fast
 
 .stack-work: $(HS_FILES) package.yaml stack.yaml
-	stack build
+	stack build --fast
 
 build: .stack-work
 

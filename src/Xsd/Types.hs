@@ -144,8 +144,9 @@ data SimpleContent
   | SimpleContentRestriction SimpleRestriction
   deriving (Show, Eq)
 
-newtype ChoiceInChild
+data ChoiceInChild
   = ElementOfChoice [RefOr Element]
+  | SequenceOfChoice [RefOr SequenceInChild]
   deriving (Show, Eq)
 
 data SequenceInChild
