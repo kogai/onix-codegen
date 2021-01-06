@@ -16,7 +16,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            {{steps.haskell-setup}}.outputs.stack-path
+            {{steps.haskell-setup.outputs.stack-path}}
           key: ${{ runner.os }}-${{ hashFiles('**/onix.cabal') }}
           restore-keys: |
             ${{ runner.os }}-
