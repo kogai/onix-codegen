@@ -19,6 +19,8 @@ module Xsd.Types
     RefOr (..),
     refOr,
     Element (..),
+    ElementInline (..),
+    ElementRef (..),
     MaxOccurs (..),
     Attribute (..),
     AttributeRef (..),
@@ -55,7 +57,7 @@ newtype Namespace = Namespace
   deriving (Show, Eq, Ord)
 
 data Child
-  = ChildElement (RefOr Element)
+  = ChildElement Element
   | ChildType QName Type
   | ChildImport Import
   | ChildInclude Include
@@ -65,13 +67,24 @@ newtype Annotation = Documentation Text
   deriving (Show, Eq)
 
 --  (annotation?,(element|group|choice|sequence|any)*)
-data Element = Element
+data ElementInline = ElementInline
   { elementName :: QName,
     elementType :: RefOr Type,
     elementOccurs :: (Int, MaxOccurs),
     elementNillable :: Bool,
     elementAnnotations :: [Annotation]
   }
+  deriving (Show, Eq)
+
+data ElementRef = ElementRef
+  { elementRefName :: QName,
+    elementRefOccurs :: (Int, MaxOccurs)
+  }
+  deriving (Show, Eq)
+
+data Element
+  = RefElement ElementRef
+  | InlineElement ElementInline
   deriving (Show, Eq)
 
 data MaxOccurs
@@ -145,19 +158,19 @@ data SimpleContent
   deriving (Show, Eq)
 
 data ChoiceInChild
-  = ElementOfChoice [RefOr Element]
+  = ElementOfChoice [Element]
   | SequenceOfChoice [RefOr SequenceInChild]
   deriving (Show, Eq)
 
 data SequenceInChild
-  = ElementOfSequence [RefOr Element]
+  = ElementOfSequence [Element]
   | ChoiceOfSequence [RefOr ChoiceInChild]
   deriving (Show, Eq)
 
 data ModelGroup
   = Sequence [RefOr SequenceInChild]
   | Choice [RefOr ChoiceInChild]
-  | All [RefOr Element]
+  | All [Element]
   deriving (Show, Eq)
 
 data Attribute
