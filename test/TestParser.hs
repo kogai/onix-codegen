@@ -9,7 +9,7 @@ import Test.HUnit (Test (TestCase, TestList), assertEqual)
 import Xsd
 
 expected =
-  Element
+  ElementInline
     { elementName =
         QName
           { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
@@ -30,19 +30,19 @@ expected =
                                           ( ChoiceOfSequence
                                               [ Inline
                                                   ( ElementOfChoice
-                                                      [ Ref
-                                                          ( QName
-                                                              { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
-                                                                qnName = "Header"
+                                                      [ RefElement
+                                                          ( ElementRef
+                                                              { elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "Header"},
+                                                                elementRefOccurs = (1, MaxOccurs 1)
                                                               }
                                                           )
                                                       ]
                                                   ),
                                                 Inline
                                                   ( ElementOfChoice
-                                                      [ Ref (QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "Product"}),
-                                                        Ref (QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "MainSeriesRecord"}),
-                                                        Ref (QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "SubSeriesRecord"})
+                                                      [ RefElement (ElementRef {elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "Product"}, elementRefOccurs = (1, MaxOccurs 1)}),
+                                                        RefElement (ElementRef {elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "MainSeriesRecord"}, elementRefOccurs = (1, MaxOccurs 1)}),
+                                                        RefElement (ElementRef {elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "SubSeriesRecord"}, elementRefOccurs = (1, MaxOccurs 1)})
                                                       ]
                                                   )
                                               ]

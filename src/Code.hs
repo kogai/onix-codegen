@@ -134,7 +134,7 @@ topLevelTypeToCode scm (ref, X.TypeSimple (X.ListType ty _)) =
 topLevelTypeToCode _scm (_, X.TypeSimple (X.UnionType _ _)) = throw Unreachable
 topLevelTypeToCode _scm (_, X.TypeComplex _) = throw Unreachable
 
-topLevelElementToCode :: X.Schema -> X.Element -> CodeType
+topLevelElementToCode :: X.Schema -> X.ElementInline -> CodeType
 topLevelElementToCode scm elm =
   let plainContentAttributes = contentAttributes elm
       keyOfType = case content elm of
@@ -171,7 +171,7 @@ topLevelElementToCode scm elm =
       refname = unwrap $ findFixedOf "refname" plainContentAttributes
    in codeType refname desc codes_
 
-collectCodes :: X.Schema -> [X.Element]
+collectCodes :: X.Schema -> [X.ElementInline]
 collectCodes =
   map snd
     . M.toList
