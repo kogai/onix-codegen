@@ -62,6 +62,7 @@ expected4 =
   TypeComplex
     ( ComplexType
         { complexAnnotations = [],
+          complexMixed = False,
           complexContent =
             ContentSimple
               ( SimpleContentExtension
@@ -187,23 +188,14 @@ tests =
       ),
     TestCase
       ( do
-          scm <- getSchema "./fixtures/test_model_html.xsd"
+          scm <- getSchema "./fixtures/test_mixed_html.xsd"
           let key =
                 QName
                   { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
                     qnName = "Annotation"
                   }
-              actual = (topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
-              expected =
-                model
-                  "d100"
-                  "Annotation"
-                  Nothing
-                  Tag
-                  False
-                  False
-                  []
-          assertEqual "can parse choice of html string" expected actual
+              actual = collectElements scm
+          assertEqual "can parse choice of html string" [] actual
       ),
     TestCase
       ( do

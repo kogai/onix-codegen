@@ -258,11 +258,13 @@ parseComplexType :: Cursor -> P Xsd.ComplexType
 parseComplexType c = do
   annotations <- parseAnnotations c
   cont <- parseContent c
+  mixed <- parseMixed c
 
   return
     Xsd.ComplexType
       { Xsd.complexAnnotations = annotations,
-        Xsd.complexContent = cont
+        Xsd.complexContent = cont,
+        Xsd.complexMixed = mixed
       }
 
 parseContent :: Cursor -> P Xsd.Content
@@ -443,6 +445,12 @@ parseUseAttribute c = case anAttribute "use" c of
   Just "required" -> return Xsd.Required
   Just "prohibited" -> return Xsd.Prohibited
   _ -> parseError c "Unknown attribute use"
+
+parseMixed :: Cursor -> P Bool
+parseMixed c = case anAttribute "mixed" c of
+  Nothing -> return False
+  Just "true" -> return True
+  Just _ -> return False
 
 parseAnnotations :: Cursor -> P [Xsd.Annotation]
 parseAnnotations c = do

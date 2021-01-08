@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 42b2516088c6f9adc49ad11de813c71211df58eda39a31ffbab4c7e153e19292
+-- hash: ddd48716095ef7ae001cf8ad479f4dd2f9279a2d9542bfab48ba7f79743f3d69
 
 name:           onix
 version:        0.1.0.0
@@ -29,6 +29,7 @@ library
   exposed-modules:
       Code
       Lib
+      Mixed
       Model
       Util
       Xsd
@@ -76,6 +77,7 @@ test-suite onix-test
   main-is: Spec.hs
   other-modules:
       TestCode
+      TestMixed
       TestModel
       TestParser
       TestUtils

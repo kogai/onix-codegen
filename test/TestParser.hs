@@ -20,6 +20,7 @@ expected =
           ( TypeComplex
               ( ComplexType
                   { complexAnnotations = [],
+                    complexMixed = False,
                     complexContent =
                       ContentPlain
                         ( PlainContent

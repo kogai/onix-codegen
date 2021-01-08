@@ -10,6 +10,7 @@ where
 
 import qualified Code as C
 import Data.Text (unpack)
+import qualified Mixed as Mi
 import qualified Model as M
 import Text.Mustache (automaticCompile, substitute)
 import Util
@@ -20,6 +21,7 @@ data Language
 
 data Renderer
   = Model
+  | Mixed
   | Code
   | Decoder
   | Reader
@@ -50,10 +52,26 @@ compile r Go = do
                     Right t -> unpack $ substitute t models
                 )
           return $ Just txt
+        Mixed -> do
+          let name = "mixed.mustache"
+          compiled <- automaticCompile searchSpace name
+          models <- Mi.readSchema
+          let txt =
+                ( case compiled of
+                    Left err -> throw $ ParseErr err
+                    Right t -> unpack $ substitute t models
+                )
+          return $ Just txt
         _ -> throw Unimplemented
 
 render :: Language -> IO ()
 render l = do
+  mi <- compile Mixed l
+  case mi of
+    Just c_ -> do
+      writeFile "./go/mixed.go" c_
+    Nothing -> throw Unreachable
+
   c <- compile Code l
   case c of
     Just c_ -> do
