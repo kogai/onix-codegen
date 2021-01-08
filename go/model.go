@@ -4,21 +4,21 @@ package onix
 // AddresseeIdentifier is not documented.
 type AddresseeIdentifier struct {
 	AddresseeIDType AddresseeIDType `xml:"m380"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
 // AgentIdentifier is not documented.
 type AgentIdentifier struct {
 	AgentIDType string `xml:"j400"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
 // Audience is not documented.
 type Audience struct {
 	AudienceCodeType AudienceCodeType `xml:"b204"`
-	AudienceCodeTypeName string `xml:"b205"`
+	AudienceCodeTypeName string `xml:"b205,omitempty"`
 	AudienceCodeValue string `xml:"b206"`
 }
 
