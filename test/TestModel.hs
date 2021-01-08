@@ -62,6 +62,7 @@ expected4 =
   TypeComplex
     ( ComplexType
         { complexAnnotations = [],
+          complexMixed = False,
           complexContent =
             ContentSimple
               ( SimpleContentExtension
@@ -193,8 +194,8 @@ tests =
                   { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
                     qnName = "Annotation"
                   }
-              actual = (M.lookup key . schemaElements) scm
-          assertEqual "can parse choice of html string" Nothing actual
+              actual = collectElements scm
+          assertEqual "can parse choice of html string" [] actual
       ),
     TestCase
       ( do

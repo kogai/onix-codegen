@@ -18,6 +18,7 @@ module Model
     content,
     findFixedOf,
     contentAttributes,
+    collectElements,
     topLevelModels,
   )
 where
@@ -106,7 +107,7 @@ collectElements =
     . M.filter
       ( \case
           X.ElementInline
-            { X.elementType = X.Inline (X.TypeComplex X.ComplexType {X.complexContent = X.ContentPlain _}),
+            { X.elementType = X.Inline (X.TypeComplex X.ComplexType {X.complexContent = X.ContentPlain _, X.complexMixed = False}),
               X.elementName = X.QName {X.qnNamespace = Just _}
             } -> True
           _ -> False
