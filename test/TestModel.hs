@@ -213,8 +213,7 @@ tests =
                   { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
                     qnName = "Bible"
                   }
-              actual = (topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
-              es = Md.elements actual
+              es = (Md.elements . topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
               a100 = head es
               a101 = es !! 1
               a102 = es !! 2

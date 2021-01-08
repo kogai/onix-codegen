@@ -171,10 +171,12 @@ elementToModel docOfRef x =
         (_, X.MaxOccurs 1) -> False
         (_, X.MaxOccurs _) -> True
         (_, X.MaxOccursUnbound) -> True
+      optional_ =
+        X.elementNillable x || (fst . X.elementOccurs) x == 0
       ty = case X.elementType x of
         X.Ref key -> (M.lookup key . X.schemaTypes) docOfRef
         X.Inline val -> Just val
-   in model shortname refname (fmap typeToText ty) Tag (X.elementNillable x) iterable []
+   in model shortname refname (fmap typeToText ty) Tag optional_ iterable_ []
 
 modelByKey :: X.Schema -> X.QName -> Maybe Model
 modelByKey docOfRef key =
@@ -186,9 +188,10 @@ modelByKey docOfRef key =
 modelByRef :: X.Schema -> X.ElementRef -> Maybe Model
 modelByRef docOfRef ref =
   let key = X.elementRefName ref
+      occurs = X.elementRefOccurs ref
       elm = (M.lookup key . X.schemaElements) docOfRef
    in case elm of
-        Just e -> Just $ elementToModel docOfRef e
+        Just e -> Just $ elementToModel docOfRef (e {X.elementOccurs = occurs})
         Nothing -> Nothing
 
 makeOptional :: Model -> Model
