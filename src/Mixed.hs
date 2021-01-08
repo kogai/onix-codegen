@@ -1,17 +1,10 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE NamedFieldPuns #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 module Mixed (Mixed (..), topLevelMixed) where
 
--- import Data.List (elemIndex, find)
--- import qualified Data.Map as M
--- import Data.Maybe (fromMaybe, mapMaybe)
--- import Data.Text (Text, pack, unpack)
 import Data.Text
--- import Data.Vector (Vector, fromList)
--- import Data.Yaml (FromJSON (..), withText)
--- import GHC.Generics (Generic)
+import qualified Model as M
 import Text.Mustache (ToMustache (..), object, (~>))
 import Util
 import qualified Xsd as X
@@ -29,17 +22,22 @@ instance ToMustache Mixed where
         pack "xmlReferenceName" ~> xmlReferenceName
       ]
 
-topLevelMixed :: X.Schema -> X.ElementInline -> Mixed
-topLevelMixed xsd elm = throw Unimplemented
+complexMixed :: X.ElementInline -> Bool
+complexMixed
+  X.ElementInline
+    { X.elementType = X.Inline (X.TypeComplex X.ComplexType {X.complexMixed = mixed})
+    } = mixed
+complexMixed _ = False
 
--- let modelGroup = contentModel elm
---     attributes = contentAttributes elm
---     shortname = unwrap $ findFixedOf "shortname" attributes
---     refname = unwrap $ findFixedOf "refname" attributes
---     elements = case modelGroup of
---       Just mdgrp -> fieldsOfElement xsd mdgrp
---       Nothing -> []
---  in model shortname refname Nothing Tag False False elements
+topLevelMixed :: X.Schema -> X.ElementInline -> Maybe Mixed
+topLevelMixed _xsd elm =
+  let attributes = M.contentAttributes elm
+      mixed = complexMixed elm
+      xmlReferenceName = unwrap $ M.findFixedOf "refname" attributes
+      shortname = unwrap $ M.findFixedOf "shortname" attributes
+   in if mixed
+        then Just $ Mixed xmlReferenceName shortname
+        else Nothing
 
 -- readSchema :: IO Models
 -- readSchema = do

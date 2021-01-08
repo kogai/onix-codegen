@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module TestModel (tests) where
+module TestMixed (tests) where
 
 import qualified Data.Map as M
 import Data.Text (Text, pack, unpack)
@@ -11,6 +11,7 @@ import Text.XML (def, parseText, readFile)
 import Util
 import Xsd
 
+tests :: [Test]
 tests =
   [ TestCase
       ( do
@@ -20,8 +21,9 @@ tests =
                   { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
                     qnName = "Annotation"
                   }
-              actual = (topLevelMixed scm . unwrap . M.lookup key . schemaElements) scm
-              expected = Mixed "Annotation" "d100"
+
+          let actual = (topLevelMixed scm . unwrap . M.lookup key . schemaElements) scm
+              expected = Just $ Mixed "Annotation" "d100"
           assertEqual "can parse mixed of html string" expected actual
       )
   ]
