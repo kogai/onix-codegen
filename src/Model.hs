@@ -7,6 +7,9 @@ module Model
   ( Kind (..),
     Models,
     Model,
+    optional,
+    iterable,
+    elements,
     models,
     model,
     readSchema,
@@ -96,13 +99,13 @@ type Models = Vector Model
 models :: [Model] -> Models
 models = fromList
 
-collectElements :: X.Schema -> [X.Element]
+collectElements :: X.Schema -> [X.ElementInline]
 collectElements =
   map snd
     . M.toList
     . M.filter
       ( \case
-          X.Element
+          X.ElementInline
             { X.elementType = X.Inline (X.TypeComplex X.ComplexType {X.complexContent = X.ContentPlain _}),
               X.elementName = X.QName {X.qnNamespace = Just _}
             } -> True
@@ -160,21 +163,36 @@ typeToText (X.TypeComplex X.ComplexType {X.complexContent}) = case complexConten
   X.ContentPlain (X.PlainContent _mdg annotations) -> fromMaybe configurableType $ findFixedOf "refname" annotations
   _ -> throw Unimplemented
 
-elementToModel :: X.Schema -> X.Element -> Model
+elementToModel :: X.Schema -> X.ElementInline -> Model
 elementToModel docOfRef x =
   let shortname = (unwrap . findFixedOf "shortname" . contentAttributes) x
       refname = (unwrap . findFixedOf "refname" . contentAttributes) x
-      iterable = case X.elementOccurs x of
+      iterable_ = case X.elementOccurs x of
         (_, X.MaxOccurs 1) -> False
         (_, X.MaxOccurs _) -> True
         (_, X.MaxOccursUnbound) -> True
+      optional_ =
+        X.elementNillable x || (fst . X.elementOccurs) x == 0
       ty = case X.elementType x of
         X.Ref key -> (M.lookup key . X.schemaTypes) docOfRef
         X.Inline val -> Just val
-   in model shortname refname (fmap typeToText ty) Tag (X.elementNillable x) iterable []
+   in model shortname refname (fmap typeToText ty) Tag optional_ iterable_ []
 
 modelByKey :: X.Schema -> X.QName -> Maybe Model
-modelByKey docOfRef key = elementToModel docOfRef <$> (M.lookup key . X.schemaElements) docOfRef
+modelByKey docOfRef key =
+  let elm = (M.lookup key . X.schemaElements) docOfRef
+   in case elm of
+        Just e -> Just $ elementToModel docOfRef e
+        Nothing -> Nothing
+
+modelByRef :: X.Schema -> X.ElementRef -> Maybe Model
+modelByRef docOfRef ref =
+  let key = X.elementRefName ref
+      occurs = X.elementRefOccurs ref
+      elm = (M.lookup key . X.schemaElements) docOfRef
+   in case elm of
+        Just e -> Just $ elementToModel docOfRef (e {X.elementOccurs = occurs})
+        Nothing -> Nothing
 
 makeOptional :: Model -> Model
 makeOptional x = x {optional = True}
@@ -188,8 +206,8 @@ fieldsOfElementOfChoiceInChild docOfRef =
             (X.ElementOfChoice es) ->
               mapMaybe
                 ( \case
-                    X.Ref key -> modelByKey docOfRef key
-                    X.Inline value -> (Just . elementToModel docOfRef) value
+                    X.RefElement ref -> modelByRef docOfRef ref
+                    X.InlineElement value -> (Just . elementToModel docOfRef) value
                 )
                 es
             (X.SequenceOfChoice ss) -> fieldsOfElement docOfRef $ X.Sequence ss
@@ -209,9 +227,9 @@ fieldsOfElement docOfRef (X.Sequence xs) =
                 Nothing -> []
         (X.Inline (X.ElementOfSequence ys)) ->
           mapMaybe
-            ( X.refOr
-                (modelByKey docOfRef)
-                (Just . elementToModel docOfRef)
+            ( \case
+                X.RefElement ref -> modelByRef docOfRef ref
+                X.InlineElement value -> (Just . elementToModel docOfRef) value
             )
             ys
         (X.Inline (X.ChoiceOfSequence ys)) -> fieldsOfElementOfChoiceInChild docOfRef ys
@@ -220,9 +238,9 @@ fieldsOfElement docOfRef (X.Sequence xs) =
 fieldsOfElement docOfRef (X.Choice xs) = (dropDuplicate . map makeOptional . fieldsOfElementOfChoiceInChild docOfRef) xs
 fieldsOfElement _docOfRef (X.All _xs) = []
 
-content :: X.Element -> Maybe X.Content
+content :: X.ElementInline -> Maybe X.Content
 content
-  X.Element
+  X.ElementInline
     { X.elementType =
         X.Inline
           ( X.TypeComplex
@@ -233,7 +251,7 @@ content
     } = Just complexContent
 content _ = Nothing
 
-contentAttributes :: X.Element -> [X.Attribute]
+contentAttributes :: X.ElementInline -> [X.Attribute]
 contentAttributes el =
   case content el of
     Just (X.ContentComplex (X.ComplexContentExtension X.ComplexExtension {X.complexExtensionAttributes})) -> complexExtensionAttributes
@@ -243,7 +261,7 @@ contentAttributes el =
     Just (X.ContentPlain X.PlainContent {X.plainContentAttributes}) -> plainContentAttributes
     Nothing -> []
 
-contentModel :: X.Element -> Maybe X.ModelGroup
+contentModel :: X.ElementInline -> Maybe X.ModelGroup
 contentModel el =
   case content el of
     Just (X.ContentComplex (X.ComplexContentExtension X.ComplexExtension {X.complexExtensionModel})) -> complexExtensionModel
@@ -253,7 +271,7 @@ contentModel el =
     Just (X.ContentPlain X.PlainContent {X.plainContentModel}) -> plainContentModel
     Nothing -> Nothing
 
-topLevelModels :: X.Schema -> X.Element -> Model
+topLevelModels :: X.Schema -> X.ElementInline -> Model
 topLevelModels xsd elm =
   let modelGroup = contentModel elm
       attributes = contentAttributes elm

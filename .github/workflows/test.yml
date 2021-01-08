@@ -2,13 +2,22 @@ name: test
 on: [push]
 jobs:
   test:
-    name: Hello World
-    runs-on: ubuntu-latest # or macOS-latest, or windows-latest
+    name: Test haskell codes
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: haskell/actions/setup@v1
+        id: haskell-setup
         with:
           ghc-version: "8.8.3"
           enable-stack: true
           stack-version: "2.5.1"
-      - run: stack test
+      - name: Restore caches
+        uses: actions/cache@v2
+        with:
+          path: |
+            ${{steps.haskell-setup.outputs.stack-path}}
+          key: ${{ runner.os }}-${{ hashFiles('**/onix.cabal') }}-${{ hashFiles('**/stack.yaml.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-
+      - run: make test

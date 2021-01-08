@@ -4,7 +4,8 @@ module TestModel (tests) where
 
 import qualified Data.Map as M
 import Data.Text (Text, pack, unpack)
-import Model (Kind (Tag), dropDuplicate, model, models, topLevelModels, typeToText)
+import Model
+import qualified Model as Md
 import Test.HUnit (Test (TestCase, TestList), assertEqual)
 import Text.XML (def, parseText, readFile)
 import Util
@@ -93,55 +94,55 @@ expected4 =
 tests =
   [ TestCase
       ( do
-          scm <- getSchema "./test/test_model_atomic.xsd"
+          scm <- getSchema "./fixtures/test_model_atomic.xsd"
           let actual = (head . map snd . M.toList . schemaTypes) scm
           assertEqual "can parse simple atomic type" expected1 actual
       ),
     TestCase
       ( do
-          scm <- getSchema "./test/test_model_atomic.xsd"
+          scm <- getSchema "./fixtures/test_model_atomic.xsd"
           let actual = typeToText expected1
           assertEqual "can derive string type" "string" actual
       ),
     TestCase
       ( do
-          scm <- getSchema "./test/test_model_list.xsd"
+          scm <- getSchema "./fixtures/test_model_list.xsd"
           let actual = (head . map snd . M.toList . schemaTypes) scm
           assertEqual "can parse simple list type" expected2 actual
       ),
     TestCase
       ( do
-          scm <- getSchema "./test/test_model_atom_enum.xsd"
+          scm <- getSchema "./fixtures/test_model_atom_enum.xsd"
           let actual = (head . map snd . M.toList . schemaTypes) scm
           assertEqual "can parse simple atomic type of enum" expected3 actual
       ),
     TestCase
       ( do
-          scm <- getSchema "./test/test_model_atom_ref_bylist.xsd"
+          scm <- getSchema "./fixtures/test_model_atom_ref_bylist.xsd"
           let actual = (head . map snd . M.toList . schemaTypes) scm
           assertEqual "can parse simple atomic type which reference to other type" expected4 actual
       ),
     TestCase
       ( do
-          scm <- getSchema "./test/test_model_atom_ref_bylist.xsd"
+          scm <- getSchema "./fixtures/test_model_atom_ref_bylist.xsd"
           let actual = typeToText expected4
           assertEqual "can derive referenced type" "BibleContents" actual
       ),
     TestCase
       ( do
-          scm <- getSchema "./test/test_model_atom_ref_byname.xsd"
+          scm <- getSchema "./fixtures/test_model_atom_ref_byname.xsd"
           let actual = (typeToText . head . map snd . M.toList . schemaTypes) scm
           assertEqual "can derive referenced type" "TerritoryCodeList" actual
       ),
     TestCase
       ( do
-          scm <- getSchema "./test/test_model_atom_nonempty.xsd"
+          scm <- getSchema "./fixtures/test_model_atom_nonempty.xsd"
           let actual = (typeToText . head . map snd . M.toList . schemaTypes) scm
           assertEqual "can derive referenced type" "string" actual
       ),
     TestCase
       ( do
-          scm <- getSchema "./test/test_model_element.xsd"
+          scm <- getSchema "./fixtures/test_model_element.xsd"
           let key =
                 QName
                   { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
@@ -163,7 +164,7 @@ tests =
       ),
     TestCase
       ( do
-          scm <- getSchema "./test/test_model_choice.xsd"
+          scm <- getSchema "./fixtures/test_model_choice.xsd"
           let key =
                 QName
                   { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
@@ -186,7 +187,7 @@ tests =
       ),
     TestCase
       ( do
-          scm <- getSchema "./test/test_model_html.xsd"
+          scm <- getSchema "./fixtures/test_model_html.xsd"
           let key =
                 QName
                   { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
@@ -203,5 +204,25 @@ tests =
                   False
                   []
           assertEqual "can parse choice of html string" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_model_iterable.xsd"
+          let key =
+                QName
+                  { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
+                    qnName = "Bible"
+                  }
+              es = (Md.elements . topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
+              a100 = head es
+              a101 = es !! 1
+              a102 = es !! 2
+
+          assertEqual "a100 optional" True (Md.optional a100)
+          assertEqual "a100 iterable" False (Md.iterable a100)
+          assertEqual "a101 optional" True (Md.optional a101)
+          assertEqual "a101 iterable" True (Md.iterable a101)
+          assertEqual "a102 optional" False (Md.optional a102)
+          assertEqual "a102 iterable" True (Md.iterable a102)
       )
   ]

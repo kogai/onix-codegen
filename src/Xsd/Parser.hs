@@ -83,11 +83,37 @@ parseImport c = do
         Xsd.importNamespace = namespace
       }
 
-parseElementOrRef :: Cursor -> P (Xsd.RefOr Xsd.Element)
+parseElementOrRef :: Cursor -> P Xsd.Element
 parseElementOrRef c = do
   case anAttribute "ref" c of
-    Nothing -> Xsd.Inline <$> parseElement c
-    Just ref -> Xsd.Ref <$> makeQName c ref
+    Nothing -> parseElement c
+    Just ref -> parseElementRef c ref
+
+parseElementRef :: Cursor -> Text -> P Xsd.Element
+parseElementRef c ref = do
+  qname <- makeQName c ref
+
+  minOccurs <- case anAttribute "minOccurs" c of
+    Nothing -> return 1
+    Just val -> case readEither (Text.unpack val) of
+      Left err -> parseError c ("Can't parse minOccurs: " <> Text.pack err)
+      Right v -> return v
+
+  maxOccurs <- case anAttribute "maxOccurs" c of
+    Nothing -> return (Xsd.MaxOccurs 1)
+    Just "unbounded" -> return Xsd.MaxOccursUnbound
+    Just val -> case readEither (Text.unpack val) of
+      Left err -> parseError c ("Can't parse maxOccurs" <> Text.pack err)
+      Right v -> return (Xsd.MaxOccurs v)
+
+  return $
+    Xsd.RefElement
+      Xsd.ElementRef
+        { Xsd.elementRefName = qname,
+          Xsd.elementRefOccurs = (minOccurs, maxOccurs)
+        }
+
+-- throw Unimplemented
 
 parseElement :: Cursor -> P Xsd.Element
 parseElement c = handleNamespaces c $ do
@@ -120,14 +146,16 @@ parseElement c = handleNamespaces c $ do
     Just "false" -> return False
     _ -> parseError c "Unexpected value of nillable attribute"
 
-  return
-    Xsd.Element
-      { Xsd.elementName = qname,
-        Xsd.elementType = tp,
-        Xsd.elementAnnotations = annotations,
-        Xsd.elementOccurs = (minOccurs, maxOccurs),
-        Xsd.elementNillable = nillable
-      }
+  return $
+    Xsd.InlineElement
+      ( Xsd.ElementInline
+          { Xsd.elementName = qname,
+            Xsd.elementType = tp,
+            Xsd.elementAnnotations = annotations,
+            Xsd.elementOccurs = (minOccurs, maxOccurs),
+            Xsd.elementNillable = nillable
+          }
+      )
   where
     anyType = Xsd.QName (Just (Xsd.Namespace Xsd.schemaNamespace)) "anyType"
 
@@ -363,7 +391,7 @@ parseAll :: Cursor -> P Xsd.ModelGroup
 parseAll c = Xsd.All <$> parseElements c
 
 -- | Get all child elements
-parseElements :: Cursor -> P [Xsd.RefOr Xsd.Element]
+parseElements :: Cursor -> P [Xsd.Element]
 parseElements c = do
   elementAxis <- makeElemAxis "element"
   mapM parseElementOrRef (c $/ elementAxis)

@@ -6,10 +6,20 @@ package onix
 type {{xmlReferenceName}} struct {
 {{#elements}}
 {{#optional}}
+{{#iterable}}
+	{{xmlReferenceName}} []{{typeName}} `xml:"{{shortname}},omitempty"`
+{{/iterable}}
+{{^iterable}}
 	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}},omitempty"`
+{{/iterable}}
 {{/optional}}
 {{^optional}}
+{{#iterable}}
+	{{xmlReferenceName}} []{{typeName}} `xml:"{{shortname}}"`
+{{/iterable}}
+{{^iterable}}
 	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}}"`
+{{/iterable}}
 {{/optional}}
 {{/elements}}
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="Bible">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="StudyBibleType" minOccurs="0" />
+        <xs:element ref="BiblePurpose" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="BibleContents" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="refname" type="xs:NMTOKEN" fixed="Bible" />
+      <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="bible" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StudyBibleType">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="NonEmptyString">
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="StudyBibleType" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="a100" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BiblePurpose">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="NonEmptyString">
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="BiblePurpose" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="a101" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BibleContents">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="NonEmptyString">
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="BibleContents" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="a102" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="NonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

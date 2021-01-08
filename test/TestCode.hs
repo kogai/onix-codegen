@@ -12,13 +12,13 @@ import Xsd
 tests =
   [ TestCase
       ( do
-          scm <- getSchema "./test/test_code_collect.xsd"
+          scm <- getSchema "./fixtures/test_code_collect.xsd"
           let actual = (length . collectCodes) scm
           assertEqual "can parse simple atomic type" 1 actual
       ),
     TestCase
       ( do
-          scm <- getSchema "./test/test_code_description.xsd"
+          scm <- getSchema "./fixtures/test_code_description.xsd"
           let actual = (topLevelElementToCode scm . head . collectCodes) scm
               expected =
                 codeType
@@ -31,7 +31,7 @@ tests =
       ),
     TestCase
       ( do
-          scm <- getSchema "./test/test_code_territorycodelist.xsd"
+          scm <- getSchema "./fixtures/test_code_territorycodelist.xsd"
           let actual = (topLevelTypeToCode scm . head . collectTypes) scm
               expected =
                 codeType

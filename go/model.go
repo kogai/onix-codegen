@@ -4,21 +4,21 @@ package onix
 // AddresseeIdentifier is not documented.
 type AddresseeIdentifier struct {
 	AddresseeIDType AddresseeIDType `xml:"m380"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
 // AgentIdentifier is not documented.
 type AgentIdentifier struct {
 	AgentIDType string `xml:"j400"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
 // Audience is not documented.
 type Audience struct {
 	AudienceCodeType AudienceCodeType `xml:"b204"`
-	AudienceCodeTypeName string `xml:"b205"`
+	AudienceCodeTypeName string `xml:"b205,omitempty"`
 	AudienceCodeValue string `xml:"b206"`
 }
 
@@ -37,13 +37,13 @@ type BatchBonus struct {
 
 // Bible is not documented.
 type Bible struct {
-	BibleContents BibleContents `xml:"b352"`
-	BibleVersion BibleVersion `xml:"b353"`
-	StudyBibleType StudyBibleType `xml:"b389"`
-	BiblePurpose BiblePurpose `xml:"b354"`
-	BibleTextOrganization BibleTextOrganization `xml:"b355"`
-	BibleReferenceLocation BibleReferenceLocation `xml:"b356"`
-	BibleTextFeature BibleTextFeature `xml:"b357"`
+	BibleContents []BibleContents `xml:"b352"`
+	BibleVersion []BibleVersion `xml:"b353"`
+	StudyBibleType StudyBibleType `xml:"b389,omitempty"`
+	BiblePurpose []BiblePurpose `xml:"b354,omitempty"`
+	BibleTextOrganization BibleTextOrganization `xml:"b355,omitempty"`
+	BibleReferenceLocation BibleReferenceLocation `xml:"b356,omitempty"`
+	BibleTextFeature []BibleTextFeature `xml:"b357,omitempty"`
 }
 
 // Complexity is not documented.
@@ -54,15 +54,15 @@ type Complexity struct {
 
 // Conference is not documented.
 type Conference struct {
-	ConferenceRole ConferenceRole `xml:"b051"`
+	ConferenceRole ConferenceRole `xml:"b051,omitempty"`
 	ConferenceName string `xml:"b052"`
-	ConferenceAcronym string `xml:"b341"`
-	ConferenceNumber string `xml:"b053"`
-	ConferenceTheme string `xml:"b342"`
-	ConferenceDate string `xml:"b054"`
-	ConferencePlace string `xml:"b055"`
-	ConferenceSponsor ConferenceSponsor `xml:"conferencesponsor"`
-	Website Website `xml:"website"`
+	ConferenceAcronym string `xml:"b341,omitempty"`
+	ConferenceNumber string `xml:"b053,omitempty"`
+	ConferenceTheme string `xml:"b342,omitempty"`
+	ConferenceDate string `xml:"b054,omitempty"`
+	ConferencePlace string `xml:"b055,omitempty"`
+	ConferenceSponsor []ConferenceSponsor `xml:"conferencesponsor,omitempty"`
+	Website []Website `xml:"website,omitempty"`
 }
 
 // ConferenceSponsor is not documented.
@@ -75,7 +75,7 @@ type ConferenceSponsor struct {
 // ConferenceSponsorIdentifier is not documented.
 type ConferenceSponsorIdentifier struct {
 	ConferenceSponsorIDType ConferenceSponsorIDType `xml:"b391"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
@@ -629,7 +629,7 @@ type ProductFormFeature struct {
 // ProductIdentifier is not documented.
 type ProductIdentifier struct {
 	ProductIDType ProductIDType `xml:"b221"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
@@ -694,14 +694,14 @@ type RelatedProduct struct {
 type ReligiousText struct {
 	Bible Bible `xml:"bible,omitempty"`
 	ReligiousTextID ReligiousTextID `xml:"b376,omitempty"`
-	ReligiousTextFeature ReligiousTextFeature `xml:"religioustextfeature,omitempty"`
+	ReligiousTextFeature []ReligiousTextFeature `xml:"religioustextfeature,omitempty"`
 }
 
 // ReligiousTextFeature is not documented.
 type ReligiousTextFeature struct {
 	ReligiousTextFeatureType ReligiousTextFeatureType `xml:"b358"`
 	ReligiousTextFeatureCode ReligiousTextFeatureCode `xml:"b359"`
-	ReligiousTextFeatureDescription string `xml:"b360"`
+	ReligiousTextFeatureDescription string `xml:"b360,omitempty"`
 }
 
 // SalesOutlet is not documented.
@@ -713,15 +713,15 @@ type SalesOutlet struct {
 // SalesOutletIdentifier is not documented.
 type SalesOutletIdentifier struct {
 	SalesOutletIDType SalesOutletIDType `xml:"b393"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
 // SalesRestriction is not documented.
 type SalesRestriction struct {
 	SalesRestrictionType SalesRestrictionType `xml:"b381"`
-	SalesOutlet SalesOutlet `xml:"salesoutlet"`
-	SalesRestrictionDetail string `xml:"b383"`
+	SalesOutlet []SalesOutlet `xml:"salesoutlet,omitempty"`
+	SalesRestrictionDetail string `xml:"b383,omitempty"`
 }
 
 // SalesRights is not documented.
@@ -754,7 +754,7 @@ type Series struct {
 // SeriesIdentifier is not documented.
 type SeriesIdentifier struct {
 	SeriesIDType SeriesIDType `xml:"b273"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
@@ -786,7 +786,7 @@ type Stock struct {
 // StockQuantityCoded is not documented.
 type StockQuantityCoded struct {
 	StockQuantityCodeType StockQuantityCodeType `xml:"j293"`
-	StockQuantityCodeTypeName string `xml:"j296"`
+	StockQuantityCodeTypeName string `xml:"j296,omitempty"`
 	StockQuantityCode string `xml:"j297"`
 }
 
@@ -824,7 +824,7 @@ type Subject struct {
 // SupplierIdentifier is not documented.
 type SupplierIdentifier struct {
 	SupplierIDType SupplierIDType `xml:"j345"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
@@ -867,42 +867,42 @@ type SupplyDetail struct {
 
 // TextItem is not documented.
 type TextItem struct {
-	PageRun PageRun `xml:"pagerun"`
+	PageRun []PageRun `xml:"pagerun"`
 	TextItemType TextItemType `xml:"b290"`
-	TextItemIdentifier TextItemIdentifier `xml:"textitemidentifier"`
 	FirstPageNumber FirstPageNumber `xml:"b286,omitempty"`
 	LastPageNumber LastPageNumber `xml:"b287,omitempty"`
-	NumberOfPages string `xml:"b061"`
+	TextItemIdentifier []TextItemIdentifier `xml:"textitemidentifier,omitempty"`
+	NumberOfPages string `xml:"b061,omitempty"`
 }
 
 // TextItemIdentifier is not documented.
 type TextItemIdentifier struct {
 	TextItemIDType TextItemIDType `xml:"b285"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
 // Title is not documented.
 type Title struct {
+	TitleText string `xml:"b203"`
+	TitlePrefix string `xml:"b030"`
+	TitleWithoutPrefix string `xml:"b031"`
 	TitleType TitleType `xml:"b202"`
-	AbbreviatedLength string `xml:"b276"`
-	TextCaseFlag TextCaseFlag `xml:"b027"`
-	TitleText TitleText `xml:"b203,omitempty"`
-	TitlePrefix TitlePrefix `xml:"b030,omitempty"`
-	TitleWithoutPrefix TitleWithoutPrefix `xml:"b031,omitempty"`
-	Subtitle string `xml:"b029"`
+	AbbreviatedLength string `xml:"b276,omitempty"`
+	TextCaseFlag TextCaseFlag `xml:"b027,omitempty"`
+	Subtitle string `xml:"b029,omitempty"`
 }
 
 // Website is not documented.
 type Website struct {
-	WebsiteRole WebsiteRole `xml:"b367"`
-	WebsiteDescription WebsiteDescription `xml:"b294"`
+	WebsiteRole WebsiteRole `xml:"b367,omitempty"`
+	WebsiteDescription WebsiteDescription `xml:"b294,omitempty"`
 	WebsiteLink string `xml:"b295"`
 }
 
 // WorkIdentifier is not documented.
 type WorkIdentifier struct {
 	WorkIDType WorkIDType `xml:"b201"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
