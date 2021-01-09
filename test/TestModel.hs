@@ -7,7 +7,7 @@ import Data.Text (Text, pack, unpack)
 import Model
 import qualified Model as Md
 import Test.HUnit (Test (TestCase, TestList), assertEqual)
-import TestUtils
+import TestUtils (makeTargetQName)
 import Text.XML (def, parseText, readFile)
 import Util
 import Xsd
@@ -217,5 +217,14 @@ tests =
           assertEqual "a101 iterable" True (Md.iterable a101)
           assertEqual "a102 optional" False (Md.optional a102)
           assertEqual "a102 iterable" True (Md.iterable a102)
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_model_iterable_choice.xsd"
+          let key = makeTargetQName "ONIXMessage"
+              es = (Md.elements . topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
+              actual = head es
+          assertEqual "can parse unbounded choices(optional)" False (Md.optional actual)
+          assertEqual "can parse unbounded choices(iterable)" True (Md.iterable actual)
       )
   ]

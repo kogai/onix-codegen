@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="ONIXMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="Product" />
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="refname" type="xs:NMTOKEN" fixed="ONIXMessage" />
+      <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="ONIXmessage" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Product">
+    <xs:complexType>
+      <xs:attribute name="refname" type="xs:NMTOKEN" fixed="Product" />
+      <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="product" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
