@@ -27,6 +27,7 @@ import Data.Text (Text, pack, unpack)
 import qualified Data.Text as T
 import Data.Vector (Vector, fromList)
 import Data.Yaml (FromJSON (..), withText)
+import Debug.Trace
 import GHC.Generics (Generic)
 import Text.Mustache (ToMustache (..), object, (~>))
 import Util
@@ -209,13 +210,18 @@ fieldsOfElementOfChoiceInChild docOfRef =
         (\key -> [unwrap $ modelByKey docOfRef key])
         ( \case
             (X.ElementOfChoice occurs es) ->
-              mapMaybe
-                ( \case
+              map (extendOccurs occurs)
+                . mapMaybe
+                  ( \case
                       X.RefElement ref -> modelByRef docOfRef ref
-                    X.InlineElement value -> (Just . elementToModel docOfRef) value
-                )
-                es
-            (X.SequenceOfChoice occurs ss) -> fieldsOfElement docOfRef $ X.Sequence ss
+                      X.InlineElement value -> (Just . elementToModel docOfRef) value
+                  )
+                $ es
+            (X.SequenceOfChoice occurs ss) ->
+              map (extendOccurs occurs)
+                . fieldsOfElement docOfRef
+                . X.Sequence
+                $ ss
         )
     )
 
@@ -231,13 +237,14 @@ fieldsOfElement docOfRef (X.Sequence xs) =
                 Just mdgrp -> fieldsOfElement docOfRef mdgrp
                 Nothing -> []
         (X.Inline (X.ElementOfSequence occurs ys)) ->
-          mapMaybe
-            ( \case
-                X.RefElement ref -> modelByRef docOfRef ref
-                X.InlineElement value -> (Just . elementToModel docOfRef) value
-            )
-            ys
-        (X.Inline (X.ChoiceOfSequence occurs ys)) -> fieldsOfElementOfChoiceInChild docOfRef ys
+          map (extendOccurs occurs)
+            . mapMaybe
+              ( \case
+                  X.RefElement ref -> modelByRef docOfRef ref
+                  X.InlineElement value -> (Just . elementToModel docOfRef) value
+              )
+            $ ys
+        (X.Inline (X.ChoiceOfSequence occurs ys)) -> map (extendOccurs occurs) . fieldsOfElementOfChoiceInChild docOfRef $ ys
     )
     xs
 fieldsOfElement docOfRef (X.Choice xs) = (dropDuplicate . map makeOptional . fieldsOfElementOfChoiceInChild docOfRef) xs
