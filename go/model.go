@@ -163,14 +163,14 @@ type CopyrightOwnerIdentifier struct {
 
 // CopyrightStatement is not documented.
 type CopyrightStatement struct {
-	CopyrightYear string `xml:"b087"`
-	CopyrightOwner CopyrightOwner `xml:"copyrightowner"`
+	CopyrightYear []string `xml:"b087"`
+	CopyrightOwner []CopyrightOwner `xml:"copyrightowner"`
 }
 
 // DiscountCoded is not documented.
 type DiscountCoded struct {
 	DiscountCodeType DiscountCodeType `xml:"j363"`
-	DiscountCodeTypeName string `xml:"j378"`
+	DiscountCodeTypeName string `xml:"j378,omitempty"`
 	DiscountCode string `xml:"j364"`
 }
 
@@ -209,8 +209,8 @@ type Header struct {
 // Illustrations is not documented.
 type Illustrations struct {
 	IllustrationType IllustrationType `xml:"b256"`
-	IllustrationTypeDescription string `xml:"b361"`
-	Number string `xml:"b257"`
+	IllustrationTypeDescription string `xml:"b361,omitempty"`
+	Number string `xml:"b257,omitempty"`
 }
 
 // Imprint is not documented.
@@ -256,15 +256,16 @@ type MainSeriesRecord struct {
 // MainSubject is not documented.
 type MainSubject struct {
 	SubjectHeadingText string `xml:"b070"`
+	SubjectCode string `xml:"b069"`
+	SubjectHeadingText string `xml:"b070,omitempty"`
 	MainSubjectSchemeIdentifier MainSubjectSchemeIdentifier `xml:"b191"`
-	SubjectCode SubjectCode `xml:"b069,omitempty"`
-	SubjectSchemeVersion string `xml:"b068"`
+	SubjectSchemeVersion string `xml:"b068,omitempty"`
 }
 
 // MarketDate is not documented.
 type MarketDate struct {
 	MarketDateRole string `xml:"j408"`
-	DateFormat DateFormat `xml:"j260"`
+	DateFormat DateFormat `xml:"j260,omitempty"`
 	Date string `xml:"b306"`
 }
 
@@ -358,9 +359,9 @@ type NotForSale struct {
 // ONIXMessage is not documented.
 type ONIXMessage struct {
 	Header Header `xml:"header"`
-	Product Product `xml:"product"`
-	MainSeriesRecord MainSeriesRecord `xml:"mainseriesrecord"`
-	SubSeriesRecord SubSeriesRecord `xml:"subseriesrecord"`
+	Product []Product `xml:"product"`
+	MainSeriesRecord []MainSeriesRecord `xml:"mainseriesrecord"`
+	SubSeriesRecord []SubSeriesRecord `xml:"subseriesrecord"`
 }
 
 // OnOrderDetail is not documented.
@@ -878,10 +879,10 @@ type SupplyDetail struct {
 
 // TextItem is not documented.
 type TextItem struct {
-	PageRun []PageRun `xml:"pagerun"`
+	PageRun []PageRun `xml:"pagerun,omitempty"`
+	FirstPageNumber string `xml:"b286,omitempty"`
+	LastPageNumber string `xml:"b287,omitempty"`
 	TextItemType TextItemType `xml:"b290"`
-	FirstPageNumber FirstPageNumber `xml:"b286,omitempty"`
-	LastPageNumber LastPageNumber `xml:"b287,omitempty"`
 	TextItemIdentifier []TextItemIdentifier `xml:"textitemidentifier,omitempty"`
 	NumberOfPages string `xml:"b061,omitempty"`
 }

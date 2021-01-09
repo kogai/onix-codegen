@@ -163,12 +163,24 @@ typeToText (X.TypeComplex X.ComplexType {X.complexContent}) = case complexConten
   _ -> throw Unimplemented
 
 isIterable :: X.Occurs -> Bool
-isIterable (X.Occurs (_, X.MaxOccurs 1)) = False
-isIterable (X.Occurs (_, X.MaxOccurs _)) = True
-isIterable (X.Occurs (_, X.MaxOccursUnbound)) = True
+isIterable (X.Occurs (_, m)) = isIterable' m
+
+isIterable' :: X.MaxOccurs -> Bool
+isIterable' (X.MaxOccurs 1) = False
+isIterable' (X.MaxOccurs _) = True
+isIterable' X.MaxOccursUnbound = True
 
 isOptional :: X.Occurs -> Bool
-isOptional (X.Occurs (m, _)) = m == 0
+isOptional (X.Occurs (m, _)) = isOptional' m
+
+isOptional' :: (Eq a, Num a) => a -> Bool
+isOptional' m = m == 0
+
+extendOccurs :: X.Occurs -> Model -> Model
+extendOccurs (X.Occurs (1, X.MaxOccurs 1)) x = x
+extendOccurs (X.Occurs (m, X.MaxOccurs 1)) x = x {optional = isOptional' m}
+extendOccurs (X.Occurs (1, m)) x = x {iterable = isIterable' m}
+extendOccurs occurs x = x {iterable = isIterable occurs, optional = isOptional occurs}
 
 elementToModel :: X.Schema -> X.ElementInline -> Model
 elementToModel docOfRef x =
@@ -199,9 +211,6 @@ modelByRef docOfRef ref =
 
 makeOptional :: Model -> Model
 makeOptional x = x {optional = True}
-
-extendOccurs :: X.Occurs -> Model -> Model
-extendOccurs occurs x = x {iterable = isIterable occurs, optional = isOptional occurs}
 
 fieldsOfElementOfChoiceInChild :: X.Schema -> [X.RefOr X.ChoiceInChild] -> [Model]
 fieldsOfElementOfChoiceInChild docOfRef =
