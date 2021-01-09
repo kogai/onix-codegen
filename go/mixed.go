@@ -1,54 +1,54 @@
 package onix
 
 
-// Annotation has no document.
+// Annotation is html string.
 type Annotation string
 
 
-// BiographicalNote has no document.
+// BiographicalNote is html string.
 type BiographicalNote string
 
 
-// DownloadCaption has no document.
+// DownloadCaption is html string.
 type DownloadCaption string
 
 
-// DownloadCopyrightNotice has no document.
+// DownloadCopyrightNotice is html string.
 type DownloadCopyrightNotice string
 
 
-// DownloadCredit has no document.
+// DownloadCredit is html string.
 type DownloadCredit string
 
 
-// DownloadTerms has no document.
+// DownloadTerms is html string.
 type DownloadTerms string
 
 
-// MainDescription has no document.
+// MainDescription is html string.
 type MainDescription string
 
 
-// PrizeJury has no document.
+// PrizeJury is html string.
 type PrizeJury string
 
 
-// ProductWebsiteDescription has no document.
+// ProductWebsiteDescription is html string.
 type ProductWebsiteDescription string
 
 
-// ReviewQuote has no document.
+// ReviewQuote is html string.
 type ReviewQuote string
 
 
-// Text has no document.
+// Text is html string.
 type Text string
 
 
-// TextWithDownload has no document.
+// TextWithDownload is html string.
 type TextWithDownload string
 
 
-// WebsiteDescription has no document.
+// WebsiteDescription is html string.
 type WebsiteDescription string
 

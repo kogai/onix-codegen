@@ -157,7 +157,7 @@ type CopyrightOwner struct {
 // CopyrightOwnerIdentifier is not documented.
 type CopyrightOwnerIdentifier struct {
 	CopyrightOwnerIDType CopyrightOwnerIDType `xml:"b392"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
@@ -225,13 +225,13 @@ type Imprint struct {
 type Language struct {
 	LanguageRole LanguageRole `xml:"b253"`
 	LanguageCode LanguageCode `xml:"b252"`
-	CountryCode CountryCode `xml:"b251"`
+	CountryCode CountryCode `xml:"b251,omitempty"`
 }
 
 // LocationIdentifier is not documented.
 type LocationIdentifier struct {
 	LocationIDType LocationIDType `xml:"j377"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
@@ -332,6 +332,17 @@ type NewSupplier struct {
 	TelephoneNumber string `xml:"j270"`
 	FaxNumber string `xml:"j271"`
 	EmailAddress string `xml:"j272"`
+
+// NoContributor is not documented.
+type NoContributor struct {
+}
+
+// NoEdition is not documented.
+type NoEdition struct {
+}
+
+// NoSeries is not documented.
+type NoSeries struct {
 }
 
 // NotForSale is not documented.
@@ -382,8 +393,8 @@ type PageRun struct {
 // ParentIdentifier is not documented.
 type ParentIdentifier struct {
 	SeriesIDType SeriesIDType `xml:"b273"`
-	IDTypeName IDTypeName `xml:"b233"`
-	IDValue IDValue `xml:"b244"`
+	IDTypeName string `xml:"b233,omitempty"`
+	IDValue string `xml:"b244"`
 }
 
 // PersonAsSubject is not documented.
@@ -735,7 +746,7 @@ type SalesRights struct {
 // SenderIdentifier is not documented.
 type SenderIdentifier struct {
 	SenderIDType SenderIDType `xml:"m379"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
