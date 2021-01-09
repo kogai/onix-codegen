@@ -11,17 +11,12 @@ import Xsd
 
 expected =
   ElementInline
-    { -- QName
-      --   { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
-      --     qnName = "ONIXMessage"
-      --   },
-      elementName = makeTargetQName "ONIXMessage",
+    { elementName = makeTargetQName "ONIXMessage",
       elementType =
         Inline
           ( TypeComplex
               ( ComplexType
                   { complexAnnotations = [],
-                    complexMixed = False,
                     complexContent =
                       ContentPlain
                         ( PlainContent
@@ -30,21 +25,24 @@ expected =
                                   ( Sequence
                                       [ Inline
                                           ( ChoiceOfSequence
+                                              (Occurs (1, MaxOccurs 1))
                                               [ Inline
                                                   ( ElementOfChoice
+                                                      (Occurs (1, MaxOccurs 1))
                                                       [ RefElement
                                                           ( ElementRef
                                                               { elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "Header"},
-                                                                elementRefOccurs = (1, MaxOccurs 1)
+                                                                elementRefOccurs = Occurs (1, MaxOccurs 1)
                                                               }
                                                           )
                                                       ]
                                                   ),
                                                 Inline
                                                   ( ElementOfChoice
-                                                      [ RefElement (ElementRef {elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "Product"}, elementRefOccurs = (1, MaxOccurs 1)}),
-                                                        RefElement (ElementRef {elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "MainSeriesRecord"}, elementRefOccurs = (1, MaxOccurs 1)}),
-                                                        RefElement (ElementRef {elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "SubSeriesRecord"}, elementRefOccurs = (1, MaxOccurs 1)})
+                                                      (Occurs (1, MaxOccursUnbound))
+                                                      [ RefElement (ElementRef {elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "Product"}, elementRefOccurs = Occurs (1, MaxOccurs 1)}),
+                                                        RefElement (ElementRef {elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "MainSeriesRecord"}, elementRefOccurs = Occurs (1, MaxOccurs 1)}),
+                                                        RefElement (ElementRef {elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "SubSeriesRecord"}, elementRefOccurs = Occurs (1, MaxOccurs 1)})
                                                       ]
                                                   )
                                               ]
@@ -78,7 +76,8 @@ expected =
                                     )
                                 ]
                             }
-                        )
+                        ),
+                    complexMixed = False
                   }
               )
           ),
