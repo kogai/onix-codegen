@@ -6,10 +6,7 @@
 module Model
   ( Kind (..),
     Models,
-    Model,
-    optional,
-    iterable,
-    elements,
+    Model (..),
     models,
     model,
     readSchema,
