@@ -161,16 +161,20 @@ typeToText (X.TypeComplex X.ComplexType {X.complexContent}) = case complexConten
   X.ContentPlain (X.PlainContent _mdg annotations) -> fromMaybe configurableType $ findFixedOf "refname" annotations
   _ -> throw Unimplemented
 
+isIterable :: X.Occurs -> Bool
+isIterable (X.Occurs (_, X.MaxOccurs 1)) = False
+isIterable (X.Occurs (_, X.MaxOccurs _)) = True
+isIterable (X.Occurs (_, X.MaxOccursUnbound)) = True
+
+isOptional :: X.Occurs -> Bool
+isOptional (X.Occurs (m, _)) = m == 0
+
 elementToModel :: X.Schema -> X.ElementInline -> Model
 elementToModel docOfRef x =
   let shortname = (unwrap . findFixedOf "shortname" . contentAttributes) x
       refname = (unwrap . findFixedOf "refname" . contentAttributes) x
-      iterable_ = case X.elementOccurs x of
-        X.Occurs (_, X.MaxOccurs 1) -> False
-        X.Occurs (_, X.MaxOccurs _) -> True
-        X.Occurs (_, X.MaxOccursUnbound) -> True
-      optional_ =
-        X.elementNillable x || ((\(X.Occurs (m, _)) -> m) . X.elementOccurs) x == 0
+      iterable_ = isIterable . X.elementOccurs $ x
+      optional_ = X.elementNillable x || (isOptional . X.elementOccurs $ x)
       ty = case X.elementType x of
         X.Ref key -> (M.lookup key . X.schemaTypes) docOfRef
         X.Inline val -> Just val
@@ -195,6 +199,9 @@ modelByRef docOfRef ref =
 makeOptional :: Model -> Model
 makeOptional x = x {optional = True}
 
+extendOccurs :: X.Occurs -> Model -> Model
+extendOccurs occurs x = x {iterable = isIterable occurs, optional = isOptional occurs}
+
 fieldsOfElementOfChoiceInChild :: X.Schema -> [X.RefOr X.ChoiceInChild] -> [Model]
 fieldsOfElementOfChoiceInChild docOfRef =
   concatMap
@@ -204,9 +211,7 @@ fieldsOfElementOfChoiceInChild docOfRef =
             (X.ElementOfChoice occurs es) ->
               mapMaybe
                 ( \case
-                    X.RefElement ref ->
-                      let xs = modelByRef docOfRef ref
-                       in trace ("\n====\n" ++ show xs ++ "\n===\n") $ xs
+                      X.RefElement ref -> modelByRef docOfRef ref
                     X.InlineElement value -> (Just . elementToModel docOfRef) value
                 )
                 es

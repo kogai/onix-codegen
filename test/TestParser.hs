@@ -6,15 +6,16 @@ import qualified Data.Map as M
 import Data.Text (Text, pack, unpack)
 import Model (Kind (Tag), dropDuplicate, model, models)
 import Test.HUnit (Test (TestCase, TestList), assertEqual)
+import TestUtils (makeTargetQName)
 import Xsd
 
 expected =
   ElementInline
-    { elementName =
-        QName
-          { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
-            qnName = "ONIXMessage"
-          },
+    { -- QName
+      --   { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
+      --     qnName = "ONIXMessage"
+      --   },
+      elementName = makeTargetQName "ONIXMessage",
       elementType =
         Inline
           ( TypeComplex
@@ -81,7 +82,7 @@ expected =
                   }
               )
           ),
-      elementOccurs = (1, MaxOccurs 1),
+      elementOccurs = Occurs (1, MaxOccurs 1),
       elementNillable = False,
       elementAnnotations = []
     }
