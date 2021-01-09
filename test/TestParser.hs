@@ -6,21 +6,17 @@ import qualified Data.Map as M
 import Data.Text (Text, pack, unpack)
 import Model (Kind (Tag), dropDuplicate, model, models)
 import Test.HUnit (Test (TestCase, TestList), assertEqual)
+import TestUtils (makeTargetQName)
 import Xsd
 
 expected =
   ElementInline
-    { elementName =
-        QName
-          { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
-            qnName = "ONIXMessage"
-          },
+    { elementName = makeTargetQName "ONIXMessage",
       elementType =
         Inline
           ( TypeComplex
               ( ComplexType
                   { complexAnnotations = [],
-                    complexMixed = False,
                     complexContent =
                       ContentPlain
                         ( PlainContent
@@ -29,21 +25,24 @@ expected =
                                   ( Sequence
                                       [ Inline
                                           ( ChoiceOfSequence
+                                              (Occurs (1, MaxOccurs 1))
                                               [ Inline
                                                   ( ElementOfChoice
+                                                      (Occurs (1, MaxOccurs 1))
                                                       [ RefElement
                                                           ( ElementRef
                                                               { elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "Header"},
-                                                                elementRefOccurs = (1, MaxOccurs 1)
+                                                                elementRefOccurs = Occurs (1, MaxOccurs 1)
                                                               }
                                                           )
                                                       ]
                                                   ),
                                                 Inline
                                                   ( ElementOfChoice
-                                                      [ RefElement (ElementRef {elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "Product"}, elementRefOccurs = (1, MaxOccurs 1)}),
-                                                        RefElement (ElementRef {elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "MainSeriesRecord"}, elementRefOccurs = (1, MaxOccurs 1)}),
-                                                        RefElement (ElementRef {elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "SubSeriesRecord"}, elementRefOccurs = (1, MaxOccurs 1)})
+                                                      (Occurs (1, MaxOccursUnbound))
+                                                      [ RefElement (ElementRef {elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "Product"}, elementRefOccurs = Occurs (1, MaxOccurs 1)}),
+                                                        RefElement (ElementRef {elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "MainSeriesRecord"}, elementRefOccurs = Occurs (1, MaxOccurs 1)}),
+                                                        RefElement (ElementRef {elementRefName = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "SubSeriesRecord"}, elementRefOccurs = Occurs (1, MaxOccurs 1)})
                                                       ]
                                                   )
                                               ]
@@ -77,11 +76,12 @@ expected =
                                     )
                                 ]
                             }
-                        )
+                        ),
+                    complexMixed = False
                   }
               )
           ),
-      elementOccurs = (1, MaxOccurs 1),
+      elementOccurs = Occurs (1, MaxOccurs 1),
       elementNillable = False,
       elementAnnotations = []
     }

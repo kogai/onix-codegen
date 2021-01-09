@@ -7,6 +7,7 @@ import Data.Text (Text, pack, unpack)
 import Model
 import qualified Model as Md
 import Test.HUnit (Test (TestCase, TestList), assertEqual)
+import TestUtils (makeTargetQName)
 import Text.XML (def, parseText, readFile)
 import Util
 import Xsd
@@ -24,13 +25,7 @@ expected1 =
 expected2 =
   TypeSimple
     ( ListType
-        ( Ref
-            ( QName
-                { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
-                  qnName = "List91"
-                }
-            )
-        )
+        (Ref $ makeTargetQName "List91")
         []
     )
 
@@ -67,7 +62,7 @@ expected4 =
             ContentSimple
               ( SimpleContentExtension
                   ( SimpleExtension
-                      { simpleExtensionBase = QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "List82"},
+                      { simpleExtensionBase = makeTargetQName "List82",
                         simpleExtensionAttributes =
                           [ InlineAttribute
                               ( AttributeInline
@@ -98,6 +93,28 @@ tests =
           scm <- getSchema "./fixtures/test_model_atomic.xsd"
           let actual = (head . map snd . M.toList . schemaTypes) scm
           assertEqual "can parse simple atomic type" expected1 actual
+      ),
+    TestCase
+      ( assertEqual
+          "dropDuplicate"
+          [ model "m1" "M1" (Just "string") Tag False False [],
+            model "m2" "M2" (Just "string") Tag False False [],
+            model "m3" "M3" (Just "string") Tag True False [],
+            model "m4" "M4" (Just "string") Tag False False [],
+            model "m5" "M5" (Just "string") Tag False False [],
+            model "m6" "M6" (Just "string") Tag False False []
+          ]
+          ( dropDuplicate
+              [ model "m1" "M1" (Just "string") Tag False False [],
+                model "m2" "M2" (Just "string") Tag False False [],
+                model "m3" "M3" (Just "string") Tag False False [],
+                model "m4" "M4" (Just "string") Tag False False [],
+                model "m5" "M5" (Just "string") Tag False False [],
+                model "m6" "M6" (Just "string") Tag False False [],
+                model "m3" "M3" (Just "string") Tag False False [],
+                model "m3" "M3" (Just "string") Tag False False []
+              ]
+          )
       ),
     TestCase
       ( do
@@ -144,11 +161,7 @@ tests =
     TestCase
       ( do
           scm <- getSchema "./fixtures/test_model_element.xsd"
-          let key =
-                QName
-                  { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
-                    qnName = "OnOrderDetail"
-                  }
+          let key = makeTargetQName "OnOrderDetail"
               actual = (topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
               expected =
                 model
@@ -166,11 +179,7 @@ tests =
     TestCase
       ( do
           scm <- getSchema "./fixtures/test_model_choice.xsd"
-          let key =
-                QName
-                  { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
-                    qnName = "ConferenceSponsor"
-                  }
+          let key = makeTargetQName "ConferenceSponsor"
               actual = (topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
               expected =
                 model
@@ -189,22 +198,14 @@ tests =
     TestCase
       ( do
           scm <- getSchema "./fixtures/test_mixed_html.xsd"
-          let key =
-                QName
-                  { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
-                    qnName = "Annotation"
-                  }
+          let key = makeTargetQName "Annotation"
               actual = collectElements scm
           assertEqual "can parse choice of html string" [] actual
       ),
     TestCase
       ( do
           scm <- getSchema "./fixtures/test_model_iterable.xsd"
-          let key =
-                QName
-                  { qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}),
-                    qnName = "Bible"
-                  }
+          let key = makeTargetQName "Bible"
               es = (Md.elements . topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
               a100 = head es
               a101 = es !! 1
@@ -216,5 +217,14 @@ tests =
           assertEqual "a101 iterable" True (Md.iterable a101)
           assertEqual "a102 optional" False (Md.optional a102)
           assertEqual "a102 iterable" True (Md.iterable a102)
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_model_iterable_choice.xsd"
+          let key = makeTargetQName "ONIXMessage"
+              es = (Md.elements . topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
+              actual = head es
+          assertEqual "can parse unbounded choices(optional)" False (Md.optional actual)
+          assertEqual "can parse unbounded choices(iterable)" True (Md.iterable actual)
       )
   ]

@@ -6,10 +6,7 @@
 module Model
   ( Kind (..),
     Models,
-    Model,
-    optional,
-    iterable,
-    elements,
+    Model (..),
     models,
     model,
     readSchema,
@@ -30,6 +27,7 @@ import Data.Text (Text, pack, unpack)
 import qualified Data.Text as T
 import Data.Vector (Vector, fromList)
 import Data.Yaml (FromJSON (..), withText)
+import Debug.Trace
 import GHC.Generics (Generic)
 import Text.Mustache (ToMustache (..), object, (~>))
 import Util
@@ -164,16 +162,32 @@ typeToText (X.TypeComplex X.ComplexType {X.complexContent}) = case complexConten
   X.ContentPlain (X.PlainContent _mdg annotations) -> fromMaybe configurableType $ findFixedOf "refname" annotations
   _ -> throw Unimplemented
 
+isIterable :: X.Occurs -> Bool
+isIterable (X.Occurs (_, m)) = isIterable' m
+
+isIterable' :: X.MaxOccurs -> Bool
+isIterable' (X.MaxOccurs 1) = False
+isIterable' (X.MaxOccurs _) = True
+isIterable' X.MaxOccursUnbound = True
+
+isOptional :: X.Occurs -> Bool
+isOptional (X.Occurs (m, _)) = isOptional' m
+
+isOptional' :: (Eq a, Num a) => a -> Bool
+isOptional' m = m == 0
+
+extendOccurs :: X.Occurs -> Model -> Model
+extendOccurs (X.Occurs (1, X.MaxOccurs 1)) x = x
+extendOccurs (X.Occurs (m, X.MaxOccurs 1)) x = x {optional = isOptional' m}
+extendOccurs (X.Occurs (1, m)) x = x {iterable = isIterable' m}
+extendOccurs occurs x = x {iterable = isIterable occurs, optional = isOptional occurs}
+
 elementToModel :: X.Schema -> X.ElementInline -> Model
 elementToModel docOfRef x =
   let shortname = (unwrap . findFixedOf "shortname" . contentAttributes) x
       refname = (unwrap . findFixedOf "refname" . contentAttributes) x
-      iterable_ = case X.elementOccurs x of
-        (_, X.MaxOccurs 1) -> False
-        (_, X.MaxOccurs _) -> True
-        (_, X.MaxOccursUnbound) -> True
-      optional_ =
-        X.elementNillable x || (fst . X.elementOccurs) x == 0
+      iterable_ = isIterable . X.elementOccurs $ x
+      optional_ = X.elementNillable x || (isOptional . X.elementOccurs $ x)
       ty = case X.elementType x of
         X.Ref key -> (M.lookup key . X.schemaTypes) docOfRef
         X.Inline val -> Just val
@@ -204,14 +218,19 @@ fieldsOfElementOfChoiceInChild docOfRef =
     ( X.refOr
         (\key -> [unwrap $ modelByKey docOfRef key])
         ( \case
-            (X.ElementOfChoice es) ->
-              mapMaybe
-                ( \case
-                    X.RefElement ref -> modelByRef docOfRef ref
-                    X.InlineElement value -> (Just . elementToModel docOfRef) value
-                )
-                es
-            (X.SequenceOfChoice ss) -> fieldsOfElement docOfRef $ X.Sequence ss
+            (X.ElementOfChoice occurs es) ->
+              map (extendOccurs occurs)
+                . mapMaybe
+                  ( \case
+                      X.RefElement ref -> modelByRef docOfRef ref
+                      X.InlineElement value -> (Just . elementToModel docOfRef) value
+                  )
+                $ es
+            (X.SequenceOfChoice occurs ss) ->
+              map (extendOccurs occurs)
+                . fieldsOfElement docOfRef
+                . X.Sequence
+                $ ss
         )
     )
 
@@ -226,14 +245,15 @@ fieldsOfElement docOfRef (X.Sequence xs) =
            in case plainContentModel of
                 Just mdgrp -> fieldsOfElement docOfRef mdgrp
                 Nothing -> []
-        (X.Inline (X.ElementOfSequence ys)) ->
-          mapMaybe
-            ( \case
-                X.RefElement ref -> modelByRef docOfRef ref
-                X.InlineElement value -> (Just . elementToModel docOfRef) value
-            )
-            ys
-        (X.Inline (X.ChoiceOfSequence ys)) -> fieldsOfElementOfChoiceInChild docOfRef ys
+        (X.Inline (X.ElementOfSequence occurs ys)) ->
+          map (extendOccurs occurs)
+            . mapMaybe
+              ( \case
+                  X.RefElement ref -> modelByRef docOfRef ref
+                  X.InlineElement value -> (Just . elementToModel docOfRef) value
+              )
+            $ ys
+        (X.Inline (X.ChoiceOfSequence occurs ys)) -> map (extendOccurs occurs) . fieldsOfElementOfChoiceInChild docOfRef $ ys
     )
     xs
 fieldsOfElement docOfRef (X.Choice xs) = (dropDuplicate . map makeOptional . fieldsOfElementOfChoiceInChild docOfRef) xs

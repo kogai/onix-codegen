@@ -7,10 +7,8 @@ module Mixed (Mixed (..), topLevelMixed, readSchema) where
 import qualified Data.Map as M
 import Data.Maybe (mapMaybe)
 import Data.Text (Text)
-import Debug.Trace
 import qualified Model as Md
 import Text.Mustache (ToMustache (..), object, (~>))
-import Util
 import qualified Xsd as X
 
 data Mixed = Mixed

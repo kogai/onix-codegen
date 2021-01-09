@@ -157,20 +157,20 @@ type CopyrightOwner struct {
 // CopyrightOwnerIdentifier is not documented.
 type CopyrightOwnerIdentifier struct {
 	CopyrightOwnerIDType CopyrightOwnerIDType `xml:"b392"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
 // CopyrightStatement is not documented.
 type CopyrightStatement struct {
-	CopyrightYear string `xml:"b087"`
-	CopyrightOwner CopyrightOwner `xml:"copyrightowner"`
+	CopyrightYear []string `xml:"b087"`
+	CopyrightOwner []CopyrightOwner `xml:"copyrightowner"`
 }
 
 // DiscountCoded is not documented.
 type DiscountCoded struct {
 	DiscountCodeType DiscountCodeType `xml:"j363"`
-	DiscountCodeTypeName string `xml:"j378"`
+	DiscountCodeTypeName string `xml:"j378,omitempty"`
 	DiscountCode string `xml:"j364"`
 }
 
@@ -209,8 +209,8 @@ type Header struct {
 // Illustrations is not documented.
 type Illustrations struct {
 	IllustrationType IllustrationType `xml:"b256"`
-	IllustrationTypeDescription string `xml:"b361"`
-	Number string `xml:"b257"`
+	IllustrationTypeDescription string `xml:"b361,omitempty"`
+	Number string `xml:"b257,omitempty"`
 }
 
 // Imprint is not documented.
@@ -225,13 +225,13 @@ type Imprint struct {
 type Language struct {
 	LanguageRole LanguageRole `xml:"b253"`
 	LanguageCode LanguageCode `xml:"b252"`
-	CountryCode CountryCode `xml:"b251"`
+	CountryCode CountryCode `xml:"b251,omitempty"`
 }
 
 // LocationIdentifier is not documented.
 type LocationIdentifier struct {
 	LocationIDType LocationIDType `xml:"j377"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
@@ -256,15 +256,16 @@ type MainSeriesRecord struct {
 // MainSubject is not documented.
 type MainSubject struct {
 	SubjectHeadingText string `xml:"b070"`
+	SubjectCode string `xml:"b069"`
+	SubjectHeadingText string `xml:"b070,omitempty"`
 	MainSubjectSchemeIdentifier MainSubjectSchemeIdentifier `xml:"b191"`
-	SubjectCode SubjectCode `xml:"b069,omitempty"`
-	SubjectSchemeVersion string `xml:"b068"`
+	SubjectSchemeVersion string `xml:"b068,omitempty"`
 }
 
 // MarketDate is not documented.
 type MarketDate struct {
 	MarketDateRole string `xml:"j408"`
-	DateFormat DateFormat `xml:"j260"`
+	DateFormat DateFormat `xml:"j260,omitempty"`
 	Date string `xml:"b306"`
 }
 
@@ -332,6 +333,17 @@ type NewSupplier struct {
 	TelephoneNumber string `xml:"j270"`
 	FaxNumber string `xml:"j271"`
 	EmailAddress string `xml:"j272"`
+
+// NoContributor is not documented.
+type NoContributor struct {
+}
+
+// NoEdition is not documented.
+type NoEdition struct {
+}
+
+// NoSeries is not documented.
+type NoSeries struct {
 }
 
 // NotForSale is not documented.
@@ -347,9 +359,9 @@ type NotForSale struct {
 // ONIXMessage is not documented.
 type ONIXMessage struct {
 	Header Header `xml:"header"`
-	Product Product `xml:"product"`
-	MainSeriesRecord MainSeriesRecord `xml:"mainseriesrecord"`
-	SubSeriesRecord SubSeriesRecord `xml:"subseriesrecord"`
+	Product []Product `xml:"product"`
+	MainSeriesRecord []MainSeriesRecord `xml:"mainseriesrecord"`
+	SubSeriesRecord []SubSeriesRecord `xml:"subseriesrecord"`
 }
 
 // OnOrderDetail is not documented.
@@ -382,8 +394,8 @@ type PageRun struct {
 // ParentIdentifier is not documented.
 type ParentIdentifier struct {
 	SeriesIDType SeriesIDType `xml:"b273"`
-	IDTypeName IDTypeName `xml:"b233"`
-	IDValue IDValue `xml:"b244"`
+	IDTypeName string `xml:"b233,omitempty"`
+	IDValue string `xml:"b244"`
 }
 
 // PersonAsSubject is not documented.
@@ -735,7 +747,7 @@ type SalesRights struct {
 // SenderIdentifier is not documented.
 type SenderIdentifier struct {
 	SenderIDType SenderIDType `xml:"m379"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
@@ -867,10 +879,10 @@ type SupplyDetail struct {
 
 // TextItem is not documented.
 type TextItem struct {
-	PageRun []PageRun `xml:"pagerun"`
+	PageRun []PageRun `xml:"pagerun,omitempty"`
+	FirstPageNumber string `xml:"b286,omitempty"`
+	LastPageNumber string `xml:"b287,omitempty"`
 	TextItemType TextItemType `xml:"b290"`
-	FirstPageNumber FirstPageNumber `xml:"b286,omitempty"`
-	LastPageNumber LastPageNumber `xml:"b287,omitempty"`
 	TextItemIdentifier []TextItemIdentifier `xml:"textitemidentifier,omitempty"`
 	NumberOfPages string `xml:"b061,omitempty"`
 }
