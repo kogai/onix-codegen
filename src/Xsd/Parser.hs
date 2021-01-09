@@ -89,10 +89,8 @@ parseElementOrRef c = do
     Nothing -> parseElement c
     Just ref -> parseElementRef c ref
 
-parseElementRef :: Cursor -> Text -> P Xsd.Element
-parseElementRef c ref = do
-  qname <- makeQName c ref
-
+parseOccurs :: Cursor -> P Xsd.Occurs
+parseOccurs c = do
   minOccurs <- case anAttribute "minOccurs" c of
     Nothing -> return 1
     Just val -> case readEither (Text.unpack val) of
@@ -106,14 +104,19 @@ parseElementRef c ref = do
       Left err -> parseError c ("Can't parse maxOccurs" <> Text.pack err)
       Right v -> return (Xsd.MaxOccurs v)
 
+  return $ Xsd.Occurs (minOccurs, maxOccurs)
+
+parseElementRef :: Cursor -> Text -> P Xsd.Element
+parseElementRef c ref = do
+  qname <- makeQName c ref
+  occurs <- parseOccurs c
+
   return $
     Xsd.RefElement
       Xsd.ElementRef
         { Xsd.elementRefName = qname,
-          Xsd.elementRefOccurs = (minOccurs, maxOccurs)
+          Xsd.elementRefOccurs = occurs
         }
-
--- throw Unimplemented
 
 parseElement :: Cursor -> P Xsd.Element
 parseElement c = handleNamespaces c $ do
@@ -123,21 +126,8 @@ parseElement c = handleNamespaces c $ do
     Just t -> Xsd.Ref <$> makeQName c t
     _ -> maybe (Xsd.Ref anyType) Xsd.Inline <$> parseType c
 
-  minOccurs <- case anAttribute "minOccurs" c of
-    Nothing -> return 1
-    Just val -> case readEither (Text.unpack val) of
-      Left err -> parseError c ("Can't parse minOccurs: " <> Text.pack err)
-      Right v -> return v
-
-  maxOccurs <- case anAttribute "maxOccurs" c of
-    Nothing -> return (Xsd.MaxOccurs 1)
-    Just "unbounded" -> return Xsd.MaxOccursUnbound
-    Just val -> case readEither (Text.unpack val) of
-      Left err -> parseError c ("Can't parse maxOccurs" <> Text.pack err)
-      Right v -> return (Xsd.MaxOccurs v)
-
+  occurs <- parseOccurs c
   annotations <- parseAnnotations c
-
   qname <- makeTargetQName name
 
   nillable <- case anAttribute "nillable" c of
@@ -152,7 +142,7 @@ parseElement c = handleNamespaces c $ do
           { Xsd.elementName = qname,
             Xsd.elementType = tp,
             Xsd.elementAnnotations = annotations,
-            Xsd.elementOccurs = (minOccurs, maxOccurs),
+            Xsd.elementOccurs = occurs,
             Xsd.elementNillable = nillable
           }
       )
@@ -369,23 +359,25 @@ parseSequence c = do
       elements_ = parseElements c
   choices' <- choices
   elements' <- elements_
+  occurs <- parseOccurs c
 
   return $ case (choices', elements') of
     ([], []) -> []
-    (xs, []) -> [Xsd.Inline $ Xsd.ChoiceOfSequence xs]
-    ([], xs) -> [Xsd.Inline $ Xsd.ElementOfSequence xs]
-    (xs, ys) -> [Xsd.Inline $ Xsd.ChoiceOfSequence xs, Xsd.Inline $ Xsd.ElementOfSequence ys]
+    (xs, []) -> [Xsd.Inline $ Xsd.ChoiceOfSequence occurs xs]
+    ([], xs) -> [Xsd.Inline $ Xsd.ElementOfSequence occurs xs]
+    (xs, ys) -> [Xsd.Inline $ Xsd.ChoiceOfSequence occurs xs, Xsd.Inline $ Xsd.ElementOfSequence occurs ys]
 
 parseChoice :: Cursor -> P [Xsd.RefOr Xsd.ChoiceInChild]
 parseChoice c = do
   sequenceAxis <- makeElemAxis "sequence"
   elements' <- parseElements c
   sequences' <- (flt . map parseSequence) (c $/ sequenceAxis)
+  occurs <- parseOccurs c
 
   let choices = case (elements', sequences') of
-        (xs, []) -> [Xsd.ElementOfChoice xs]
-        ([], xs) -> [Xsd.SequenceOfChoice xs]
-        (xs, ys) -> [Xsd.ElementOfChoice xs, Xsd.SequenceOfChoice ys]
+        (xs, []) -> [Xsd.ElementOfChoice occurs xs]
+        ([], xs) -> [Xsd.SequenceOfChoice occurs xs]
+        (xs, ys) -> [Xsd.ElementOfChoice occurs xs, Xsd.SequenceOfChoice occurs ys]
 
   return $ map Xsd.Inline choices
 

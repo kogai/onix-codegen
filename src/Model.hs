@@ -166,11 +166,11 @@ elementToModel docOfRef x =
   let shortname = (unwrap . findFixedOf "shortname" . contentAttributes) x
       refname = (unwrap . findFixedOf "refname" . contentAttributes) x
       iterable_ = case X.elementOccurs x of
-        (_, X.MaxOccurs 1) -> False
-        (_, X.MaxOccurs _) -> True
-        (_, X.MaxOccursUnbound) -> True
+        X.Occurs (_, X.MaxOccurs 1) -> False
+        X.Occurs (_, X.MaxOccurs _) -> True
+        X.Occurs (_, X.MaxOccursUnbound) -> True
       optional_ =
-        X.elementNillable x || (fst . X.elementOccurs) x == 0
+        X.elementNillable x || ((\(X.Occurs (m, _)) -> m) . X.elementOccurs) x == 0
       ty = case X.elementType x of
         X.Ref key -> (M.lookup key . X.schemaTypes) docOfRef
         X.Inline val -> Just val
@@ -201,14 +201,16 @@ fieldsOfElementOfChoiceInChild docOfRef =
     ( X.refOr
         (\key -> [unwrap $ modelByKey docOfRef key])
         ( \case
-            (X.ElementOfChoice es) ->
+            (X.ElementOfChoice occurs es) ->
               mapMaybe
                 ( \case
-                    X.RefElement ref -> modelByRef docOfRef ref
+                    X.RefElement ref ->
+                      let xs = modelByRef docOfRef ref
+                       in trace ("\n====\n" ++ show xs ++ "\n===\n") $ xs
                     X.InlineElement value -> (Just . elementToModel docOfRef) value
                 )
                 es
-            (X.SequenceOfChoice ss) -> fieldsOfElement docOfRef $ X.Sequence ss
+            (X.SequenceOfChoice occurs ss) -> fieldsOfElement docOfRef $ X.Sequence ss
         )
     )
 
@@ -223,14 +225,14 @@ fieldsOfElement docOfRef (X.Sequence xs) =
            in case plainContentModel of
                 Just mdgrp -> fieldsOfElement docOfRef mdgrp
                 Nothing -> []
-        (X.Inline (X.ElementOfSequence ys)) ->
+        (X.Inline (X.ElementOfSequence occurs ys)) ->
           mapMaybe
             ( \case
                 X.RefElement ref -> modelByRef docOfRef ref
                 X.InlineElement value -> (Just . elementToModel docOfRef) value
             )
             ys
-        (X.Inline (X.ChoiceOfSequence ys)) -> fieldsOfElementOfChoiceInChild docOfRef ys
+        (X.Inline (X.ChoiceOfSequence occurs ys)) -> fieldsOfElementOfChoiceInChild docOfRef ys
     )
     xs
 fieldsOfElement docOfRef (X.Choice xs) = (dropDuplicate . map makeOptional . fieldsOfElementOfChoiceInChild docOfRef) xs
