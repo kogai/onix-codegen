@@ -224,7 +224,32 @@ tests =
           let key = makeTargetQName "ONIXMessage"
               es = (Md.elements . topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
               actual = head es
-          assertEqual "can parse unbounded choices(optional)" False (Md.optional actual)
+          assertEqual "can parse unbounded choices(optional)" True (Md.optional actual)
           assertEqual "can parse unbounded choices(iterable)" True (Md.iterable actual)
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_model_notforsale.xsd"
+          let key = makeTargetQName "NotForSale"
+              actual = (topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
+              expected =
+                Model
+                  { shortname = "notforsale",
+                    xmlReferenceName = "NotForSale",
+                    typeName = Nothing,
+                    kind = Tag,
+                    optional = False,
+                    iterable = False,
+                    elements =
+                      [ Model {shortname = "a100", xmlReferenceName = "RightsTerritory", typeName = Just "string", kind = Tag, optional = True, iterable = False, elements = []},
+                        Model {shortname = "a000", xmlReferenceName = "RightsCountry", typeName = Just "string", kind = Tag, optional = True, iterable = True, elements = []},
+                        Model {shortname = "a200", xmlReferenceName = "ISBN", typeName = Just "string", kind = Tag, optional = False, iterable = False, elements = []},
+                        Model {shortname = "a300", xmlReferenceName = "EAN13", typeName = Just "string", kind = Tag, optional = False, iterable = False, elements = []},
+                        Model {shortname = "a400", xmlReferenceName = "ProductIdentifier", typeName = Just "string", kind = Tag, optional = False, iterable = True, elements = []},
+                        Model {shortname = "a500", xmlReferenceName = "PublisherName", typeName = Just "string", kind = Tag, optional = False, iterable = False, elements = []}
+                      ]
+                  }
+
+          assertEqual "can drop deplicated field" expected actual
       )
   ]

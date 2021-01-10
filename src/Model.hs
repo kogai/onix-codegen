@@ -20,7 +20,7 @@ module Model
   )
 where
 
-import Data.List (elemIndex, find)
+import Data.List (elemIndex, find, findIndex)
 import qualified Data.Map as M
 import Data.Maybe (fromMaybe, mapMaybe)
 import Data.Text (Text, pack, unpack)
@@ -57,14 +57,9 @@ data Model = Model
     iterable :: Bool,
     elements :: [Model]
   }
-  deriving (Generic, Show)
+  deriving (Generic, Show, Eq)
 
 instance FromJSON Model
-
-instance Eq Model where
-  (==) a b =
-    shortname a == shortname b
-      && xmlReferenceName a == xmlReferenceName b
 
 instance ToMustache Model where
   toMustache Model {shortname, xmlReferenceName, kind, elements, typeName, optional, iterable} =
@@ -137,7 +132,13 @@ dropDuplicate :: [Model] -> [Model]
 dropDuplicate =
   foldl
     ( \acc x ->
-        case elemIndex x acc of
+        case findIndex
+          ( \y ->
+              shortname x == shortname y
+                && xmlReferenceName x == xmlReferenceName y
+                && elements x == elements y
+          )
+          acc of
           Just i ->
             let (xs, ys) = splitAt i acc
              in xs ++ [x {optional = True}] ++ tail ys
@@ -238,24 +239,28 @@ fieldsOfElementOfChoiceInChild docOfRef =
 -- Since the Go language does not have a sum type, all choices should be optional.
 fieldsOfElement :: X.Schema -> X.ModelGroup -> [Model]
 fieldsOfElement docOfRef (X.Sequence xs) =
-  concatMap
-    ( \case
-        (X.Ref key) ->
-          let plainContentModel = (contentModel . unwrap . M.lookup key . X.schemaElements) docOfRef
-           in case plainContentModel of
-                Just mdgrp -> fieldsOfElement docOfRef mdgrp
-                Nothing -> []
-        (X.Inline (X.ElementOfSequence occurs ys)) ->
-          map (extendOccurs occurs)
-            . mapMaybe
-              ( \case
-                  X.RefElement ref -> modelByRef docOfRef ref
-                  X.InlineElement value -> (Just . elementToModel docOfRef) value
-              )
-            $ ys
-        (X.Inline (X.ChoiceOfSequence occurs ys)) -> map (extendOccurs occurs) . fieldsOfElementOfChoiceInChild docOfRef $ ys
-    )
-    xs
+  dropDuplicate
+    . concatMap
+      ( \case
+          (X.Ref key) ->
+            let plainContentModel = (contentModel . unwrap . M.lookup key . X.schemaElements) docOfRef
+             in case plainContentModel of
+                  Just mdgrp -> fieldsOfElement docOfRef mdgrp
+                  Nothing -> []
+          (X.Inline (X.ElementOfSequence occurs ys)) ->
+            map (extendOccurs occurs)
+              . mapMaybe
+                ( \case
+                    X.RefElement ref -> modelByRef docOfRef ref
+                    X.InlineElement value -> (Just . elementToModel docOfRef) value
+                )
+              $ ys
+          (X.Inline (X.ChoiceOfSequence occurs ys)) ->
+            map (makeOptional . extendOccurs occurs)
+              . fieldsOfElementOfChoiceInChild docOfRef
+              $ ys
+      )
+    $ xs
 fieldsOfElement docOfRef (X.Choice xs) = (dropDuplicate . map makeOptional . fieldsOfElementOfChoiceInChild docOfRef) xs
 fieldsOfElement _docOfRef (X.All _xs) = []
 

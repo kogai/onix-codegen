@@ -15,6 +15,7 @@ import qualified TestParser as P
 main :: IO ()
 main = do
   counts2 <- runTestTT (test $ M.tests ++ P.tests ++ C.tests ++ Mi.tests)
+  -- counts2 <- runTestTT (test $ last M.tests)
 
   if errors counts2 + failures counts2 == 0
     then exitSuccess
