@@ -81,19 +81,19 @@ type ConferenceSponsorIdentifier struct {
 
 // ContainedItem is not documented.
 type ContainedItem struct {
-	ISBN ISBN `xml:"b004,omitempty"`
-	EAN13 EAN13 `xml:"b005,omitempty"`
-	ProductIdentifier ProductIdentifier `xml:"productidentifier,omitempty"`
+	ISBN string `xml:"b004,omitempty"`
+	EAN13 string `xml:"b005,omitempty"`
+	ProductIdentifier []ProductIdentifier `xml:"productidentifier,omitempty"`
 	ProductForm ProductForm `xml:"b012,omitempty"`
-	ProductFormDetail ProductFormDetail `xml:"b333,omitempty"`
-	ProductFormFeature ProductFormFeature `xml:"productformfeature,omitempty"`
-	BookFormDetail BookFormDetail `xml:"b013,omitempty"`
+	ProductFormDetail []ProductFormDetail `xml:"b333,omitempty"`
+	ProductFormFeature []ProductFormFeature `xml:"productformfeature,omitempty"`
+	BookFormDetail []BookFormDetail `xml:"b013,omitempty"`
 	ProductPackaging ProductPackaging `xml:"b225,omitempty"`
-	ProductFormDescription ProductFormDescription `xml:"b014,omitempty"`
-	NumberOfPieces string `xml:"b210"`
-	TradeCategory TradeCategory `xml:"b384"`
-	ProductContentType ProductContentType `xml:"b385"`
-	ItemQuantity string `xml:"b015"`
+	ProductFormDescription string `xml:"b014,omitempty"`
+	NumberOfPieces string `xml:"b210,omitempty"`
+	TradeCategory TradeCategory `xml:"b384,omitempty"`
+	ProductContentType []ProductContentType `xml:"b385,omitempty"`
+	ItemQuantity string `xml:"b015,omitempty"`
 }
 
 // ContentItem is not documented.
@@ -118,7 +118,7 @@ type ContentItem struct {
 
 // Contributor is not documented.
 type Contributor struct {
-	SequenceNumber SequenceNumber `xml:"b034"`
+	SequenceNumberWithinRole string `xml:"b340,omitempty"`
 	ContributorRole ContributorRole `xml:"b035,omitempty"`
 	LanguageCode LanguageCode `xml:"b252,omitempty"`
 	SequenceNumberWithinRole SequenceNumberWithinRole `xml:"b340"`
@@ -255,9 +255,8 @@ type MainSeriesRecord struct {
 
 // MainSubject is not documented.
 type MainSubject struct {
-	SubjectHeadingText string `xml:"b070"`
-	SubjectCode string `xml:"b069"`
 	SubjectHeadingText string `xml:"b070,omitempty"`
+	SubjectCode string `xml:"b069,omitempty"`
 	MainSubjectSchemeIdentifier MainSubjectSchemeIdentifier `xml:"b191"`
 	SubjectSchemeVersion string `xml:"b068,omitempty"`
 }
@@ -348,20 +347,20 @@ type NoSeries struct {
 
 // NotForSale is not documented.
 type NotForSale struct {
-	RightsCountry RightsCountry `xml:"b090,omitempty"`
-	RightsTerritory RightsTerritory `xml:"b388,omitempty"`
-	ISBN string `xml:"b004"`
-	EAN13 string `xml:"b005"`
-	ProductIdentifier ProductIdentifier `xml:"productidentifier"`
-	PublisherName string `xml:"b081"`
+	RightsTerritory TerritoryCodeList `xml:"b388,omitempty"`
+	RightsCountry []CountryCodeList `xml:"b090,omitempty"`
+	ISBN string `xml:"b004,omitempty"`
+	EAN13 string `xml:"b005,omitempty"`
+	ProductIdentifier []ProductIdentifier `xml:"productidentifier,omitempty"`
+	PublisherName string `xml:"b081,omitempty"`
 }
 
 // ONIXMessage is not documented.
 type ONIXMessage struct {
-	Header Header `xml:"header"`
-	Product []Product `xml:"product"`
-	MainSeriesRecord []MainSeriesRecord `xml:"mainseriesrecord"`
-	SubSeriesRecord []SubSeriesRecord `xml:"subseriesrecord"`
+	Header Header `xml:"header,omitempty"`
+	Product []Product `xml:"product,omitempty"`
+	MainSeriesRecord []MainSeriesRecord `xml:"mainseriesrecord,omitempty"`
+	SubSeriesRecord []SubSeriesRecord `xml:"subseriesrecord,omitempty"`
 }
 
 // OnOrderDetail is not documented.
@@ -372,23 +371,23 @@ type OnOrderDetail struct {
 
 // OtherText is not documented.
 type OtherText struct {
-	TextTypeCode TextTypeCode `xml:"d102"`
-	TextFormat TextFormat `xml:"d103"`
-	Text Text `xml:"d104"`
+	Text Text `xml:"d104,omitempty"`
 	TextLinkType TextLinkType `xml:"d105,omitempty"`
-	TextLink TextLink `xml:"d106,omitempty"`
-	TextAuthor TextAuthor `xml:"d107"`
-	TextSourceCorporate TextSourceCorporate `xml:"b374"`
-	TextSourceTitle TextSourceTitle `xml:"d108"`
-	TextPublicationDate TextPublicationDate `xml:"d109"`
 	StartDate StartDate `xml:"b324,omitempty"`
 	EndDate EndDate `xml:"b325,omitempty"`
+	TextLink string `xml:"d106,omitempty"`
+	TextTypeCode TextTypeCode `xml:"d102"`
+	TextFormat TextFormat `xml:"d103,omitempty"`
+	TextAuthor string `xml:"d107,omitempty"`
+	TextSourceCorporate string `xml:"b374,omitempty"`
+	TextSourceTitle string `xml:"d108,omitempty"`
+	TextPublicationDate string `xml:"d109,omitempty"`
 }
 
 // PageRun is not documented.
 type PageRun struct {
-	FirstPageNumber FirstPageNumber `xml:"b286"`
-	LastPageNumber LastPageNumber `xml:"b287"`
+	FirstPageNumber string `xml:"b286"`
+	LastPageNumber string `xml:"b287,omitempty"`
 }
 
 // ParentIdentifier is not documented.
@@ -417,14 +416,14 @@ type PersonAsSubject struct {
 // PersonDate is not documented.
 type PersonDate struct {
 	PersonDateRole PersonDateRole `xml:"b305"`
-	DateFormat DateFormat `xml:"j260"`
+	DateFormat DateFormat `xml:"j260,omitempty"`
 	Date string `xml:"b306"`
 }
 
 // PersonNameIdentifier is not documented.
 type PersonNameIdentifier struct {
 	PersonNameIDType PersonNameIDType `xml:"b390"`
-	IDTypeName string `xml:"b233"`
+	IDTypeName string `xml:"b233,omitempty"`
 	IDValue string `xml:"b244"`
 }
 
@@ -462,10 +461,10 @@ type Price struct {
 // Prize is not documented.
 type Prize struct {
 	PrizeName string `xml:"g126"`
-	PrizeYear string `xml:"g127"`
-	PrizeCountry PrizeCountry `xml:"g128"`
-	PrizeCode PrizeCode `xml:"g129"`
-	PrizeJury PrizeJury `xml:"g343"`
+	PrizeYear string `xml:"g127,omitempty"`
+	PrizeCountry PrizeCountry `xml:"g128,omitempty"`
+	PrizeCode PrizeCode `xml:"g129,omitempty"`
+	PrizeJury PrizeJury `xml:"g343,omitempty"`
 }
 
 // Product is not documented.
@@ -628,14 +627,14 @@ type Product struct {
 type ProductClassification struct {
 	ProductClassificationType ProductClassificationType `xml:"b274"`
 	ProductClassificationCode string `xml:"b275"`
-	Percent string `xml:"b337"`
+	Percent string `xml:"b337,omitempty"`
 }
 
 // ProductFormFeature is not documented.
 type ProductFormFeature struct {
 	ProductFormFeatureType ProductFormFeatureType `xml:"b334"`
-	ProductFormFeatureValue string `xml:"b335"`
-	ProductFormFeatureDescription string `xml:"b336"`
+	ProductFormFeatureValue string `xml:"b335,omitempty"`
+	ProductFormFeatureDescription string `xml:"b336,omitempty"`
 }
 
 // ProductIdentifier is not documented.
@@ -647,42 +646,42 @@ type ProductIdentifier struct {
 
 // ProductWebsite is not documented.
 type ProductWebsite struct {
-	WebsiteRole WebsiteRole `xml:"b367"`
-	ProductWebsiteDescription ProductWebsiteDescription `xml:"f170"`
+	WebsiteRole WebsiteRole `xml:"b367,omitempty"`
+	ProductWebsiteDescription ProductWebsiteDescription `xml:"f170,omitempty"`
 	ProductWebsiteLink string `xml:"f123"`
 }
 
 // ProfessionalAffiliation is not documented.
 type ProfessionalAffiliation struct {
-	ProfessionalPosition ProfessionalPosition `xml:"b045"`
-	Affiliation Affiliation `xml:"b046"`
+	Affiliation string `xml:"b046,omitempty"`
+	ProfessionalPosition string `xml:"b045,omitempty"`
 }
 
 // Publisher is not documented.
 type Publisher struct {
-	PublishingRole PublishingRole `xml:"b291"`
-	PublisherName PublisherName `xml:"b081,omitempty"`
+	PublisherName string `xml:"b081,omitempty"`
 	NameCodeType NameCodeType `xml:"b241,omitempty"`
-	NameCodeTypeName NameCodeTypeName `xml:"b242,omitempty"`
-	NameCodeValue NameCodeValue `xml:"b243,omitempty"`
-	Website Website `xml:"website"`
+	NameCodeTypeName string `xml:"b242,omitempty"`
+	NameCodeValue string `xml:"b243,omitempty"`
+	PublishingRole PublishingRole `xml:"b291,omitempty"`
+	Website []Website `xml:"website,omitempty"`
 }
 
 // Reissue is not documented.
 type Reissue struct {
 	ReissueDate string `xml:"j365"`
-	ReissueDescription string `xml:"j366"`
-	Price Price `xml:"price"`
-	MediaFile MediaFile `xml:"mediafile"`
+	ReissueDescription string `xml:"j366,omitempty"`
+	Price []Price `xml:"price,omitempty"`
+	MediaFile []MediaFile `xml:"mediafile,omitempty"`
 }
 
 // RelatedProduct is not documented.
 type RelatedProduct struct {
 	RelationCode RelationCode `xml:"h208"`
-	ISBN ISBN `xml:"b004,omitempty"`
-	EAN13 EAN13 `xml:"b005,omitempty"`
-	ProductIdentifier ProductIdentifier `xml:"productidentifier,omitempty"`
-	Website Website `xml:"website,omitempty"`
+	ISBN string `xml:"b004,omitempty"`
+	EAN13 string `xml:"b005,omitempty"`
+	ProductIdentifier []ProductIdentifier `xml:"productidentifier,omitempty"`
+	Website []Website `xml:"website,omitempty"`
 	ProductForm ProductForm `xml:"b012,omitempty"`
 	ProductFormDetail ProductFormDetail `xml:"b333,omitempty"`
 	ProductFormFeature ProductFormFeature `xml:"productformfeature,omitempty"`
@@ -738,10 +737,10 @@ type SalesRestriction struct {
 
 // SalesRights is not documented.
 type SalesRights struct {
+	RightsTerritory TerritoryCodeList `xml:"b388,omitempty"`
+	RightsRegion []RightsRegion `xml:"b091,omitempty"`
+	RightsCountry []CountryCodeList `xml:"b090,omitempty"`
 	SalesRightsType SalesRightsType `xml:"b089"`
-	RightsCountry RightsCountry `xml:"b090,omitempty"`
-	RightsTerritory RightsTerritory `xml:"b388,omitempty"`
-	RightsRegion RightsRegion `xml:"b091,omitempty"`
 }
 
 // SenderIdentifier is not documented.
@@ -772,27 +771,27 @@ type SeriesIdentifier struct {
 
 // Set is not documented.
 type Set struct {
-	ISBNOfSet string `xml:"b021"`
-	EAN13OfSet string `xml:"b022"`
-	ProductIdentifier ProductIdentifier `xml:"productidentifier"`
-	TitleOfSet TitleOfSet `xml:"b023,omitempty"`
-	Title Title `xml:"title,omitempty"`
-	SetPartNumber string `xml:"b024"`
-	SetPartTitle string `xml:"b025"`
-	ItemNumberWithinSet string `xml:"b026"`
-	LevelSequenceNumber string `xml:"b284"`
-	SetItemTitle string `xml:"b281"`
+	Title []Title `xml:"title,omitempty"`
+	TitleOfSet string `xml:"b023,omitempty"`
+	ISBNOfSet string `xml:"b021,omitempty"`
+	EAN13OfSet string `xml:"b022,omitempty"`
+	ProductIdentifier []ProductIdentifier `xml:"productidentifier,omitempty"`
+	SetPartNumber string `xml:"b024,omitempty"`
+	SetPartTitle string `xml:"b025,omitempty"`
+	ItemNumberWithinSet string `xml:"b026,omitempty"`
+	LevelSequenceNumber string `xml:"b284,omitempty"`
+	SetItemTitle string `xml:"b281,omitempty"`
 }
 
 // Stock is not documented.
 type Stock struct {
-	LocationIdentifier LocationIdentifier `xml:"locationidentifier"`
+	OnHand string `xml:"j350,omitempty"`
 	StockQuantityCoded StockQuantityCoded `xml:"stockquantitycoded,omitempty"`
-	OnHand OnHand `xml:"j350,omitempty"`
-	LocationName string `xml:"j349"`
-	OnOrder string `xml:"j351"`
-	CBO string `xml:"j375"`
-	OnOrderDetail OnOrderDetail `xml:"onorderdetail"`
+	LocationIdentifier LocationIdentifier `xml:"locationidentifier,omitempty"`
+	LocationName string `xml:"j349,omitempty"`
+	OnOrder string `xml:"j351,omitempty"`
+	CBO string `xml:"j375,omitempty"`
+	OnOrderDetail []OnOrderDetail `xml:"onorderdetail,omitempty"`
 }
 
 // StockQuantityCoded is not documented.
@@ -826,11 +825,11 @@ type SubSeriesRecord struct {
 
 // Subject is not documented.
 type Subject struct {
+	SubjectHeadingText string `xml:"b070,omitempty"`
+	SubjectCode string `xml:"b069,omitempty"`
 	SubjectSchemeIdentifier SubjectSchemeIdentifier `xml:"b067"`
-	SubjectCode SubjectCode `xml:"b069,omitempty"`
-	SubjectHeadingText SubjectHeadingText `xml:"b070,omitempty"`
-	SubjectSchemeName string `xml:"b171"`
-	SubjectSchemeVersion string `xml:"b068"`
+	SubjectSchemeName string `xml:"b171,omitempty"`
+	SubjectSchemeVersion string `xml:"b068,omitempty"`
 }
 
 // SupplierIdentifier is not documented.
@@ -896,9 +895,9 @@ type TextItemIdentifier struct {
 
 // Title is not documented.
 type Title struct {
-	TitleText string `xml:"b203"`
-	TitlePrefix string `xml:"b030"`
-	TitleWithoutPrefix string `xml:"b031"`
+	TitleText string `xml:"b203,omitempty"`
+	TitlePrefix string `xml:"b030,omitempty"`
+	TitleWithoutPrefix string `xml:"b031,omitempty"`
 	TitleType TitleType `xml:"b202"`
 	AbbreviatedLength string `xml:"b276,omitempty"`
 	TextCaseFlag TextCaseFlag `xml:"b027,omitempty"`
