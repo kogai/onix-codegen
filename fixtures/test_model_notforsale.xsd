@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="NotForSale">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice>
+          <xs:sequence>
+            <xs:element ref="RightsCountry" maxOccurs="unbounded" />
+            <xs:element ref="RightsTerritory" minOccurs="0" />
+          </xs:sequence>
+          <xs:element ref="RightsTerritory" />
+        </xs:choice>
+        <xs:element ref="ISBN" />
+        <xs:element ref="EAN13" />
+        <xs:element ref="ProductIdentifier" maxOccurs="unbounded" />
+        <xs:element ref="PublisherName" />
+      </xs:sequence>
+      <xs:attribute name="refname" type="xs:NMTOKEN" fixed="NotForSale" />
+      <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="notforsale" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RightsCountry">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="NonEmptyString">
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="RightsCountry" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="a000" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RightsTerritory">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="NonEmptyString">
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="RightsTerritory" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="a100" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ISBN">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="NonEmptyString">
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="ISBN" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="a200" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EAN13">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="NonEmptyString">
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="EAN13" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="a300" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductIdentifier">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="NonEmptyString">
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="ProductIdentifier" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="a400" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PublisherName">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="NonEmptyString">
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="PublisherName" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="a500" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="NonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
