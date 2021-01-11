@@ -71,6 +71,7 @@ tests:
     dependencies:
       - onix
       - HUnit == 1.6.1.0
+      - vector == 0.12.1.2
       - xml-conduit == 1.9.0.0
       - text == 1.2.4.0
       - containers == 0.6.2.1

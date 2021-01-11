@@ -3,2306 +3,2317 @@ package onix
 import (
 	"encoding/xml"
 	"fmt"
+	"strings"
 )
 
 
 // CountryCodeList Country code – ISO 3166-1
-type CountryCodeList string
+type CountryCodeList []string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
 func (c *CountryCodeList) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	var v string
 	d.DecodeElement(&v, &start)
-	switch v {
-
-  // Andorra
-  case "AD":
-		*c = `Andorra`
-
-  // United Arab Emirates
-  case "AE":
-		*c = `United Arab Emirates`
-
-  // Afghanistan
-  case "AF":
-		*c = `Afghanistan`
-
-  // Antigua and Barbuda
-  case "AG":
-		*c = `Antigua and Barbuda`
-
-  // Anguilla
-  case "AI":
-		*c = `Anguilla`
-
-  // Albania
-  case "AL":
-		*c = `Albania`
-
-  // Armenia
-  case "AM":
-		*c = `Armenia`
-
-  // Deprecated – use BQ, CW or SX as appropriate
-  case "AN":
-		*c = `Netherlands Antilles`
-
-  // Angola
-  case "AO":
-		*c = `Angola`
-
-  // Antarctica
-  case "AQ":
-		*c = `Antarctica`
-
-  // Argentina
-  case "AR":
-		*c = `Argentina`
-
-  // American Samoa
-  case "AS":
-		*c = `American Samoa`
-
-  // Austria
-  case "AT":
-		*c = `Austria`
-
-  // Australia
-  case "AU":
-		*c = `Australia`
-
-  // Aruba
-  case "AW":
-		*c = `Aruba`
-
-  // Åland Islands
-  case "AX":
-		*c = `Åland Islands`
-
-  // Azerbaijan
-  case "AZ":
-		*c = `Azerbaijan`
-
-  // Bosnia and Herzegovina
-  case "BA":
-		*c = `Bosnia and Herzegovina`
-
-  // Barbados
-  case "BB":
-		*c = `Barbados`
-
-  // Bangladesh
-  case "BD":
-		*c = `Bangladesh`
-
-  // Belgium
-  case "BE":
-		*c = `Belgium`
-
-  // Burkina Faso
-  case "BF":
-		*c = `Burkina Faso`
-
-  // Bulgaria
-  case "BG":
-		*c = `Bulgaria`
-
-  // Bahrain
-  case "BH":
-		*c = `Bahrain`
-
-  // Burundi
-  case "BI":
-		*c = `Burundi`
-
-  // Benin
-  case "BJ":
-		*c = `Benin`
-
-  // Saint Barthélemy
-  case "BL":
-		*c = `Saint Barthélemy`
-
-  // Bermuda
-  case "BM":
-		*c = `Bermuda`
-
-  // Brunei Darussalam
-  case "BN":
-		*c = `Brunei Darussalam`
-
-  // Bolivia, Plurinational State of
-  case "BO":
-		*c = `Bolivia, Plurinational State of`
-
-  // Bonaire, Sint Eustatius and Saba
-  case "BQ":
-		*c = `Bonaire, Sint Eustatius and Saba`
-
-  // Brazil
-  case "BR":
-		*c = `Brazil`
-
-  // Bahamas
-  case "BS":
-		*c = `Bahamas`
-
-  // Bhutan
-  case "BT":
-		*c = `Bhutan`
-
-  // Bouvet Island
-  case "BV":
-		*c = `Bouvet Island`
-
-  // Botswana
-  case "BW":
-		*c = `Botswana`
-
-  // Belarus
-  case "BY":
-		*c = `Belarus`
-
-  // Belize
-  case "BZ":
-		*c = `Belize`
-
-  // Canada
-  case "CA":
-		*c = `Canada`
-
-  // Cocos (Keeling) Islands
-  case "CC":
-		*c = `Cocos (Keeling) Islands`
-
-  // Congo, Democratic Republic of the
-  case "CD":
-		*c = `Congo, Democratic Republic of the`
-
-  // Central African Republic
-  case "CF":
-		*c = `Central African Republic`
-
-  // Congo
-  case "CG":
-		*c = `Congo`
-
-  // Switzerland
-  case "CH":
-		*c = `Switzerland`
-
-  // Cote d’Ivoire
-  case "CI":
-		*c = `Cote d’Ivoire`
-
-  // Cook Islands
-  case "CK":
-		*c = `Cook Islands`
-
-  // Chile
-  case "CL":
-		*c = `Chile`
-
-  // Cameroon
-  case "CM":
-		*c = `Cameroon`
-
-  // China
-  case "CN":
-		*c = `China`
-
-  // Colombia
-  case "CO":
-		*c = `Colombia`
-
-  // Costa Rica
-  case "CR":
-		*c = `Costa Rica`
-
-  // DEPRECATED, replaced by ME – Montenegro and RS – Serbia
-  case "CS":
-		*c = `Serbia and Montenegro`
-
-  // Cuba
-  case "CU":
-		*c = `Cuba`
-
-  // Cabo Verde
-  case "CV":
-		*c = `Cabo Verde`
-
-  // Curaçao
-  case "CW":
-		*c = `Curaçao`
-
-  // Christmas Island
-  case "CX":
-		*c = `Christmas Island`
-
-  // Cyprus
-  case "CY":
-		*c = `Cyprus`
-
-  // Czech Republic
-  case "CZ":
-		*c = `Czech Republic`
-
-  // Germany
-  case "DE":
-		*c = `Germany`
-
-  // Djibouti
-  case "DJ":
-		*c = `Djibouti`
-
-  // Denmark
-  case "DK":
-		*c = `Denmark`
-
-  // Dominica
-  case "DM":
-		*c = `Dominica`
-
-  // Dominican Republic
-  case "DO":
-		*c = `Dominican Republic`
-
-  // Algeria
-  case "DZ":
-		*c = `Algeria`
-
-  // Ecuador
-  case "EC":
-		*c = `Ecuador`
-
-  // Estonia
-  case "EE":
-		*c = `Estonia`
-
-  // Egypt
-  case "EG":
-		*c = `Egypt`
-
-  // Western Sahara
-  case "EH":
-		*c = `Western Sahara`
-
-  // Eritrea
-  case "ER":
-		*c = `Eritrea`
-
-  // Spain
-  case "ES":
-		*c = `Spain`
-
-  // Ethiopia
-  case "ET":
-		*c = `Ethiopia`
-
-  // Finland
-  case "FI":
-		*c = `Finland`
-
-  // Fiji
-  case "FJ":
-		*c = `Fiji`
-
-  // Falkland Islands (Malvinas)
-  case "FK":
-		*c = `Falkland Islands (Malvinas)`
-
-  // Micronesia, Federated States of
-  case "FM":
-		*c = `Micronesia, Federated States of`
-
-  // Faroe Islands
-  case "FO":
-		*c = `Faroe Islands`
-
-  // France
-  case "FR":
-		*c = `France`
-
-  // Gabon
-  case "GA":
-		*c = `Gabon`
-
-  // United Kingdom
-  case "GB":
-		*c = `United Kingdom`
-
-  // Grenada
-  case "GD":
-		*c = `Grenada`
-
-  // Georgia
-  case "GE":
-		*c = `Georgia`
-
-  // French Guiana
-  case "GF":
-		*c = `French Guiana`
-
-  // Guernsey
-  case "GG":
-		*c = `Guernsey`
-
-  // Ghana
-  case "GH":
-		*c = `Ghana`
-
-  // Gibraltar
-  case "GI":
-		*c = `Gibraltar`
-
-  // Greenland
-  case "GL":
-		*c = `Greenland`
-
-  // Gambia
-  case "GM":
-		*c = `Gambia`
-
-  // Guinea
-  case "GN":
-		*c = `Guinea`
-
-  // Guadeloupe
-  case "GP":
-		*c = `Guadeloupe`
-
-  // Equatorial Guinea
-  case "GQ":
-		*c = `Equatorial Guinea`
-
-  // Greece
-  case "GR":
-		*c = `Greece`
-
-  // South Georgia and the South Sandwich Islands
-  case "GS":
-		*c = `South Georgia and the South Sandwich Islands`
-
-  // Guatemala
-  case "GT":
-		*c = `Guatemala`
-
-  // Guam
-  case "GU":
-		*c = `Guam`
-
-  // Guinea-Bissau
-  case "GW":
-		*c = `Guinea-Bissau`
-
-  // Guyana
-  case "GY":
-		*c = `Guyana`
-
-  // Hong Kong
-  case "HK":
-		*c = `Hong Kong`
-
-  // Heard Island and McDonald Islands
-  case "HM":
-		*c = `Heard Island and McDonald Islands`
-
-  // Honduras
-  case "HN":
-		*c = `Honduras`
-
-  // Croatia
-  case "HR":
-		*c = `Croatia`
-
-  // Haiti
-  case "HT":
-		*c = `Haiti`
-
-  // Hungary
-  case "HU":
-		*c = `Hungary`
-
-  // Indonesia
-  case "ID":
-		*c = `Indonesia`
-
-  // Ireland
-  case "IE":
-		*c = `Ireland`
-
-  // Israel
-  case "IL":
-		*c = `Israel`
-
-  // Isle of Man
-  case "IM":
-		*c = `Isle of Man`
-
-  // India
-  case "IN":
-		*c = `India`
-
-  // British Indian Ocean Territory
-  case "IO":
-		*c = `British Indian Ocean Territory`
-
-  // Iraq
-  case "IQ":
-		*c = `Iraq`
-
-  // Iran, Islamic Republic of
-  case "IR":
-		*c = `Iran, Islamic Republic of`
-
-  // Iceland
-  case "IS":
-		*c = `Iceland`
-
-  // Italy
-  case "IT":
-		*c = `Italy`
-
-  // Jersey
-  case "JE":
-		*c = `Jersey`
-
-  // Jamaica
-  case "JM":
-		*c = `Jamaica`
-
-  // Jordan
-  case "JO":
-		*c = `Jordan`
-
-  // Japan
-  case "JP":
-		*c = `Japan`
-
-  // Kenya
-  case "KE":
-		*c = `Kenya`
-
-  // Kyrgyzstan
-  case "KG":
-		*c = `Kyrgyzstan`
-
-  // Cambodia
-  case "KH":
-		*c = `Cambodia`
-
-  // Kiribati
-  case "KI":
-		*c = `Kiribati`
-
-  // Comoros
-  case "KM":
-		*c = `Comoros`
-
-  // Saint Kitts and Nevis
-  case "KN":
-		*c = `Saint Kitts and Nevis`
-
-  // Korea, Democratic People’s Republic of
-  case "KP":
-		*c = `Korea, Democratic People’s Republic of`
-
-  // Korea, Republic of
-  case "KR":
-		*c = `Korea, Republic of`
-
-  // Kuwait
-  case "KW":
-		*c = `Kuwait`
-
-  // Cayman Islands
-  case "KY":
-		*c = `Cayman Islands`
-
-  // Kazakhstan
-  case "KZ":
-		*c = `Kazakhstan`
-
-  // Lao People’s Democratic Republic
-  case "LA":
-		*c = `Lao People’s Democratic Republic`
-
-  // Lebanon
-  case "LB":
-		*c = `Lebanon`
-
-  // Saint Lucia
-  case "LC":
-		*c = `Saint Lucia`
-
-  // Liechtenstein
-  case "LI":
-		*c = `Liechtenstein`
-
-  // Sri Lanka
-  case "LK":
-		*c = `Sri Lanka`
-
-  // Liberia
-  case "LR":
-		*c = `Liberia`
-
-  // Lesotho
-  case "LS":
-		*c = `Lesotho`
-
-  // Lithuania
-  case "LT":
-		*c = `Lithuania`
-
-  // Luxembourg
-  case "LU":
-		*c = `Luxembourg`
-
-  // Latvia
-  case "LV":
-		*c = `Latvia`
-
-  // Libya
-  case "LY":
-		*c = `Libya`
-
-  // Morocco
-  case "MA":
-		*c = `Morocco`
-
-  // Monaco
-  case "MC":
-		*c = `Monaco`
-
-  // Moldova, Repubic of
-  case "MD":
-		*c = `Moldova, Repubic of`
-
-  // Montenegro
-  case "ME":
-		*c = `Montenegro`
-
-  // Saint Martin (French part)
-  case "MF":
-		*c = `Saint Martin (French part)`
-
-  // Madagascar
-  case "MG":
-		*c = `Madagascar`
-
-  // Marshall Islands
-  case "MH":
-		*c = `Marshall Islands`
-
-  // Macedonia, the former Yugoslav Republic of
-  case "MK":
-		*c = `Macedonia, the former Yugoslav Republic of`
-
-  // Mali
-  case "ML":
-		*c = `Mali`
-
-  // Myanmar
-  case "MM":
-		*c = `Myanmar`
-
-  // Mongolia
-  case "MN":
-		*c = `Mongolia`
-
-  // Macao
-  case "MO":
-		*c = `Macao`
-
-  // Northern Mariana Islands
-  case "MP":
-		*c = `Northern Mariana Islands`
-
-  // Martinique
-  case "MQ":
-		*c = `Martinique`
-
-  // Mauritania
-  case "MR":
-		*c = `Mauritania`
-
-  // Montserrat
-  case "MS":
-		*c = `Montserrat`
-
-  // Malta
-  case "MT":
-		*c = `Malta`
-
-  // Mauritius
-  case "MU":
-		*c = `Mauritius`
-
-  // Maldives
-  case "MV":
-		*c = `Maldives`
-
-  // Malawi
-  case "MW":
-		*c = `Malawi`
-
-  // Mexico
-  case "MX":
-		*c = `Mexico`
-
-  // Malaysia
-  case "MY":
-		*c = `Malaysia`
-
-  // Mozambique
-  case "MZ":
-		*c = `Mozambique`
-
-  // Namibia
-  case "NA":
-		*c = `Namibia`
-
-  // New Caledonia
-  case "NC":
-		*c = `New Caledonia`
-
-  // Niger
-  case "NE":
-		*c = `Niger`
-
-  // Norfolk Island
-  case "NF":
-		*c = `Norfolk Island`
-
-  // Nigeria
-  case "NG":
-		*c = `Nigeria`
-
-  // Nicaragua
-  case "NI":
-		*c = `Nicaragua`
-
-  // Netherlands
-  case "NL":
-		*c = `Netherlands`
-
-  // Norway
-  case "NO":
-		*c = `Norway`
-
-  // Nepal
-  case "NP":
-		*c = `Nepal`
-
-  // Nauru
-  case "NR":
-		*c = `Nauru`
-
-  // Niue
-  case "NU":
-		*c = `Niue`
-
-  // New Zealand
-  case "NZ":
-		*c = `New Zealand`
-
-  // Oman
-  case "OM":
-		*c = `Oman`
-
-  // Panama
-  case "PA":
-		*c = `Panama`
-
-  // Peru
-  case "PE":
-		*c = `Peru`
-
-  // French Polynesia
-  case "PF":
-		*c = `French Polynesia`
-
-  // Papua New Guinea
-  case "PG":
-		*c = `Papua New Guinea`
-
-  // Philippines
-  case "PH":
-		*c = `Philippines`
-
-  // Pakistan
-  case "PK":
-		*c = `Pakistan`
-
-  // Poland
-  case "PL":
-		*c = `Poland`
-
-  // Saint Pierre and Miquelon
-  case "PM":
-		*c = `Saint Pierre and Miquelon`
-
-  // Pitcairn
-  case "PN":
-		*c = `Pitcairn`
-
-  // Puerto Rico
-  case "PR":
-		*c = `Puerto Rico`
-
-  // Palestine, State of
-  case "PS":
-		*c = `Palestine, State of`
-
-  // Portugal
-  case "PT":
-		*c = `Portugal`
-
-  // Palau
-  case "PW":
-		*c = `Palau`
-
-  // Paraguay
-  case "PY":
-		*c = `Paraguay`
-
-  // Qatar
-  case "QA":
-		*c = `Qatar`
-
-  // Réunion
-  case "RE":
-		*c = `Réunion`
-
-  // Romania
-  case "RO":
-		*c = `Romania`
-
-  // Serbia
-  case "RS":
-		*c = `Serbia`
-
-  // Russian Federation
-  case "RU":
-		*c = `Russian Federation`
-
-  // Rwanda
-  case "RW":
-		*c = `Rwanda`
-
-  // Saudi Arabia
-  case "SA":
-		*c = `Saudi Arabia`
-
-  // Solomon Islands
-  case "SB":
-		*c = `Solomon Islands`
-
-  // Seychelles
-  case "SC":
-		*c = `Seychelles`
-
-  // Sudan
-  case "SD":
-		*c = `Sudan`
-
-  // Sweden
-  case "SE":
-		*c = `Sweden`
-
-  // Singapore
-  case "SG":
-		*c = `Singapore`
-
-  // Saint Helena, Ascension and Tristan da Cunha
-  case "SH":
-		*c = `Saint Helena, Ascension and Tristan da Cunha`
-
-  // Slovenia
-  case "SI":
-		*c = `Slovenia`
-
-  // Svalbard and Jan Mayen
-  case "SJ":
-		*c = `Svalbard and Jan Mayen`
-
-  // Slovakia
-  case "SK":
-		*c = `Slovakia`
-
-  // Sierra Leone
-  case "SL":
-		*c = `Sierra Leone`
-
-  // San Marino
-  case "SM":
-		*c = `San Marino`
-
-  // Senegal
-  case "SN":
-		*c = `Senegal`
-
-  // Somalia
-  case "SO":
-		*c = `Somalia`
-
-  // Suriname
-  case "SR":
-		*c = `Suriname`
-
-  // South Sudan
-  case "SS":
-		*c = `South Sudan`
-
-  // Sao Tome and Principe
-  case "ST":
-		*c = `Sao Tome and Principe`
-
-  // El Salvador
-  case "SV":
-		*c = `El Salvador`
-
-  // Sint Maarten (Dutch part)
-  case "SX":
-		*c = `Sint Maarten (Dutch part)`
-
-  // Syrian Arab Republic
-  case "SY":
-		*c = `Syrian Arab Republic`
-
-  // Swaziland
-  case "SZ":
-		*c = `Swaziland`
-
-  // Turks and Caicos Islands
-  case "TC":
-		*c = `Turks and Caicos Islands`
-
-  // Chad
-  case "TD":
-		*c = `Chad`
-
-  // French Southern Territories
-  case "TF":
-		*c = `French Southern Territories`
-
-  // Togo
-  case "TG":
-		*c = `Togo`
-
-  // Thailand
-  case "TH":
-		*c = `Thailand`
-
-  // Tajikistan
-  case "TJ":
-		*c = `Tajikistan`
-
-  // Tokelau
-  case "TK":
-		*c = `Tokelau`
-
-  // Timor-Leste
-  case "TL":
-		*c = `Timor-Leste`
-
-  // Turkmenistan
-  case "TM":
-		*c = `Turkmenistan`
-
-  // Tunisia
-  case "TN":
-		*c = `Tunisia`
-
-  // Tonga
-  case "TO":
-		*c = `Tonga`
-
-  // Turkey
-  case "TR":
-		*c = `Turkey`
-
-  // Trinidad and Tobago
-  case "TT":
-		*c = `Trinidad and Tobago`
-
-  // Tuvalu
-  case "TV":
-		*c = `Tuvalu`
-
-  // Taiwan, Province of China
-  case "TW":
-		*c = `Taiwan, Province of China`
-
-  // Tanzania, United Republic of
-  case "TZ":
-		*c = `Tanzania, United Republic of`
-
-  // Ukraine
-  case "UA":
-		*c = `Ukraine`
-
-  // Uganda
-  case "UG":
-		*c = `Uganda`
-
-  // United States Minor Outlying Islands
-  case "UM":
-		*c = `United States Minor Outlying Islands`
-
-  // United States
-  case "US":
-		*c = `United States`
-
-  // Uruguay
-  case "UY":
-		*c = `Uruguay`
-
-  // Uzbekistan
-  case "UZ":
-		*c = `Uzbekistan`
-
-  // Holy See (Vatican City State)
-  case "VA":
-		*c = `Holy See (Vatican City State)`
-
-  // Saint Vincent and the Grenadines
-  case "VC":
-		*c = `Saint Vincent and the Grenadines`
-
-  // Venezuela, Bolivarian Republic of
-  case "VE":
-		*c = `Venezuela, Bolivarian Republic of`
-
-  // Virgin Islands, British
-  case "VG":
-		*c = `Virgin Islands, British`
-
-  // Virgin Islands, US
-  case "VI":
-		*c = `Virgin Islands, US`
-
-  // Viet Nam
-  case "VN":
-		*c = `Viet Nam`
-
-  // Vanuatu
-  case "VU":
-		*c = `Vanuatu`
-
-  // Wallis and Futuna
-  case "WF":
-		*c = `Wallis and Futuna`
-
-  // Samoa
-  case "WS":
-		*c = `Samoa`
-
-  // Yemen
-  case "YE":
-		*c = `Yemen`
-
-  // Mayotte
-  case "YT":
-		*c = `Mayotte`
-
-  // DEPRECATED, replaced by ME – Montenegro and RS – Serbia
-  case "YU":
-		*c = `Yugoslavia`
-
-  // South Africa
-  case "ZA":
-		*c = `South Africa`
-
-  // Zambia
-  case "ZM":
-		*c = `Zambia`
-
-  // Zimbabwe
-  case "ZW":
-		*c = `Zimbabwe`
-	default:
-		return fmt.Errorf("undefined code for CountryCodeList has been passed, got [%s]", v)
+	codes := strings.Split(v, " ")
+	tmpeCodes := []string{}
+	for _, code := range codes {
+		switch code {
+
+		// Andorra
+		case "AD":
+			tmpeCodes = append(tmpeCodes, `Andorra`)
+
+		// United Arab Emirates
+		case "AE":
+			tmpeCodes = append(tmpeCodes, `United Arab Emirates`)
+
+		// Afghanistan
+		case "AF":
+			tmpeCodes = append(tmpeCodes, `Afghanistan`)
+
+		// Antigua and Barbuda
+		case "AG":
+			tmpeCodes = append(tmpeCodes, `Antigua and Barbuda`)
+
+		// Anguilla
+		case "AI":
+			tmpeCodes = append(tmpeCodes, `Anguilla`)
+
+		// Albania
+		case "AL":
+			tmpeCodes = append(tmpeCodes, `Albania`)
+
+		// Armenia
+		case "AM":
+			tmpeCodes = append(tmpeCodes, `Armenia`)
+
+		// Deprecated – use BQ, CW or SX as appropriate
+		case "AN":
+			tmpeCodes = append(tmpeCodes, `Netherlands Antilles`)
+
+		// Angola
+		case "AO":
+			tmpeCodes = append(tmpeCodes, `Angola`)
+
+		// Antarctica
+		case "AQ":
+			tmpeCodes = append(tmpeCodes, `Antarctica`)
+
+		// Argentina
+		case "AR":
+			tmpeCodes = append(tmpeCodes, `Argentina`)
+
+		// American Samoa
+		case "AS":
+			tmpeCodes = append(tmpeCodes, `American Samoa`)
+
+		// Austria
+		case "AT":
+			tmpeCodes = append(tmpeCodes, `Austria`)
+
+		// Australia
+		case "AU":
+			tmpeCodes = append(tmpeCodes, `Australia`)
+
+		// Aruba
+		case "AW":
+			tmpeCodes = append(tmpeCodes, `Aruba`)
+
+		// Åland Islands
+		case "AX":
+			tmpeCodes = append(tmpeCodes, `Åland Islands`)
+
+		// Azerbaijan
+		case "AZ":
+			tmpeCodes = append(tmpeCodes, `Azerbaijan`)
+
+		// Bosnia and Herzegovina
+		case "BA":
+			tmpeCodes = append(tmpeCodes, `Bosnia and Herzegovina`)
+
+		// Barbados
+		case "BB":
+			tmpeCodes = append(tmpeCodes, `Barbados`)
+
+		// Bangladesh
+		case "BD":
+			tmpeCodes = append(tmpeCodes, `Bangladesh`)
+
+		// Belgium
+		case "BE":
+			tmpeCodes = append(tmpeCodes, `Belgium`)
+
+		// Burkina Faso
+		case "BF":
+			tmpeCodes = append(tmpeCodes, `Burkina Faso`)
+
+		// Bulgaria
+		case "BG":
+			tmpeCodes = append(tmpeCodes, `Bulgaria`)
+
+		// Bahrain
+		case "BH":
+			tmpeCodes = append(tmpeCodes, `Bahrain`)
+
+		// Burundi
+		case "BI":
+			tmpeCodes = append(tmpeCodes, `Burundi`)
+
+		// Benin
+		case "BJ":
+			tmpeCodes = append(tmpeCodes, `Benin`)
+
+		// Saint Barthélemy
+		case "BL":
+			tmpeCodes = append(tmpeCodes, `Saint Barthélemy`)
+
+		// Bermuda
+		case "BM":
+			tmpeCodes = append(tmpeCodes, `Bermuda`)
+
+		// Brunei Darussalam
+		case "BN":
+			tmpeCodes = append(tmpeCodes, `Brunei Darussalam`)
+
+		// Bolivia, Plurinational State of
+		case "BO":
+			tmpeCodes = append(tmpeCodes, `Bolivia, Plurinational State of`)
+
+		// Bonaire, Sint Eustatius and Saba
+		case "BQ":
+			tmpeCodes = append(tmpeCodes, `Bonaire, Sint Eustatius and Saba`)
+
+		// Brazil
+		case "BR":
+			tmpeCodes = append(tmpeCodes, `Brazil`)
+
+		// Bahamas
+		case "BS":
+			tmpeCodes = append(tmpeCodes, `Bahamas`)
+
+		// Bhutan
+		case "BT":
+			tmpeCodes = append(tmpeCodes, `Bhutan`)
+
+		// Bouvet Island
+		case "BV":
+			tmpeCodes = append(tmpeCodes, `Bouvet Island`)
+
+		// Botswana
+		case "BW":
+			tmpeCodes = append(tmpeCodes, `Botswana`)
+
+		// Belarus
+		case "BY":
+			tmpeCodes = append(tmpeCodes, `Belarus`)
+
+		// Belize
+		case "BZ":
+			tmpeCodes = append(tmpeCodes, `Belize`)
+
+		// Canada
+		case "CA":
+			tmpeCodes = append(tmpeCodes, `Canada`)
+
+		// Cocos (Keeling) Islands
+		case "CC":
+			tmpeCodes = append(tmpeCodes, `Cocos (Keeling) Islands`)
+
+		// Congo, Democratic Republic of the
+		case "CD":
+			tmpeCodes = append(tmpeCodes, `Congo, Democratic Republic of the`)
+
+		// Central African Republic
+		case "CF":
+			tmpeCodes = append(tmpeCodes, `Central African Republic`)
+
+		// Congo
+		case "CG":
+			tmpeCodes = append(tmpeCodes, `Congo`)
+
+		// Switzerland
+		case "CH":
+			tmpeCodes = append(tmpeCodes, `Switzerland`)
+
+		// Cote d’Ivoire
+		case "CI":
+			tmpeCodes = append(tmpeCodes, `Cote d’Ivoire`)
+
+		// Cook Islands
+		case "CK":
+			tmpeCodes = append(tmpeCodes, `Cook Islands`)
+
+		// Chile
+		case "CL":
+			tmpeCodes = append(tmpeCodes, `Chile`)
+
+		// Cameroon
+		case "CM":
+			tmpeCodes = append(tmpeCodes, `Cameroon`)
+
+		// China
+		case "CN":
+			tmpeCodes = append(tmpeCodes, `China`)
+
+		// Colombia
+		case "CO":
+			tmpeCodes = append(tmpeCodes, `Colombia`)
+
+		// Costa Rica
+		case "CR":
+			tmpeCodes = append(tmpeCodes, `Costa Rica`)
+
+		// DEPRECATED, replaced by ME – Montenegro and RS – Serbia
+		case "CS":
+			tmpeCodes = append(tmpeCodes, `Serbia and Montenegro`)
+
+		// Cuba
+		case "CU":
+			tmpeCodes = append(tmpeCodes, `Cuba`)
+
+		// Cabo Verde
+		case "CV":
+			tmpeCodes = append(tmpeCodes, `Cabo Verde`)
+
+		// Curaçao
+		case "CW":
+			tmpeCodes = append(tmpeCodes, `Curaçao`)
+
+		// Christmas Island
+		case "CX":
+			tmpeCodes = append(tmpeCodes, `Christmas Island`)
+
+		// Cyprus
+		case "CY":
+			tmpeCodes = append(tmpeCodes, `Cyprus`)
+
+		// Czech Republic
+		case "CZ":
+			tmpeCodes = append(tmpeCodes, `Czech Republic`)
+
+		// Germany
+		case "DE":
+			tmpeCodes = append(tmpeCodes, `Germany`)
+
+		// Djibouti
+		case "DJ":
+			tmpeCodes = append(tmpeCodes, `Djibouti`)
+
+		// Denmark
+		case "DK":
+			tmpeCodes = append(tmpeCodes, `Denmark`)
+
+		// Dominica
+		case "DM":
+			tmpeCodes = append(tmpeCodes, `Dominica`)
+
+		// Dominican Republic
+		case "DO":
+			tmpeCodes = append(tmpeCodes, `Dominican Republic`)
+
+		// Algeria
+		case "DZ":
+			tmpeCodes = append(tmpeCodes, `Algeria`)
+
+		// Ecuador
+		case "EC":
+			tmpeCodes = append(tmpeCodes, `Ecuador`)
+
+		// Estonia
+		case "EE":
+			tmpeCodes = append(tmpeCodes, `Estonia`)
+
+		// Egypt
+		case "EG":
+			tmpeCodes = append(tmpeCodes, `Egypt`)
+
+		// Western Sahara
+		case "EH":
+			tmpeCodes = append(tmpeCodes, `Western Sahara`)
+
+		// Eritrea
+		case "ER":
+			tmpeCodes = append(tmpeCodes, `Eritrea`)
+
+		// Spain
+		case "ES":
+			tmpeCodes = append(tmpeCodes, `Spain`)
+
+		// Ethiopia
+		case "ET":
+			tmpeCodes = append(tmpeCodes, `Ethiopia`)
+
+		// Finland
+		case "FI":
+			tmpeCodes = append(tmpeCodes, `Finland`)
+
+		// Fiji
+		case "FJ":
+			tmpeCodes = append(tmpeCodes, `Fiji`)
+
+		// Falkland Islands (Malvinas)
+		case "FK":
+			tmpeCodes = append(tmpeCodes, `Falkland Islands (Malvinas)`)
+
+		// Micronesia, Federated States of
+		case "FM":
+			tmpeCodes = append(tmpeCodes, `Micronesia, Federated States of`)
+
+		// Faroe Islands
+		case "FO":
+			tmpeCodes = append(tmpeCodes, `Faroe Islands`)
+
+		// France
+		case "FR":
+			tmpeCodes = append(tmpeCodes, `France`)
+
+		// Gabon
+		case "GA":
+			tmpeCodes = append(tmpeCodes, `Gabon`)
+
+		// United Kingdom
+		case "GB":
+			tmpeCodes = append(tmpeCodes, `United Kingdom`)
+
+		// Grenada
+		case "GD":
+			tmpeCodes = append(tmpeCodes, `Grenada`)
+
+		// Georgia
+		case "GE":
+			tmpeCodes = append(tmpeCodes, `Georgia`)
+
+		// French Guiana
+		case "GF":
+			tmpeCodes = append(tmpeCodes, `French Guiana`)
+
+		// Guernsey
+		case "GG":
+			tmpeCodes = append(tmpeCodes, `Guernsey`)
+
+		// Ghana
+		case "GH":
+			tmpeCodes = append(tmpeCodes, `Ghana`)
+
+		// Gibraltar
+		case "GI":
+			tmpeCodes = append(tmpeCodes, `Gibraltar`)
+
+		// Greenland
+		case "GL":
+			tmpeCodes = append(tmpeCodes, `Greenland`)
+
+		// Gambia
+		case "GM":
+			tmpeCodes = append(tmpeCodes, `Gambia`)
+
+		// Guinea
+		case "GN":
+			tmpeCodes = append(tmpeCodes, `Guinea`)
+
+		// Guadeloupe
+		case "GP":
+			tmpeCodes = append(tmpeCodes, `Guadeloupe`)
+
+		// Equatorial Guinea
+		case "GQ":
+			tmpeCodes = append(tmpeCodes, `Equatorial Guinea`)
+
+		// Greece
+		case "GR":
+			tmpeCodes = append(tmpeCodes, `Greece`)
+
+		// South Georgia and the South Sandwich Islands
+		case "GS":
+			tmpeCodes = append(tmpeCodes, `South Georgia and the South Sandwich Islands`)
+
+		// Guatemala
+		case "GT":
+			tmpeCodes = append(tmpeCodes, `Guatemala`)
+
+		// Guam
+		case "GU":
+			tmpeCodes = append(tmpeCodes, `Guam`)
+
+		// Guinea-Bissau
+		case "GW":
+			tmpeCodes = append(tmpeCodes, `Guinea-Bissau`)
+
+		// Guyana
+		case "GY":
+			tmpeCodes = append(tmpeCodes, `Guyana`)
+
+		// Hong Kong
+		case "HK":
+			tmpeCodes = append(tmpeCodes, `Hong Kong`)
+
+		// Heard Island and McDonald Islands
+		case "HM":
+			tmpeCodes = append(tmpeCodes, `Heard Island and McDonald Islands`)
+
+		// Honduras
+		case "HN":
+			tmpeCodes = append(tmpeCodes, `Honduras`)
+
+		// Croatia
+		case "HR":
+			tmpeCodes = append(tmpeCodes, `Croatia`)
+
+		// Haiti
+		case "HT":
+			tmpeCodes = append(tmpeCodes, `Haiti`)
+
+		// Hungary
+		case "HU":
+			tmpeCodes = append(tmpeCodes, `Hungary`)
+
+		// Indonesia
+		case "ID":
+			tmpeCodes = append(tmpeCodes, `Indonesia`)
+
+		// Ireland
+		case "IE":
+			tmpeCodes = append(tmpeCodes, `Ireland`)
+
+		// Israel
+		case "IL":
+			tmpeCodes = append(tmpeCodes, `Israel`)
+
+		// Isle of Man
+		case "IM":
+			tmpeCodes = append(tmpeCodes, `Isle of Man`)
+
+		// India
+		case "IN":
+			tmpeCodes = append(tmpeCodes, `India`)
+
+		// British Indian Ocean Territory
+		case "IO":
+			tmpeCodes = append(tmpeCodes, `British Indian Ocean Territory`)
+
+		// Iraq
+		case "IQ":
+			tmpeCodes = append(tmpeCodes, `Iraq`)
+
+		// Iran, Islamic Republic of
+		case "IR":
+			tmpeCodes = append(tmpeCodes, `Iran, Islamic Republic of`)
+
+		// Iceland
+		case "IS":
+			tmpeCodes = append(tmpeCodes, `Iceland`)
+
+		// Italy
+		case "IT":
+			tmpeCodes = append(tmpeCodes, `Italy`)
+
+		// Jersey
+		case "JE":
+			tmpeCodes = append(tmpeCodes, `Jersey`)
+
+		// Jamaica
+		case "JM":
+			tmpeCodes = append(tmpeCodes, `Jamaica`)
+
+		// Jordan
+		case "JO":
+			tmpeCodes = append(tmpeCodes, `Jordan`)
+
+		// Japan
+		case "JP":
+			tmpeCodes = append(tmpeCodes, `Japan`)
+
+		// Kenya
+		case "KE":
+			tmpeCodes = append(tmpeCodes, `Kenya`)
+
+		// Kyrgyzstan
+		case "KG":
+			tmpeCodes = append(tmpeCodes, `Kyrgyzstan`)
+
+		// Cambodia
+		case "KH":
+			tmpeCodes = append(tmpeCodes, `Cambodia`)
+
+		// Kiribati
+		case "KI":
+			tmpeCodes = append(tmpeCodes, `Kiribati`)
+
+		// Comoros
+		case "KM":
+			tmpeCodes = append(tmpeCodes, `Comoros`)
+
+		// Saint Kitts and Nevis
+		case "KN":
+			tmpeCodes = append(tmpeCodes, `Saint Kitts and Nevis`)
+
+		// Korea, Democratic People’s Republic of
+		case "KP":
+			tmpeCodes = append(tmpeCodes, `Korea, Democratic People’s Republic of`)
+
+		// Korea, Republic of
+		case "KR":
+			tmpeCodes = append(tmpeCodes, `Korea, Republic of`)
+
+		// Kuwait
+		case "KW":
+			tmpeCodes = append(tmpeCodes, `Kuwait`)
+
+		// Cayman Islands
+		case "KY":
+			tmpeCodes = append(tmpeCodes, `Cayman Islands`)
+
+		// Kazakhstan
+		case "KZ":
+			tmpeCodes = append(tmpeCodes, `Kazakhstan`)
+
+		// Lao People’s Democratic Republic
+		case "LA":
+			tmpeCodes = append(tmpeCodes, `Lao People’s Democratic Republic`)
+
+		// Lebanon
+		case "LB":
+			tmpeCodes = append(tmpeCodes, `Lebanon`)
+
+		// Saint Lucia
+		case "LC":
+			tmpeCodes = append(tmpeCodes, `Saint Lucia`)
+
+		// Liechtenstein
+		case "LI":
+			tmpeCodes = append(tmpeCodes, `Liechtenstein`)
+
+		// Sri Lanka
+		case "LK":
+			tmpeCodes = append(tmpeCodes, `Sri Lanka`)
+
+		// Liberia
+		case "LR":
+			tmpeCodes = append(tmpeCodes, `Liberia`)
+
+		// Lesotho
+		case "LS":
+			tmpeCodes = append(tmpeCodes, `Lesotho`)
+
+		// Lithuania
+		case "LT":
+			tmpeCodes = append(tmpeCodes, `Lithuania`)
+
+		// Luxembourg
+		case "LU":
+			tmpeCodes = append(tmpeCodes, `Luxembourg`)
+
+		// Latvia
+		case "LV":
+			tmpeCodes = append(tmpeCodes, `Latvia`)
+
+		// Libya
+		case "LY":
+			tmpeCodes = append(tmpeCodes, `Libya`)
+
+		// Morocco
+		case "MA":
+			tmpeCodes = append(tmpeCodes, `Morocco`)
+
+		// Monaco
+		case "MC":
+			tmpeCodes = append(tmpeCodes, `Monaco`)
+
+		// Moldova, Repubic of
+		case "MD":
+			tmpeCodes = append(tmpeCodes, `Moldova, Repubic of`)
+
+		// Montenegro
+		case "ME":
+			tmpeCodes = append(tmpeCodes, `Montenegro`)
+
+		// Saint Martin (French part)
+		case "MF":
+			tmpeCodes = append(tmpeCodes, `Saint Martin (French part)`)
+
+		// Madagascar
+		case "MG":
+			tmpeCodes = append(tmpeCodes, `Madagascar`)
+
+		// Marshall Islands
+		case "MH":
+			tmpeCodes = append(tmpeCodes, `Marshall Islands`)
+
+		// Macedonia, the former Yugoslav Republic of
+		case "MK":
+			tmpeCodes = append(tmpeCodes, `Macedonia, the former Yugoslav Republic of`)
+
+		// Mali
+		case "ML":
+			tmpeCodes = append(tmpeCodes, `Mali`)
+
+		// Myanmar
+		case "MM":
+			tmpeCodes = append(tmpeCodes, `Myanmar`)
+
+		// Mongolia
+		case "MN":
+			tmpeCodes = append(tmpeCodes, `Mongolia`)
+
+		// Macao
+		case "MO":
+			tmpeCodes = append(tmpeCodes, `Macao`)
+
+		// Northern Mariana Islands
+		case "MP":
+			tmpeCodes = append(tmpeCodes, `Northern Mariana Islands`)
+
+		// Martinique
+		case "MQ":
+			tmpeCodes = append(tmpeCodes, `Martinique`)
+
+		// Mauritania
+		case "MR":
+			tmpeCodes = append(tmpeCodes, `Mauritania`)
+
+		// Montserrat
+		case "MS":
+			tmpeCodes = append(tmpeCodes, `Montserrat`)
+
+		// Malta
+		case "MT":
+			tmpeCodes = append(tmpeCodes, `Malta`)
+
+		// Mauritius
+		case "MU":
+			tmpeCodes = append(tmpeCodes, `Mauritius`)
+
+		// Maldives
+		case "MV":
+			tmpeCodes = append(tmpeCodes, `Maldives`)
+
+		// Malawi
+		case "MW":
+			tmpeCodes = append(tmpeCodes, `Malawi`)
+
+		// Mexico
+		case "MX":
+			tmpeCodes = append(tmpeCodes, `Mexico`)
+
+		// Malaysia
+		case "MY":
+			tmpeCodes = append(tmpeCodes, `Malaysia`)
+
+		// Mozambique
+		case "MZ":
+			tmpeCodes = append(tmpeCodes, `Mozambique`)
+
+		// Namibia
+		case "NA":
+			tmpeCodes = append(tmpeCodes, `Namibia`)
+
+		// New Caledonia
+		case "NC":
+			tmpeCodes = append(tmpeCodes, `New Caledonia`)
+
+		// Niger
+		case "NE":
+			tmpeCodes = append(tmpeCodes, `Niger`)
+
+		// Norfolk Island
+		case "NF":
+			tmpeCodes = append(tmpeCodes, `Norfolk Island`)
+
+		// Nigeria
+		case "NG":
+			tmpeCodes = append(tmpeCodes, `Nigeria`)
+
+		// Nicaragua
+		case "NI":
+			tmpeCodes = append(tmpeCodes, `Nicaragua`)
+
+		// Netherlands
+		case "NL":
+			tmpeCodes = append(tmpeCodes, `Netherlands`)
+
+		// Norway
+		case "NO":
+			tmpeCodes = append(tmpeCodes, `Norway`)
+
+		// Nepal
+		case "NP":
+			tmpeCodes = append(tmpeCodes, `Nepal`)
+
+		// Nauru
+		case "NR":
+			tmpeCodes = append(tmpeCodes, `Nauru`)
+
+		// Niue
+		case "NU":
+			tmpeCodes = append(tmpeCodes, `Niue`)
+
+		// New Zealand
+		case "NZ":
+			tmpeCodes = append(tmpeCodes, `New Zealand`)
+
+		// Oman
+		case "OM":
+			tmpeCodes = append(tmpeCodes, `Oman`)
+
+		// Panama
+		case "PA":
+			tmpeCodes = append(tmpeCodes, `Panama`)
+
+		// Peru
+		case "PE":
+			tmpeCodes = append(tmpeCodes, `Peru`)
+
+		// French Polynesia
+		case "PF":
+			tmpeCodes = append(tmpeCodes, `French Polynesia`)
+
+		// Papua New Guinea
+		case "PG":
+			tmpeCodes = append(tmpeCodes, `Papua New Guinea`)
+
+		// Philippines
+		case "PH":
+			tmpeCodes = append(tmpeCodes, `Philippines`)
+
+		// Pakistan
+		case "PK":
+			tmpeCodes = append(tmpeCodes, `Pakistan`)
+
+		// Poland
+		case "PL":
+			tmpeCodes = append(tmpeCodes, `Poland`)
+
+		// Saint Pierre and Miquelon
+		case "PM":
+			tmpeCodes = append(tmpeCodes, `Saint Pierre and Miquelon`)
+
+		// Pitcairn
+		case "PN":
+			tmpeCodes = append(tmpeCodes, `Pitcairn`)
+
+		// Puerto Rico
+		case "PR":
+			tmpeCodes = append(tmpeCodes, `Puerto Rico`)
+
+		// Palestine, State of
+		case "PS":
+			tmpeCodes = append(tmpeCodes, `Palestine, State of`)
+
+		// Portugal
+		case "PT":
+			tmpeCodes = append(tmpeCodes, `Portugal`)
+
+		// Palau
+		case "PW":
+			tmpeCodes = append(tmpeCodes, `Palau`)
+
+		// Paraguay
+		case "PY":
+			tmpeCodes = append(tmpeCodes, `Paraguay`)
+
+		// Qatar
+		case "QA":
+			tmpeCodes = append(tmpeCodes, `Qatar`)
+
+		// Réunion
+		case "RE":
+			tmpeCodes = append(tmpeCodes, `Réunion`)
+
+		// Romania
+		case "RO":
+			tmpeCodes = append(tmpeCodes, `Romania`)
+
+		// Serbia
+		case "RS":
+			tmpeCodes = append(tmpeCodes, `Serbia`)
+
+		// Russian Federation
+		case "RU":
+			tmpeCodes = append(tmpeCodes, `Russian Federation`)
+
+		// Rwanda
+		case "RW":
+			tmpeCodes = append(tmpeCodes, `Rwanda`)
+
+		// Saudi Arabia
+		case "SA":
+			tmpeCodes = append(tmpeCodes, `Saudi Arabia`)
+
+		// Solomon Islands
+		case "SB":
+			tmpeCodes = append(tmpeCodes, `Solomon Islands`)
+
+		// Seychelles
+		case "SC":
+			tmpeCodes = append(tmpeCodes, `Seychelles`)
+
+		// Sudan
+		case "SD":
+			tmpeCodes = append(tmpeCodes, `Sudan`)
+
+		// Sweden
+		case "SE":
+			tmpeCodes = append(tmpeCodes, `Sweden`)
+
+		// Singapore
+		case "SG":
+			tmpeCodes = append(tmpeCodes, `Singapore`)
+
+		// Saint Helena, Ascension and Tristan da Cunha
+		case "SH":
+			tmpeCodes = append(tmpeCodes, `Saint Helena, Ascension and Tristan da Cunha`)
+
+		// Slovenia
+		case "SI":
+			tmpeCodes = append(tmpeCodes, `Slovenia`)
+
+		// Svalbard and Jan Mayen
+		case "SJ":
+			tmpeCodes = append(tmpeCodes, `Svalbard and Jan Mayen`)
+
+		// Slovakia
+		case "SK":
+			tmpeCodes = append(tmpeCodes, `Slovakia`)
+
+		// Sierra Leone
+		case "SL":
+			tmpeCodes = append(tmpeCodes, `Sierra Leone`)
+
+		// San Marino
+		case "SM":
+			tmpeCodes = append(tmpeCodes, `San Marino`)
+
+		// Senegal
+		case "SN":
+			tmpeCodes = append(tmpeCodes, `Senegal`)
+
+		// Somalia
+		case "SO":
+			tmpeCodes = append(tmpeCodes, `Somalia`)
+
+		// Suriname
+		case "SR":
+			tmpeCodes = append(tmpeCodes, `Suriname`)
+
+		// South Sudan
+		case "SS":
+			tmpeCodes = append(tmpeCodes, `South Sudan`)
+
+		// Sao Tome and Principe
+		case "ST":
+			tmpeCodes = append(tmpeCodes, `Sao Tome and Principe`)
+
+		// El Salvador
+		case "SV":
+			tmpeCodes = append(tmpeCodes, `El Salvador`)
+
+		// Sint Maarten (Dutch part)
+		case "SX":
+			tmpeCodes = append(tmpeCodes, `Sint Maarten (Dutch part)`)
+
+		// Syrian Arab Republic
+		case "SY":
+			tmpeCodes = append(tmpeCodes, `Syrian Arab Republic`)
+
+		// Swaziland
+		case "SZ":
+			tmpeCodes = append(tmpeCodes, `Swaziland`)
+
+		// Turks and Caicos Islands
+		case "TC":
+			tmpeCodes = append(tmpeCodes, `Turks and Caicos Islands`)
+
+		// Chad
+		case "TD":
+			tmpeCodes = append(tmpeCodes, `Chad`)
+
+		// French Southern Territories
+		case "TF":
+			tmpeCodes = append(tmpeCodes, `French Southern Territories`)
+
+		// Togo
+		case "TG":
+			tmpeCodes = append(tmpeCodes, `Togo`)
+
+		// Thailand
+		case "TH":
+			tmpeCodes = append(tmpeCodes, `Thailand`)
+
+		// Tajikistan
+		case "TJ":
+			tmpeCodes = append(tmpeCodes, `Tajikistan`)
+
+		// Tokelau
+		case "TK":
+			tmpeCodes = append(tmpeCodes, `Tokelau`)
+
+		// Timor-Leste
+		case "TL":
+			tmpeCodes = append(tmpeCodes, `Timor-Leste`)
+
+		// Turkmenistan
+		case "TM":
+			tmpeCodes = append(tmpeCodes, `Turkmenistan`)
+
+		// Tunisia
+		case "TN":
+			tmpeCodes = append(tmpeCodes, `Tunisia`)
+
+		// Tonga
+		case "TO":
+			tmpeCodes = append(tmpeCodes, `Tonga`)
+
+		// Turkey
+		case "TR":
+			tmpeCodes = append(tmpeCodes, `Turkey`)
+
+		// Trinidad and Tobago
+		case "TT":
+			tmpeCodes = append(tmpeCodes, `Trinidad and Tobago`)
+
+		// Tuvalu
+		case "TV":
+			tmpeCodes = append(tmpeCodes, `Tuvalu`)
+
+		// Taiwan, Province of China
+		case "TW":
+			tmpeCodes = append(tmpeCodes, `Taiwan, Province of China`)
+
+		// Tanzania, United Republic of
+		case "TZ":
+			tmpeCodes = append(tmpeCodes, `Tanzania, United Republic of`)
+
+		// Ukraine
+		case "UA":
+			tmpeCodes = append(tmpeCodes, `Ukraine`)
+
+		// Uganda
+		case "UG":
+			tmpeCodes = append(tmpeCodes, `Uganda`)
+
+		// United States Minor Outlying Islands
+		case "UM":
+			tmpeCodes = append(tmpeCodes, `United States Minor Outlying Islands`)
+
+		// United States
+		case "US":
+			tmpeCodes = append(tmpeCodes, `United States`)
+
+		// Uruguay
+		case "UY":
+			tmpeCodes = append(tmpeCodes, `Uruguay`)
+
+		// Uzbekistan
+		case "UZ":
+			tmpeCodes = append(tmpeCodes, `Uzbekistan`)
+
+		// Holy See (Vatican City State)
+		case "VA":
+			tmpeCodes = append(tmpeCodes, `Holy See (Vatican City State)`)
+
+		// Saint Vincent and the Grenadines
+		case "VC":
+			tmpeCodes = append(tmpeCodes, `Saint Vincent and the Grenadines`)
+
+		// Venezuela, Bolivarian Republic of
+		case "VE":
+			tmpeCodes = append(tmpeCodes, `Venezuela, Bolivarian Republic of`)
+
+		// Virgin Islands, British
+		case "VG":
+			tmpeCodes = append(tmpeCodes, `Virgin Islands, British`)
+
+		// Virgin Islands, US
+		case "VI":
+			tmpeCodes = append(tmpeCodes, `Virgin Islands, US`)
+
+		// Viet Nam
+		case "VN":
+			tmpeCodes = append(tmpeCodes, `Viet Nam`)
+
+		// Vanuatu
+		case "VU":
+			tmpeCodes = append(tmpeCodes, `Vanuatu`)
+
+		// Wallis and Futuna
+		case "WF":
+			tmpeCodes = append(tmpeCodes, `Wallis and Futuna`)
+
+		// Samoa
+		case "WS":
+			tmpeCodes = append(tmpeCodes, `Samoa`)
+
+		// Yemen
+		case "YE":
+			tmpeCodes = append(tmpeCodes, `Yemen`)
+
+		// Mayotte
+		case "YT":
+			tmpeCodes = append(tmpeCodes, `Mayotte`)
+
+		// DEPRECATED, replaced by ME – Montenegro and RS – Serbia
+		case "YU":
+			tmpeCodes = append(tmpeCodes, `Yugoslavia`)
+
+		// South Africa
+		case "ZA":
+			tmpeCodes = append(tmpeCodes, `South Africa`)
+
+		// Zambia
+		case "ZM":
+			tmpeCodes = append(tmpeCodes, `Zambia`)
+
+		// Zimbabwe
+		case "ZW":
+			tmpeCodes = append(tmpeCodes, `Zimbabwe`)
+		default:
+			return fmt.Errorf("undefined code for CountryCodeList has been passed, got [%s]", v)
+		}
 	}
+	*c = tmpeCodes
 	return nil
 }
 
 // TerritoryCodeList Region code
-type TerritoryCodeList string
+type TerritoryCodeList []string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
 func (c *TerritoryCodeList) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	var v string
 	d.DecodeElement(&v, &start)
-	switch v {
-
-  // Australian Capital Territory
-  case "AU-CT":
-		*c = `Australian Capital Territory`
-
-  // New South Wales
-  case "AU-NS":
-		*c = `New South Wales`
-
-  // Northern Territory
-  case "AU-NT":
-		*c = `Northern Territory`
-
-  // Queensland
-  case "AU-QL":
-		*c = `Queensland`
-
-  // South Australia
-  case "AU-SA":
-		*c = `South Australia`
-
-  // Tasmania
-  case "AU-TS":
-		*c = `Tasmania`
-
-  // Victoria
-  case "AU-VI":
-		*c = `Victoria`
-
-  // Western Australia
-  case "AU-WA":
-		*c = `Western Australia`
-
-  // Alberta
-  case "CA-AB":
-		*c = `Alberta`
-
-  // British Columbia
-  case "CA-BC":
-		*c = `British Columbia`
-
-  // Manitoba
-  case "CA-MB":
-		*c = `Manitoba`
-
-  // New Brunswick
-  case "CA-NB":
-		*c = `New Brunswick`
-
-  // Newfoundland and Labrador
-  case "CA-NL":
-		*c = `Newfoundland and Labrador`
-
-  // Nova Scotia
-  case "CA-NS":
-		*c = `Nova Scotia`
-
-  // Northwest Territories
-  case "CA-NT":
-		*c = `Northwest Territories`
-
-  // Nunavut
-  case "CA-NU":
-		*c = `Nunavut`
-
-  // Ontario
-  case "CA-ON":
-		*c = `Ontario`
-
-  // Prince Edward Island
-  case "CA-PE":
-		*c = `Prince Edward Island`
-
-  // Quebec
-  case "CA-QC":
-		*c = `Quebec`
-
-  // Saskatchewan
-  case "CA-SK":
-		*c = `Saskatchewan`
-
-  // Yukon Territory
-  case "CA-YT":
-		*c = `Yukon Territory`
-
-  // Beijing Municipality
-  case "CN-11":
-		*c = `Beijing Municipality`
-
-  // Tianjin Municipality
-  case "CN-12":
-		*c = `Tianjin Municipality`
-
-  // Hebei Province
-  case "CN-13":
-		*c = `Hebei Province`
-
-  // Shanxi Province
-  case "CN-14":
-		*c = `Shanxi Province`
-
-  // Inner Mongolia Autonomous Region
-  case "CN-15":
-		*c = `Inner Mongolia Autonomous Region`
-
-  // Liaoning Province
-  case "CN-21":
-		*c = `Liaoning Province`
-
-  // Jilin Province
-  case "CN-22":
-		*c = `Jilin Province`
-
-  // Heilongjiang Province
-  case "CN-23":
-		*c = `Heilongjiang Province`
-
-  // Shanghai Municipality
-  case "CN-31":
-		*c = `Shanghai Municipality`
-
-  // Jiangsu Province
-  case "CN-32":
-		*c = `Jiangsu Province`
-
-  // Zhejiang Province
-  case "CN-33":
-		*c = `Zhejiang Province`
-
-  // Anhui Province
-  case "CN-34":
-		*c = `Anhui Province`
-
-  // Fujian Province
-  case "CN-35":
-		*c = `Fujian Province`
-
-  // Jiangxi Province
-  case "CN-36":
-		*c = `Jiangxi Province`
-
-  // Shandong Province
-  case "CN-37":
-		*c = `Shandong Province`
-
-  // Henan Province
-  case "CN-41":
-		*c = `Henan Province`
-
-  // Hubei Province
-  case "CN-42":
-		*c = `Hubei Province`
-
-  // Hunan Province
-  case "CN-43":
-		*c = `Hunan Province`
-
-  // Guangdong Province
-  case "CN-44":
-		*c = `Guangdong Province`
-
-  // Guangxi Zhuang Autonomous Region
-  case "CN-45":
-		*c = `Guangxi Zhuang Autonomous Region`
-
-  // Hainan Province
-  case "CN-46":
-		*c = `Hainan Province`
-
-  // Chongqing Municipality
-  case "CN-50":
-		*c = `Chongqing Municipality`
-
-  // Sichuan Province
-  case "CN-51":
-		*c = `Sichuan Province`
-
-  // Guizhou Province
-  case "CN-52":
-		*c = `Guizhou Province`
-
-  // Yunnan Province
-  case "CN-53":
-		*c = `Yunnan Province`
-
-  // Tibet Autonomous Region
-  case "CN-54":
-		*c = `Tibet Autonomous Region`
-
-  // Shaanxi Province
-  case "CN-61":
-		*c = `Shaanxi Province`
-
-  // Gansu Province
-  case "CN-62":
-		*c = `Gansu Province`
-
-  // Qinghai Province
-  case "CN-63":
-		*c = `Qinghai Province`
-
-  // Ningxia Hui Autonomous Region
-  case "CN-64":
-		*c = `Ningxia Hui Autonomous Region`
-
-  // Xinjiang Uyghur Autonomous Region
-  case "CN-65":
-		*c = `Xinjiang Uyghur Autonomous Region`
-
-  // Prefer code TW (Taiwan, Province of China) from List 91
-  case "CN-71":
-		*c = `Taiwan Province`
-
-  // Prefer code HK (Hong Kong) from List 91
-  case "CN-91":
-		*c = `Hong Kong Special Administrative Region`
-
-  // Prefer code MO (Macao) from List 91
-  case "CN-92":
-		*c = `Macau Special Administrative Region`
-
-  // Canary Islands
-  case "ES-CN":
-		*c = `Canary Islands`
-
-  // Corsica
-  case "FR-H":
-		*c = `Corsica`
-
-  // Airside outlets at UK international airports only
-  case "GB-AIR":
-		*c = `UK airside`
-
-  // All UK airports, including both airside and other outlets
-  case "GB-APS":
-		*c = `UK airports`
-
-  // DEPRECATED, replaced by country codes GG – Guernsey, and JE – Jersey
-  case "GB-CHA":
-		*c = `Channel Islands`
-
-  // England
-  case "GB-ENG":
-		*c = `England`
-
-  // UK excluding Northern Ireland
-  case "GB-EWS":
-		*c = `England, Wales, Scotland`
-
-  // DEPRECATED, replaced by country code IM – Isle of Man
-  case "GB-IOM":
-		*c = `Isle of Man`
-
-  // Northern Ireland
-  case "GB-NIR":
-		*c = `Northern Ireland`
-
-  // Scotland
-  case "GB-SCT":
-		*c = `Scotland`
-
-  // Wales
-  case "GB-WLS":
-		*c = `Wales`
-
-  // Airside outlets at Irish international airports only
-  case "IE-AIR":
-		*c = `Ireland airside`
-
-  // Agrigento
-  case "IT-AG":
-		*c = `Agrigento`
-
-  // Alessandria
-  case "IT-AL":
-		*c = `Alessandria`
-
-  // Ancona
-  case "IT-AN":
-		*c = `Ancona`
-
-  // Aosta
-  case "IT-AO":
-		*c = `Aosta`
-
-  // Arezzo
-  case "IT-AR":
-		*c = `Arezzo`
-
-  // Ascoli Piceno
-  case "IT-AP":
-		*c = `Ascoli Piceno`
-
-  // Asti
-  case "IT-AT":
-		*c = `Asti`
-
-  // Avellino
-  case "IT-AV":
-		*c = `Avellino`
-
-  // Bari
-  case "IT-BA":
-		*c = `Bari`
-
-  // Barletta-Andria-Trani
-  case "IT-BT":
-		*c = `Barletta-Andria-Trani`
-
-  // Belluno
-  case "IT-BL":
-		*c = `Belluno`
-
-  // Benevento
-  case "IT-BN":
-		*c = `Benevento`
-
-  // Bergamo
-  case "IT-BG":
-		*c = `Bergamo`
-
-  // Biella
-  case "IT-BI":
-		*c = `Biella`
-
-  // Bologna
-  case "IT-BO":
-		*c = `Bologna`
-
-  // Bolzano
-  case "IT-BZ":
-		*c = `Bolzano`
-
-  // Brescia
-  case "IT-BS":
-		*c = `Brescia`
-
-  // Brindisi
-  case "IT-BR":
-		*c = `Brindisi`
-
-  // Cagliari
-  case "IT-CA":
-		*c = `Cagliari`
-
-  // Caltanissetta
-  case "IT-CL":
-		*c = `Caltanissetta`
-
-  // Campobasso
-  case "IT-CB":
-		*c = `Campobasso`
-
-  // Carbonia-Iglesias
-  case "IT-CI":
-		*c = `Carbonia-Iglesias`
-
-  // Caserta
-  case "IT-CE":
-		*c = `Caserta`
-
-  // Catania
-  case "IT-CT":
-		*c = `Catania`
-
-  // Catanzaro
-  case "IT-CZ":
-		*c = `Catanzaro`
-
-  // Chieti
-  case "IT-CH":
-		*c = `Chieti`
-
-  // Como
-  case "IT-CO":
-		*c = `Como`
-
-  // Cosenza
-  case "IT-CS":
-		*c = `Cosenza`
-
-  // Cremona
-  case "IT-CR":
-		*c = `Cremona`
-
-  // Crotone
-  case "IT-KR":
-		*c = `Crotone`
-
-  // Cuneo
-  case "IT-CN":
-		*c = `Cuneo`
-
-  // Enna
-  case "IT-EN":
-		*c = `Enna`
-
-  // Fermo
-  case "IT-FM":
-		*c = `Fermo`
-
-  // Ferrara
-  case "IT-FE":
-		*c = `Ferrara`
-
-  // Firenze
-  case "IT-FI":
-		*c = `Firenze`
-
-  // Foggia
-  case "IT-FG":
-		*c = `Foggia`
-
-  // Forlì-Cesena
-  case "IT-FC":
-		*c = `Forlì-Cesena`
-
-  // Frosinone
-  case "IT-FR":
-		*c = `Frosinone`
-
-  // Genova
-  case "IT-GE":
-		*c = `Genova`
-
-  // Gorizia
-  case "IT-GO":
-		*c = `Gorizia`
-
-  // Grosseto
-  case "IT-GR":
-		*c = `Grosseto`
-
-  // Imperia
-  case "IT-IM":
-		*c = `Imperia`
-
-  // Isernia
-  case "IT-IS":
-		*c = `Isernia`
-
-  // La Spezia
-  case "IT-SP":
-		*c = `La Spezia`
-
-  // L’Aquila
-  case "IT-AQ":
-		*c = `L’Aquila`
-
-  // Latina
-  case "IT-LT":
-		*c = `Latina`
-
-  // Lecce
-  case "IT-LE":
-		*c = `Lecce`
-
-  // Lecco
-  case "IT-LC":
-		*c = `Lecco`
-
-  // Livorno
-  case "IT-LI":
-		*c = `Livorno`
-
-  // Lodi
-  case "IT-LO":
-		*c = `Lodi`
-
-  // Lucca
-  case "IT-LU":
-		*c = `Lucca`
-
-  // Macerata
-  case "IT-MC":
-		*c = `Macerata`
-
-  // Mantova
-  case "IT-MN":
-		*c = `Mantova`
-
-  // Massa-Carrara
-  case "IT-MS":
-		*c = `Massa-Carrara`
-
-  // Matera
-  case "IT-MT":
-		*c = `Matera`
-
-  // Medio Campidano
-  case "IT-VS":
-		*c = `Medio Campidano`
-
-  // Messina
-  case "IT-ME":
-		*c = `Messina`
-
-  // Milano
-  case "IT-MI":
-		*c = `Milano`
-
-  // Modena
-  case "IT-MO":
-		*c = `Modena`
-
-  // Monza e Brianza
-  case "IT-MB":
-		*c = `Monza e Brianza`
-
-  // Napoli
-  case "IT-NA":
-		*c = `Napoli`
-
-  // Novara
-  case "IT-NO":
-		*c = `Novara`
-
-  // Nuoro
-  case "IT-NU":
-		*c = `Nuoro`
-
-  // Ogliastra
-  case "IT-OG":
-		*c = `Ogliastra`
-
-  // Olbia-Tempio
-  case "IT-OT":
-		*c = `Olbia-Tempio`
-
-  // Oristano
-  case "IT-OR":
-		*c = `Oristano`
-
-  // Padova
-  case "IT-PD":
-		*c = `Padova`
-
-  // Palermo
-  case "IT-PA":
-		*c = `Palermo`
-
-  // Parma
-  case "IT-PR":
-		*c = `Parma`
-
-  // Pavia
-  case "IT-PV":
-		*c = `Pavia`
-
-  // Perugia
-  case "IT-PG":
-		*c = `Perugia`
-
-  // Pesaro e Urbino
-  case "IT-PU":
-		*c = `Pesaro e Urbino`
-
-  // Pescara
-  case "IT-PE":
-		*c = `Pescara`
-
-  // Piacenza
-  case "IT-PC":
-		*c = `Piacenza`
-
-  // Pisa
-  case "IT-PI":
-		*c = `Pisa`
-
-  // Pistoia
-  case "IT-PT":
-		*c = `Pistoia`
-
-  // Pordenone
-  case "IT-PN":
-		*c = `Pordenone`
-
-  // Potenza
-  case "IT-PZ":
-		*c = `Potenza`
-
-  // Prato
-  case "IT-PO":
-		*c = `Prato`
-
-  // Ragusa
-  case "IT-RG":
-		*c = `Ragusa`
-
-  // Ravenna
-  case "IT-RA":
-		*c = `Ravenna`
-
-  // Reggio Calabria
-  case "IT-RC":
-		*c = `Reggio Calabria`
-
-  // Reggio Emilia
-  case "IT-RE":
-		*c = `Reggio Emilia`
-
-  // Rieti
-  case "IT-RI":
-		*c = `Rieti`
-
-  // Rimini
-  case "IT-RN":
-		*c = `Rimini`
-
-  // Roma
-  case "IT-RM":
-		*c = `Roma`
-
-  // Rovigo
-  case "IT-RO":
-		*c = `Rovigo`
-
-  // Salerno
-  case "IT-SA":
-		*c = `Salerno`
-
-  // Sassari
-  case "IT-SS":
-		*c = `Sassari`
-
-  // Savona
-  case "IT-SV":
-		*c = `Savona`
-
-  // Siena
-  case "IT-SI":
-		*c = `Siena`
-
-  // Siracusa
-  case "IT-SR":
-		*c = `Siracusa`
-
-  // Sondrio
-  case "IT-SO":
-		*c = `Sondrio`
-
-  // Taranto
-  case "IT-TA":
-		*c = `Taranto`
-
-  // Teramo
-  case "IT-TE":
-		*c = `Teramo`
-
-  // Terni
-  case "IT-TR":
-		*c = `Terni`
-
-  // Torino
-  case "IT-TO":
-		*c = `Torino`
-
-  // Trapani
-  case "IT-TP":
-		*c = `Trapani`
-
-  // Trento
-  case "IT-TN":
-		*c = `Trento`
-
-  // Treviso
-  case "IT-TV":
-		*c = `Treviso`
-
-  // Trieste
-  case "IT-TS":
-		*c = `Trieste`
-
-  // Udine
-  case "IT-UD":
-		*c = `Udine`
-
-  // Varese
-  case "IT-VA":
-		*c = `Varese`
-
-  // Venezia
-  case "IT-VE":
-		*c = `Venezia`
-
-  // Verbano-Cusio-Ossola
-  case "IT-VB":
-		*c = `Verbano-Cusio-Ossola`
-
-  // Vercelli
-  case "IT-VC":
-		*c = `Vercelli`
-
-  // Verona
-  case "IT-VR":
-		*c = `Verona`
-
-  // Vibo Valentia
-  case "IT-VV":
-		*c = `Vibo Valentia`
-
-  // Vicenza
-  case "IT-VI":
-		*c = `Vicenza`
-
-  // Viterbo
-  case "IT-VT":
-		*c = `Viterbo`
-
-  // Kosovo-Metohija
-  case "RS-KM":
-		*c = `Kosovo-Metohija`
-
-  // Vojvodina
-  case "RS-VO":
-		*c = `Vojvodina`
-
-  // Republic of Adygeya
-  case "RU-AD":
-		*c = `Republic of Adygeya`
-
-  // Republic of Altay
-  case "RU-AL":
-		*c = `Republic of Altay`
-
-  // Republic of Bashkortostan
-  case "RU-BA":
-		*c = `Republic of Bashkortostan`
-
-  // Republic of Buryatiya
-  case "RU-BU":
-		*c = `Republic of Buryatiya`
-
-  // Chechenskaya Republic
-  case "RU-CE":
-		*c = `Chechenskaya Republic`
-
-  // Chuvashskaya Republic
-  case "RU-CU":
-		*c = `Chuvashskaya Republic`
-
-  // Republic of Dagestan
-  case "RU-DA":
-		*c = `Republic of Dagestan`
-
-  // Republic of Ingushetiya
-  case "RU-IN":
-		*c = `Republic of Ingushetiya`
-
-  // Kabardino-Balkarskaya Republic
-  case "RU-KB":
-		*c = `Kabardino-Balkarskaya Republic`
-
-  // Republic of Kalmykiya
-  case "RU-KL":
-		*c = `Republic of Kalmykiya`
-
-  // Karachayevo-Cherkesskaya Republic
-  case "RU-KC":
-		*c = `Karachayevo-Cherkesskaya Republic`
-
-  // Republic of Kareliya
-  case "RU-KR":
-		*c = `Republic of Kareliya`
-
-  // Republic of Khakasiya
-  case "RU-KK":
-		*c = `Republic of Khakasiya`
-
-  // Republic of Komi
-  case "RU-KO":
-		*c = `Republic of Komi`
-
-  // Republic of Mariy El
-  case "RU-ME":
-		*c = `Republic of Mariy El`
-
-  // Republic of Mordoviya
-  case "RU-MO":
-		*c = `Republic of Mordoviya`
-
-  // Republic of Sakha (Yakutiya)
-  case "RU-SA":
-		*c = `Republic of Sakha (Yakutiya)`
-
-  // Republic of Severnaya Osetiya-Alaniya
-  case "RU-SE":
-		*c = `Republic of Severnaya Osetiya-Alaniya`
-
-  // Republic of Tatarstan
-  case "RU-TA":
-		*c = `Republic of Tatarstan`
-
-  // Republic of Tyva (Tuva)
-  case "RU-TY":
-		*c = `Republic of Tyva (Tuva)`
-
-  // Udmurtskaya Republic
-  case "RU-UD":
-		*c = `Udmurtskaya Republic`
-
-  // Altayskiy Administrative Territory
-  case "RU-ALT":
-		*c = `Altayskiy Administrative Territory`
-
-  // Kamchatskiy Administrative Territory
-  case "RU-KAM":
-		*c = `Kamchatskiy Administrative Territory`
-
-  // Khabarovskiy Administrative Territory
-  case "RU-KHA":
-		*c = `Khabarovskiy Administrative Territory`
-
-  // Krasnodarskiy Administrative Territory
-  case "RU-KDA":
-		*c = `Krasnodarskiy Administrative Territory`
-
-  // Krasnoyarskiy Administrative Territory
-  case "RU-KYA":
-		*c = `Krasnoyarskiy Administrative Territory`
-
-  // Permskiy Administrative Territory
-  case "RU-PER":
-		*c = `Permskiy Administrative Territory`
-
-  // Primorskiy Administrative Territory
-  case "RU-PRI":
-		*c = `Primorskiy Administrative Territory`
-
-  // Stavropol’skiy Administrative Territory
-  case "RU-STA":
-		*c = `Stavropol’skiy Administrative Territory`
-
-  // Zabaykal’skiy Administrative Territory
-  case "RU-ZAB":
-		*c = `Zabaykal’skiy Administrative Territory`
-
-  // Amurskaya Administrative Region
-  case "RU-AMU":
-		*c = `Amurskaya Administrative Region`
-
-  // Arkhangel’skaya Administrative Region
-  case "RU-ARK":
-		*c = `Arkhangel’skaya Administrative Region`
-
-  // Astrakhanskaya Administrative Region
-  case "RU-AST":
-		*c = `Astrakhanskaya Administrative Region`
-
-  // Belgorodskaya Administrative Region
-  case "RU-BEL":
-		*c = `Belgorodskaya Administrative Region`
-
-  // Bryanskaya Administrative Region
-  case "RU-BRY":
-		*c = `Bryanskaya Administrative Region`
-
-  // Chelyabinskaya Administrative Region
-  case "RU-CHE":
-		*c = `Chelyabinskaya Administrative Region`
-
-  // Irkutskaya Administrative Region
-  case "RU-IRK":
-		*c = `Irkutskaya Administrative Region`
-
-  // Ivanovskaya Administrative Region
-  case "RU-IVA":
-		*c = `Ivanovskaya Administrative Region`
-
-  // Kaliningradskaya Administrative Region
-  case "RU-KGD":
-		*c = `Kaliningradskaya Administrative Region`
-
-  // Kaluzhskaya Administrative Region
-  case "RU-KLU":
-		*c = `Kaluzhskaya Administrative Region`
-
-  // Kemerovskaya Administrative Region
-  case "RU-KEM":
-		*c = `Kemerovskaya Administrative Region`
-
-  // Kirovskaya Administrative Region
-  case "RU-KIR":
-		*c = `Kirovskaya Administrative Region`
-
-  // Kostromskaya Administrative Region
-  case "RU-KOS":
-		*c = `Kostromskaya Administrative Region`
-
-  // Kurganskaya Administrative Region
-  case "RU-KGN":
-		*c = `Kurganskaya Administrative Region`
-
-  // Kurskaya Administrative Region
-  case "RU-KRS":
-		*c = `Kurskaya Administrative Region`
-
-  // Leningradskaya Administrative Region
-  case "RU-LEN":
-		*c = `Leningradskaya Administrative Region`
-
-  // Lipetskaya Administrative Region
-  case "RU-LIP":
-		*c = `Lipetskaya Administrative Region`
-
-  // Magadanskaya Administrative Region
-  case "RU-MAG":
-		*c = `Magadanskaya Administrative Region`
-
-  // Moskovskaya Administrative Region
-  case "RU-MOS":
-		*c = `Moskovskaya Administrative Region`
-
-  // Murmanskaya Administrative Region
-  case "RU-MUR":
-		*c = `Murmanskaya Administrative Region`
-
-  // Nizhegorodskaya Administrative Region
-  case "RU-NIZ":
-		*c = `Nizhegorodskaya Administrative Region`
-
-  // Novgorodskaya Administrative Region
-  case "RU-NGR":
-		*c = `Novgorodskaya Administrative Region`
-
-  // Novosibirskaya Administrative Region
-  case "RU-NVS":
-		*c = `Novosibirskaya Administrative Region`
-
-  // Omskaya Administrative Region
-  case "RU-OMS":
-		*c = `Omskaya Administrative Region`
-
-  // Orenburgskaya Administrative Region
-  case "RU-ORE":
-		*c = `Orenburgskaya Administrative Region`
-
-  // Orlovskaya Administrative Region
-  case "RU-ORL":
-		*c = `Orlovskaya Administrative Region`
-
-  // Penzenskaya Administrative Region
-  case "RU-PNZ":
-		*c = `Penzenskaya Administrative Region`
-
-  // Pskovskaya Administrative Region
-  case "RU-PSK":
-		*c = `Pskovskaya Administrative Region`
-
-  // Rostovskaya Administrative Region
-  case "RU-ROS":
-		*c = `Rostovskaya Administrative Region`
-
-  // Ryazanskaya Administrative Region
-  case "RU-RYA":
-		*c = `Ryazanskaya Administrative Region`
-
-  // Sakhalinskaya Administrative Region
-  case "RU-SAK":
-		*c = `Sakhalinskaya Administrative Region`
-
-  // Samarskaya Administrative Region
-  case "RU-SAM":
-		*c = `Samarskaya Administrative Region`
-
-  // Saratovskaya Administrative Region
-  case "RU-SAR":
-		*c = `Saratovskaya Administrative Region`
-
-  // Smolenskaya Administrative Region
-  case "RU-SMO":
-		*c = `Smolenskaya Administrative Region`
-
-  // Sverdlovskaya Administrative Region
-  case "RU-SVE":
-		*c = `Sverdlovskaya Administrative Region`
-
-  // Tambovskaya Administrative Region
-  case "RU-TAM":
-		*c = `Tambovskaya Administrative Region`
-
-  // Tomskaya Administrative Region
-  case "RU-TOM":
-		*c = `Tomskaya Administrative Region`
-
-  // Tul’skaya Administrative Region
-  case "RU-TUL":
-		*c = `Tul’skaya Administrative Region`
-
-  // Tverskaya Administrative Region
-  case "RU-TVE":
-		*c = `Tverskaya Administrative Region`
-
-  // Tyumenskaya Administrative Region
-  case "RU-TYU":
-		*c = `Tyumenskaya Administrative Region`
-
-  // Ul’yanovskaya Administrative Region
-  case "RU-ULY":
-		*c = `Ul’yanovskaya Administrative Region`
-
-  // Vladimirskaya Administrative Region
-  case "RU-VLA":
-		*c = `Vladimirskaya Administrative Region`
-
-  // Volgogradskaya Administrative Region
-  case "RU-VGG":
-		*c = `Volgogradskaya Administrative Region`
-
-  // Vologodskaya Administrative Region
-  case "RU-VLG":
-		*c = `Vologodskaya Administrative Region`
-
-  // Voronezhskaya Administrative Region
-  case "RU-VOR":
-		*c = `Voronezhskaya Administrative Region`
-
-  // Yaroslavskaya Administrative Region
-  case "RU-YAR":
-		*c = `Yaroslavskaya Administrative Region`
-
-  // Moskva City
-  case "RU-MOW":
-		*c = `Moskva City`
-
-  // Sankt-Peterburg City
-  case "RU-SPE":
-		*c = `Sankt-Peterburg City`
-
-  // Yevreyskaya Autonomous Administrative Region
-  case "RU-YEV":
-		*c = `Yevreyskaya Autonomous Administrative Region`
-
-  // Chukotskiy Autonomous District
-  case "RU-CHU":
-		*c = `Chukotskiy Autonomous District`
-
-  // Khanty-Mansiyskiy Autonomous District
-  case "RU-KHM":
-		*c = `Khanty-Mansiyskiy Autonomous District`
-
-  // Nenetskiy Autonomous District
-  case "RU-NEN":
-		*c = `Nenetskiy Autonomous District`
-
-  // Yamalo-Nenetskiy Autonomous District
-  case "RU-YAN":
-		*c = `Yamalo-Nenetskiy Autonomous District`
-
-  // Alaska
-  case "US-AK":
-		*c = `Alaska`
-
-  // Alabama
-  case "US-AL":
-		*c = `Alabama`
-
-  // Arkansas
-  case "US-AR":
-		*c = `Arkansas`
-
-  // Arizona
-  case "US-AZ":
-		*c = `Arizona`
-
-  // California
-  case "US-CA":
-		*c = `California`
-
-  // Colorado
-  case "US-CO":
-		*c = `Colorado`
-
-  // Connecticut
-  case "US-CT":
-		*c = `Connecticut`
-
-  // District of Columbia
-  case "US-DC":
-		*c = `District of Columbia`
-
-  // Delaware
-  case "US-DE":
-		*c = `Delaware`
-
-  // Florida
-  case "US-FL":
-		*c = `Florida`
-
-  // Georgia
-  case "US-GA":
-		*c = `Georgia`
-
-  // Hawaii
-  case "US-HI":
-		*c = `Hawaii`
-
-  // Iowa
-  case "US-IA":
-		*c = `Iowa`
-
-  // Idaho
-  case "US-ID":
-		*c = `Idaho`
-
-  // Illinois
-  case "US-IL":
-		*c = `Illinois`
-
-  // Indiana
-  case "US-IN":
-		*c = `Indiana`
-
-  // Kansas
-  case "US-KS":
-		*c = `Kansas`
-
-  // Kentucky
-  case "US-KY":
-		*c = `Kentucky`
-
-  // Louisiana
-  case "US-LA":
-		*c = `Louisiana`
-
-  // Massachusetts
-  case "US-MA":
-		*c = `Massachusetts`
-
-  // Maryland
-  case "US-MD":
-		*c = `Maryland`
-
-  // Maine
-  case "US-ME":
-		*c = `Maine`
-
-  // Michigan
-  case "US-MI":
-		*c = `Michigan`
-
-  // Minnesota
-  case "US-MN":
-		*c = `Minnesota`
-
-  // Missouri
-  case "US-MO":
-		*c = `Missouri`
-
-  // Mississippi
-  case "US-MS":
-		*c = `Mississippi`
-
-  // Montana
-  case "US-MT":
-		*c = `Montana`
-
-  // North Carolina
-  case "US-NC":
-		*c = `North Carolina`
-
-  // North Dakota
-  case "US-ND":
-		*c = `North Dakota`
-
-  // Nebraska
-  case "US-NE":
-		*c = `Nebraska`
-
-  // New Hampshire
-  case "US-NH":
-		*c = `New Hampshire`
-
-  // New Jersey
-  case "US-NJ":
-		*c = `New Jersey`
-
-  // New Mexico
-  case "US-NM":
-		*c = `New Mexico`
-
-  // Nevada
-  case "US-NV":
-		*c = `Nevada`
-
-  // New York
-  case "US-NY":
-		*c = `New York`
-
-  // Ohio
-  case "US-OH":
-		*c = `Ohio`
-
-  // Oklahoma
-  case "US-OK":
-		*c = `Oklahoma`
-
-  // Oregon
-  case "US-OR":
-		*c = `Oregon`
-
-  // Pennsylvania
-  case "US-PA":
-		*c = `Pennsylvania`
-
-  // Rhode Island
-  case "US-RI":
-		*c = `Rhode Island`
-
-  // South Carolina
-  case "US-SC":
-		*c = `South Carolina`
-
-  // South Dakota
-  case "US-SD":
-		*c = `South Dakota`
-
-  // Tennessee
-  case "US-TN":
-		*c = `Tennessee`
-
-  // Texas
-  case "US-TX":
-		*c = `Texas`
-
-  // Utah
-  case "US-UT":
-		*c = `Utah`
-
-  // Virginia
-  case "US-VA":
-		*c = `Virginia`
-
-  // Vermont
-  case "US-VT":
-		*c = `Vermont`
-
-  // Washington
-  case "US-WA":
-		*c = `Washington`
-
-  // Wisconsin
-  case "US-WI":
-		*c = `Wisconsin`
-
-  // West Virginia
-  case "US-WV":
-		*c = `West Virginia`
-
-  // Wyoming
-  case "US-WY":
-		*c = `Wyoming`
-
-  // Countries geographically within continental Europe which use the Euro as their sole currency. At the time of writing, this is a synonym for ‘AT BE CY EE FI FR DE ES GR IE IT LT LU LV MT NL PT SI SK’ (the official Eurozone 19), plus ‘AD MC SM VA ME’ and Kosovo (other Euro-using countries in continental Europe). Note some other territories using the Euro, but outside continental Europe are excluded from this list, and may need to be specified separately. ONLY valid in ONIX 3, and ONLY within P.26 – and this use is itself DEPRECATED. Use of an explicit list of countries instead of ECZ is strongly encouraged
-  case "ECZ":
-		*c = `Eurozone`
-
-  // World except as otherwise specified. NOT USED in ONIX 3
-  case "ROW":
-		*c = `Rest of world`
-
-  // In ONIX 3, may ONLY be used in <RegionsIncluded>
-  case "WORLD":
-		*c = `World`
-	default:
-		return fmt.Errorf("undefined code for TerritoryCodeList has been passed, got [%s]", v)
+	codes := strings.Split(v, " ")
+	tmpeCodes := []string{}
+	for _, code := range codes {
+		switch code {
+
+		// Australian Capital Territory
+		case "AU-CT":
+			tmpeCodes = append(tmpeCodes, `Australian Capital Territory`)
+
+		// New South Wales
+		case "AU-NS":
+			tmpeCodes = append(tmpeCodes, `New South Wales`)
+
+		// Northern Territory
+		case "AU-NT":
+			tmpeCodes = append(tmpeCodes, `Northern Territory`)
+
+		// Queensland
+		case "AU-QL":
+			tmpeCodes = append(tmpeCodes, `Queensland`)
+
+		// South Australia
+		case "AU-SA":
+			tmpeCodes = append(tmpeCodes, `South Australia`)
+
+		// Tasmania
+		case "AU-TS":
+			tmpeCodes = append(tmpeCodes, `Tasmania`)
+
+		// Victoria
+		case "AU-VI":
+			tmpeCodes = append(tmpeCodes, `Victoria`)
+
+		// Western Australia
+		case "AU-WA":
+			tmpeCodes = append(tmpeCodes, `Western Australia`)
+
+		// Alberta
+		case "CA-AB":
+			tmpeCodes = append(tmpeCodes, `Alberta`)
+
+		// British Columbia
+		case "CA-BC":
+			tmpeCodes = append(tmpeCodes, `British Columbia`)
+
+		// Manitoba
+		case "CA-MB":
+			tmpeCodes = append(tmpeCodes, `Manitoba`)
+
+		// New Brunswick
+		case "CA-NB":
+			tmpeCodes = append(tmpeCodes, `New Brunswick`)
+
+		// Newfoundland and Labrador
+		case "CA-NL":
+			tmpeCodes = append(tmpeCodes, `Newfoundland and Labrador`)
+
+		// Nova Scotia
+		case "CA-NS":
+			tmpeCodes = append(tmpeCodes, `Nova Scotia`)
+
+		// Northwest Territories
+		case "CA-NT":
+			tmpeCodes = append(tmpeCodes, `Northwest Territories`)
+
+		// Nunavut
+		case "CA-NU":
+			tmpeCodes = append(tmpeCodes, `Nunavut`)
+
+		// Ontario
+		case "CA-ON":
+			tmpeCodes = append(tmpeCodes, `Ontario`)
+
+		// Prince Edward Island
+		case "CA-PE":
+			tmpeCodes = append(tmpeCodes, `Prince Edward Island`)
+
+		// Quebec
+		case "CA-QC":
+			tmpeCodes = append(tmpeCodes, `Quebec`)
+
+		// Saskatchewan
+		case "CA-SK":
+			tmpeCodes = append(tmpeCodes, `Saskatchewan`)
+
+		// Yukon Territory
+		case "CA-YT":
+			tmpeCodes = append(tmpeCodes, `Yukon Territory`)
+
+		// Beijing Municipality
+		case "CN-11":
+			tmpeCodes = append(tmpeCodes, `Beijing Municipality`)
+
+		// Tianjin Municipality
+		case "CN-12":
+			tmpeCodes = append(tmpeCodes, `Tianjin Municipality`)
+
+		// Hebei Province
+		case "CN-13":
+			tmpeCodes = append(tmpeCodes, `Hebei Province`)
+
+		// Shanxi Province
+		case "CN-14":
+			tmpeCodes = append(tmpeCodes, `Shanxi Province`)
+
+		// Inner Mongolia Autonomous Region
+		case "CN-15":
+			tmpeCodes = append(tmpeCodes, `Inner Mongolia Autonomous Region`)
+
+		// Liaoning Province
+		case "CN-21":
+			tmpeCodes = append(tmpeCodes, `Liaoning Province`)
+
+		// Jilin Province
+		case "CN-22":
+			tmpeCodes = append(tmpeCodes, `Jilin Province`)
+
+		// Heilongjiang Province
+		case "CN-23":
+			tmpeCodes = append(tmpeCodes, `Heilongjiang Province`)
+
+		// Shanghai Municipality
+		case "CN-31":
+			tmpeCodes = append(tmpeCodes, `Shanghai Municipality`)
+
+		// Jiangsu Province
+		case "CN-32":
+			tmpeCodes = append(tmpeCodes, `Jiangsu Province`)
+
+		// Zhejiang Province
+		case "CN-33":
+			tmpeCodes = append(tmpeCodes, `Zhejiang Province`)
+
+		// Anhui Province
+		case "CN-34":
+			tmpeCodes = append(tmpeCodes, `Anhui Province`)
+
+		// Fujian Province
+		case "CN-35":
+			tmpeCodes = append(tmpeCodes, `Fujian Province`)
+
+		// Jiangxi Province
+		case "CN-36":
+			tmpeCodes = append(tmpeCodes, `Jiangxi Province`)
+
+		// Shandong Province
+		case "CN-37":
+			tmpeCodes = append(tmpeCodes, `Shandong Province`)
+
+		// Henan Province
+		case "CN-41":
+			tmpeCodes = append(tmpeCodes, `Henan Province`)
+
+		// Hubei Province
+		case "CN-42":
+			tmpeCodes = append(tmpeCodes, `Hubei Province`)
+
+		// Hunan Province
+		case "CN-43":
+			tmpeCodes = append(tmpeCodes, `Hunan Province`)
+
+		// Guangdong Province
+		case "CN-44":
+			tmpeCodes = append(tmpeCodes, `Guangdong Province`)
+
+		// Guangxi Zhuang Autonomous Region
+		case "CN-45":
+			tmpeCodes = append(tmpeCodes, `Guangxi Zhuang Autonomous Region`)
+
+		// Hainan Province
+		case "CN-46":
+			tmpeCodes = append(tmpeCodes, `Hainan Province`)
+
+		// Chongqing Municipality
+		case "CN-50":
+			tmpeCodes = append(tmpeCodes, `Chongqing Municipality`)
+
+		// Sichuan Province
+		case "CN-51":
+			tmpeCodes = append(tmpeCodes, `Sichuan Province`)
+
+		// Guizhou Province
+		case "CN-52":
+			tmpeCodes = append(tmpeCodes, `Guizhou Province`)
+
+		// Yunnan Province
+		case "CN-53":
+			tmpeCodes = append(tmpeCodes, `Yunnan Province`)
+
+		// Tibet Autonomous Region
+		case "CN-54":
+			tmpeCodes = append(tmpeCodes, `Tibet Autonomous Region`)
+
+		// Shaanxi Province
+		case "CN-61":
+			tmpeCodes = append(tmpeCodes, `Shaanxi Province`)
+
+		// Gansu Province
+		case "CN-62":
+			tmpeCodes = append(tmpeCodes, `Gansu Province`)
+
+		// Qinghai Province
+		case "CN-63":
+			tmpeCodes = append(tmpeCodes, `Qinghai Province`)
+
+		// Ningxia Hui Autonomous Region
+		case "CN-64":
+			tmpeCodes = append(tmpeCodes, `Ningxia Hui Autonomous Region`)
+
+		// Xinjiang Uyghur Autonomous Region
+		case "CN-65":
+			tmpeCodes = append(tmpeCodes, `Xinjiang Uyghur Autonomous Region`)
+
+		// Prefer code TW (Taiwan, Province of China) from List 91
+		case "CN-71":
+			tmpeCodes = append(tmpeCodes, `Taiwan Province`)
+
+		// Prefer code HK (Hong Kong) from List 91
+		case "CN-91":
+			tmpeCodes = append(tmpeCodes, `Hong Kong Special Administrative Region`)
+
+		// Prefer code MO (Macao) from List 91
+		case "CN-92":
+			tmpeCodes = append(tmpeCodes, `Macau Special Administrative Region`)
+
+		// Canary Islands
+		case "ES-CN":
+			tmpeCodes = append(tmpeCodes, `Canary Islands`)
+
+		// Corsica
+		case "FR-H":
+			tmpeCodes = append(tmpeCodes, `Corsica`)
+
+		// Airside outlets at UK international airports only
+		case "GB-AIR":
+			tmpeCodes = append(tmpeCodes, `UK airside`)
+
+		// All UK airports, including both airside and other outlets
+		case "GB-APS":
+			tmpeCodes = append(tmpeCodes, `UK airports`)
+
+		// DEPRECATED, replaced by country codes GG – Guernsey, and JE – Jersey
+		case "GB-CHA":
+			tmpeCodes = append(tmpeCodes, `Channel Islands`)
+
+		// England
+		case "GB-ENG":
+			tmpeCodes = append(tmpeCodes, `England`)
+
+		// UK excluding Northern Ireland
+		case "GB-EWS":
+			tmpeCodes = append(tmpeCodes, `England, Wales, Scotland`)
+
+		// DEPRECATED, replaced by country code IM – Isle of Man
+		case "GB-IOM":
+			tmpeCodes = append(tmpeCodes, `Isle of Man`)
+
+		// Northern Ireland
+		case "GB-NIR":
+			tmpeCodes = append(tmpeCodes, `Northern Ireland`)
+
+		// Scotland
+		case "GB-SCT":
+			tmpeCodes = append(tmpeCodes, `Scotland`)
+
+		// Wales
+		case "GB-WLS":
+			tmpeCodes = append(tmpeCodes, `Wales`)
+
+		// Airside outlets at Irish international airports only
+		case "IE-AIR":
+			tmpeCodes = append(tmpeCodes, `Ireland airside`)
+
+		// Agrigento
+		case "IT-AG":
+			tmpeCodes = append(tmpeCodes, `Agrigento`)
+
+		// Alessandria
+		case "IT-AL":
+			tmpeCodes = append(tmpeCodes, `Alessandria`)
+
+		// Ancona
+		case "IT-AN":
+			tmpeCodes = append(tmpeCodes, `Ancona`)
+
+		// Aosta
+		case "IT-AO":
+			tmpeCodes = append(tmpeCodes, `Aosta`)
+
+		// Arezzo
+		case "IT-AR":
+			tmpeCodes = append(tmpeCodes, `Arezzo`)
+
+		// Ascoli Piceno
+		case "IT-AP":
+			tmpeCodes = append(tmpeCodes, `Ascoli Piceno`)
+
+		// Asti
+		case "IT-AT":
+			tmpeCodes = append(tmpeCodes, `Asti`)
+
+		// Avellino
+		case "IT-AV":
+			tmpeCodes = append(tmpeCodes, `Avellino`)
+
+		// Bari
+		case "IT-BA":
+			tmpeCodes = append(tmpeCodes, `Bari`)
+
+		// Barletta-Andria-Trani
+		case "IT-BT":
+			tmpeCodes = append(tmpeCodes, `Barletta-Andria-Trani`)
+
+		// Belluno
+		case "IT-BL":
+			tmpeCodes = append(tmpeCodes, `Belluno`)
+
+		// Benevento
+		case "IT-BN":
+			tmpeCodes = append(tmpeCodes, `Benevento`)
+
+		// Bergamo
+		case "IT-BG":
+			tmpeCodes = append(tmpeCodes, `Bergamo`)
+
+		// Biella
+		case "IT-BI":
+			tmpeCodes = append(tmpeCodes, `Biella`)
+
+		// Bologna
+		case "IT-BO":
+			tmpeCodes = append(tmpeCodes, `Bologna`)
+
+		// Bolzano
+		case "IT-BZ":
+			tmpeCodes = append(tmpeCodes, `Bolzano`)
+
+		// Brescia
+		case "IT-BS":
+			tmpeCodes = append(tmpeCodes, `Brescia`)
+
+		// Brindisi
+		case "IT-BR":
+			tmpeCodes = append(tmpeCodes, `Brindisi`)
+
+		// Cagliari
+		case "IT-CA":
+			tmpeCodes = append(tmpeCodes, `Cagliari`)
+
+		// Caltanissetta
+		case "IT-CL":
+			tmpeCodes = append(tmpeCodes, `Caltanissetta`)
+
+		// Campobasso
+		case "IT-CB":
+			tmpeCodes = append(tmpeCodes, `Campobasso`)
+
+		// Carbonia-Iglesias
+		case "IT-CI":
+			tmpeCodes = append(tmpeCodes, `Carbonia-Iglesias`)
+
+		// Caserta
+		case "IT-CE":
+			tmpeCodes = append(tmpeCodes, `Caserta`)
+
+		// Catania
+		case "IT-CT":
+			tmpeCodes = append(tmpeCodes, `Catania`)
+
+		// Catanzaro
+		case "IT-CZ":
+			tmpeCodes = append(tmpeCodes, `Catanzaro`)
+
+		// Chieti
+		case "IT-CH":
+			tmpeCodes = append(tmpeCodes, `Chieti`)
+
+		// Como
+		case "IT-CO":
+			tmpeCodes = append(tmpeCodes, `Como`)
+
+		// Cosenza
+		case "IT-CS":
+			tmpeCodes = append(tmpeCodes, `Cosenza`)
+
+		// Cremona
+		case "IT-CR":
+			tmpeCodes = append(tmpeCodes, `Cremona`)
+
+		// Crotone
+		case "IT-KR":
+			tmpeCodes = append(tmpeCodes, `Crotone`)
+
+		// Cuneo
+		case "IT-CN":
+			tmpeCodes = append(tmpeCodes, `Cuneo`)
+
+		// Enna
+		case "IT-EN":
+			tmpeCodes = append(tmpeCodes, `Enna`)
+
+		// Fermo
+		case "IT-FM":
+			tmpeCodes = append(tmpeCodes, `Fermo`)
+
+		// Ferrara
+		case "IT-FE":
+			tmpeCodes = append(tmpeCodes, `Ferrara`)
+
+		// Firenze
+		case "IT-FI":
+			tmpeCodes = append(tmpeCodes, `Firenze`)
+
+		// Foggia
+		case "IT-FG":
+			tmpeCodes = append(tmpeCodes, `Foggia`)
+
+		// Forlì-Cesena
+		case "IT-FC":
+			tmpeCodes = append(tmpeCodes, `Forlì-Cesena`)
+
+		// Frosinone
+		case "IT-FR":
+			tmpeCodes = append(tmpeCodes, `Frosinone`)
+
+		// Genova
+		case "IT-GE":
+			tmpeCodes = append(tmpeCodes, `Genova`)
+
+		// Gorizia
+		case "IT-GO":
+			tmpeCodes = append(tmpeCodes, `Gorizia`)
+
+		// Grosseto
+		case "IT-GR":
+			tmpeCodes = append(tmpeCodes, `Grosseto`)
+
+		// Imperia
+		case "IT-IM":
+			tmpeCodes = append(tmpeCodes, `Imperia`)
+
+		// Isernia
+		case "IT-IS":
+			tmpeCodes = append(tmpeCodes, `Isernia`)
+
+		// La Spezia
+		case "IT-SP":
+			tmpeCodes = append(tmpeCodes, `La Spezia`)
+
+		// L’Aquila
+		case "IT-AQ":
+			tmpeCodes = append(tmpeCodes, `L’Aquila`)
+
+		// Latina
+		case "IT-LT":
+			tmpeCodes = append(tmpeCodes, `Latina`)
+
+		// Lecce
+		case "IT-LE":
+			tmpeCodes = append(tmpeCodes, `Lecce`)
+
+		// Lecco
+		case "IT-LC":
+			tmpeCodes = append(tmpeCodes, `Lecco`)
+
+		// Livorno
+		case "IT-LI":
+			tmpeCodes = append(tmpeCodes, `Livorno`)
+
+		// Lodi
+		case "IT-LO":
+			tmpeCodes = append(tmpeCodes, `Lodi`)
+
+		// Lucca
+		case "IT-LU":
+			tmpeCodes = append(tmpeCodes, `Lucca`)
+
+		// Macerata
+		case "IT-MC":
+			tmpeCodes = append(tmpeCodes, `Macerata`)
+
+		// Mantova
+		case "IT-MN":
+			tmpeCodes = append(tmpeCodes, `Mantova`)
+
+		// Massa-Carrara
+		case "IT-MS":
+			tmpeCodes = append(tmpeCodes, `Massa-Carrara`)
+
+		// Matera
+		case "IT-MT":
+			tmpeCodes = append(tmpeCodes, `Matera`)
+
+		// Medio Campidano
+		case "IT-VS":
+			tmpeCodes = append(tmpeCodes, `Medio Campidano`)
+
+		// Messina
+		case "IT-ME":
+			tmpeCodes = append(tmpeCodes, `Messina`)
+
+		// Milano
+		case "IT-MI":
+			tmpeCodes = append(tmpeCodes, `Milano`)
+
+		// Modena
+		case "IT-MO":
+			tmpeCodes = append(tmpeCodes, `Modena`)
+
+		// Monza e Brianza
+		case "IT-MB":
+			tmpeCodes = append(tmpeCodes, `Monza e Brianza`)
+
+		// Napoli
+		case "IT-NA":
+			tmpeCodes = append(tmpeCodes, `Napoli`)
+
+		// Novara
+		case "IT-NO":
+			tmpeCodes = append(tmpeCodes, `Novara`)
+
+		// Nuoro
+		case "IT-NU":
+			tmpeCodes = append(tmpeCodes, `Nuoro`)
+
+		// Ogliastra
+		case "IT-OG":
+			tmpeCodes = append(tmpeCodes, `Ogliastra`)
+
+		// Olbia-Tempio
+		case "IT-OT":
+			tmpeCodes = append(tmpeCodes, `Olbia-Tempio`)
+
+		// Oristano
+		case "IT-OR":
+			tmpeCodes = append(tmpeCodes, `Oristano`)
+
+		// Padova
+		case "IT-PD":
+			tmpeCodes = append(tmpeCodes, `Padova`)
+
+		// Palermo
+		case "IT-PA":
+			tmpeCodes = append(tmpeCodes, `Palermo`)
+
+		// Parma
+		case "IT-PR":
+			tmpeCodes = append(tmpeCodes, `Parma`)
+
+		// Pavia
+		case "IT-PV":
+			tmpeCodes = append(tmpeCodes, `Pavia`)
+
+		// Perugia
+		case "IT-PG":
+			tmpeCodes = append(tmpeCodes, `Perugia`)
+
+		// Pesaro e Urbino
+		case "IT-PU":
+			tmpeCodes = append(tmpeCodes, `Pesaro e Urbino`)
+
+		// Pescara
+		case "IT-PE":
+			tmpeCodes = append(tmpeCodes, `Pescara`)
+
+		// Piacenza
+		case "IT-PC":
+			tmpeCodes = append(tmpeCodes, `Piacenza`)
+
+		// Pisa
+		case "IT-PI":
+			tmpeCodes = append(tmpeCodes, `Pisa`)
+
+		// Pistoia
+		case "IT-PT":
+			tmpeCodes = append(tmpeCodes, `Pistoia`)
+
+		// Pordenone
+		case "IT-PN":
+			tmpeCodes = append(tmpeCodes, `Pordenone`)
+
+		// Potenza
+		case "IT-PZ":
+			tmpeCodes = append(tmpeCodes, `Potenza`)
+
+		// Prato
+		case "IT-PO":
+			tmpeCodes = append(tmpeCodes, `Prato`)
+
+		// Ragusa
+		case "IT-RG":
+			tmpeCodes = append(tmpeCodes, `Ragusa`)
+
+		// Ravenna
+		case "IT-RA":
+			tmpeCodes = append(tmpeCodes, `Ravenna`)
+
+		// Reggio Calabria
+		case "IT-RC":
+			tmpeCodes = append(tmpeCodes, `Reggio Calabria`)
+
+		// Reggio Emilia
+		case "IT-RE":
+			tmpeCodes = append(tmpeCodes, `Reggio Emilia`)
+
+		// Rieti
+		case "IT-RI":
+			tmpeCodes = append(tmpeCodes, `Rieti`)
+
+		// Rimini
+		case "IT-RN":
+			tmpeCodes = append(tmpeCodes, `Rimini`)
+
+		// Roma
+		case "IT-RM":
+			tmpeCodes = append(tmpeCodes, `Roma`)
+
+		// Rovigo
+		case "IT-RO":
+			tmpeCodes = append(tmpeCodes, `Rovigo`)
+
+		// Salerno
+		case "IT-SA":
+			tmpeCodes = append(tmpeCodes, `Salerno`)
+
+		// Sassari
+		case "IT-SS":
+			tmpeCodes = append(tmpeCodes, `Sassari`)
+
+		// Savona
+		case "IT-SV":
+			tmpeCodes = append(tmpeCodes, `Savona`)
+
+		// Siena
+		case "IT-SI":
+			tmpeCodes = append(tmpeCodes, `Siena`)
+
+		// Siracusa
+		case "IT-SR":
+			tmpeCodes = append(tmpeCodes, `Siracusa`)
+
+		// Sondrio
+		case "IT-SO":
+			tmpeCodes = append(tmpeCodes, `Sondrio`)
+
+		// Taranto
+		case "IT-TA":
+			tmpeCodes = append(tmpeCodes, `Taranto`)
+
+		// Teramo
+		case "IT-TE":
+			tmpeCodes = append(tmpeCodes, `Teramo`)
+
+		// Terni
+		case "IT-TR":
+			tmpeCodes = append(tmpeCodes, `Terni`)
+
+		// Torino
+		case "IT-TO":
+			tmpeCodes = append(tmpeCodes, `Torino`)
+
+		// Trapani
+		case "IT-TP":
+			tmpeCodes = append(tmpeCodes, `Trapani`)
+
+		// Trento
+		case "IT-TN":
+			tmpeCodes = append(tmpeCodes, `Trento`)
+
+		// Treviso
+		case "IT-TV":
+			tmpeCodes = append(tmpeCodes, `Treviso`)
+
+		// Trieste
+		case "IT-TS":
+			tmpeCodes = append(tmpeCodes, `Trieste`)
+
+		// Udine
+		case "IT-UD":
+			tmpeCodes = append(tmpeCodes, `Udine`)
+
+		// Varese
+		case "IT-VA":
+			tmpeCodes = append(tmpeCodes, `Varese`)
+
+		// Venezia
+		case "IT-VE":
+			tmpeCodes = append(tmpeCodes, `Venezia`)
+
+		// Verbano-Cusio-Ossola
+		case "IT-VB":
+			tmpeCodes = append(tmpeCodes, `Verbano-Cusio-Ossola`)
+
+		// Vercelli
+		case "IT-VC":
+			tmpeCodes = append(tmpeCodes, `Vercelli`)
+
+		// Verona
+		case "IT-VR":
+			tmpeCodes = append(tmpeCodes, `Verona`)
+
+		// Vibo Valentia
+		case "IT-VV":
+			tmpeCodes = append(tmpeCodes, `Vibo Valentia`)
+
+		// Vicenza
+		case "IT-VI":
+			tmpeCodes = append(tmpeCodes, `Vicenza`)
+
+		// Viterbo
+		case "IT-VT":
+			tmpeCodes = append(tmpeCodes, `Viterbo`)
+
+		// Kosovo-Metohija
+		case "RS-KM":
+			tmpeCodes = append(tmpeCodes, `Kosovo-Metohija`)
+
+		// Vojvodina
+		case "RS-VO":
+			tmpeCodes = append(tmpeCodes, `Vojvodina`)
+
+		// Republic of Adygeya
+		case "RU-AD":
+			tmpeCodes = append(tmpeCodes, `Republic of Adygeya`)
+
+		// Republic of Altay
+		case "RU-AL":
+			tmpeCodes = append(tmpeCodes, `Republic of Altay`)
+
+		// Republic of Bashkortostan
+		case "RU-BA":
+			tmpeCodes = append(tmpeCodes, `Republic of Bashkortostan`)
+
+		// Republic of Buryatiya
+		case "RU-BU":
+			tmpeCodes = append(tmpeCodes, `Republic of Buryatiya`)
+
+		// Chechenskaya Republic
+		case "RU-CE":
+			tmpeCodes = append(tmpeCodes, `Chechenskaya Republic`)
+
+		// Chuvashskaya Republic
+		case "RU-CU":
+			tmpeCodes = append(tmpeCodes, `Chuvashskaya Republic`)
+
+		// Republic of Dagestan
+		case "RU-DA":
+			tmpeCodes = append(tmpeCodes, `Republic of Dagestan`)
+
+		// Republic of Ingushetiya
+		case "RU-IN":
+			tmpeCodes = append(tmpeCodes, `Republic of Ingushetiya`)
+
+		// Kabardino-Balkarskaya Republic
+		case "RU-KB":
+			tmpeCodes = append(tmpeCodes, `Kabardino-Balkarskaya Republic`)
+
+		// Republic of Kalmykiya
+		case "RU-KL":
+			tmpeCodes = append(tmpeCodes, `Republic of Kalmykiya`)
+
+		// Karachayevo-Cherkesskaya Republic
+		case "RU-KC":
+			tmpeCodes = append(tmpeCodes, `Karachayevo-Cherkesskaya Republic`)
+
+		// Republic of Kareliya
+		case "RU-KR":
+			tmpeCodes = append(tmpeCodes, `Republic of Kareliya`)
+
+		// Republic of Khakasiya
+		case "RU-KK":
+			tmpeCodes = append(tmpeCodes, `Republic of Khakasiya`)
+
+		// Republic of Komi
+		case "RU-KO":
+			tmpeCodes = append(tmpeCodes, `Republic of Komi`)
+
+		// Republic of Mariy El
+		case "RU-ME":
+			tmpeCodes = append(tmpeCodes, `Republic of Mariy El`)
+
+		// Republic of Mordoviya
+		case "RU-MO":
+			tmpeCodes = append(tmpeCodes, `Republic of Mordoviya`)
+
+		// Republic of Sakha (Yakutiya)
+		case "RU-SA":
+			tmpeCodes = append(tmpeCodes, `Republic of Sakha (Yakutiya)`)
+
+		// Republic of Severnaya Osetiya-Alaniya
+		case "RU-SE":
+			tmpeCodes = append(tmpeCodes, `Republic of Severnaya Osetiya-Alaniya`)
+
+		// Republic of Tatarstan
+		case "RU-TA":
+			tmpeCodes = append(tmpeCodes, `Republic of Tatarstan`)
+
+		// Republic of Tyva (Tuva)
+		case "RU-TY":
+			tmpeCodes = append(tmpeCodes, `Republic of Tyva (Tuva)`)
+
+		// Udmurtskaya Republic
+		case "RU-UD":
+			tmpeCodes = append(tmpeCodes, `Udmurtskaya Republic`)
+
+		// Altayskiy Administrative Territory
+		case "RU-ALT":
+			tmpeCodes = append(tmpeCodes, `Altayskiy Administrative Territory`)
+
+		// Kamchatskiy Administrative Territory
+		case "RU-KAM":
+			tmpeCodes = append(tmpeCodes, `Kamchatskiy Administrative Territory`)
+
+		// Khabarovskiy Administrative Territory
+		case "RU-KHA":
+			tmpeCodes = append(tmpeCodes, `Khabarovskiy Administrative Territory`)
+
+		// Krasnodarskiy Administrative Territory
+		case "RU-KDA":
+			tmpeCodes = append(tmpeCodes, `Krasnodarskiy Administrative Territory`)
+
+		// Krasnoyarskiy Administrative Territory
+		case "RU-KYA":
+			tmpeCodes = append(tmpeCodes, `Krasnoyarskiy Administrative Territory`)
+
+		// Permskiy Administrative Territory
+		case "RU-PER":
+			tmpeCodes = append(tmpeCodes, `Permskiy Administrative Territory`)
+
+		// Primorskiy Administrative Territory
+		case "RU-PRI":
+			tmpeCodes = append(tmpeCodes, `Primorskiy Administrative Territory`)
+
+		// Stavropol’skiy Administrative Territory
+		case "RU-STA":
+			tmpeCodes = append(tmpeCodes, `Stavropol’skiy Administrative Territory`)
+
+		// Zabaykal’skiy Administrative Territory
+		case "RU-ZAB":
+			tmpeCodes = append(tmpeCodes, `Zabaykal’skiy Administrative Territory`)
+
+		// Amurskaya Administrative Region
+		case "RU-AMU":
+			tmpeCodes = append(tmpeCodes, `Amurskaya Administrative Region`)
+
+		// Arkhangel’skaya Administrative Region
+		case "RU-ARK":
+			tmpeCodes = append(tmpeCodes, `Arkhangel’skaya Administrative Region`)
+
+		// Astrakhanskaya Administrative Region
+		case "RU-AST":
+			tmpeCodes = append(tmpeCodes, `Astrakhanskaya Administrative Region`)
+
+		// Belgorodskaya Administrative Region
+		case "RU-BEL":
+			tmpeCodes = append(tmpeCodes, `Belgorodskaya Administrative Region`)
+
+		// Bryanskaya Administrative Region
+		case "RU-BRY":
+			tmpeCodes = append(tmpeCodes, `Bryanskaya Administrative Region`)
+
+		// Chelyabinskaya Administrative Region
+		case "RU-CHE":
+			tmpeCodes = append(tmpeCodes, `Chelyabinskaya Administrative Region`)
+
+		// Irkutskaya Administrative Region
+		case "RU-IRK":
+			tmpeCodes = append(tmpeCodes, `Irkutskaya Administrative Region`)
+
+		// Ivanovskaya Administrative Region
+		case "RU-IVA":
+			tmpeCodes = append(tmpeCodes, `Ivanovskaya Administrative Region`)
+
+		// Kaliningradskaya Administrative Region
+		case "RU-KGD":
+			tmpeCodes = append(tmpeCodes, `Kaliningradskaya Administrative Region`)
+
+		// Kaluzhskaya Administrative Region
+		case "RU-KLU":
+			tmpeCodes = append(tmpeCodes, `Kaluzhskaya Administrative Region`)
+
+		// Kemerovskaya Administrative Region
+		case "RU-KEM":
+			tmpeCodes = append(tmpeCodes, `Kemerovskaya Administrative Region`)
+
+		// Kirovskaya Administrative Region
+		case "RU-KIR":
+			tmpeCodes = append(tmpeCodes, `Kirovskaya Administrative Region`)
+
+		// Kostromskaya Administrative Region
+		case "RU-KOS":
+			tmpeCodes = append(tmpeCodes, `Kostromskaya Administrative Region`)
+
+		// Kurganskaya Administrative Region
+		case "RU-KGN":
+			tmpeCodes = append(tmpeCodes, `Kurganskaya Administrative Region`)
+
+		// Kurskaya Administrative Region
+		case "RU-KRS":
+			tmpeCodes = append(tmpeCodes, `Kurskaya Administrative Region`)
+
+		// Leningradskaya Administrative Region
+		case "RU-LEN":
+			tmpeCodes = append(tmpeCodes, `Leningradskaya Administrative Region`)
+
+		// Lipetskaya Administrative Region
+		case "RU-LIP":
+			tmpeCodes = append(tmpeCodes, `Lipetskaya Administrative Region`)
+
+		// Magadanskaya Administrative Region
+		case "RU-MAG":
+			tmpeCodes = append(tmpeCodes, `Magadanskaya Administrative Region`)
+
+		// Moskovskaya Administrative Region
+		case "RU-MOS":
+			tmpeCodes = append(tmpeCodes, `Moskovskaya Administrative Region`)
+
+		// Murmanskaya Administrative Region
+		case "RU-MUR":
+			tmpeCodes = append(tmpeCodes, `Murmanskaya Administrative Region`)
+
+		// Nizhegorodskaya Administrative Region
+		case "RU-NIZ":
+			tmpeCodes = append(tmpeCodes, `Nizhegorodskaya Administrative Region`)
+
+		// Novgorodskaya Administrative Region
+		case "RU-NGR":
+			tmpeCodes = append(tmpeCodes, `Novgorodskaya Administrative Region`)
+
+		// Novosibirskaya Administrative Region
+		case "RU-NVS":
+			tmpeCodes = append(tmpeCodes, `Novosibirskaya Administrative Region`)
+
+		// Omskaya Administrative Region
+		case "RU-OMS":
+			tmpeCodes = append(tmpeCodes, `Omskaya Administrative Region`)
+
+		// Orenburgskaya Administrative Region
+		case "RU-ORE":
+			tmpeCodes = append(tmpeCodes, `Orenburgskaya Administrative Region`)
+
+		// Orlovskaya Administrative Region
+		case "RU-ORL":
+			tmpeCodes = append(tmpeCodes, `Orlovskaya Administrative Region`)
+
+		// Penzenskaya Administrative Region
+		case "RU-PNZ":
+			tmpeCodes = append(tmpeCodes, `Penzenskaya Administrative Region`)
+
+		// Pskovskaya Administrative Region
+		case "RU-PSK":
+			tmpeCodes = append(tmpeCodes, `Pskovskaya Administrative Region`)
+
+		// Rostovskaya Administrative Region
+		case "RU-ROS":
+			tmpeCodes = append(tmpeCodes, `Rostovskaya Administrative Region`)
+
+		// Ryazanskaya Administrative Region
+		case "RU-RYA":
+			tmpeCodes = append(tmpeCodes, `Ryazanskaya Administrative Region`)
+
+		// Sakhalinskaya Administrative Region
+		case "RU-SAK":
+			tmpeCodes = append(tmpeCodes, `Sakhalinskaya Administrative Region`)
+
+		// Samarskaya Administrative Region
+		case "RU-SAM":
+			tmpeCodes = append(tmpeCodes, `Samarskaya Administrative Region`)
+
+		// Saratovskaya Administrative Region
+		case "RU-SAR":
+			tmpeCodes = append(tmpeCodes, `Saratovskaya Administrative Region`)
+
+		// Smolenskaya Administrative Region
+		case "RU-SMO":
+			tmpeCodes = append(tmpeCodes, `Smolenskaya Administrative Region`)
+
+		// Sverdlovskaya Administrative Region
+		case "RU-SVE":
+			tmpeCodes = append(tmpeCodes, `Sverdlovskaya Administrative Region`)
+
+		// Tambovskaya Administrative Region
+		case "RU-TAM":
+			tmpeCodes = append(tmpeCodes, `Tambovskaya Administrative Region`)
+
+		// Tomskaya Administrative Region
+		case "RU-TOM":
+			tmpeCodes = append(tmpeCodes, `Tomskaya Administrative Region`)
+
+		// Tul’skaya Administrative Region
+		case "RU-TUL":
+			tmpeCodes = append(tmpeCodes, `Tul’skaya Administrative Region`)
+
+		// Tverskaya Administrative Region
+		case "RU-TVE":
+			tmpeCodes = append(tmpeCodes, `Tverskaya Administrative Region`)
+
+		// Tyumenskaya Administrative Region
+		case "RU-TYU":
+			tmpeCodes = append(tmpeCodes, `Tyumenskaya Administrative Region`)
+
+		// Ul’yanovskaya Administrative Region
+		case "RU-ULY":
+			tmpeCodes = append(tmpeCodes, `Ul’yanovskaya Administrative Region`)
+
+		// Vladimirskaya Administrative Region
+		case "RU-VLA":
+			tmpeCodes = append(tmpeCodes, `Vladimirskaya Administrative Region`)
+
+		// Volgogradskaya Administrative Region
+		case "RU-VGG":
+			tmpeCodes = append(tmpeCodes, `Volgogradskaya Administrative Region`)
+
+		// Vologodskaya Administrative Region
+		case "RU-VLG":
+			tmpeCodes = append(tmpeCodes, `Vologodskaya Administrative Region`)
+
+		// Voronezhskaya Administrative Region
+		case "RU-VOR":
+			tmpeCodes = append(tmpeCodes, `Voronezhskaya Administrative Region`)
+
+		// Yaroslavskaya Administrative Region
+		case "RU-YAR":
+			tmpeCodes = append(tmpeCodes, `Yaroslavskaya Administrative Region`)
+
+		// Moskva City
+		case "RU-MOW":
+			tmpeCodes = append(tmpeCodes, `Moskva City`)
+
+		// Sankt-Peterburg City
+		case "RU-SPE":
+			tmpeCodes = append(tmpeCodes, `Sankt-Peterburg City`)
+
+		// Yevreyskaya Autonomous Administrative Region
+		case "RU-YEV":
+			tmpeCodes = append(tmpeCodes, `Yevreyskaya Autonomous Administrative Region`)
+
+		// Chukotskiy Autonomous District
+		case "RU-CHU":
+			tmpeCodes = append(tmpeCodes, `Chukotskiy Autonomous District`)
+
+		// Khanty-Mansiyskiy Autonomous District
+		case "RU-KHM":
+			tmpeCodes = append(tmpeCodes, `Khanty-Mansiyskiy Autonomous District`)
+
+		// Nenetskiy Autonomous District
+		case "RU-NEN":
+			tmpeCodes = append(tmpeCodes, `Nenetskiy Autonomous District`)
+
+		// Yamalo-Nenetskiy Autonomous District
+		case "RU-YAN":
+			tmpeCodes = append(tmpeCodes, `Yamalo-Nenetskiy Autonomous District`)
+
+		// Alaska
+		case "US-AK":
+			tmpeCodes = append(tmpeCodes, `Alaska`)
+
+		// Alabama
+		case "US-AL":
+			tmpeCodes = append(tmpeCodes, `Alabama`)
+
+		// Arkansas
+		case "US-AR":
+			tmpeCodes = append(tmpeCodes, `Arkansas`)
+
+		// Arizona
+		case "US-AZ":
+			tmpeCodes = append(tmpeCodes, `Arizona`)
+
+		// California
+		case "US-CA":
+			tmpeCodes = append(tmpeCodes, `California`)
+
+		// Colorado
+		case "US-CO":
+			tmpeCodes = append(tmpeCodes, `Colorado`)
+
+		// Connecticut
+		case "US-CT":
+			tmpeCodes = append(tmpeCodes, `Connecticut`)
+
+		// District of Columbia
+		case "US-DC":
+			tmpeCodes = append(tmpeCodes, `District of Columbia`)
+
+		// Delaware
+		case "US-DE":
+			tmpeCodes = append(tmpeCodes, `Delaware`)
+
+		// Florida
+		case "US-FL":
+			tmpeCodes = append(tmpeCodes, `Florida`)
+
+		// Georgia
+		case "US-GA":
+			tmpeCodes = append(tmpeCodes, `Georgia`)
+
+		// Hawaii
+		case "US-HI":
+			tmpeCodes = append(tmpeCodes, `Hawaii`)
+
+		// Iowa
+		case "US-IA":
+			tmpeCodes = append(tmpeCodes, `Iowa`)
+
+		// Idaho
+		case "US-ID":
+			tmpeCodes = append(tmpeCodes, `Idaho`)
+
+		// Illinois
+		case "US-IL":
+			tmpeCodes = append(tmpeCodes, `Illinois`)
+
+		// Indiana
+		case "US-IN":
+			tmpeCodes = append(tmpeCodes, `Indiana`)
+
+		// Kansas
+		case "US-KS":
+			tmpeCodes = append(tmpeCodes, `Kansas`)
+
+		// Kentucky
+		case "US-KY":
+			tmpeCodes = append(tmpeCodes, `Kentucky`)
+
+		// Louisiana
+		case "US-LA":
+			tmpeCodes = append(tmpeCodes, `Louisiana`)
+
+		// Massachusetts
+		case "US-MA":
+			tmpeCodes = append(tmpeCodes, `Massachusetts`)
+
+		// Maryland
+		case "US-MD":
+			tmpeCodes = append(tmpeCodes, `Maryland`)
+
+		// Maine
+		case "US-ME":
+			tmpeCodes = append(tmpeCodes, `Maine`)
+
+		// Michigan
+		case "US-MI":
+			tmpeCodes = append(tmpeCodes, `Michigan`)
+
+		// Minnesota
+		case "US-MN":
+			tmpeCodes = append(tmpeCodes, `Minnesota`)
+
+		// Missouri
+		case "US-MO":
+			tmpeCodes = append(tmpeCodes, `Missouri`)
+
+		// Mississippi
+		case "US-MS":
+			tmpeCodes = append(tmpeCodes, `Mississippi`)
+
+		// Montana
+		case "US-MT":
+			tmpeCodes = append(tmpeCodes, `Montana`)
+
+		// North Carolina
+		case "US-NC":
+			tmpeCodes = append(tmpeCodes, `North Carolina`)
+
+		// North Dakota
+		case "US-ND":
+			tmpeCodes = append(tmpeCodes, `North Dakota`)
+
+		// Nebraska
+		case "US-NE":
+			tmpeCodes = append(tmpeCodes, `Nebraska`)
+
+		// New Hampshire
+		case "US-NH":
+			tmpeCodes = append(tmpeCodes, `New Hampshire`)
+
+		// New Jersey
+		case "US-NJ":
+			tmpeCodes = append(tmpeCodes, `New Jersey`)
+
+		// New Mexico
+		case "US-NM":
+			tmpeCodes = append(tmpeCodes, `New Mexico`)
+
+		// Nevada
+		case "US-NV":
+			tmpeCodes = append(tmpeCodes, `Nevada`)
+
+		// New York
+		case "US-NY":
+			tmpeCodes = append(tmpeCodes, `New York`)
+
+		// Ohio
+		case "US-OH":
+			tmpeCodes = append(tmpeCodes, `Ohio`)
+
+		// Oklahoma
+		case "US-OK":
+			tmpeCodes = append(tmpeCodes, `Oklahoma`)
+
+		// Oregon
+		case "US-OR":
+			tmpeCodes = append(tmpeCodes, `Oregon`)
+
+		// Pennsylvania
+		case "US-PA":
+			tmpeCodes = append(tmpeCodes, `Pennsylvania`)
+
+		// Rhode Island
+		case "US-RI":
+			tmpeCodes = append(tmpeCodes, `Rhode Island`)
+
+		// South Carolina
+		case "US-SC":
+			tmpeCodes = append(tmpeCodes, `South Carolina`)
+
+		// South Dakota
+		case "US-SD":
+			tmpeCodes = append(tmpeCodes, `South Dakota`)
+
+		// Tennessee
+		case "US-TN":
+			tmpeCodes = append(tmpeCodes, `Tennessee`)
+
+		// Texas
+		case "US-TX":
+			tmpeCodes = append(tmpeCodes, `Texas`)
+
+		// Utah
+		case "US-UT":
+			tmpeCodes = append(tmpeCodes, `Utah`)
+
+		// Virginia
+		case "US-VA":
+			tmpeCodes = append(tmpeCodes, `Virginia`)
+
+		// Vermont
+		case "US-VT":
+			tmpeCodes = append(tmpeCodes, `Vermont`)
+
+		// Washington
+		case "US-WA":
+			tmpeCodes = append(tmpeCodes, `Washington`)
+
+		// Wisconsin
+		case "US-WI":
+			tmpeCodes = append(tmpeCodes, `Wisconsin`)
+
+		// West Virginia
+		case "US-WV":
+			tmpeCodes = append(tmpeCodes, `West Virginia`)
+
+		// Wyoming
+		case "US-WY":
+			tmpeCodes = append(tmpeCodes, `Wyoming`)
+
+		// Countries geographically within continental Europe which use the Euro as their sole currency. At the time of writing, this is a synonym for ‘AT BE CY EE FI FR DE ES GR IE IT LT LU LV MT NL PT SI SK’ (the official Eurozone 19), plus ‘AD MC SM VA ME’ and Kosovo (other Euro-using countries in continental Europe). Note some other territories using the Euro, but outside continental Europe are excluded from this list, and may need to be specified separately. ONLY valid in ONIX 3, and ONLY within P.26 – and this use is itself DEPRECATED. Use of an explicit list of countries instead of ECZ is strongly encouraged
+		case "ECZ":
+			tmpeCodes = append(tmpeCodes, `Eurozone`)
+
+		// World except as otherwise specified. NOT USED in ONIX 3
+		case "ROW":
+			tmpeCodes = append(tmpeCodes, `Rest of world`)
+
+		// In ONIX 3, may ONLY be used in <RegionsIncluded>
+		case "WORLD":
+			tmpeCodes = append(tmpeCodes, `World`)
+		default:
+			return fmt.Errorf("undefined code for TerritoryCodeList has been passed, got [%s]", v)
+		}
 	}
+	*c = tmpeCodes
 	return nil
 }
 
@@ -4611,2046 +4622,2056 @@ func (c *CopyrightOwnerIDType) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 }
 
 // CountryCode Country code – ISO 3166-1
-type CountryCode string
+type CountryCode []string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
 func (c *CountryCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	var v string
 	d.DecodeElement(&v, &start)
-	switch v {
-
-  // Andorra
-  case "AD":
-		*c = `Andorra`
-
-  // United Arab Emirates
-  case "AE":
-		*c = `United Arab Emirates`
-
-  // Afghanistan
-  case "AF":
-		*c = `Afghanistan`
-
-  // Antigua and Barbuda
-  case "AG":
-		*c = `Antigua and Barbuda`
-
-  // Anguilla
-  case "AI":
-		*c = `Anguilla`
-
-  // Albania
-  case "AL":
-		*c = `Albania`
-
-  // Armenia
-  case "AM":
-		*c = `Armenia`
-
-  // Deprecated – use BQ, CW or SX as appropriate
-  case "AN":
-		*c = `Netherlands Antilles`
-
-  // Angola
-  case "AO":
-		*c = `Angola`
-
-  // Antarctica
-  case "AQ":
-		*c = `Antarctica`
-
-  // Argentina
-  case "AR":
-		*c = `Argentina`
-
-  // American Samoa
-  case "AS":
-		*c = `American Samoa`
-
-  // Austria
-  case "AT":
-		*c = `Austria`
-
-  // Australia
-  case "AU":
-		*c = `Australia`
-
-  // Aruba
-  case "AW":
-		*c = `Aruba`
-
-  // Åland Islands
-  case "AX":
-		*c = `Åland Islands`
-
-  // Azerbaijan
-  case "AZ":
-		*c = `Azerbaijan`
-
-  // Bosnia and Herzegovina
-  case "BA":
-		*c = `Bosnia and Herzegovina`
-
-  // Barbados
-  case "BB":
-		*c = `Barbados`
-
-  // Bangladesh
-  case "BD":
-		*c = `Bangladesh`
-
-  // Belgium
-  case "BE":
-		*c = `Belgium`
-
-  // Burkina Faso
-  case "BF":
-		*c = `Burkina Faso`
-
-  // Bulgaria
-  case "BG":
-		*c = `Bulgaria`
-
-  // Bahrain
-  case "BH":
-		*c = `Bahrain`
-
-  // Burundi
-  case "BI":
-		*c = `Burundi`
-
-  // Benin
-  case "BJ":
-		*c = `Benin`
-
-  // Saint Barthélemy
-  case "BL":
-		*c = `Saint Barthélemy`
-
-  // Bermuda
-  case "BM":
-		*c = `Bermuda`
-
-  // Brunei Darussalam
-  case "BN":
-		*c = `Brunei Darussalam`
-
-  // Bolivia, Plurinational State of
-  case "BO":
-		*c = `Bolivia, Plurinational State of`
-
-  // Bonaire, Sint Eustatius and Saba
-  case "BQ":
-		*c = `Bonaire, Sint Eustatius and Saba`
-
-  // Brazil
-  case "BR":
-		*c = `Brazil`
-
-  // Bahamas
-  case "BS":
-		*c = `Bahamas`
-
-  // Bhutan
-  case "BT":
-		*c = `Bhutan`
-
-  // Bouvet Island
-  case "BV":
-		*c = `Bouvet Island`
-
-  // Botswana
-  case "BW":
-		*c = `Botswana`
-
-  // Belarus
-  case "BY":
-		*c = `Belarus`
-
-  // Belize
-  case "BZ":
-		*c = `Belize`
-
-  // Canada
-  case "CA":
-		*c = `Canada`
-
-  // Cocos (Keeling) Islands
-  case "CC":
-		*c = `Cocos (Keeling) Islands`
-
-  // Congo, Democratic Republic of the
-  case "CD":
-		*c = `Congo, Democratic Republic of the`
-
-  // Central African Republic
-  case "CF":
-		*c = `Central African Republic`
-
-  // Congo
-  case "CG":
-		*c = `Congo`
-
-  // Switzerland
-  case "CH":
-		*c = `Switzerland`
-
-  // Cote d’Ivoire
-  case "CI":
-		*c = `Cote d’Ivoire`
-
-  // Cook Islands
-  case "CK":
-		*c = `Cook Islands`
-
-  // Chile
-  case "CL":
-		*c = `Chile`
-
-  // Cameroon
-  case "CM":
-		*c = `Cameroon`
-
-  // China
-  case "CN":
-		*c = `China`
-
-  // Colombia
-  case "CO":
-		*c = `Colombia`
-
-  // Costa Rica
-  case "CR":
-		*c = `Costa Rica`
-
-  // DEPRECATED, replaced by ME – Montenegro and RS – Serbia
-  case "CS":
-		*c = `Serbia and Montenegro`
-
-  // Cuba
-  case "CU":
-		*c = `Cuba`
-
-  // Cabo Verde
-  case "CV":
-		*c = `Cabo Verde`
-
-  // Curaçao
-  case "CW":
-		*c = `Curaçao`
-
-  // Christmas Island
-  case "CX":
-		*c = `Christmas Island`
-
-  // Cyprus
-  case "CY":
-		*c = `Cyprus`
-
-  // Czech Republic
-  case "CZ":
-		*c = `Czech Republic`
-
-  // Germany
-  case "DE":
-		*c = `Germany`
-
-  // Djibouti
-  case "DJ":
-		*c = `Djibouti`
-
-  // Denmark
-  case "DK":
-		*c = `Denmark`
-
-  // Dominica
-  case "DM":
-		*c = `Dominica`
-
-  // Dominican Republic
-  case "DO":
-		*c = `Dominican Republic`
-
-  // Algeria
-  case "DZ":
-		*c = `Algeria`
-
-  // Ecuador
-  case "EC":
-		*c = `Ecuador`
-
-  // Estonia
-  case "EE":
-		*c = `Estonia`
-
-  // Egypt
-  case "EG":
-		*c = `Egypt`
-
-  // Western Sahara
-  case "EH":
-		*c = `Western Sahara`
-
-  // Eritrea
-  case "ER":
-		*c = `Eritrea`
-
-  // Spain
-  case "ES":
-		*c = `Spain`
-
-  // Ethiopia
-  case "ET":
-		*c = `Ethiopia`
-
-  // Finland
-  case "FI":
-		*c = `Finland`
-
-  // Fiji
-  case "FJ":
-		*c = `Fiji`
-
-  // Falkland Islands (Malvinas)
-  case "FK":
-		*c = `Falkland Islands (Malvinas)`
-
-  // Micronesia, Federated States of
-  case "FM":
-		*c = `Micronesia, Federated States of`
-
-  // Faroe Islands
-  case "FO":
-		*c = `Faroe Islands`
-
-  // France
-  case "FR":
-		*c = `France`
-
-  // Gabon
-  case "GA":
-		*c = `Gabon`
-
-  // United Kingdom
-  case "GB":
-		*c = `United Kingdom`
-
-  // Grenada
-  case "GD":
-		*c = `Grenada`
-
-  // Georgia
-  case "GE":
-		*c = `Georgia`
-
-  // French Guiana
-  case "GF":
-		*c = `French Guiana`
-
-  // Guernsey
-  case "GG":
-		*c = `Guernsey`
-
-  // Ghana
-  case "GH":
-		*c = `Ghana`
-
-  // Gibraltar
-  case "GI":
-		*c = `Gibraltar`
-
-  // Greenland
-  case "GL":
-		*c = `Greenland`
-
-  // Gambia
-  case "GM":
-		*c = `Gambia`
-
-  // Guinea
-  case "GN":
-		*c = `Guinea`
-
-  // Guadeloupe
-  case "GP":
-		*c = `Guadeloupe`
-
-  // Equatorial Guinea
-  case "GQ":
-		*c = `Equatorial Guinea`
-
-  // Greece
-  case "GR":
-		*c = `Greece`
-
-  // South Georgia and the South Sandwich Islands
-  case "GS":
-		*c = `South Georgia and the South Sandwich Islands`
-
-  // Guatemala
-  case "GT":
-		*c = `Guatemala`
-
-  // Guam
-  case "GU":
-		*c = `Guam`
-
-  // Guinea-Bissau
-  case "GW":
-		*c = `Guinea-Bissau`
-
-  // Guyana
-  case "GY":
-		*c = `Guyana`
-
-  // Hong Kong
-  case "HK":
-		*c = `Hong Kong`
-
-  // Heard Island and McDonald Islands
-  case "HM":
-		*c = `Heard Island and McDonald Islands`
-
-  // Honduras
-  case "HN":
-		*c = `Honduras`
-
-  // Croatia
-  case "HR":
-		*c = `Croatia`
-
-  // Haiti
-  case "HT":
-		*c = `Haiti`
-
-  // Hungary
-  case "HU":
-		*c = `Hungary`
-
-  // Indonesia
-  case "ID":
-		*c = `Indonesia`
-
-  // Ireland
-  case "IE":
-		*c = `Ireland`
-
-  // Israel
-  case "IL":
-		*c = `Israel`
-
-  // Isle of Man
-  case "IM":
-		*c = `Isle of Man`
-
-  // India
-  case "IN":
-		*c = `India`
-
-  // British Indian Ocean Territory
-  case "IO":
-		*c = `British Indian Ocean Territory`
-
-  // Iraq
-  case "IQ":
-		*c = `Iraq`
-
-  // Iran, Islamic Republic of
-  case "IR":
-		*c = `Iran, Islamic Republic of`
-
-  // Iceland
-  case "IS":
-		*c = `Iceland`
-
-  // Italy
-  case "IT":
-		*c = `Italy`
-
-  // Jersey
-  case "JE":
-		*c = `Jersey`
-
-  // Jamaica
-  case "JM":
-		*c = `Jamaica`
-
-  // Jordan
-  case "JO":
-		*c = `Jordan`
-
-  // Japan
-  case "JP":
-		*c = `Japan`
-
-  // Kenya
-  case "KE":
-		*c = `Kenya`
-
-  // Kyrgyzstan
-  case "KG":
-		*c = `Kyrgyzstan`
-
-  // Cambodia
-  case "KH":
-		*c = `Cambodia`
-
-  // Kiribati
-  case "KI":
-		*c = `Kiribati`
-
-  // Comoros
-  case "KM":
-		*c = `Comoros`
-
-  // Saint Kitts and Nevis
-  case "KN":
-		*c = `Saint Kitts and Nevis`
-
-  // Korea, Democratic People’s Republic of
-  case "KP":
-		*c = `Korea, Democratic People’s Republic of`
-
-  // Korea, Republic of
-  case "KR":
-		*c = `Korea, Republic of`
-
-  // Kuwait
-  case "KW":
-		*c = `Kuwait`
-
-  // Cayman Islands
-  case "KY":
-		*c = `Cayman Islands`
-
-  // Kazakhstan
-  case "KZ":
-		*c = `Kazakhstan`
-
-  // Lao People’s Democratic Republic
-  case "LA":
-		*c = `Lao People’s Democratic Republic`
-
-  // Lebanon
-  case "LB":
-		*c = `Lebanon`
-
-  // Saint Lucia
-  case "LC":
-		*c = `Saint Lucia`
-
-  // Liechtenstein
-  case "LI":
-		*c = `Liechtenstein`
-
-  // Sri Lanka
-  case "LK":
-		*c = `Sri Lanka`
-
-  // Liberia
-  case "LR":
-		*c = `Liberia`
-
-  // Lesotho
-  case "LS":
-		*c = `Lesotho`
-
-  // Lithuania
-  case "LT":
-		*c = `Lithuania`
-
-  // Luxembourg
-  case "LU":
-		*c = `Luxembourg`
-
-  // Latvia
-  case "LV":
-		*c = `Latvia`
-
-  // Libya
-  case "LY":
-		*c = `Libya`
-
-  // Morocco
-  case "MA":
-		*c = `Morocco`
-
-  // Monaco
-  case "MC":
-		*c = `Monaco`
-
-  // Moldova, Repubic of
-  case "MD":
-		*c = `Moldova, Repubic of`
-
-  // Montenegro
-  case "ME":
-		*c = `Montenegro`
-
-  // Saint Martin (French part)
-  case "MF":
-		*c = `Saint Martin (French part)`
-
-  // Madagascar
-  case "MG":
-		*c = `Madagascar`
-
-  // Marshall Islands
-  case "MH":
-		*c = `Marshall Islands`
-
-  // Macedonia, the former Yugoslav Republic of
-  case "MK":
-		*c = `Macedonia, the former Yugoslav Republic of`
-
-  // Mali
-  case "ML":
-		*c = `Mali`
-
-  // Myanmar
-  case "MM":
-		*c = `Myanmar`
-
-  // Mongolia
-  case "MN":
-		*c = `Mongolia`
-
-  // Macao
-  case "MO":
-		*c = `Macao`
-
-  // Northern Mariana Islands
-  case "MP":
-		*c = `Northern Mariana Islands`
-
-  // Martinique
-  case "MQ":
-		*c = `Martinique`
-
-  // Mauritania
-  case "MR":
-		*c = `Mauritania`
-
-  // Montserrat
-  case "MS":
-		*c = `Montserrat`
-
-  // Malta
-  case "MT":
-		*c = `Malta`
-
-  // Mauritius
-  case "MU":
-		*c = `Mauritius`
-
-  // Maldives
-  case "MV":
-		*c = `Maldives`
-
-  // Malawi
-  case "MW":
-		*c = `Malawi`
-
-  // Mexico
-  case "MX":
-		*c = `Mexico`
-
-  // Malaysia
-  case "MY":
-		*c = `Malaysia`
-
-  // Mozambique
-  case "MZ":
-		*c = `Mozambique`
-
-  // Namibia
-  case "NA":
-		*c = `Namibia`
-
-  // New Caledonia
-  case "NC":
-		*c = `New Caledonia`
-
-  // Niger
-  case "NE":
-		*c = `Niger`
-
-  // Norfolk Island
-  case "NF":
-		*c = `Norfolk Island`
-
-  // Nigeria
-  case "NG":
-		*c = `Nigeria`
-
-  // Nicaragua
-  case "NI":
-		*c = `Nicaragua`
-
-  // Netherlands
-  case "NL":
-		*c = `Netherlands`
-
-  // Norway
-  case "NO":
-		*c = `Norway`
-
-  // Nepal
-  case "NP":
-		*c = `Nepal`
-
-  // Nauru
-  case "NR":
-		*c = `Nauru`
-
-  // Niue
-  case "NU":
-		*c = `Niue`
-
-  // New Zealand
-  case "NZ":
-		*c = `New Zealand`
-
-  // Oman
-  case "OM":
-		*c = `Oman`
-
-  // Panama
-  case "PA":
-		*c = `Panama`
-
-  // Peru
-  case "PE":
-		*c = `Peru`
-
-  // French Polynesia
-  case "PF":
-		*c = `French Polynesia`
-
-  // Papua New Guinea
-  case "PG":
-		*c = `Papua New Guinea`
-
-  // Philippines
-  case "PH":
-		*c = `Philippines`
-
-  // Pakistan
-  case "PK":
-		*c = `Pakistan`
-
-  // Poland
-  case "PL":
-		*c = `Poland`
-
-  // Saint Pierre and Miquelon
-  case "PM":
-		*c = `Saint Pierre and Miquelon`
-
-  // Pitcairn
-  case "PN":
-		*c = `Pitcairn`
-
-  // Puerto Rico
-  case "PR":
-		*c = `Puerto Rico`
-
-  // Palestine, State of
-  case "PS":
-		*c = `Palestine, State of`
-
-  // Portugal
-  case "PT":
-		*c = `Portugal`
-
-  // Palau
-  case "PW":
-		*c = `Palau`
-
-  // Paraguay
-  case "PY":
-		*c = `Paraguay`
-
-  // Qatar
-  case "QA":
-		*c = `Qatar`
-
-  // Réunion
-  case "RE":
-		*c = `Réunion`
-
-  // Romania
-  case "RO":
-		*c = `Romania`
-
-  // Serbia
-  case "RS":
-		*c = `Serbia`
-
-  // Russian Federation
-  case "RU":
-		*c = `Russian Federation`
-
-  // Rwanda
-  case "RW":
-		*c = `Rwanda`
-
-  // Saudi Arabia
-  case "SA":
-		*c = `Saudi Arabia`
-
-  // Solomon Islands
-  case "SB":
-		*c = `Solomon Islands`
-
-  // Seychelles
-  case "SC":
-		*c = `Seychelles`
-
-  // Sudan
-  case "SD":
-		*c = `Sudan`
-
-  // Sweden
-  case "SE":
-		*c = `Sweden`
-
-  // Singapore
-  case "SG":
-		*c = `Singapore`
-
-  // Saint Helena, Ascension and Tristan da Cunha
-  case "SH":
-		*c = `Saint Helena, Ascension and Tristan da Cunha`
-
-  // Slovenia
-  case "SI":
-		*c = `Slovenia`
-
-  // Svalbard and Jan Mayen
-  case "SJ":
-		*c = `Svalbard and Jan Mayen`
-
-  // Slovakia
-  case "SK":
-		*c = `Slovakia`
-
-  // Sierra Leone
-  case "SL":
-		*c = `Sierra Leone`
-
-  // San Marino
-  case "SM":
-		*c = `San Marino`
-
-  // Senegal
-  case "SN":
-		*c = `Senegal`
-
-  // Somalia
-  case "SO":
-		*c = `Somalia`
-
-  // Suriname
-  case "SR":
-		*c = `Suriname`
-
-  // South Sudan
-  case "SS":
-		*c = `South Sudan`
-
-  // Sao Tome and Principe
-  case "ST":
-		*c = `Sao Tome and Principe`
-
-  // El Salvador
-  case "SV":
-		*c = `El Salvador`
-
-  // Sint Maarten (Dutch part)
-  case "SX":
-		*c = `Sint Maarten (Dutch part)`
-
-  // Syrian Arab Republic
-  case "SY":
-		*c = `Syrian Arab Republic`
-
-  // Swaziland
-  case "SZ":
-		*c = `Swaziland`
-
-  // Turks and Caicos Islands
-  case "TC":
-		*c = `Turks and Caicos Islands`
-
-  // Chad
-  case "TD":
-		*c = `Chad`
-
-  // French Southern Territories
-  case "TF":
-		*c = `French Southern Territories`
-
-  // Togo
-  case "TG":
-		*c = `Togo`
-
-  // Thailand
-  case "TH":
-		*c = `Thailand`
-
-  // Tajikistan
-  case "TJ":
-		*c = `Tajikistan`
-
-  // Tokelau
-  case "TK":
-		*c = `Tokelau`
-
-  // Timor-Leste
-  case "TL":
-		*c = `Timor-Leste`
-
-  // Turkmenistan
-  case "TM":
-		*c = `Turkmenistan`
-
-  // Tunisia
-  case "TN":
-		*c = `Tunisia`
-
-  // Tonga
-  case "TO":
-		*c = `Tonga`
-
-  // Turkey
-  case "TR":
-		*c = `Turkey`
-
-  // Trinidad and Tobago
-  case "TT":
-		*c = `Trinidad and Tobago`
-
-  // Tuvalu
-  case "TV":
-		*c = `Tuvalu`
-
-  // Taiwan, Province of China
-  case "TW":
-		*c = `Taiwan, Province of China`
-
-  // Tanzania, United Republic of
-  case "TZ":
-		*c = `Tanzania, United Republic of`
-
-  // Ukraine
-  case "UA":
-		*c = `Ukraine`
-
-  // Uganda
-  case "UG":
-		*c = `Uganda`
-
-  // United States Minor Outlying Islands
-  case "UM":
-		*c = `United States Minor Outlying Islands`
-
-  // United States
-  case "US":
-		*c = `United States`
-
-  // Uruguay
-  case "UY":
-		*c = `Uruguay`
-
-  // Uzbekistan
-  case "UZ":
-		*c = `Uzbekistan`
-
-  // Holy See (Vatican City State)
-  case "VA":
-		*c = `Holy See (Vatican City State)`
-
-  // Saint Vincent and the Grenadines
-  case "VC":
-		*c = `Saint Vincent and the Grenadines`
-
-  // Venezuela, Bolivarian Republic of
-  case "VE":
-		*c = `Venezuela, Bolivarian Republic of`
-
-  // Virgin Islands, British
-  case "VG":
-		*c = `Virgin Islands, British`
-
-  // Virgin Islands, US
-  case "VI":
-		*c = `Virgin Islands, US`
-
-  // Viet Nam
-  case "VN":
-		*c = `Viet Nam`
-
-  // Vanuatu
-  case "VU":
-		*c = `Vanuatu`
-
-  // Wallis and Futuna
-  case "WF":
-		*c = `Wallis and Futuna`
-
-  // Samoa
-  case "WS":
-		*c = `Samoa`
-
-  // Yemen
-  case "YE":
-		*c = `Yemen`
-
-  // Mayotte
-  case "YT":
-		*c = `Mayotte`
-
-  // DEPRECATED, replaced by ME – Montenegro and RS – Serbia
-  case "YU":
-		*c = `Yugoslavia`
-
-  // South Africa
-  case "ZA":
-		*c = `South Africa`
-
-  // Zambia
-  case "ZM":
-		*c = `Zambia`
-
-  // Zimbabwe
-  case "ZW":
-		*c = `Zimbabwe`
-	default:
-		return fmt.Errorf("undefined code for CountryCode has been passed, got [%s]", v)
+	codes := strings.Split(v, " ")
+	tmpeCodes := []string{}
+	for _, code := range codes {
+		switch code {
+
+		// Andorra
+		case "AD":
+			tmpeCodes = append(tmpeCodes, `Andorra`)
+
+		// United Arab Emirates
+		case "AE":
+			tmpeCodes = append(tmpeCodes, `United Arab Emirates`)
+
+		// Afghanistan
+		case "AF":
+			tmpeCodes = append(tmpeCodes, `Afghanistan`)
+
+		// Antigua and Barbuda
+		case "AG":
+			tmpeCodes = append(tmpeCodes, `Antigua and Barbuda`)
+
+		// Anguilla
+		case "AI":
+			tmpeCodes = append(tmpeCodes, `Anguilla`)
+
+		// Albania
+		case "AL":
+			tmpeCodes = append(tmpeCodes, `Albania`)
+
+		// Armenia
+		case "AM":
+			tmpeCodes = append(tmpeCodes, `Armenia`)
+
+		// Deprecated – use BQ, CW or SX as appropriate
+		case "AN":
+			tmpeCodes = append(tmpeCodes, `Netherlands Antilles`)
+
+		// Angola
+		case "AO":
+			tmpeCodes = append(tmpeCodes, `Angola`)
+
+		// Antarctica
+		case "AQ":
+			tmpeCodes = append(tmpeCodes, `Antarctica`)
+
+		// Argentina
+		case "AR":
+			tmpeCodes = append(tmpeCodes, `Argentina`)
+
+		// American Samoa
+		case "AS":
+			tmpeCodes = append(tmpeCodes, `American Samoa`)
+
+		// Austria
+		case "AT":
+			tmpeCodes = append(tmpeCodes, `Austria`)
+
+		// Australia
+		case "AU":
+			tmpeCodes = append(tmpeCodes, `Australia`)
+
+		// Aruba
+		case "AW":
+			tmpeCodes = append(tmpeCodes, `Aruba`)
+
+		// Åland Islands
+		case "AX":
+			tmpeCodes = append(tmpeCodes, `Åland Islands`)
+
+		// Azerbaijan
+		case "AZ":
+			tmpeCodes = append(tmpeCodes, `Azerbaijan`)
+
+		// Bosnia and Herzegovina
+		case "BA":
+			tmpeCodes = append(tmpeCodes, `Bosnia and Herzegovina`)
+
+		// Barbados
+		case "BB":
+			tmpeCodes = append(tmpeCodes, `Barbados`)
+
+		// Bangladesh
+		case "BD":
+			tmpeCodes = append(tmpeCodes, `Bangladesh`)
+
+		// Belgium
+		case "BE":
+			tmpeCodes = append(tmpeCodes, `Belgium`)
+
+		// Burkina Faso
+		case "BF":
+			tmpeCodes = append(tmpeCodes, `Burkina Faso`)
+
+		// Bulgaria
+		case "BG":
+			tmpeCodes = append(tmpeCodes, `Bulgaria`)
+
+		// Bahrain
+		case "BH":
+			tmpeCodes = append(tmpeCodes, `Bahrain`)
+
+		// Burundi
+		case "BI":
+			tmpeCodes = append(tmpeCodes, `Burundi`)
+
+		// Benin
+		case "BJ":
+			tmpeCodes = append(tmpeCodes, `Benin`)
+
+		// Saint Barthélemy
+		case "BL":
+			tmpeCodes = append(tmpeCodes, `Saint Barthélemy`)
+
+		// Bermuda
+		case "BM":
+			tmpeCodes = append(tmpeCodes, `Bermuda`)
+
+		// Brunei Darussalam
+		case "BN":
+			tmpeCodes = append(tmpeCodes, `Brunei Darussalam`)
+
+		// Bolivia, Plurinational State of
+		case "BO":
+			tmpeCodes = append(tmpeCodes, `Bolivia, Plurinational State of`)
+
+		// Bonaire, Sint Eustatius and Saba
+		case "BQ":
+			tmpeCodes = append(tmpeCodes, `Bonaire, Sint Eustatius and Saba`)
+
+		// Brazil
+		case "BR":
+			tmpeCodes = append(tmpeCodes, `Brazil`)
+
+		// Bahamas
+		case "BS":
+			tmpeCodes = append(tmpeCodes, `Bahamas`)
+
+		// Bhutan
+		case "BT":
+			tmpeCodes = append(tmpeCodes, `Bhutan`)
+
+		// Bouvet Island
+		case "BV":
+			tmpeCodes = append(tmpeCodes, `Bouvet Island`)
+
+		// Botswana
+		case "BW":
+			tmpeCodes = append(tmpeCodes, `Botswana`)
+
+		// Belarus
+		case "BY":
+			tmpeCodes = append(tmpeCodes, `Belarus`)
+
+		// Belize
+		case "BZ":
+			tmpeCodes = append(tmpeCodes, `Belize`)
+
+		// Canada
+		case "CA":
+			tmpeCodes = append(tmpeCodes, `Canada`)
+
+		// Cocos (Keeling) Islands
+		case "CC":
+			tmpeCodes = append(tmpeCodes, `Cocos (Keeling) Islands`)
+
+		// Congo, Democratic Republic of the
+		case "CD":
+			tmpeCodes = append(tmpeCodes, `Congo, Democratic Republic of the`)
+
+		// Central African Republic
+		case "CF":
+			tmpeCodes = append(tmpeCodes, `Central African Republic`)
+
+		// Congo
+		case "CG":
+			tmpeCodes = append(tmpeCodes, `Congo`)
+
+		// Switzerland
+		case "CH":
+			tmpeCodes = append(tmpeCodes, `Switzerland`)
+
+		// Cote d’Ivoire
+		case "CI":
+			tmpeCodes = append(tmpeCodes, `Cote d’Ivoire`)
+
+		// Cook Islands
+		case "CK":
+			tmpeCodes = append(tmpeCodes, `Cook Islands`)
+
+		// Chile
+		case "CL":
+			tmpeCodes = append(tmpeCodes, `Chile`)
+
+		// Cameroon
+		case "CM":
+			tmpeCodes = append(tmpeCodes, `Cameroon`)
+
+		// China
+		case "CN":
+			tmpeCodes = append(tmpeCodes, `China`)
+
+		// Colombia
+		case "CO":
+			tmpeCodes = append(tmpeCodes, `Colombia`)
+
+		// Costa Rica
+		case "CR":
+			tmpeCodes = append(tmpeCodes, `Costa Rica`)
+
+		// DEPRECATED, replaced by ME – Montenegro and RS – Serbia
+		case "CS":
+			tmpeCodes = append(tmpeCodes, `Serbia and Montenegro`)
+
+		// Cuba
+		case "CU":
+			tmpeCodes = append(tmpeCodes, `Cuba`)
+
+		// Cabo Verde
+		case "CV":
+			tmpeCodes = append(tmpeCodes, `Cabo Verde`)
+
+		// Curaçao
+		case "CW":
+			tmpeCodes = append(tmpeCodes, `Curaçao`)
+
+		// Christmas Island
+		case "CX":
+			tmpeCodes = append(tmpeCodes, `Christmas Island`)
+
+		// Cyprus
+		case "CY":
+			tmpeCodes = append(tmpeCodes, `Cyprus`)
+
+		// Czech Republic
+		case "CZ":
+			tmpeCodes = append(tmpeCodes, `Czech Republic`)
+
+		// Germany
+		case "DE":
+			tmpeCodes = append(tmpeCodes, `Germany`)
+
+		// Djibouti
+		case "DJ":
+			tmpeCodes = append(tmpeCodes, `Djibouti`)
+
+		// Denmark
+		case "DK":
+			tmpeCodes = append(tmpeCodes, `Denmark`)
+
+		// Dominica
+		case "DM":
+			tmpeCodes = append(tmpeCodes, `Dominica`)
+
+		// Dominican Republic
+		case "DO":
+			tmpeCodes = append(tmpeCodes, `Dominican Republic`)
+
+		// Algeria
+		case "DZ":
+			tmpeCodes = append(tmpeCodes, `Algeria`)
+
+		// Ecuador
+		case "EC":
+			tmpeCodes = append(tmpeCodes, `Ecuador`)
+
+		// Estonia
+		case "EE":
+			tmpeCodes = append(tmpeCodes, `Estonia`)
+
+		// Egypt
+		case "EG":
+			tmpeCodes = append(tmpeCodes, `Egypt`)
+
+		// Western Sahara
+		case "EH":
+			tmpeCodes = append(tmpeCodes, `Western Sahara`)
+
+		// Eritrea
+		case "ER":
+			tmpeCodes = append(tmpeCodes, `Eritrea`)
+
+		// Spain
+		case "ES":
+			tmpeCodes = append(tmpeCodes, `Spain`)
+
+		// Ethiopia
+		case "ET":
+			tmpeCodes = append(tmpeCodes, `Ethiopia`)
+
+		// Finland
+		case "FI":
+			tmpeCodes = append(tmpeCodes, `Finland`)
+
+		// Fiji
+		case "FJ":
+			tmpeCodes = append(tmpeCodes, `Fiji`)
+
+		// Falkland Islands (Malvinas)
+		case "FK":
+			tmpeCodes = append(tmpeCodes, `Falkland Islands (Malvinas)`)
+
+		// Micronesia, Federated States of
+		case "FM":
+			tmpeCodes = append(tmpeCodes, `Micronesia, Federated States of`)
+
+		// Faroe Islands
+		case "FO":
+			tmpeCodes = append(tmpeCodes, `Faroe Islands`)
+
+		// France
+		case "FR":
+			tmpeCodes = append(tmpeCodes, `France`)
+
+		// Gabon
+		case "GA":
+			tmpeCodes = append(tmpeCodes, `Gabon`)
+
+		// United Kingdom
+		case "GB":
+			tmpeCodes = append(tmpeCodes, `United Kingdom`)
+
+		// Grenada
+		case "GD":
+			tmpeCodes = append(tmpeCodes, `Grenada`)
+
+		// Georgia
+		case "GE":
+			tmpeCodes = append(tmpeCodes, `Georgia`)
+
+		// French Guiana
+		case "GF":
+			tmpeCodes = append(tmpeCodes, `French Guiana`)
+
+		// Guernsey
+		case "GG":
+			tmpeCodes = append(tmpeCodes, `Guernsey`)
+
+		// Ghana
+		case "GH":
+			tmpeCodes = append(tmpeCodes, `Ghana`)
+
+		// Gibraltar
+		case "GI":
+			tmpeCodes = append(tmpeCodes, `Gibraltar`)
+
+		// Greenland
+		case "GL":
+			tmpeCodes = append(tmpeCodes, `Greenland`)
+
+		// Gambia
+		case "GM":
+			tmpeCodes = append(tmpeCodes, `Gambia`)
+
+		// Guinea
+		case "GN":
+			tmpeCodes = append(tmpeCodes, `Guinea`)
+
+		// Guadeloupe
+		case "GP":
+			tmpeCodes = append(tmpeCodes, `Guadeloupe`)
+
+		// Equatorial Guinea
+		case "GQ":
+			tmpeCodes = append(tmpeCodes, `Equatorial Guinea`)
+
+		// Greece
+		case "GR":
+			tmpeCodes = append(tmpeCodes, `Greece`)
+
+		// South Georgia and the South Sandwich Islands
+		case "GS":
+			tmpeCodes = append(tmpeCodes, `South Georgia and the South Sandwich Islands`)
+
+		// Guatemala
+		case "GT":
+			tmpeCodes = append(tmpeCodes, `Guatemala`)
+
+		// Guam
+		case "GU":
+			tmpeCodes = append(tmpeCodes, `Guam`)
+
+		// Guinea-Bissau
+		case "GW":
+			tmpeCodes = append(tmpeCodes, `Guinea-Bissau`)
+
+		// Guyana
+		case "GY":
+			tmpeCodes = append(tmpeCodes, `Guyana`)
+
+		// Hong Kong
+		case "HK":
+			tmpeCodes = append(tmpeCodes, `Hong Kong`)
+
+		// Heard Island and McDonald Islands
+		case "HM":
+			tmpeCodes = append(tmpeCodes, `Heard Island and McDonald Islands`)
+
+		// Honduras
+		case "HN":
+			tmpeCodes = append(tmpeCodes, `Honduras`)
+
+		// Croatia
+		case "HR":
+			tmpeCodes = append(tmpeCodes, `Croatia`)
+
+		// Haiti
+		case "HT":
+			tmpeCodes = append(tmpeCodes, `Haiti`)
+
+		// Hungary
+		case "HU":
+			tmpeCodes = append(tmpeCodes, `Hungary`)
+
+		// Indonesia
+		case "ID":
+			tmpeCodes = append(tmpeCodes, `Indonesia`)
+
+		// Ireland
+		case "IE":
+			tmpeCodes = append(tmpeCodes, `Ireland`)
+
+		// Israel
+		case "IL":
+			tmpeCodes = append(tmpeCodes, `Israel`)
+
+		// Isle of Man
+		case "IM":
+			tmpeCodes = append(tmpeCodes, `Isle of Man`)
+
+		// India
+		case "IN":
+			tmpeCodes = append(tmpeCodes, `India`)
+
+		// British Indian Ocean Territory
+		case "IO":
+			tmpeCodes = append(tmpeCodes, `British Indian Ocean Territory`)
+
+		// Iraq
+		case "IQ":
+			tmpeCodes = append(tmpeCodes, `Iraq`)
+
+		// Iran, Islamic Republic of
+		case "IR":
+			tmpeCodes = append(tmpeCodes, `Iran, Islamic Republic of`)
+
+		// Iceland
+		case "IS":
+			tmpeCodes = append(tmpeCodes, `Iceland`)
+
+		// Italy
+		case "IT":
+			tmpeCodes = append(tmpeCodes, `Italy`)
+
+		// Jersey
+		case "JE":
+			tmpeCodes = append(tmpeCodes, `Jersey`)
+
+		// Jamaica
+		case "JM":
+			tmpeCodes = append(tmpeCodes, `Jamaica`)
+
+		// Jordan
+		case "JO":
+			tmpeCodes = append(tmpeCodes, `Jordan`)
+
+		// Japan
+		case "JP":
+			tmpeCodes = append(tmpeCodes, `Japan`)
+
+		// Kenya
+		case "KE":
+			tmpeCodes = append(tmpeCodes, `Kenya`)
+
+		// Kyrgyzstan
+		case "KG":
+			tmpeCodes = append(tmpeCodes, `Kyrgyzstan`)
+
+		// Cambodia
+		case "KH":
+			tmpeCodes = append(tmpeCodes, `Cambodia`)
+
+		// Kiribati
+		case "KI":
+			tmpeCodes = append(tmpeCodes, `Kiribati`)
+
+		// Comoros
+		case "KM":
+			tmpeCodes = append(tmpeCodes, `Comoros`)
+
+		// Saint Kitts and Nevis
+		case "KN":
+			tmpeCodes = append(tmpeCodes, `Saint Kitts and Nevis`)
+
+		// Korea, Democratic People’s Republic of
+		case "KP":
+			tmpeCodes = append(tmpeCodes, `Korea, Democratic People’s Republic of`)
+
+		// Korea, Republic of
+		case "KR":
+			tmpeCodes = append(tmpeCodes, `Korea, Republic of`)
+
+		// Kuwait
+		case "KW":
+			tmpeCodes = append(tmpeCodes, `Kuwait`)
+
+		// Cayman Islands
+		case "KY":
+			tmpeCodes = append(tmpeCodes, `Cayman Islands`)
+
+		// Kazakhstan
+		case "KZ":
+			tmpeCodes = append(tmpeCodes, `Kazakhstan`)
+
+		// Lao People’s Democratic Republic
+		case "LA":
+			tmpeCodes = append(tmpeCodes, `Lao People’s Democratic Republic`)
+
+		// Lebanon
+		case "LB":
+			tmpeCodes = append(tmpeCodes, `Lebanon`)
+
+		// Saint Lucia
+		case "LC":
+			tmpeCodes = append(tmpeCodes, `Saint Lucia`)
+
+		// Liechtenstein
+		case "LI":
+			tmpeCodes = append(tmpeCodes, `Liechtenstein`)
+
+		// Sri Lanka
+		case "LK":
+			tmpeCodes = append(tmpeCodes, `Sri Lanka`)
+
+		// Liberia
+		case "LR":
+			tmpeCodes = append(tmpeCodes, `Liberia`)
+
+		// Lesotho
+		case "LS":
+			tmpeCodes = append(tmpeCodes, `Lesotho`)
+
+		// Lithuania
+		case "LT":
+			tmpeCodes = append(tmpeCodes, `Lithuania`)
+
+		// Luxembourg
+		case "LU":
+			tmpeCodes = append(tmpeCodes, `Luxembourg`)
+
+		// Latvia
+		case "LV":
+			tmpeCodes = append(tmpeCodes, `Latvia`)
+
+		// Libya
+		case "LY":
+			tmpeCodes = append(tmpeCodes, `Libya`)
+
+		// Morocco
+		case "MA":
+			tmpeCodes = append(tmpeCodes, `Morocco`)
+
+		// Monaco
+		case "MC":
+			tmpeCodes = append(tmpeCodes, `Monaco`)
+
+		// Moldova, Repubic of
+		case "MD":
+			tmpeCodes = append(tmpeCodes, `Moldova, Repubic of`)
+
+		// Montenegro
+		case "ME":
+			tmpeCodes = append(tmpeCodes, `Montenegro`)
+
+		// Saint Martin (French part)
+		case "MF":
+			tmpeCodes = append(tmpeCodes, `Saint Martin (French part)`)
+
+		// Madagascar
+		case "MG":
+			tmpeCodes = append(tmpeCodes, `Madagascar`)
+
+		// Marshall Islands
+		case "MH":
+			tmpeCodes = append(tmpeCodes, `Marshall Islands`)
+
+		// Macedonia, the former Yugoslav Republic of
+		case "MK":
+			tmpeCodes = append(tmpeCodes, `Macedonia, the former Yugoslav Republic of`)
+
+		// Mali
+		case "ML":
+			tmpeCodes = append(tmpeCodes, `Mali`)
+
+		// Myanmar
+		case "MM":
+			tmpeCodes = append(tmpeCodes, `Myanmar`)
+
+		// Mongolia
+		case "MN":
+			tmpeCodes = append(tmpeCodes, `Mongolia`)
+
+		// Macao
+		case "MO":
+			tmpeCodes = append(tmpeCodes, `Macao`)
+
+		// Northern Mariana Islands
+		case "MP":
+			tmpeCodes = append(tmpeCodes, `Northern Mariana Islands`)
+
+		// Martinique
+		case "MQ":
+			tmpeCodes = append(tmpeCodes, `Martinique`)
+
+		// Mauritania
+		case "MR":
+			tmpeCodes = append(tmpeCodes, `Mauritania`)
+
+		// Montserrat
+		case "MS":
+			tmpeCodes = append(tmpeCodes, `Montserrat`)
+
+		// Malta
+		case "MT":
+			tmpeCodes = append(tmpeCodes, `Malta`)
+
+		// Mauritius
+		case "MU":
+			tmpeCodes = append(tmpeCodes, `Mauritius`)
+
+		// Maldives
+		case "MV":
+			tmpeCodes = append(tmpeCodes, `Maldives`)
+
+		// Malawi
+		case "MW":
+			tmpeCodes = append(tmpeCodes, `Malawi`)
+
+		// Mexico
+		case "MX":
+			tmpeCodes = append(tmpeCodes, `Mexico`)
+
+		// Malaysia
+		case "MY":
+			tmpeCodes = append(tmpeCodes, `Malaysia`)
+
+		// Mozambique
+		case "MZ":
+			tmpeCodes = append(tmpeCodes, `Mozambique`)
+
+		// Namibia
+		case "NA":
+			tmpeCodes = append(tmpeCodes, `Namibia`)
+
+		// New Caledonia
+		case "NC":
+			tmpeCodes = append(tmpeCodes, `New Caledonia`)
+
+		// Niger
+		case "NE":
+			tmpeCodes = append(tmpeCodes, `Niger`)
+
+		// Norfolk Island
+		case "NF":
+			tmpeCodes = append(tmpeCodes, `Norfolk Island`)
+
+		// Nigeria
+		case "NG":
+			tmpeCodes = append(tmpeCodes, `Nigeria`)
+
+		// Nicaragua
+		case "NI":
+			tmpeCodes = append(tmpeCodes, `Nicaragua`)
+
+		// Netherlands
+		case "NL":
+			tmpeCodes = append(tmpeCodes, `Netherlands`)
+
+		// Norway
+		case "NO":
+			tmpeCodes = append(tmpeCodes, `Norway`)
+
+		// Nepal
+		case "NP":
+			tmpeCodes = append(tmpeCodes, `Nepal`)
+
+		// Nauru
+		case "NR":
+			tmpeCodes = append(tmpeCodes, `Nauru`)
+
+		// Niue
+		case "NU":
+			tmpeCodes = append(tmpeCodes, `Niue`)
+
+		// New Zealand
+		case "NZ":
+			tmpeCodes = append(tmpeCodes, `New Zealand`)
+
+		// Oman
+		case "OM":
+			tmpeCodes = append(tmpeCodes, `Oman`)
+
+		// Panama
+		case "PA":
+			tmpeCodes = append(tmpeCodes, `Panama`)
+
+		// Peru
+		case "PE":
+			tmpeCodes = append(tmpeCodes, `Peru`)
+
+		// French Polynesia
+		case "PF":
+			tmpeCodes = append(tmpeCodes, `French Polynesia`)
+
+		// Papua New Guinea
+		case "PG":
+			tmpeCodes = append(tmpeCodes, `Papua New Guinea`)
+
+		// Philippines
+		case "PH":
+			tmpeCodes = append(tmpeCodes, `Philippines`)
+
+		// Pakistan
+		case "PK":
+			tmpeCodes = append(tmpeCodes, `Pakistan`)
+
+		// Poland
+		case "PL":
+			tmpeCodes = append(tmpeCodes, `Poland`)
+
+		// Saint Pierre and Miquelon
+		case "PM":
+			tmpeCodes = append(tmpeCodes, `Saint Pierre and Miquelon`)
+
+		// Pitcairn
+		case "PN":
+			tmpeCodes = append(tmpeCodes, `Pitcairn`)
+
+		// Puerto Rico
+		case "PR":
+			tmpeCodes = append(tmpeCodes, `Puerto Rico`)
+
+		// Palestine, State of
+		case "PS":
+			tmpeCodes = append(tmpeCodes, `Palestine, State of`)
+
+		// Portugal
+		case "PT":
+			tmpeCodes = append(tmpeCodes, `Portugal`)
+
+		// Palau
+		case "PW":
+			tmpeCodes = append(tmpeCodes, `Palau`)
+
+		// Paraguay
+		case "PY":
+			tmpeCodes = append(tmpeCodes, `Paraguay`)
+
+		// Qatar
+		case "QA":
+			tmpeCodes = append(tmpeCodes, `Qatar`)
+
+		// Réunion
+		case "RE":
+			tmpeCodes = append(tmpeCodes, `Réunion`)
+
+		// Romania
+		case "RO":
+			tmpeCodes = append(tmpeCodes, `Romania`)
+
+		// Serbia
+		case "RS":
+			tmpeCodes = append(tmpeCodes, `Serbia`)
+
+		// Russian Federation
+		case "RU":
+			tmpeCodes = append(tmpeCodes, `Russian Federation`)
+
+		// Rwanda
+		case "RW":
+			tmpeCodes = append(tmpeCodes, `Rwanda`)
+
+		// Saudi Arabia
+		case "SA":
+			tmpeCodes = append(tmpeCodes, `Saudi Arabia`)
+
+		// Solomon Islands
+		case "SB":
+			tmpeCodes = append(tmpeCodes, `Solomon Islands`)
+
+		// Seychelles
+		case "SC":
+			tmpeCodes = append(tmpeCodes, `Seychelles`)
+
+		// Sudan
+		case "SD":
+			tmpeCodes = append(tmpeCodes, `Sudan`)
+
+		// Sweden
+		case "SE":
+			tmpeCodes = append(tmpeCodes, `Sweden`)
+
+		// Singapore
+		case "SG":
+			tmpeCodes = append(tmpeCodes, `Singapore`)
+
+		// Saint Helena, Ascension and Tristan da Cunha
+		case "SH":
+			tmpeCodes = append(tmpeCodes, `Saint Helena, Ascension and Tristan da Cunha`)
+
+		// Slovenia
+		case "SI":
+			tmpeCodes = append(tmpeCodes, `Slovenia`)
+
+		// Svalbard and Jan Mayen
+		case "SJ":
+			tmpeCodes = append(tmpeCodes, `Svalbard and Jan Mayen`)
+
+		// Slovakia
+		case "SK":
+			tmpeCodes = append(tmpeCodes, `Slovakia`)
+
+		// Sierra Leone
+		case "SL":
+			tmpeCodes = append(tmpeCodes, `Sierra Leone`)
+
+		// San Marino
+		case "SM":
+			tmpeCodes = append(tmpeCodes, `San Marino`)
+
+		// Senegal
+		case "SN":
+			tmpeCodes = append(tmpeCodes, `Senegal`)
+
+		// Somalia
+		case "SO":
+			tmpeCodes = append(tmpeCodes, `Somalia`)
+
+		// Suriname
+		case "SR":
+			tmpeCodes = append(tmpeCodes, `Suriname`)
+
+		// South Sudan
+		case "SS":
+			tmpeCodes = append(tmpeCodes, `South Sudan`)
+
+		// Sao Tome and Principe
+		case "ST":
+			tmpeCodes = append(tmpeCodes, `Sao Tome and Principe`)
+
+		// El Salvador
+		case "SV":
+			tmpeCodes = append(tmpeCodes, `El Salvador`)
+
+		// Sint Maarten (Dutch part)
+		case "SX":
+			tmpeCodes = append(tmpeCodes, `Sint Maarten (Dutch part)`)
+
+		// Syrian Arab Republic
+		case "SY":
+			tmpeCodes = append(tmpeCodes, `Syrian Arab Republic`)
+
+		// Swaziland
+		case "SZ":
+			tmpeCodes = append(tmpeCodes, `Swaziland`)
+
+		// Turks and Caicos Islands
+		case "TC":
+			tmpeCodes = append(tmpeCodes, `Turks and Caicos Islands`)
+
+		// Chad
+		case "TD":
+			tmpeCodes = append(tmpeCodes, `Chad`)
+
+		// French Southern Territories
+		case "TF":
+			tmpeCodes = append(tmpeCodes, `French Southern Territories`)
+
+		// Togo
+		case "TG":
+			tmpeCodes = append(tmpeCodes, `Togo`)
+
+		// Thailand
+		case "TH":
+			tmpeCodes = append(tmpeCodes, `Thailand`)
+
+		// Tajikistan
+		case "TJ":
+			tmpeCodes = append(tmpeCodes, `Tajikistan`)
+
+		// Tokelau
+		case "TK":
+			tmpeCodes = append(tmpeCodes, `Tokelau`)
+
+		// Timor-Leste
+		case "TL":
+			tmpeCodes = append(tmpeCodes, `Timor-Leste`)
+
+		// Turkmenistan
+		case "TM":
+			tmpeCodes = append(tmpeCodes, `Turkmenistan`)
+
+		// Tunisia
+		case "TN":
+			tmpeCodes = append(tmpeCodes, `Tunisia`)
+
+		// Tonga
+		case "TO":
+			tmpeCodes = append(tmpeCodes, `Tonga`)
+
+		// Turkey
+		case "TR":
+			tmpeCodes = append(tmpeCodes, `Turkey`)
+
+		// Trinidad and Tobago
+		case "TT":
+			tmpeCodes = append(tmpeCodes, `Trinidad and Tobago`)
+
+		// Tuvalu
+		case "TV":
+			tmpeCodes = append(tmpeCodes, `Tuvalu`)
+
+		// Taiwan, Province of China
+		case "TW":
+			tmpeCodes = append(tmpeCodes, `Taiwan, Province of China`)
+
+		// Tanzania, United Republic of
+		case "TZ":
+			tmpeCodes = append(tmpeCodes, `Tanzania, United Republic of`)
+
+		// Ukraine
+		case "UA":
+			tmpeCodes = append(tmpeCodes, `Ukraine`)
+
+		// Uganda
+		case "UG":
+			tmpeCodes = append(tmpeCodes, `Uganda`)
+
+		// United States Minor Outlying Islands
+		case "UM":
+			tmpeCodes = append(tmpeCodes, `United States Minor Outlying Islands`)
+
+		// United States
+		case "US":
+			tmpeCodes = append(tmpeCodes, `United States`)
+
+		// Uruguay
+		case "UY":
+			tmpeCodes = append(tmpeCodes, `Uruguay`)
+
+		// Uzbekistan
+		case "UZ":
+			tmpeCodes = append(tmpeCodes, `Uzbekistan`)
+
+		// Holy See (Vatican City State)
+		case "VA":
+			tmpeCodes = append(tmpeCodes, `Holy See (Vatican City State)`)
+
+		// Saint Vincent and the Grenadines
+		case "VC":
+			tmpeCodes = append(tmpeCodes, `Saint Vincent and the Grenadines`)
+
+		// Venezuela, Bolivarian Republic of
+		case "VE":
+			tmpeCodes = append(tmpeCodes, `Venezuela, Bolivarian Republic of`)
+
+		// Virgin Islands, British
+		case "VG":
+			tmpeCodes = append(tmpeCodes, `Virgin Islands, British`)
+
+		// Virgin Islands, US
+		case "VI":
+			tmpeCodes = append(tmpeCodes, `Virgin Islands, US`)
+
+		// Viet Nam
+		case "VN":
+			tmpeCodes = append(tmpeCodes, `Viet Nam`)
+
+		// Vanuatu
+		case "VU":
+			tmpeCodes = append(tmpeCodes, `Vanuatu`)
+
+		// Wallis and Futuna
+		case "WF":
+			tmpeCodes = append(tmpeCodes, `Wallis and Futuna`)
+
+		// Samoa
+		case "WS":
+			tmpeCodes = append(tmpeCodes, `Samoa`)
+
+		// Yemen
+		case "YE":
+			tmpeCodes = append(tmpeCodes, `Yemen`)
+
+		// Mayotte
+		case "YT":
+			tmpeCodes = append(tmpeCodes, `Mayotte`)
+
+		// DEPRECATED, replaced by ME – Montenegro and RS – Serbia
+		case "YU":
+			tmpeCodes = append(tmpeCodes, `Yugoslavia`)
+
+		// South Africa
+		case "ZA":
+			tmpeCodes = append(tmpeCodes, `South Africa`)
+
+		// Zambia
+		case "ZM":
+			tmpeCodes = append(tmpeCodes, `Zambia`)
+
+		// Zimbabwe
+		case "ZW":
+			tmpeCodes = append(tmpeCodes, `Zimbabwe`)
+		default:
+			return fmt.Errorf("undefined code for CountryCode has been passed, got [%s]", v)
+		}
 	}
+	*c = tmpeCodes
 	return nil
 }
 
 // CountryOfPublication Country code – ISO 3166-1
-type CountryOfPublication string
+type CountryOfPublication []string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
 func (c *CountryOfPublication) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	var v string
 	d.DecodeElement(&v, &start)
-	switch v {
-
-  // Andorra
-  case "AD":
-		*c = `Andorra`
-
-  // United Arab Emirates
-  case "AE":
-		*c = `United Arab Emirates`
-
-  // Afghanistan
-  case "AF":
-		*c = `Afghanistan`
-
-  // Antigua and Barbuda
-  case "AG":
-		*c = `Antigua and Barbuda`
-
-  // Anguilla
-  case "AI":
-		*c = `Anguilla`
-
-  // Albania
-  case "AL":
-		*c = `Albania`
-
-  // Armenia
-  case "AM":
-		*c = `Armenia`
-
-  // Deprecated – use BQ, CW or SX as appropriate
-  case "AN":
-		*c = `Netherlands Antilles`
-
-  // Angola
-  case "AO":
-		*c = `Angola`
-
-  // Antarctica
-  case "AQ":
-		*c = `Antarctica`
-
-  // Argentina
-  case "AR":
-		*c = `Argentina`
-
-  // American Samoa
-  case "AS":
-		*c = `American Samoa`
-
-  // Austria
-  case "AT":
-		*c = `Austria`
-
-  // Australia
-  case "AU":
-		*c = `Australia`
-
-  // Aruba
-  case "AW":
-		*c = `Aruba`
-
-  // Åland Islands
-  case "AX":
-		*c = `Åland Islands`
-
-  // Azerbaijan
-  case "AZ":
-		*c = `Azerbaijan`
-
-  // Bosnia and Herzegovina
-  case "BA":
-		*c = `Bosnia and Herzegovina`
-
-  // Barbados
-  case "BB":
-		*c = `Barbados`
-
-  // Bangladesh
-  case "BD":
-		*c = `Bangladesh`
-
-  // Belgium
-  case "BE":
-		*c = `Belgium`
-
-  // Burkina Faso
-  case "BF":
-		*c = `Burkina Faso`
-
-  // Bulgaria
-  case "BG":
-		*c = `Bulgaria`
-
-  // Bahrain
-  case "BH":
-		*c = `Bahrain`
-
-  // Burundi
-  case "BI":
-		*c = `Burundi`
-
-  // Benin
-  case "BJ":
-		*c = `Benin`
-
-  // Saint Barthélemy
-  case "BL":
-		*c = `Saint Barthélemy`
-
-  // Bermuda
-  case "BM":
-		*c = `Bermuda`
-
-  // Brunei Darussalam
-  case "BN":
-		*c = `Brunei Darussalam`
-
-  // Bolivia, Plurinational State of
-  case "BO":
-		*c = `Bolivia, Plurinational State of`
-
-  // Bonaire, Sint Eustatius and Saba
-  case "BQ":
-		*c = `Bonaire, Sint Eustatius and Saba`
-
-  // Brazil
-  case "BR":
-		*c = `Brazil`
-
-  // Bahamas
-  case "BS":
-		*c = `Bahamas`
-
-  // Bhutan
-  case "BT":
-		*c = `Bhutan`
-
-  // Bouvet Island
-  case "BV":
-		*c = `Bouvet Island`
-
-  // Botswana
-  case "BW":
-		*c = `Botswana`
-
-  // Belarus
-  case "BY":
-		*c = `Belarus`
-
-  // Belize
-  case "BZ":
-		*c = `Belize`
-
-  // Canada
-  case "CA":
-		*c = `Canada`
-
-  // Cocos (Keeling) Islands
-  case "CC":
-		*c = `Cocos (Keeling) Islands`
-
-  // Congo, Democratic Republic of the
-  case "CD":
-		*c = `Congo, Democratic Republic of the`
-
-  // Central African Republic
-  case "CF":
-		*c = `Central African Republic`
-
-  // Congo
-  case "CG":
-		*c = `Congo`
-
-  // Switzerland
-  case "CH":
-		*c = `Switzerland`
-
-  // Cote d’Ivoire
-  case "CI":
-		*c = `Cote d’Ivoire`
-
-  // Cook Islands
-  case "CK":
-		*c = `Cook Islands`
-
-  // Chile
-  case "CL":
-		*c = `Chile`
-
-  // Cameroon
-  case "CM":
-		*c = `Cameroon`
-
-  // China
-  case "CN":
-		*c = `China`
-
-  // Colombia
-  case "CO":
-		*c = `Colombia`
-
-  // Costa Rica
-  case "CR":
-		*c = `Costa Rica`
-
-  // DEPRECATED, replaced by ME – Montenegro and RS – Serbia
-  case "CS":
-		*c = `Serbia and Montenegro`
-
-  // Cuba
-  case "CU":
-		*c = `Cuba`
-
-  // Cabo Verde
-  case "CV":
-		*c = `Cabo Verde`
-
-  // Curaçao
-  case "CW":
-		*c = `Curaçao`
-
-  // Christmas Island
-  case "CX":
-		*c = `Christmas Island`
-
-  // Cyprus
-  case "CY":
-		*c = `Cyprus`
-
-  // Czech Republic
-  case "CZ":
-		*c = `Czech Republic`
-
-  // Germany
-  case "DE":
-		*c = `Germany`
-
-  // Djibouti
-  case "DJ":
-		*c = `Djibouti`
-
-  // Denmark
-  case "DK":
-		*c = `Denmark`
-
-  // Dominica
-  case "DM":
-		*c = `Dominica`
-
-  // Dominican Republic
-  case "DO":
-		*c = `Dominican Republic`
-
-  // Algeria
-  case "DZ":
-		*c = `Algeria`
-
-  // Ecuador
-  case "EC":
-		*c = `Ecuador`
-
-  // Estonia
-  case "EE":
-		*c = `Estonia`
-
-  // Egypt
-  case "EG":
-		*c = `Egypt`
-
-  // Western Sahara
-  case "EH":
-		*c = `Western Sahara`
-
-  // Eritrea
-  case "ER":
-		*c = `Eritrea`
-
-  // Spain
-  case "ES":
-		*c = `Spain`
-
-  // Ethiopia
-  case "ET":
-		*c = `Ethiopia`
-
-  // Finland
-  case "FI":
-		*c = `Finland`
-
-  // Fiji
-  case "FJ":
-		*c = `Fiji`
-
-  // Falkland Islands (Malvinas)
-  case "FK":
-		*c = `Falkland Islands (Malvinas)`
-
-  // Micronesia, Federated States of
-  case "FM":
-		*c = `Micronesia, Federated States of`
-
-  // Faroe Islands
-  case "FO":
-		*c = `Faroe Islands`
-
-  // France
-  case "FR":
-		*c = `France`
-
-  // Gabon
-  case "GA":
-		*c = `Gabon`
-
-  // United Kingdom
-  case "GB":
-		*c = `United Kingdom`
-
-  // Grenada
-  case "GD":
-		*c = `Grenada`
-
-  // Georgia
-  case "GE":
-		*c = `Georgia`
-
-  // French Guiana
-  case "GF":
-		*c = `French Guiana`
-
-  // Guernsey
-  case "GG":
-		*c = `Guernsey`
-
-  // Ghana
-  case "GH":
-		*c = `Ghana`
-
-  // Gibraltar
-  case "GI":
-		*c = `Gibraltar`
-
-  // Greenland
-  case "GL":
-		*c = `Greenland`
-
-  // Gambia
-  case "GM":
-		*c = `Gambia`
-
-  // Guinea
-  case "GN":
-		*c = `Guinea`
-
-  // Guadeloupe
-  case "GP":
-		*c = `Guadeloupe`
-
-  // Equatorial Guinea
-  case "GQ":
-		*c = `Equatorial Guinea`
-
-  // Greece
-  case "GR":
-		*c = `Greece`
-
-  // South Georgia and the South Sandwich Islands
-  case "GS":
-		*c = `South Georgia and the South Sandwich Islands`
-
-  // Guatemala
-  case "GT":
-		*c = `Guatemala`
-
-  // Guam
-  case "GU":
-		*c = `Guam`
-
-  // Guinea-Bissau
-  case "GW":
-		*c = `Guinea-Bissau`
-
-  // Guyana
-  case "GY":
-		*c = `Guyana`
-
-  // Hong Kong
-  case "HK":
-		*c = `Hong Kong`
-
-  // Heard Island and McDonald Islands
-  case "HM":
-		*c = `Heard Island and McDonald Islands`
-
-  // Honduras
-  case "HN":
-		*c = `Honduras`
-
-  // Croatia
-  case "HR":
-		*c = `Croatia`
-
-  // Haiti
-  case "HT":
-		*c = `Haiti`
-
-  // Hungary
-  case "HU":
-		*c = `Hungary`
-
-  // Indonesia
-  case "ID":
-		*c = `Indonesia`
-
-  // Ireland
-  case "IE":
-		*c = `Ireland`
-
-  // Israel
-  case "IL":
-		*c = `Israel`
-
-  // Isle of Man
-  case "IM":
-		*c = `Isle of Man`
-
-  // India
-  case "IN":
-		*c = `India`
-
-  // British Indian Ocean Territory
-  case "IO":
-		*c = `British Indian Ocean Territory`
-
-  // Iraq
-  case "IQ":
-		*c = `Iraq`
-
-  // Iran, Islamic Republic of
-  case "IR":
-		*c = `Iran, Islamic Republic of`
-
-  // Iceland
-  case "IS":
-		*c = `Iceland`
-
-  // Italy
-  case "IT":
-		*c = `Italy`
-
-  // Jersey
-  case "JE":
-		*c = `Jersey`
-
-  // Jamaica
-  case "JM":
-		*c = `Jamaica`
-
-  // Jordan
-  case "JO":
-		*c = `Jordan`
-
-  // Japan
-  case "JP":
-		*c = `Japan`
-
-  // Kenya
-  case "KE":
-		*c = `Kenya`
-
-  // Kyrgyzstan
-  case "KG":
-		*c = `Kyrgyzstan`
-
-  // Cambodia
-  case "KH":
-		*c = `Cambodia`
-
-  // Kiribati
-  case "KI":
-		*c = `Kiribati`
-
-  // Comoros
-  case "KM":
-		*c = `Comoros`
-
-  // Saint Kitts and Nevis
-  case "KN":
-		*c = `Saint Kitts and Nevis`
-
-  // Korea, Democratic People’s Republic of
-  case "KP":
-		*c = `Korea, Democratic People’s Republic of`
-
-  // Korea, Republic of
-  case "KR":
-		*c = `Korea, Republic of`
-
-  // Kuwait
-  case "KW":
-		*c = `Kuwait`
-
-  // Cayman Islands
-  case "KY":
-		*c = `Cayman Islands`
-
-  // Kazakhstan
-  case "KZ":
-		*c = `Kazakhstan`
-
-  // Lao People’s Democratic Republic
-  case "LA":
-		*c = `Lao People’s Democratic Republic`
-
-  // Lebanon
-  case "LB":
-		*c = `Lebanon`
-
-  // Saint Lucia
-  case "LC":
-		*c = `Saint Lucia`
-
-  // Liechtenstein
-  case "LI":
-		*c = `Liechtenstein`
-
-  // Sri Lanka
-  case "LK":
-		*c = `Sri Lanka`
-
-  // Liberia
-  case "LR":
-		*c = `Liberia`
-
-  // Lesotho
-  case "LS":
-		*c = `Lesotho`
-
-  // Lithuania
-  case "LT":
-		*c = `Lithuania`
-
-  // Luxembourg
-  case "LU":
-		*c = `Luxembourg`
-
-  // Latvia
-  case "LV":
-		*c = `Latvia`
-
-  // Libya
-  case "LY":
-		*c = `Libya`
-
-  // Morocco
-  case "MA":
-		*c = `Morocco`
-
-  // Monaco
-  case "MC":
-		*c = `Monaco`
-
-  // Moldova, Repubic of
-  case "MD":
-		*c = `Moldova, Repubic of`
-
-  // Montenegro
-  case "ME":
-		*c = `Montenegro`
-
-  // Saint Martin (French part)
-  case "MF":
-		*c = `Saint Martin (French part)`
-
-  // Madagascar
-  case "MG":
-		*c = `Madagascar`
-
-  // Marshall Islands
-  case "MH":
-		*c = `Marshall Islands`
-
-  // Macedonia, the former Yugoslav Republic of
-  case "MK":
-		*c = `Macedonia, the former Yugoslav Republic of`
-
-  // Mali
-  case "ML":
-		*c = `Mali`
-
-  // Myanmar
-  case "MM":
-		*c = `Myanmar`
-
-  // Mongolia
-  case "MN":
-		*c = `Mongolia`
-
-  // Macao
-  case "MO":
-		*c = `Macao`
-
-  // Northern Mariana Islands
-  case "MP":
-		*c = `Northern Mariana Islands`
-
-  // Martinique
-  case "MQ":
-		*c = `Martinique`
-
-  // Mauritania
-  case "MR":
-		*c = `Mauritania`
-
-  // Montserrat
-  case "MS":
-		*c = `Montserrat`
-
-  // Malta
-  case "MT":
-		*c = `Malta`
-
-  // Mauritius
-  case "MU":
-		*c = `Mauritius`
-
-  // Maldives
-  case "MV":
-		*c = `Maldives`
-
-  // Malawi
-  case "MW":
-		*c = `Malawi`
-
-  // Mexico
-  case "MX":
-		*c = `Mexico`
-
-  // Malaysia
-  case "MY":
-		*c = `Malaysia`
-
-  // Mozambique
-  case "MZ":
-		*c = `Mozambique`
-
-  // Namibia
-  case "NA":
-		*c = `Namibia`
-
-  // New Caledonia
-  case "NC":
-		*c = `New Caledonia`
-
-  // Niger
-  case "NE":
-		*c = `Niger`
-
-  // Norfolk Island
-  case "NF":
-		*c = `Norfolk Island`
-
-  // Nigeria
-  case "NG":
-		*c = `Nigeria`
-
-  // Nicaragua
-  case "NI":
-		*c = `Nicaragua`
-
-  // Netherlands
-  case "NL":
-		*c = `Netherlands`
-
-  // Norway
-  case "NO":
-		*c = `Norway`
-
-  // Nepal
-  case "NP":
-		*c = `Nepal`
-
-  // Nauru
-  case "NR":
-		*c = `Nauru`
-
-  // Niue
-  case "NU":
-		*c = `Niue`
-
-  // New Zealand
-  case "NZ":
-		*c = `New Zealand`
-
-  // Oman
-  case "OM":
-		*c = `Oman`
-
-  // Panama
-  case "PA":
-		*c = `Panama`
-
-  // Peru
-  case "PE":
-		*c = `Peru`
-
-  // French Polynesia
-  case "PF":
-		*c = `French Polynesia`
-
-  // Papua New Guinea
-  case "PG":
-		*c = `Papua New Guinea`
-
-  // Philippines
-  case "PH":
-		*c = `Philippines`
-
-  // Pakistan
-  case "PK":
-		*c = `Pakistan`
-
-  // Poland
-  case "PL":
-		*c = `Poland`
-
-  // Saint Pierre and Miquelon
-  case "PM":
-		*c = `Saint Pierre and Miquelon`
-
-  // Pitcairn
-  case "PN":
-		*c = `Pitcairn`
-
-  // Puerto Rico
-  case "PR":
-		*c = `Puerto Rico`
-
-  // Palestine, State of
-  case "PS":
-		*c = `Palestine, State of`
-
-  // Portugal
-  case "PT":
-		*c = `Portugal`
-
-  // Palau
-  case "PW":
-		*c = `Palau`
-
-  // Paraguay
-  case "PY":
-		*c = `Paraguay`
-
-  // Qatar
-  case "QA":
-		*c = `Qatar`
-
-  // Réunion
-  case "RE":
-		*c = `Réunion`
-
-  // Romania
-  case "RO":
-		*c = `Romania`
-
-  // Serbia
-  case "RS":
-		*c = `Serbia`
-
-  // Russian Federation
-  case "RU":
-		*c = `Russian Federation`
-
-  // Rwanda
-  case "RW":
-		*c = `Rwanda`
-
-  // Saudi Arabia
-  case "SA":
-		*c = `Saudi Arabia`
-
-  // Solomon Islands
-  case "SB":
-		*c = `Solomon Islands`
-
-  // Seychelles
-  case "SC":
-		*c = `Seychelles`
-
-  // Sudan
-  case "SD":
-		*c = `Sudan`
-
-  // Sweden
-  case "SE":
-		*c = `Sweden`
-
-  // Singapore
-  case "SG":
-		*c = `Singapore`
-
-  // Saint Helena, Ascension and Tristan da Cunha
-  case "SH":
-		*c = `Saint Helena, Ascension and Tristan da Cunha`
-
-  // Slovenia
-  case "SI":
-		*c = `Slovenia`
-
-  // Svalbard and Jan Mayen
-  case "SJ":
-		*c = `Svalbard and Jan Mayen`
-
-  // Slovakia
-  case "SK":
-		*c = `Slovakia`
-
-  // Sierra Leone
-  case "SL":
-		*c = `Sierra Leone`
-
-  // San Marino
-  case "SM":
-		*c = `San Marino`
-
-  // Senegal
-  case "SN":
-		*c = `Senegal`
-
-  // Somalia
-  case "SO":
-		*c = `Somalia`
-
-  // Suriname
-  case "SR":
-		*c = `Suriname`
-
-  // South Sudan
-  case "SS":
-		*c = `South Sudan`
-
-  // Sao Tome and Principe
-  case "ST":
-		*c = `Sao Tome and Principe`
-
-  // El Salvador
-  case "SV":
-		*c = `El Salvador`
-
-  // Sint Maarten (Dutch part)
-  case "SX":
-		*c = `Sint Maarten (Dutch part)`
-
-  // Syrian Arab Republic
-  case "SY":
-		*c = `Syrian Arab Republic`
-
-  // Swaziland
-  case "SZ":
-		*c = `Swaziland`
-
-  // Turks and Caicos Islands
-  case "TC":
-		*c = `Turks and Caicos Islands`
-
-  // Chad
-  case "TD":
-		*c = `Chad`
-
-  // French Southern Territories
-  case "TF":
-		*c = `French Southern Territories`
-
-  // Togo
-  case "TG":
-		*c = `Togo`
-
-  // Thailand
-  case "TH":
-		*c = `Thailand`
-
-  // Tajikistan
-  case "TJ":
-		*c = `Tajikistan`
-
-  // Tokelau
-  case "TK":
-		*c = `Tokelau`
-
-  // Timor-Leste
-  case "TL":
-		*c = `Timor-Leste`
-
-  // Turkmenistan
-  case "TM":
-		*c = `Turkmenistan`
-
-  // Tunisia
-  case "TN":
-		*c = `Tunisia`
-
-  // Tonga
-  case "TO":
-		*c = `Tonga`
-
-  // Turkey
-  case "TR":
-		*c = `Turkey`
-
-  // Trinidad and Tobago
-  case "TT":
-		*c = `Trinidad and Tobago`
-
-  // Tuvalu
-  case "TV":
-		*c = `Tuvalu`
-
-  // Taiwan, Province of China
-  case "TW":
-		*c = `Taiwan, Province of China`
-
-  // Tanzania, United Republic of
-  case "TZ":
-		*c = `Tanzania, United Republic of`
-
-  // Ukraine
-  case "UA":
-		*c = `Ukraine`
-
-  // Uganda
-  case "UG":
-		*c = `Uganda`
-
-  // United States Minor Outlying Islands
-  case "UM":
-		*c = `United States Minor Outlying Islands`
-
-  // United States
-  case "US":
-		*c = `United States`
-
-  // Uruguay
-  case "UY":
-		*c = `Uruguay`
-
-  // Uzbekistan
-  case "UZ":
-		*c = `Uzbekistan`
-
-  // Holy See (Vatican City State)
-  case "VA":
-		*c = `Holy See (Vatican City State)`
-
-  // Saint Vincent and the Grenadines
-  case "VC":
-		*c = `Saint Vincent and the Grenadines`
-
-  // Venezuela, Bolivarian Republic of
-  case "VE":
-		*c = `Venezuela, Bolivarian Republic of`
-
-  // Virgin Islands, British
-  case "VG":
-		*c = `Virgin Islands, British`
-
-  // Virgin Islands, US
-  case "VI":
-		*c = `Virgin Islands, US`
-
-  // Viet Nam
-  case "VN":
-		*c = `Viet Nam`
-
-  // Vanuatu
-  case "VU":
-		*c = `Vanuatu`
-
-  // Wallis and Futuna
-  case "WF":
-		*c = `Wallis and Futuna`
-
-  // Samoa
-  case "WS":
-		*c = `Samoa`
-
-  // Yemen
-  case "YE":
-		*c = `Yemen`
-
-  // Mayotte
-  case "YT":
-		*c = `Mayotte`
-
-  // DEPRECATED, replaced by ME – Montenegro and RS – Serbia
-  case "YU":
-		*c = `Yugoslavia`
-
-  // South Africa
-  case "ZA":
-		*c = `South Africa`
-
-  // Zambia
-  case "ZM":
-		*c = `Zambia`
-
-  // Zimbabwe
-  case "ZW":
-		*c = `Zimbabwe`
-	default:
-		return fmt.Errorf("undefined code for CountryOfPublication has been passed, got [%s]", v)
+	codes := strings.Split(v, " ")
+	tmpeCodes := []string{}
+	for _, code := range codes {
+		switch code {
+
+		// Andorra
+		case "AD":
+			tmpeCodes = append(tmpeCodes, `Andorra`)
+
+		// United Arab Emirates
+		case "AE":
+			tmpeCodes = append(tmpeCodes, `United Arab Emirates`)
+
+		// Afghanistan
+		case "AF":
+			tmpeCodes = append(tmpeCodes, `Afghanistan`)
+
+		// Antigua and Barbuda
+		case "AG":
+			tmpeCodes = append(tmpeCodes, `Antigua and Barbuda`)
+
+		// Anguilla
+		case "AI":
+			tmpeCodes = append(tmpeCodes, `Anguilla`)
+
+		// Albania
+		case "AL":
+			tmpeCodes = append(tmpeCodes, `Albania`)
+
+		// Armenia
+		case "AM":
+			tmpeCodes = append(tmpeCodes, `Armenia`)
+
+		// Deprecated – use BQ, CW or SX as appropriate
+		case "AN":
+			tmpeCodes = append(tmpeCodes, `Netherlands Antilles`)
+
+		// Angola
+		case "AO":
+			tmpeCodes = append(tmpeCodes, `Angola`)
+
+		// Antarctica
+		case "AQ":
+			tmpeCodes = append(tmpeCodes, `Antarctica`)
+
+		// Argentina
+		case "AR":
+			tmpeCodes = append(tmpeCodes, `Argentina`)
+
+		// American Samoa
+		case "AS":
+			tmpeCodes = append(tmpeCodes, `American Samoa`)
+
+		// Austria
+		case "AT":
+			tmpeCodes = append(tmpeCodes, `Austria`)
+
+		// Australia
+		case "AU":
+			tmpeCodes = append(tmpeCodes, `Australia`)
+
+		// Aruba
+		case "AW":
+			tmpeCodes = append(tmpeCodes, `Aruba`)
+
+		// Åland Islands
+		case "AX":
+			tmpeCodes = append(tmpeCodes, `Åland Islands`)
+
+		// Azerbaijan
+		case "AZ":
+			tmpeCodes = append(tmpeCodes, `Azerbaijan`)
+
+		// Bosnia and Herzegovina
+		case "BA":
+			tmpeCodes = append(tmpeCodes, `Bosnia and Herzegovina`)
+
+		// Barbados
+		case "BB":
+			tmpeCodes = append(tmpeCodes, `Barbados`)
+
+		// Bangladesh
+		case "BD":
+			tmpeCodes = append(tmpeCodes, `Bangladesh`)
+
+		// Belgium
+		case "BE":
+			tmpeCodes = append(tmpeCodes, `Belgium`)
+
+		// Burkina Faso
+		case "BF":
+			tmpeCodes = append(tmpeCodes, `Burkina Faso`)
+
+		// Bulgaria
+		case "BG":
+			tmpeCodes = append(tmpeCodes, `Bulgaria`)
+
+		// Bahrain
+		case "BH":
+			tmpeCodes = append(tmpeCodes, `Bahrain`)
+
+		// Burundi
+		case "BI":
+			tmpeCodes = append(tmpeCodes, `Burundi`)
+
+		// Benin
+		case "BJ":
+			tmpeCodes = append(tmpeCodes, `Benin`)
+
+		// Saint Barthélemy
+		case "BL":
+			tmpeCodes = append(tmpeCodes, `Saint Barthélemy`)
+
+		// Bermuda
+		case "BM":
+			tmpeCodes = append(tmpeCodes, `Bermuda`)
+
+		// Brunei Darussalam
+		case "BN":
+			tmpeCodes = append(tmpeCodes, `Brunei Darussalam`)
+
+		// Bolivia, Plurinational State of
+		case "BO":
+			tmpeCodes = append(tmpeCodes, `Bolivia, Plurinational State of`)
+
+		// Bonaire, Sint Eustatius and Saba
+		case "BQ":
+			tmpeCodes = append(tmpeCodes, `Bonaire, Sint Eustatius and Saba`)
+
+		// Brazil
+		case "BR":
+			tmpeCodes = append(tmpeCodes, `Brazil`)
+
+		// Bahamas
+		case "BS":
+			tmpeCodes = append(tmpeCodes, `Bahamas`)
+
+		// Bhutan
+		case "BT":
+			tmpeCodes = append(tmpeCodes, `Bhutan`)
+
+		// Bouvet Island
+		case "BV":
+			tmpeCodes = append(tmpeCodes, `Bouvet Island`)
+
+		// Botswana
+		case "BW":
+			tmpeCodes = append(tmpeCodes, `Botswana`)
+
+		// Belarus
+		case "BY":
+			tmpeCodes = append(tmpeCodes, `Belarus`)
+
+		// Belize
+		case "BZ":
+			tmpeCodes = append(tmpeCodes, `Belize`)
+
+		// Canada
+		case "CA":
+			tmpeCodes = append(tmpeCodes, `Canada`)
+
+		// Cocos (Keeling) Islands
+		case "CC":
+			tmpeCodes = append(tmpeCodes, `Cocos (Keeling) Islands`)
+
+		// Congo, Democratic Republic of the
+		case "CD":
+			tmpeCodes = append(tmpeCodes, `Congo, Democratic Republic of the`)
+
+		// Central African Republic
+		case "CF":
+			tmpeCodes = append(tmpeCodes, `Central African Republic`)
+
+		// Congo
+		case "CG":
+			tmpeCodes = append(tmpeCodes, `Congo`)
+
+		// Switzerland
+		case "CH":
+			tmpeCodes = append(tmpeCodes, `Switzerland`)
+
+		// Cote d’Ivoire
+		case "CI":
+			tmpeCodes = append(tmpeCodes, `Cote d’Ivoire`)
+
+		// Cook Islands
+		case "CK":
+			tmpeCodes = append(tmpeCodes, `Cook Islands`)
+
+		// Chile
+		case "CL":
+			tmpeCodes = append(tmpeCodes, `Chile`)
+
+		// Cameroon
+		case "CM":
+			tmpeCodes = append(tmpeCodes, `Cameroon`)
+
+		// China
+		case "CN":
+			tmpeCodes = append(tmpeCodes, `China`)
+
+		// Colombia
+		case "CO":
+			tmpeCodes = append(tmpeCodes, `Colombia`)
+
+		// Costa Rica
+		case "CR":
+			tmpeCodes = append(tmpeCodes, `Costa Rica`)
+
+		// DEPRECATED, replaced by ME – Montenegro and RS – Serbia
+		case "CS":
+			tmpeCodes = append(tmpeCodes, `Serbia and Montenegro`)
+
+		// Cuba
+		case "CU":
+			tmpeCodes = append(tmpeCodes, `Cuba`)
+
+		// Cabo Verde
+		case "CV":
+			tmpeCodes = append(tmpeCodes, `Cabo Verde`)
+
+		// Curaçao
+		case "CW":
+			tmpeCodes = append(tmpeCodes, `Curaçao`)
+
+		// Christmas Island
+		case "CX":
+			tmpeCodes = append(tmpeCodes, `Christmas Island`)
+
+		// Cyprus
+		case "CY":
+			tmpeCodes = append(tmpeCodes, `Cyprus`)
+
+		// Czech Republic
+		case "CZ":
+			tmpeCodes = append(tmpeCodes, `Czech Republic`)
+
+		// Germany
+		case "DE":
+			tmpeCodes = append(tmpeCodes, `Germany`)
+
+		// Djibouti
+		case "DJ":
+			tmpeCodes = append(tmpeCodes, `Djibouti`)
+
+		// Denmark
+		case "DK":
+			tmpeCodes = append(tmpeCodes, `Denmark`)
+
+		// Dominica
+		case "DM":
+			tmpeCodes = append(tmpeCodes, `Dominica`)
+
+		// Dominican Republic
+		case "DO":
+			tmpeCodes = append(tmpeCodes, `Dominican Republic`)
+
+		// Algeria
+		case "DZ":
+			tmpeCodes = append(tmpeCodes, `Algeria`)
+
+		// Ecuador
+		case "EC":
+			tmpeCodes = append(tmpeCodes, `Ecuador`)
+
+		// Estonia
+		case "EE":
+			tmpeCodes = append(tmpeCodes, `Estonia`)
+
+		// Egypt
+		case "EG":
+			tmpeCodes = append(tmpeCodes, `Egypt`)
+
+		// Western Sahara
+		case "EH":
+			tmpeCodes = append(tmpeCodes, `Western Sahara`)
+
+		// Eritrea
+		case "ER":
+			tmpeCodes = append(tmpeCodes, `Eritrea`)
+
+		// Spain
+		case "ES":
+			tmpeCodes = append(tmpeCodes, `Spain`)
+
+		// Ethiopia
+		case "ET":
+			tmpeCodes = append(tmpeCodes, `Ethiopia`)
+
+		// Finland
+		case "FI":
+			tmpeCodes = append(tmpeCodes, `Finland`)
+
+		// Fiji
+		case "FJ":
+			tmpeCodes = append(tmpeCodes, `Fiji`)
+
+		// Falkland Islands (Malvinas)
+		case "FK":
+			tmpeCodes = append(tmpeCodes, `Falkland Islands (Malvinas)`)
+
+		// Micronesia, Federated States of
+		case "FM":
+			tmpeCodes = append(tmpeCodes, `Micronesia, Federated States of`)
+
+		// Faroe Islands
+		case "FO":
+			tmpeCodes = append(tmpeCodes, `Faroe Islands`)
+
+		// France
+		case "FR":
+			tmpeCodes = append(tmpeCodes, `France`)
+
+		// Gabon
+		case "GA":
+			tmpeCodes = append(tmpeCodes, `Gabon`)
+
+		// United Kingdom
+		case "GB":
+			tmpeCodes = append(tmpeCodes, `United Kingdom`)
+
+		// Grenada
+		case "GD":
+			tmpeCodes = append(tmpeCodes, `Grenada`)
+
+		// Georgia
+		case "GE":
+			tmpeCodes = append(tmpeCodes, `Georgia`)
+
+		// French Guiana
+		case "GF":
+			tmpeCodes = append(tmpeCodes, `French Guiana`)
+
+		// Guernsey
+		case "GG":
+			tmpeCodes = append(tmpeCodes, `Guernsey`)
+
+		// Ghana
+		case "GH":
+			tmpeCodes = append(tmpeCodes, `Ghana`)
+
+		// Gibraltar
+		case "GI":
+			tmpeCodes = append(tmpeCodes, `Gibraltar`)
+
+		// Greenland
+		case "GL":
+			tmpeCodes = append(tmpeCodes, `Greenland`)
+
+		// Gambia
+		case "GM":
+			tmpeCodes = append(tmpeCodes, `Gambia`)
+
+		// Guinea
+		case "GN":
+			tmpeCodes = append(tmpeCodes, `Guinea`)
+
+		// Guadeloupe
+		case "GP":
+			tmpeCodes = append(tmpeCodes, `Guadeloupe`)
+
+		// Equatorial Guinea
+		case "GQ":
+			tmpeCodes = append(tmpeCodes, `Equatorial Guinea`)
+
+		// Greece
+		case "GR":
+			tmpeCodes = append(tmpeCodes, `Greece`)
+
+		// South Georgia and the South Sandwich Islands
+		case "GS":
+			tmpeCodes = append(tmpeCodes, `South Georgia and the South Sandwich Islands`)
+
+		// Guatemala
+		case "GT":
+			tmpeCodes = append(tmpeCodes, `Guatemala`)
+
+		// Guam
+		case "GU":
+			tmpeCodes = append(tmpeCodes, `Guam`)
+
+		// Guinea-Bissau
+		case "GW":
+			tmpeCodes = append(tmpeCodes, `Guinea-Bissau`)
+
+		// Guyana
+		case "GY":
+			tmpeCodes = append(tmpeCodes, `Guyana`)
+
+		// Hong Kong
+		case "HK":
+			tmpeCodes = append(tmpeCodes, `Hong Kong`)
+
+		// Heard Island and McDonald Islands
+		case "HM":
+			tmpeCodes = append(tmpeCodes, `Heard Island and McDonald Islands`)
+
+		// Honduras
+		case "HN":
+			tmpeCodes = append(tmpeCodes, `Honduras`)
+
+		// Croatia
+		case "HR":
+			tmpeCodes = append(tmpeCodes, `Croatia`)
+
+		// Haiti
+		case "HT":
+			tmpeCodes = append(tmpeCodes, `Haiti`)
+
+		// Hungary
+		case "HU":
+			tmpeCodes = append(tmpeCodes, `Hungary`)
+
+		// Indonesia
+		case "ID":
+			tmpeCodes = append(tmpeCodes, `Indonesia`)
+
+		// Ireland
+		case "IE":
+			tmpeCodes = append(tmpeCodes, `Ireland`)
+
+		// Israel
+		case "IL":
+			tmpeCodes = append(tmpeCodes, `Israel`)
+
+		// Isle of Man
+		case "IM":
+			tmpeCodes = append(tmpeCodes, `Isle of Man`)
+
+		// India
+		case "IN":
+			tmpeCodes = append(tmpeCodes, `India`)
+
+		// British Indian Ocean Territory
+		case "IO":
+			tmpeCodes = append(tmpeCodes, `British Indian Ocean Territory`)
+
+		// Iraq
+		case "IQ":
+			tmpeCodes = append(tmpeCodes, `Iraq`)
+
+		// Iran, Islamic Republic of
+		case "IR":
+			tmpeCodes = append(tmpeCodes, `Iran, Islamic Republic of`)
+
+		// Iceland
+		case "IS":
+			tmpeCodes = append(tmpeCodes, `Iceland`)
+
+		// Italy
+		case "IT":
+			tmpeCodes = append(tmpeCodes, `Italy`)
+
+		// Jersey
+		case "JE":
+			tmpeCodes = append(tmpeCodes, `Jersey`)
+
+		// Jamaica
+		case "JM":
+			tmpeCodes = append(tmpeCodes, `Jamaica`)
+
+		// Jordan
+		case "JO":
+			tmpeCodes = append(tmpeCodes, `Jordan`)
+
+		// Japan
+		case "JP":
+			tmpeCodes = append(tmpeCodes, `Japan`)
+
+		// Kenya
+		case "KE":
+			tmpeCodes = append(tmpeCodes, `Kenya`)
+
+		// Kyrgyzstan
+		case "KG":
+			tmpeCodes = append(tmpeCodes, `Kyrgyzstan`)
+
+		// Cambodia
+		case "KH":
+			tmpeCodes = append(tmpeCodes, `Cambodia`)
+
+		// Kiribati
+		case "KI":
+			tmpeCodes = append(tmpeCodes, `Kiribati`)
+
+		// Comoros
+		case "KM":
+			tmpeCodes = append(tmpeCodes, `Comoros`)
+
+		// Saint Kitts and Nevis
+		case "KN":
+			tmpeCodes = append(tmpeCodes, `Saint Kitts and Nevis`)
+
+		// Korea, Democratic People’s Republic of
+		case "KP":
+			tmpeCodes = append(tmpeCodes, `Korea, Democratic People’s Republic of`)
+
+		// Korea, Republic of
+		case "KR":
+			tmpeCodes = append(tmpeCodes, `Korea, Republic of`)
+
+		// Kuwait
+		case "KW":
+			tmpeCodes = append(tmpeCodes, `Kuwait`)
+
+		// Cayman Islands
+		case "KY":
+			tmpeCodes = append(tmpeCodes, `Cayman Islands`)
+
+		// Kazakhstan
+		case "KZ":
+			tmpeCodes = append(tmpeCodes, `Kazakhstan`)
+
+		// Lao People’s Democratic Republic
+		case "LA":
+			tmpeCodes = append(tmpeCodes, `Lao People’s Democratic Republic`)
+
+		// Lebanon
+		case "LB":
+			tmpeCodes = append(tmpeCodes, `Lebanon`)
+
+		// Saint Lucia
+		case "LC":
+			tmpeCodes = append(tmpeCodes, `Saint Lucia`)
+
+		// Liechtenstein
+		case "LI":
+			tmpeCodes = append(tmpeCodes, `Liechtenstein`)
+
+		// Sri Lanka
+		case "LK":
+			tmpeCodes = append(tmpeCodes, `Sri Lanka`)
+
+		// Liberia
+		case "LR":
+			tmpeCodes = append(tmpeCodes, `Liberia`)
+
+		// Lesotho
+		case "LS":
+			tmpeCodes = append(tmpeCodes, `Lesotho`)
+
+		// Lithuania
+		case "LT":
+			tmpeCodes = append(tmpeCodes, `Lithuania`)
+
+		// Luxembourg
+		case "LU":
+			tmpeCodes = append(tmpeCodes, `Luxembourg`)
+
+		// Latvia
+		case "LV":
+			tmpeCodes = append(tmpeCodes, `Latvia`)
+
+		// Libya
+		case "LY":
+			tmpeCodes = append(tmpeCodes, `Libya`)
+
+		// Morocco
+		case "MA":
+			tmpeCodes = append(tmpeCodes, `Morocco`)
+
+		// Monaco
+		case "MC":
+			tmpeCodes = append(tmpeCodes, `Monaco`)
+
+		// Moldova, Repubic of
+		case "MD":
+			tmpeCodes = append(tmpeCodes, `Moldova, Repubic of`)
+
+		// Montenegro
+		case "ME":
+			tmpeCodes = append(tmpeCodes, `Montenegro`)
+
+		// Saint Martin (French part)
+		case "MF":
+			tmpeCodes = append(tmpeCodes, `Saint Martin (French part)`)
+
+		// Madagascar
+		case "MG":
+			tmpeCodes = append(tmpeCodes, `Madagascar`)
+
+		// Marshall Islands
+		case "MH":
+			tmpeCodes = append(tmpeCodes, `Marshall Islands`)
+
+		// Macedonia, the former Yugoslav Republic of
+		case "MK":
+			tmpeCodes = append(tmpeCodes, `Macedonia, the former Yugoslav Republic of`)
+
+		// Mali
+		case "ML":
+			tmpeCodes = append(tmpeCodes, `Mali`)
+
+		// Myanmar
+		case "MM":
+			tmpeCodes = append(tmpeCodes, `Myanmar`)
+
+		// Mongolia
+		case "MN":
+			tmpeCodes = append(tmpeCodes, `Mongolia`)
+
+		// Macao
+		case "MO":
+			tmpeCodes = append(tmpeCodes, `Macao`)
+
+		// Northern Mariana Islands
+		case "MP":
+			tmpeCodes = append(tmpeCodes, `Northern Mariana Islands`)
+
+		// Martinique
+		case "MQ":
+			tmpeCodes = append(tmpeCodes, `Martinique`)
+
+		// Mauritania
+		case "MR":
+			tmpeCodes = append(tmpeCodes, `Mauritania`)
+
+		// Montserrat
+		case "MS":
+			tmpeCodes = append(tmpeCodes, `Montserrat`)
+
+		// Malta
+		case "MT":
+			tmpeCodes = append(tmpeCodes, `Malta`)
+
+		// Mauritius
+		case "MU":
+			tmpeCodes = append(tmpeCodes, `Mauritius`)
+
+		// Maldives
+		case "MV":
+			tmpeCodes = append(tmpeCodes, `Maldives`)
+
+		// Malawi
+		case "MW":
+			tmpeCodes = append(tmpeCodes, `Malawi`)
+
+		// Mexico
+		case "MX":
+			tmpeCodes = append(tmpeCodes, `Mexico`)
+
+		// Malaysia
+		case "MY":
+			tmpeCodes = append(tmpeCodes, `Malaysia`)
+
+		// Mozambique
+		case "MZ":
+			tmpeCodes = append(tmpeCodes, `Mozambique`)
+
+		// Namibia
+		case "NA":
+			tmpeCodes = append(tmpeCodes, `Namibia`)
+
+		// New Caledonia
+		case "NC":
+			tmpeCodes = append(tmpeCodes, `New Caledonia`)
+
+		// Niger
+		case "NE":
+			tmpeCodes = append(tmpeCodes, `Niger`)
+
+		// Norfolk Island
+		case "NF":
+			tmpeCodes = append(tmpeCodes, `Norfolk Island`)
+
+		// Nigeria
+		case "NG":
+			tmpeCodes = append(tmpeCodes, `Nigeria`)
+
+		// Nicaragua
+		case "NI":
+			tmpeCodes = append(tmpeCodes, `Nicaragua`)
+
+		// Netherlands
+		case "NL":
+			tmpeCodes = append(tmpeCodes, `Netherlands`)
+
+		// Norway
+		case "NO":
+			tmpeCodes = append(tmpeCodes, `Norway`)
+
+		// Nepal
+		case "NP":
+			tmpeCodes = append(tmpeCodes, `Nepal`)
+
+		// Nauru
+		case "NR":
+			tmpeCodes = append(tmpeCodes, `Nauru`)
+
+		// Niue
+		case "NU":
+			tmpeCodes = append(tmpeCodes, `Niue`)
+
+		// New Zealand
+		case "NZ":
+			tmpeCodes = append(tmpeCodes, `New Zealand`)
+
+		// Oman
+		case "OM":
+			tmpeCodes = append(tmpeCodes, `Oman`)
+
+		// Panama
+		case "PA":
+			tmpeCodes = append(tmpeCodes, `Panama`)
+
+		// Peru
+		case "PE":
+			tmpeCodes = append(tmpeCodes, `Peru`)
+
+		// French Polynesia
+		case "PF":
+			tmpeCodes = append(tmpeCodes, `French Polynesia`)
+
+		// Papua New Guinea
+		case "PG":
+			tmpeCodes = append(tmpeCodes, `Papua New Guinea`)
+
+		// Philippines
+		case "PH":
+			tmpeCodes = append(tmpeCodes, `Philippines`)
+
+		// Pakistan
+		case "PK":
+			tmpeCodes = append(tmpeCodes, `Pakistan`)
+
+		// Poland
+		case "PL":
+			tmpeCodes = append(tmpeCodes, `Poland`)
+
+		// Saint Pierre and Miquelon
+		case "PM":
+			tmpeCodes = append(tmpeCodes, `Saint Pierre and Miquelon`)
+
+		// Pitcairn
+		case "PN":
+			tmpeCodes = append(tmpeCodes, `Pitcairn`)
+
+		// Puerto Rico
+		case "PR":
+			tmpeCodes = append(tmpeCodes, `Puerto Rico`)
+
+		// Palestine, State of
+		case "PS":
+			tmpeCodes = append(tmpeCodes, `Palestine, State of`)
+
+		// Portugal
+		case "PT":
+			tmpeCodes = append(tmpeCodes, `Portugal`)
+
+		// Palau
+		case "PW":
+			tmpeCodes = append(tmpeCodes, `Palau`)
+
+		// Paraguay
+		case "PY":
+			tmpeCodes = append(tmpeCodes, `Paraguay`)
+
+		// Qatar
+		case "QA":
+			tmpeCodes = append(tmpeCodes, `Qatar`)
+
+		// Réunion
+		case "RE":
+			tmpeCodes = append(tmpeCodes, `Réunion`)
+
+		// Romania
+		case "RO":
+			tmpeCodes = append(tmpeCodes, `Romania`)
+
+		// Serbia
+		case "RS":
+			tmpeCodes = append(tmpeCodes, `Serbia`)
+
+		// Russian Federation
+		case "RU":
+			tmpeCodes = append(tmpeCodes, `Russian Federation`)
+
+		// Rwanda
+		case "RW":
+			tmpeCodes = append(tmpeCodes, `Rwanda`)
+
+		// Saudi Arabia
+		case "SA":
+			tmpeCodes = append(tmpeCodes, `Saudi Arabia`)
+
+		// Solomon Islands
+		case "SB":
+			tmpeCodes = append(tmpeCodes, `Solomon Islands`)
+
+		// Seychelles
+		case "SC":
+			tmpeCodes = append(tmpeCodes, `Seychelles`)
+
+		// Sudan
+		case "SD":
+			tmpeCodes = append(tmpeCodes, `Sudan`)
+
+		// Sweden
+		case "SE":
+			tmpeCodes = append(tmpeCodes, `Sweden`)
+
+		// Singapore
+		case "SG":
+			tmpeCodes = append(tmpeCodes, `Singapore`)
+
+		// Saint Helena, Ascension and Tristan da Cunha
+		case "SH":
+			tmpeCodes = append(tmpeCodes, `Saint Helena, Ascension and Tristan da Cunha`)
+
+		// Slovenia
+		case "SI":
+			tmpeCodes = append(tmpeCodes, `Slovenia`)
+
+		// Svalbard and Jan Mayen
+		case "SJ":
+			tmpeCodes = append(tmpeCodes, `Svalbard and Jan Mayen`)
+
+		// Slovakia
+		case "SK":
+			tmpeCodes = append(tmpeCodes, `Slovakia`)
+
+		// Sierra Leone
+		case "SL":
+			tmpeCodes = append(tmpeCodes, `Sierra Leone`)
+
+		// San Marino
+		case "SM":
+			tmpeCodes = append(tmpeCodes, `San Marino`)
+
+		// Senegal
+		case "SN":
+			tmpeCodes = append(tmpeCodes, `Senegal`)
+
+		// Somalia
+		case "SO":
+			tmpeCodes = append(tmpeCodes, `Somalia`)
+
+		// Suriname
+		case "SR":
+			tmpeCodes = append(tmpeCodes, `Suriname`)
+
+		// South Sudan
+		case "SS":
+			tmpeCodes = append(tmpeCodes, `South Sudan`)
+
+		// Sao Tome and Principe
+		case "ST":
+			tmpeCodes = append(tmpeCodes, `Sao Tome and Principe`)
+
+		// El Salvador
+		case "SV":
+			tmpeCodes = append(tmpeCodes, `El Salvador`)
+
+		// Sint Maarten (Dutch part)
+		case "SX":
+			tmpeCodes = append(tmpeCodes, `Sint Maarten (Dutch part)`)
+
+		// Syrian Arab Republic
+		case "SY":
+			tmpeCodes = append(tmpeCodes, `Syrian Arab Republic`)
+
+		// Swaziland
+		case "SZ":
+			tmpeCodes = append(tmpeCodes, `Swaziland`)
+
+		// Turks and Caicos Islands
+		case "TC":
+			tmpeCodes = append(tmpeCodes, `Turks and Caicos Islands`)
+
+		// Chad
+		case "TD":
+			tmpeCodes = append(tmpeCodes, `Chad`)
+
+		// French Southern Territories
+		case "TF":
+			tmpeCodes = append(tmpeCodes, `French Southern Territories`)
+
+		// Togo
+		case "TG":
+			tmpeCodes = append(tmpeCodes, `Togo`)
+
+		// Thailand
+		case "TH":
+			tmpeCodes = append(tmpeCodes, `Thailand`)
+
+		// Tajikistan
+		case "TJ":
+			tmpeCodes = append(tmpeCodes, `Tajikistan`)
+
+		// Tokelau
+		case "TK":
+			tmpeCodes = append(tmpeCodes, `Tokelau`)
+
+		// Timor-Leste
+		case "TL":
+			tmpeCodes = append(tmpeCodes, `Timor-Leste`)
+
+		// Turkmenistan
+		case "TM":
+			tmpeCodes = append(tmpeCodes, `Turkmenistan`)
+
+		// Tunisia
+		case "TN":
+			tmpeCodes = append(tmpeCodes, `Tunisia`)
+
+		// Tonga
+		case "TO":
+			tmpeCodes = append(tmpeCodes, `Tonga`)
+
+		// Turkey
+		case "TR":
+			tmpeCodes = append(tmpeCodes, `Turkey`)
+
+		// Trinidad and Tobago
+		case "TT":
+			tmpeCodes = append(tmpeCodes, `Trinidad and Tobago`)
+
+		// Tuvalu
+		case "TV":
+			tmpeCodes = append(tmpeCodes, `Tuvalu`)
+
+		// Taiwan, Province of China
+		case "TW":
+			tmpeCodes = append(tmpeCodes, `Taiwan, Province of China`)
+
+		// Tanzania, United Republic of
+		case "TZ":
+			tmpeCodes = append(tmpeCodes, `Tanzania, United Republic of`)
+
+		// Ukraine
+		case "UA":
+			tmpeCodes = append(tmpeCodes, `Ukraine`)
+
+		// Uganda
+		case "UG":
+			tmpeCodes = append(tmpeCodes, `Uganda`)
+
+		// United States Minor Outlying Islands
+		case "UM":
+			tmpeCodes = append(tmpeCodes, `United States Minor Outlying Islands`)
+
+		// United States
+		case "US":
+			tmpeCodes = append(tmpeCodes, `United States`)
+
+		// Uruguay
+		case "UY":
+			tmpeCodes = append(tmpeCodes, `Uruguay`)
+
+		// Uzbekistan
+		case "UZ":
+			tmpeCodes = append(tmpeCodes, `Uzbekistan`)
+
+		// Holy See (Vatican City State)
+		case "VA":
+			tmpeCodes = append(tmpeCodes, `Holy See (Vatican City State)`)
+
+		// Saint Vincent and the Grenadines
+		case "VC":
+			tmpeCodes = append(tmpeCodes, `Saint Vincent and the Grenadines`)
+
+		// Venezuela, Bolivarian Republic of
+		case "VE":
+			tmpeCodes = append(tmpeCodes, `Venezuela, Bolivarian Republic of`)
+
+		// Virgin Islands, British
+		case "VG":
+			tmpeCodes = append(tmpeCodes, `Virgin Islands, British`)
+
+		// Virgin Islands, US
+		case "VI":
+			tmpeCodes = append(tmpeCodes, `Virgin Islands, US`)
+
+		// Viet Nam
+		case "VN":
+			tmpeCodes = append(tmpeCodes, `Viet Nam`)
+
+		// Vanuatu
+		case "VU":
+			tmpeCodes = append(tmpeCodes, `Vanuatu`)
+
+		// Wallis and Futuna
+		case "WF":
+			tmpeCodes = append(tmpeCodes, `Wallis and Futuna`)
+
+		// Samoa
+		case "WS":
+			tmpeCodes = append(tmpeCodes, `Samoa`)
+
+		// Yemen
+		case "YE":
+			tmpeCodes = append(tmpeCodes, `Yemen`)
+
+		// Mayotte
+		case "YT":
+			tmpeCodes = append(tmpeCodes, `Mayotte`)
+
+		// DEPRECATED, replaced by ME – Montenegro and RS – Serbia
+		case "YU":
+			tmpeCodes = append(tmpeCodes, `Yugoslavia`)
+
+		// South Africa
+		case "ZA":
+			tmpeCodes = append(tmpeCodes, `South Africa`)
+
+		// Zambia
+		case "ZM":
+			tmpeCodes = append(tmpeCodes, `Zambia`)
+
+		// Zimbabwe
+		case "ZW":
+			tmpeCodes = append(tmpeCodes, `Zimbabwe`)
+		default:
+			return fmt.Errorf("undefined code for CountryOfPublication has been passed, got [%s]", v)
+		}
 	}
+	*c = tmpeCodes
 	return nil
 }
 
@@ -18979,1024 +19000,1029 @@ func (c *PrizeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 }
 
 // PrizeCountry Country code – ISO 3166-1
-type PrizeCountry string
+type PrizeCountry []string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
 func (c *PrizeCountry) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	var v string
 	d.DecodeElement(&v, &start)
-	switch v {
-
-  // Andorra
-  case "AD":
-		*c = `Andorra`
-
-  // United Arab Emirates
-  case "AE":
-		*c = `United Arab Emirates`
-
-  // Afghanistan
-  case "AF":
-		*c = `Afghanistan`
-
-  // Antigua and Barbuda
-  case "AG":
-		*c = `Antigua and Barbuda`
-
-  // Anguilla
-  case "AI":
-		*c = `Anguilla`
-
-  // Albania
-  case "AL":
-		*c = `Albania`
-
-  // Armenia
-  case "AM":
-		*c = `Armenia`
-
-  // Deprecated – use BQ, CW or SX as appropriate
-  case "AN":
-		*c = `Netherlands Antilles`
-
-  // Angola
-  case "AO":
-		*c = `Angola`
-
-  // Antarctica
-  case "AQ":
-		*c = `Antarctica`
-
-  // Argentina
-  case "AR":
-		*c = `Argentina`
-
-  // American Samoa
-  case "AS":
-		*c = `American Samoa`
-
-  // Austria
-  case "AT":
-		*c = `Austria`
-
-  // Australia
-  case "AU":
-		*c = `Australia`
-
-  // Aruba
-  case "AW":
-		*c = `Aruba`
-
-  // Åland Islands
-  case "AX":
-		*c = `Åland Islands`
-
-  // Azerbaijan
-  case "AZ":
-		*c = `Azerbaijan`
-
-  // Bosnia and Herzegovina
-  case "BA":
-		*c = `Bosnia and Herzegovina`
-
-  // Barbados
-  case "BB":
-		*c = `Barbados`
-
-  // Bangladesh
-  case "BD":
-		*c = `Bangladesh`
-
-  // Belgium
-  case "BE":
-		*c = `Belgium`
-
-  // Burkina Faso
-  case "BF":
-		*c = `Burkina Faso`
-
-  // Bulgaria
-  case "BG":
-		*c = `Bulgaria`
-
-  // Bahrain
-  case "BH":
-		*c = `Bahrain`
-
-  // Burundi
-  case "BI":
-		*c = `Burundi`
-
-  // Benin
-  case "BJ":
-		*c = `Benin`
-
-  // Saint Barthélemy
-  case "BL":
-		*c = `Saint Barthélemy`
-
-  // Bermuda
-  case "BM":
-		*c = `Bermuda`
-
-  // Brunei Darussalam
-  case "BN":
-		*c = `Brunei Darussalam`
-
-  // Bolivia, Plurinational State of
-  case "BO":
-		*c = `Bolivia, Plurinational State of`
-
-  // Bonaire, Sint Eustatius and Saba
-  case "BQ":
-		*c = `Bonaire, Sint Eustatius and Saba`
-
-  // Brazil
-  case "BR":
-		*c = `Brazil`
-
-  // Bahamas
-  case "BS":
-		*c = `Bahamas`
-
-  // Bhutan
-  case "BT":
-		*c = `Bhutan`
-
-  // Bouvet Island
-  case "BV":
-		*c = `Bouvet Island`
-
-  // Botswana
-  case "BW":
-		*c = `Botswana`
-
-  // Belarus
-  case "BY":
-		*c = `Belarus`
-
-  // Belize
-  case "BZ":
-		*c = `Belize`
-
-  // Canada
-  case "CA":
-		*c = `Canada`
-
-  // Cocos (Keeling) Islands
-  case "CC":
-		*c = `Cocos (Keeling) Islands`
-
-  // Congo, Democratic Republic of the
-  case "CD":
-		*c = `Congo, Democratic Republic of the`
-
-  // Central African Republic
-  case "CF":
-		*c = `Central African Republic`
-
-  // Congo
-  case "CG":
-		*c = `Congo`
-
-  // Switzerland
-  case "CH":
-		*c = `Switzerland`
-
-  // Cote d’Ivoire
-  case "CI":
-		*c = `Cote d’Ivoire`
-
-  // Cook Islands
-  case "CK":
-		*c = `Cook Islands`
-
-  // Chile
-  case "CL":
-		*c = `Chile`
-
-  // Cameroon
-  case "CM":
-		*c = `Cameroon`
-
-  // China
-  case "CN":
-		*c = `China`
-
-  // Colombia
-  case "CO":
-		*c = `Colombia`
-
-  // Costa Rica
-  case "CR":
-		*c = `Costa Rica`
-
-  // DEPRECATED, replaced by ME – Montenegro and RS – Serbia
-  case "CS":
-		*c = `Serbia and Montenegro`
-
-  // Cuba
-  case "CU":
-		*c = `Cuba`
-
-  // Cabo Verde
-  case "CV":
-		*c = `Cabo Verde`
-
-  // Curaçao
-  case "CW":
-		*c = `Curaçao`
-
-  // Christmas Island
-  case "CX":
-		*c = `Christmas Island`
-
-  // Cyprus
-  case "CY":
-		*c = `Cyprus`
-
-  // Czech Republic
-  case "CZ":
-		*c = `Czech Republic`
-
-  // Germany
-  case "DE":
-		*c = `Germany`
-
-  // Djibouti
-  case "DJ":
-		*c = `Djibouti`
-
-  // Denmark
-  case "DK":
-		*c = `Denmark`
-
-  // Dominica
-  case "DM":
-		*c = `Dominica`
-
-  // Dominican Republic
-  case "DO":
-		*c = `Dominican Republic`
-
-  // Algeria
-  case "DZ":
-		*c = `Algeria`
-
-  // Ecuador
-  case "EC":
-		*c = `Ecuador`
-
-  // Estonia
-  case "EE":
-		*c = `Estonia`
-
-  // Egypt
-  case "EG":
-		*c = `Egypt`
-
-  // Western Sahara
-  case "EH":
-		*c = `Western Sahara`
-
-  // Eritrea
-  case "ER":
-		*c = `Eritrea`
-
-  // Spain
-  case "ES":
-		*c = `Spain`
-
-  // Ethiopia
-  case "ET":
-		*c = `Ethiopia`
-
-  // Finland
-  case "FI":
-		*c = `Finland`
-
-  // Fiji
-  case "FJ":
-		*c = `Fiji`
-
-  // Falkland Islands (Malvinas)
-  case "FK":
-		*c = `Falkland Islands (Malvinas)`
-
-  // Micronesia, Federated States of
-  case "FM":
-		*c = `Micronesia, Federated States of`
-
-  // Faroe Islands
-  case "FO":
-		*c = `Faroe Islands`
-
-  // France
-  case "FR":
-		*c = `France`
-
-  // Gabon
-  case "GA":
-		*c = `Gabon`
-
-  // United Kingdom
-  case "GB":
-		*c = `United Kingdom`
-
-  // Grenada
-  case "GD":
-		*c = `Grenada`
-
-  // Georgia
-  case "GE":
-		*c = `Georgia`
-
-  // French Guiana
-  case "GF":
-		*c = `French Guiana`
-
-  // Guernsey
-  case "GG":
-		*c = `Guernsey`
-
-  // Ghana
-  case "GH":
-		*c = `Ghana`
-
-  // Gibraltar
-  case "GI":
-		*c = `Gibraltar`
-
-  // Greenland
-  case "GL":
-		*c = `Greenland`
-
-  // Gambia
-  case "GM":
-		*c = `Gambia`
-
-  // Guinea
-  case "GN":
-		*c = `Guinea`
-
-  // Guadeloupe
-  case "GP":
-		*c = `Guadeloupe`
-
-  // Equatorial Guinea
-  case "GQ":
-		*c = `Equatorial Guinea`
-
-  // Greece
-  case "GR":
-		*c = `Greece`
-
-  // South Georgia and the South Sandwich Islands
-  case "GS":
-		*c = `South Georgia and the South Sandwich Islands`
-
-  // Guatemala
-  case "GT":
-		*c = `Guatemala`
-
-  // Guam
-  case "GU":
-		*c = `Guam`
-
-  // Guinea-Bissau
-  case "GW":
-		*c = `Guinea-Bissau`
-
-  // Guyana
-  case "GY":
-		*c = `Guyana`
-
-  // Hong Kong
-  case "HK":
-		*c = `Hong Kong`
-
-  // Heard Island and McDonald Islands
-  case "HM":
-		*c = `Heard Island and McDonald Islands`
-
-  // Honduras
-  case "HN":
-		*c = `Honduras`
-
-  // Croatia
-  case "HR":
-		*c = `Croatia`
-
-  // Haiti
-  case "HT":
-		*c = `Haiti`
-
-  // Hungary
-  case "HU":
-		*c = `Hungary`
-
-  // Indonesia
-  case "ID":
-		*c = `Indonesia`
-
-  // Ireland
-  case "IE":
-		*c = `Ireland`
-
-  // Israel
-  case "IL":
-		*c = `Israel`
-
-  // Isle of Man
-  case "IM":
-		*c = `Isle of Man`
-
-  // India
-  case "IN":
-		*c = `India`
-
-  // British Indian Ocean Territory
-  case "IO":
-		*c = `British Indian Ocean Territory`
-
-  // Iraq
-  case "IQ":
-		*c = `Iraq`
-
-  // Iran, Islamic Republic of
-  case "IR":
-		*c = `Iran, Islamic Republic of`
-
-  // Iceland
-  case "IS":
-		*c = `Iceland`
-
-  // Italy
-  case "IT":
-		*c = `Italy`
-
-  // Jersey
-  case "JE":
-		*c = `Jersey`
-
-  // Jamaica
-  case "JM":
-		*c = `Jamaica`
-
-  // Jordan
-  case "JO":
-		*c = `Jordan`
-
-  // Japan
-  case "JP":
-		*c = `Japan`
-
-  // Kenya
-  case "KE":
-		*c = `Kenya`
-
-  // Kyrgyzstan
-  case "KG":
-		*c = `Kyrgyzstan`
-
-  // Cambodia
-  case "KH":
-		*c = `Cambodia`
-
-  // Kiribati
-  case "KI":
-		*c = `Kiribati`
-
-  // Comoros
-  case "KM":
-		*c = `Comoros`
-
-  // Saint Kitts and Nevis
-  case "KN":
-		*c = `Saint Kitts and Nevis`
-
-  // Korea, Democratic People’s Republic of
-  case "KP":
-		*c = `Korea, Democratic People’s Republic of`
-
-  // Korea, Republic of
-  case "KR":
-		*c = `Korea, Republic of`
-
-  // Kuwait
-  case "KW":
-		*c = `Kuwait`
-
-  // Cayman Islands
-  case "KY":
-		*c = `Cayman Islands`
-
-  // Kazakhstan
-  case "KZ":
-		*c = `Kazakhstan`
-
-  // Lao People’s Democratic Republic
-  case "LA":
-		*c = `Lao People’s Democratic Republic`
-
-  // Lebanon
-  case "LB":
-		*c = `Lebanon`
-
-  // Saint Lucia
-  case "LC":
-		*c = `Saint Lucia`
-
-  // Liechtenstein
-  case "LI":
-		*c = `Liechtenstein`
-
-  // Sri Lanka
-  case "LK":
-		*c = `Sri Lanka`
-
-  // Liberia
-  case "LR":
-		*c = `Liberia`
-
-  // Lesotho
-  case "LS":
-		*c = `Lesotho`
-
-  // Lithuania
-  case "LT":
-		*c = `Lithuania`
-
-  // Luxembourg
-  case "LU":
-		*c = `Luxembourg`
-
-  // Latvia
-  case "LV":
-		*c = `Latvia`
-
-  // Libya
-  case "LY":
-		*c = `Libya`
-
-  // Morocco
-  case "MA":
-		*c = `Morocco`
-
-  // Monaco
-  case "MC":
-		*c = `Monaco`
-
-  // Moldova, Repubic of
-  case "MD":
-		*c = `Moldova, Repubic of`
-
-  // Montenegro
-  case "ME":
-		*c = `Montenegro`
-
-  // Saint Martin (French part)
-  case "MF":
-		*c = `Saint Martin (French part)`
-
-  // Madagascar
-  case "MG":
-		*c = `Madagascar`
-
-  // Marshall Islands
-  case "MH":
-		*c = `Marshall Islands`
-
-  // Macedonia, the former Yugoslav Republic of
-  case "MK":
-		*c = `Macedonia, the former Yugoslav Republic of`
-
-  // Mali
-  case "ML":
-		*c = `Mali`
-
-  // Myanmar
-  case "MM":
-		*c = `Myanmar`
-
-  // Mongolia
-  case "MN":
-		*c = `Mongolia`
-
-  // Macao
-  case "MO":
-		*c = `Macao`
-
-  // Northern Mariana Islands
-  case "MP":
-		*c = `Northern Mariana Islands`
-
-  // Martinique
-  case "MQ":
-		*c = `Martinique`
-
-  // Mauritania
-  case "MR":
-		*c = `Mauritania`
-
-  // Montserrat
-  case "MS":
-		*c = `Montserrat`
-
-  // Malta
-  case "MT":
-		*c = `Malta`
-
-  // Mauritius
-  case "MU":
-		*c = `Mauritius`
-
-  // Maldives
-  case "MV":
-		*c = `Maldives`
-
-  // Malawi
-  case "MW":
-		*c = `Malawi`
-
-  // Mexico
-  case "MX":
-		*c = `Mexico`
-
-  // Malaysia
-  case "MY":
-		*c = `Malaysia`
-
-  // Mozambique
-  case "MZ":
-		*c = `Mozambique`
-
-  // Namibia
-  case "NA":
-		*c = `Namibia`
-
-  // New Caledonia
-  case "NC":
-		*c = `New Caledonia`
-
-  // Niger
-  case "NE":
-		*c = `Niger`
-
-  // Norfolk Island
-  case "NF":
-		*c = `Norfolk Island`
-
-  // Nigeria
-  case "NG":
-		*c = `Nigeria`
-
-  // Nicaragua
-  case "NI":
-		*c = `Nicaragua`
-
-  // Netherlands
-  case "NL":
-		*c = `Netherlands`
-
-  // Norway
-  case "NO":
-		*c = `Norway`
-
-  // Nepal
-  case "NP":
-		*c = `Nepal`
-
-  // Nauru
-  case "NR":
-		*c = `Nauru`
-
-  // Niue
-  case "NU":
-		*c = `Niue`
-
-  // New Zealand
-  case "NZ":
-		*c = `New Zealand`
-
-  // Oman
-  case "OM":
-		*c = `Oman`
-
-  // Panama
-  case "PA":
-		*c = `Panama`
-
-  // Peru
-  case "PE":
-		*c = `Peru`
-
-  // French Polynesia
-  case "PF":
-		*c = `French Polynesia`
-
-  // Papua New Guinea
-  case "PG":
-		*c = `Papua New Guinea`
-
-  // Philippines
-  case "PH":
-		*c = `Philippines`
-
-  // Pakistan
-  case "PK":
-		*c = `Pakistan`
-
-  // Poland
-  case "PL":
-		*c = `Poland`
-
-  // Saint Pierre and Miquelon
-  case "PM":
-		*c = `Saint Pierre and Miquelon`
-
-  // Pitcairn
-  case "PN":
-		*c = `Pitcairn`
-
-  // Puerto Rico
-  case "PR":
-		*c = `Puerto Rico`
-
-  // Palestine, State of
-  case "PS":
-		*c = `Palestine, State of`
-
-  // Portugal
-  case "PT":
-		*c = `Portugal`
-
-  // Palau
-  case "PW":
-		*c = `Palau`
-
-  // Paraguay
-  case "PY":
-		*c = `Paraguay`
-
-  // Qatar
-  case "QA":
-		*c = `Qatar`
-
-  // Réunion
-  case "RE":
-		*c = `Réunion`
-
-  // Romania
-  case "RO":
-		*c = `Romania`
-
-  // Serbia
-  case "RS":
-		*c = `Serbia`
-
-  // Russian Federation
-  case "RU":
-		*c = `Russian Federation`
-
-  // Rwanda
-  case "RW":
-		*c = `Rwanda`
-
-  // Saudi Arabia
-  case "SA":
-		*c = `Saudi Arabia`
-
-  // Solomon Islands
-  case "SB":
-		*c = `Solomon Islands`
-
-  // Seychelles
-  case "SC":
-		*c = `Seychelles`
-
-  // Sudan
-  case "SD":
-		*c = `Sudan`
-
-  // Sweden
-  case "SE":
-		*c = `Sweden`
-
-  // Singapore
-  case "SG":
-		*c = `Singapore`
-
-  // Saint Helena, Ascension and Tristan da Cunha
-  case "SH":
-		*c = `Saint Helena, Ascension and Tristan da Cunha`
-
-  // Slovenia
-  case "SI":
-		*c = `Slovenia`
-
-  // Svalbard and Jan Mayen
-  case "SJ":
-		*c = `Svalbard and Jan Mayen`
-
-  // Slovakia
-  case "SK":
-		*c = `Slovakia`
-
-  // Sierra Leone
-  case "SL":
-		*c = `Sierra Leone`
-
-  // San Marino
-  case "SM":
-		*c = `San Marino`
-
-  // Senegal
-  case "SN":
-		*c = `Senegal`
-
-  // Somalia
-  case "SO":
-		*c = `Somalia`
-
-  // Suriname
-  case "SR":
-		*c = `Suriname`
-
-  // South Sudan
-  case "SS":
-		*c = `South Sudan`
-
-  // Sao Tome and Principe
-  case "ST":
-		*c = `Sao Tome and Principe`
-
-  // El Salvador
-  case "SV":
-		*c = `El Salvador`
-
-  // Sint Maarten (Dutch part)
-  case "SX":
-		*c = `Sint Maarten (Dutch part)`
-
-  // Syrian Arab Republic
-  case "SY":
-		*c = `Syrian Arab Republic`
-
-  // Swaziland
-  case "SZ":
-		*c = `Swaziland`
-
-  // Turks and Caicos Islands
-  case "TC":
-		*c = `Turks and Caicos Islands`
-
-  // Chad
-  case "TD":
-		*c = `Chad`
-
-  // French Southern Territories
-  case "TF":
-		*c = `French Southern Territories`
-
-  // Togo
-  case "TG":
-		*c = `Togo`
-
-  // Thailand
-  case "TH":
-		*c = `Thailand`
-
-  // Tajikistan
-  case "TJ":
-		*c = `Tajikistan`
-
-  // Tokelau
-  case "TK":
-		*c = `Tokelau`
-
-  // Timor-Leste
-  case "TL":
-		*c = `Timor-Leste`
-
-  // Turkmenistan
-  case "TM":
-		*c = `Turkmenistan`
-
-  // Tunisia
-  case "TN":
-		*c = `Tunisia`
-
-  // Tonga
-  case "TO":
-		*c = `Tonga`
-
-  // Turkey
-  case "TR":
-		*c = `Turkey`
-
-  // Trinidad and Tobago
-  case "TT":
-		*c = `Trinidad and Tobago`
-
-  // Tuvalu
-  case "TV":
-		*c = `Tuvalu`
-
-  // Taiwan, Province of China
-  case "TW":
-		*c = `Taiwan, Province of China`
-
-  // Tanzania, United Republic of
-  case "TZ":
-		*c = `Tanzania, United Republic of`
-
-  // Ukraine
-  case "UA":
-		*c = `Ukraine`
-
-  // Uganda
-  case "UG":
-		*c = `Uganda`
-
-  // United States Minor Outlying Islands
-  case "UM":
-		*c = `United States Minor Outlying Islands`
-
-  // United States
-  case "US":
-		*c = `United States`
-
-  // Uruguay
-  case "UY":
-		*c = `Uruguay`
-
-  // Uzbekistan
-  case "UZ":
-		*c = `Uzbekistan`
-
-  // Holy See (Vatican City State)
-  case "VA":
-		*c = `Holy See (Vatican City State)`
-
-  // Saint Vincent and the Grenadines
-  case "VC":
-		*c = `Saint Vincent and the Grenadines`
-
-  // Venezuela, Bolivarian Republic of
-  case "VE":
-		*c = `Venezuela, Bolivarian Republic of`
-
-  // Virgin Islands, British
-  case "VG":
-		*c = `Virgin Islands, British`
-
-  // Virgin Islands, US
-  case "VI":
-		*c = `Virgin Islands, US`
-
-  // Viet Nam
-  case "VN":
-		*c = `Viet Nam`
-
-  // Vanuatu
-  case "VU":
-		*c = `Vanuatu`
-
-  // Wallis and Futuna
-  case "WF":
-		*c = `Wallis and Futuna`
-
-  // Samoa
-  case "WS":
-		*c = `Samoa`
-
-  // Yemen
-  case "YE":
-		*c = `Yemen`
-
-  // Mayotte
-  case "YT":
-		*c = `Mayotte`
-
-  // DEPRECATED, replaced by ME – Montenegro and RS – Serbia
-  case "YU":
-		*c = `Yugoslavia`
-
-  // South Africa
-  case "ZA":
-		*c = `South Africa`
-
-  // Zambia
-  case "ZM":
-		*c = `Zambia`
-
-  // Zimbabwe
-  case "ZW":
-		*c = `Zimbabwe`
-	default:
-		return fmt.Errorf("undefined code for PrizeCountry has been passed, got [%s]", v)
+	codes := strings.Split(v, " ")
+	tmpeCodes := []string{}
+	for _, code := range codes {
+		switch code {
+
+		// Andorra
+		case "AD":
+			tmpeCodes = append(tmpeCodes, `Andorra`)
+
+		// United Arab Emirates
+		case "AE":
+			tmpeCodes = append(tmpeCodes, `United Arab Emirates`)
+
+		// Afghanistan
+		case "AF":
+			tmpeCodes = append(tmpeCodes, `Afghanistan`)
+
+		// Antigua and Barbuda
+		case "AG":
+			tmpeCodes = append(tmpeCodes, `Antigua and Barbuda`)
+
+		// Anguilla
+		case "AI":
+			tmpeCodes = append(tmpeCodes, `Anguilla`)
+
+		// Albania
+		case "AL":
+			tmpeCodes = append(tmpeCodes, `Albania`)
+
+		// Armenia
+		case "AM":
+			tmpeCodes = append(tmpeCodes, `Armenia`)
+
+		// Deprecated – use BQ, CW or SX as appropriate
+		case "AN":
+			tmpeCodes = append(tmpeCodes, `Netherlands Antilles`)
+
+		// Angola
+		case "AO":
+			tmpeCodes = append(tmpeCodes, `Angola`)
+
+		// Antarctica
+		case "AQ":
+			tmpeCodes = append(tmpeCodes, `Antarctica`)
+
+		// Argentina
+		case "AR":
+			tmpeCodes = append(tmpeCodes, `Argentina`)
+
+		// American Samoa
+		case "AS":
+			tmpeCodes = append(tmpeCodes, `American Samoa`)
+
+		// Austria
+		case "AT":
+			tmpeCodes = append(tmpeCodes, `Austria`)
+
+		// Australia
+		case "AU":
+			tmpeCodes = append(tmpeCodes, `Australia`)
+
+		// Aruba
+		case "AW":
+			tmpeCodes = append(tmpeCodes, `Aruba`)
+
+		// Åland Islands
+		case "AX":
+			tmpeCodes = append(tmpeCodes, `Åland Islands`)
+
+		// Azerbaijan
+		case "AZ":
+			tmpeCodes = append(tmpeCodes, `Azerbaijan`)
+
+		// Bosnia and Herzegovina
+		case "BA":
+			tmpeCodes = append(tmpeCodes, `Bosnia and Herzegovina`)
+
+		// Barbados
+		case "BB":
+			tmpeCodes = append(tmpeCodes, `Barbados`)
+
+		// Bangladesh
+		case "BD":
+			tmpeCodes = append(tmpeCodes, `Bangladesh`)
+
+		// Belgium
+		case "BE":
+			tmpeCodes = append(tmpeCodes, `Belgium`)
+
+		// Burkina Faso
+		case "BF":
+			tmpeCodes = append(tmpeCodes, `Burkina Faso`)
+
+		// Bulgaria
+		case "BG":
+			tmpeCodes = append(tmpeCodes, `Bulgaria`)
+
+		// Bahrain
+		case "BH":
+			tmpeCodes = append(tmpeCodes, `Bahrain`)
+
+		// Burundi
+		case "BI":
+			tmpeCodes = append(tmpeCodes, `Burundi`)
+
+		// Benin
+		case "BJ":
+			tmpeCodes = append(tmpeCodes, `Benin`)
+
+		// Saint Barthélemy
+		case "BL":
+			tmpeCodes = append(tmpeCodes, `Saint Barthélemy`)
+
+		// Bermuda
+		case "BM":
+			tmpeCodes = append(tmpeCodes, `Bermuda`)
+
+		// Brunei Darussalam
+		case "BN":
+			tmpeCodes = append(tmpeCodes, `Brunei Darussalam`)
+
+		// Bolivia, Plurinational State of
+		case "BO":
+			tmpeCodes = append(tmpeCodes, `Bolivia, Plurinational State of`)
+
+		// Bonaire, Sint Eustatius and Saba
+		case "BQ":
+			tmpeCodes = append(tmpeCodes, `Bonaire, Sint Eustatius and Saba`)
+
+		// Brazil
+		case "BR":
+			tmpeCodes = append(tmpeCodes, `Brazil`)
+
+		// Bahamas
+		case "BS":
+			tmpeCodes = append(tmpeCodes, `Bahamas`)
+
+		// Bhutan
+		case "BT":
+			tmpeCodes = append(tmpeCodes, `Bhutan`)
+
+		// Bouvet Island
+		case "BV":
+			tmpeCodes = append(tmpeCodes, `Bouvet Island`)
+
+		// Botswana
+		case "BW":
+			tmpeCodes = append(tmpeCodes, `Botswana`)
+
+		// Belarus
+		case "BY":
+			tmpeCodes = append(tmpeCodes, `Belarus`)
+
+		// Belize
+		case "BZ":
+			tmpeCodes = append(tmpeCodes, `Belize`)
+
+		// Canada
+		case "CA":
+			tmpeCodes = append(tmpeCodes, `Canada`)
+
+		// Cocos (Keeling) Islands
+		case "CC":
+			tmpeCodes = append(tmpeCodes, `Cocos (Keeling) Islands`)
+
+		// Congo, Democratic Republic of the
+		case "CD":
+			tmpeCodes = append(tmpeCodes, `Congo, Democratic Republic of the`)
+
+		// Central African Republic
+		case "CF":
+			tmpeCodes = append(tmpeCodes, `Central African Republic`)
+
+		// Congo
+		case "CG":
+			tmpeCodes = append(tmpeCodes, `Congo`)
+
+		// Switzerland
+		case "CH":
+			tmpeCodes = append(tmpeCodes, `Switzerland`)
+
+		// Cote d’Ivoire
+		case "CI":
+			tmpeCodes = append(tmpeCodes, `Cote d’Ivoire`)
+
+		// Cook Islands
+		case "CK":
+			tmpeCodes = append(tmpeCodes, `Cook Islands`)
+
+		// Chile
+		case "CL":
+			tmpeCodes = append(tmpeCodes, `Chile`)
+
+		// Cameroon
+		case "CM":
+			tmpeCodes = append(tmpeCodes, `Cameroon`)
+
+		// China
+		case "CN":
+			tmpeCodes = append(tmpeCodes, `China`)
+
+		// Colombia
+		case "CO":
+			tmpeCodes = append(tmpeCodes, `Colombia`)
+
+		// Costa Rica
+		case "CR":
+			tmpeCodes = append(tmpeCodes, `Costa Rica`)
+
+		// DEPRECATED, replaced by ME – Montenegro and RS – Serbia
+		case "CS":
+			tmpeCodes = append(tmpeCodes, `Serbia and Montenegro`)
+
+		// Cuba
+		case "CU":
+			tmpeCodes = append(tmpeCodes, `Cuba`)
+
+		// Cabo Verde
+		case "CV":
+			tmpeCodes = append(tmpeCodes, `Cabo Verde`)
+
+		// Curaçao
+		case "CW":
+			tmpeCodes = append(tmpeCodes, `Curaçao`)
+
+		// Christmas Island
+		case "CX":
+			tmpeCodes = append(tmpeCodes, `Christmas Island`)
+
+		// Cyprus
+		case "CY":
+			tmpeCodes = append(tmpeCodes, `Cyprus`)
+
+		// Czech Republic
+		case "CZ":
+			tmpeCodes = append(tmpeCodes, `Czech Republic`)
+
+		// Germany
+		case "DE":
+			tmpeCodes = append(tmpeCodes, `Germany`)
+
+		// Djibouti
+		case "DJ":
+			tmpeCodes = append(tmpeCodes, `Djibouti`)
+
+		// Denmark
+		case "DK":
+			tmpeCodes = append(tmpeCodes, `Denmark`)
+
+		// Dominica
+		case "DM":
+			tmpeCodes = append(tmpeCodes, `Dominica`)
+
+		// Dominican Republic
+		case "DO":
+			tmpeCodes = append(tmpeCodes, `Dominican Republic`)
+
+		// Algeria
+		case "DZ":
+			tmpeCodes = append(tmpeCodes, `Algeria`)
+
+		// Ecuador
+		case "EC":
+			tmpeCodes = append(tmpeCodes, `Ecuador`)
+
+		// Estonia
+		case "EE":
+			tmpeCodes = append(tmpeCodes, `Estonia`)
+
+		// Egypt
+		case "EG":
+			tmpeCodes = append(tmpeCodes, `Egypt`)
+
+		// Western Sahara
+		case "EH":
+			tmpeCodes = append(tmpeCodes, `Western Sahara`)
+
+		// Eritrea
+		case "ER":
+			tmpeCodes = append(tmpeCodes, `Eritrea`)
+
+		// Spain
+		case "ES":
+			tmpeCodes = append(tmpeCodes, `Spain`)
+
+		// Ethiopia
+		case "ET":
+			tmpeCodes = append(tmpeCodes, `Ethiopia`)
+
+		// Finland
+		case "FI":
+			tmpeCodes = append(tmpeCodes, `Finland`)
+
+		// Fiji
+		case "FJ":
+			tmpeCodes = append(tmpeCodes, `Fiji`)
+
+		// Falkland Islands (Malvinas)
+		case "FK":
+			tmpeCodes = append(tmpeCodes, `Falkland Islands (Malvinas)`)
+
+		// Micronesia, Federated States of
+		case "FM":
+			tmpeCodes = append(tmpeCodes, `Micronesia, Federated States of`)
+
+		// Faroe Islands
+		case "FO":
+			tmpeCodes = append(tmpeCodes, `Faroe Islands`)
+
+		// France
+		case "FR":
+			tmpeCodes = append(tmpeCodes, `France`)
+
+		// Gabon
+		case "GA":
+			tmpeCodes = append(tmpeCodes, `Gabon`)
+
+		// United Kingdom
+		case "GB":
+			tmpeCodes = append(tmpeCodes, `United Kingdom`)
+
+		// Grenada
+		case "GD":
+			tmpeCodes = append(tmpeCodes, `Grenada`)
+
+		// Georgia
+		case "GE":
+			tmpeCodes = append(tmpeCodes, `Georgia`)
+
+		// French Guiana
+		case "GF":
+			tmpeCodes = append(tmpeCodes, `French Guiana`)
+
+		// Guernsey
+		case "GG":
+			tmpeCodes = append(tmpeCodes, `Guernsey`)
+
+		// Ghana
+		case "GH":
+			tmpeCodes = append(tmpeCodes, `Ghana`)
+
+		// Gibraltar
+		case "GI":
+			tmpeCodes = append(tmpeCodes, `Gibraltar`)
+
+		// Greenland
+		case "GL":
+			tmpeCodes = append(tmpeCodes, `Greenland`)
+
+		// Gambia
+		case "GM":
+			tmpeCodes = append(tmpeCodes, `Gambia`)
+
+		// Guinea
+		case "GN":
+			tmpeCodes = append(tmpeCodes, `Guinea`)
+
+		// Guadeloupe
+		case "GP":
+			tmpeCodes = append(tmpeCodes, `Guadeloupe`)
+
+		// Equatorial Guinea
+		case "GQ":
+			tmpeCodes = append(tmpeCodes, `Equatorial Guinea`)
+
+		// Greece
+		case "GR":
+			tmpeCodes = append(tmpeCodes, `Greece`)
+
+		// South Georgia and the South Sandwich Islands
+		case "GS":
+			tmpeCodes = append(tmpeCodes, `South Georgia and the South Sandwich Islands`)
+
+		// Guatemala
+		case "GT":
+			tmpeCodes = append(tmpeCodes, `Guatemala`)
+
+		// Guam
+		case "GU":
+			tmpeCodes = append(tmpeCodes, `Guam`)
+
+		// Guinea-Bissau
+		case "GW":
+			tmpeCodes = append(tmpeCodes, `Guinea-Bissau`)
+
+		// Guyana
+		case "GY":
+			tmpeCodes = append(tmpeCodes, `Guyana`)
+
+		// Hong Kong
+		case "HK":
+			tmpeCodes = append(tmpeCodes, `Hong Kong`)
+
+		// Heard Island and McDonald Islands
+		case "HM":
+			tmpeCodes = append(tmpeCodes, `Heard Island and McDonald Islands`)
+
+		// Honduras
+		case "HN":
+			tmpeCodes = append(tmpeCodes, `Honduras`)
+
+		// Croatia
+		case "HR":
+			tmpeCodes = append(tmpeCodes, `Croatia`)
+
+		// Haiti
+		case "HT":
+			tmpeCodes = append(tmpeCodes, `Haiti`)
+
+		// Hungary
+		case "HU":
+			tmpeCodes = append(tmpeCodes, `Hungary`)
+
+		// Indonesia
+		case "ID":
+			tmpeCodes = append(tmpeCodes, `Indonesia`)
+
+		// Ireland
+		case "IE":
+			tmpeCodes = append(tmpeCodes, `Ireland`)
+
+		// Israel
+		case "IL":
+			tmpeCodes = append(tmpeCodes, `Israel`)
+
+		// Isle of Man
+		case "IM":
+			tmpeCodes = append(tmpeCodes, `Isle of Man`)
+
+		// India
+		case "IN":
+			tmpeCodes = append(tmpeCodes, `India`)
+
+		// British Indian Ocean Territory
+		case "IO":
+			tmpeCodes = append(tmpeCodes, `British Indian Ocean Territory`)
+
+		// Iraq
+		case "IQ":
+			tmpeCodes = append(tmpeCodes, `Iraq`)
+
+		// Iran, Islamic Republic of
+		case "IR":
+			tmpeCodes = append(tmpeCodes, `Iran, Islamic Republic of`)
+
+		// Iceland
+		case "IS":
+			tmpeCodes = append(tmpeCodes, `Iceland`)
+
+		// Italy
+		case "IT":
+			tmpeCodes = append(tmpeCodes, `Italy`)
+
+		// Jersey
+		case "JE":
+			tmpeCodes = append(tmpeCodes, `Jersey`)
+
+		// Jamaica
+		case "JM":
+			tmpeCodes = append(tmpeCodes, `Jamaica`)
+
+		// Jordan
+		case "JO":
+			tmpeCodes = append(tmpeCodes, `Jordan`)
+
+		// Japan
+		case "JP":
+			tmpeCodes = append(tmpeCodes, `Japan`)
+
+		// Kenya
+		case "KE":
+			tmpeCodes = append(tmpeCodes, `Kenya`)
+
+		// Kyrgyzstan
+		case "KG":
+			tmpeCodes = append(tmpeCodes, `Kyrgyzstan`)
+
+		// Cambodia
+		case "KH":
+			tmpeCodes = append(tmpeCodes, `Cambodia`)
+
+		// Kiribati
+		case "KI":
+			tmpeCodes = append(tmpeCodes, `Kiribati`)
+
+		// Comoros
+		case "KM":
+			tmpeCodes = append(tmpeCodes, `Comoros`)
+
+		// Saint Kitts and Nevis
+		case "KN":
+			tmpeCodes = append(tmpeCodes, `Saint Kitts and Nevis`)
+
+		// Korea, Democratic People’s Republic of
+		case "KP":
+			tmpeCodes = append(tmpeCodes, `Korea, Democratic People’s Republic of`)
+
+		// Korea, Republic of
+		case "KR":
+			tmpeCodes = append(tmpeCodes, `Korea, Republic of`)
+
+		// Kuwait
+		case "KW":
+			tmpeCodes = append(tmpeCodes, `Kuwait`)
+
+		// Cayman Islands
+		case "KY":
+			tmpeCodes = append(tmpeCodes, `Cayman Islands`)
+
+		// Kazakhstan
+		case "KZ":
+			tmpeCodes = append(tmpeCodes, `Kazakhstan`)
+
+		// Lao People’s Democratic Republic
+		case "LA":
+			tmpeCodes = append(tmpeCodes, `Lao People’s Democratic Republic`)
+
+		// Lebanon
+		case "LB":
+			tmpeCodes = append(tmpeCodes, `Lebanon`)
+
+		// Saint Lucia
+		case "LC":
+			tmpeCodes = append(tmpeCodes, `Saint Lucia`)
+
+		// Liechtenstein
+		case "LI":
+			tmpeCodes = append(tmpeCodes, `Liechtenstein`)
+
+		// Sri Lanka
+		case "LK":
+			tmpeCodes = append(tmpeCodes, `Sri Lanka`)
+
+		// Liberia
+		case "LR":
+			tmpeCodes = append(tmpeCodes, `Liberia`)
+
+		// Lesotho
+		case "LS":
+			tmpeCodes = append(tmpeCodes, `Lesotho`)
+
+		// Lithuania
+		case "LT":
+			tmpeCodes = append(tmpeCodes, `Lithuania`)
+
+		// Luxembourg
+		case "LU":
+			tmpeCodes = append(tmpeCodes, `Luxembourg`)
+
+		// Latvia
+		case "LV":
+			tmpeCodes = append(tmpeCodes, `Latvia`)
+
+		// Libya
+		case "LY":
+			tmpeCodes = append(tmpeCodes, `Libya`)
+
+		// Morocco
+		case "MA":
+			tmpeCodes = append(tmpeCodes, `Morocco`)
+
+		// Monaco
+		case "MC":
+			tmpeCodes = append(tmpeCodes, `Monaco`)
+
+		// Moldova, Repubic of
+		case "MD":
+			tmpeCodes = append(tmpeCodes, `Moldova, Repubic of`)
+
+		// Montenegro
+		case "ME":
+			tmpeCodes = append(tmpeCodes, `Montenegro`)
+
+		// Saint Martin (French part)
+		case "MF":
+			tmpeCodes = append(tmpeCodes, `Saint Martin (French part)`)
+
+		// Madagascar
+		case "MG":
+			tmpeCodes = append(tmpeCodes, `Madagascar`)
+
+		// Marshall Islands
+		case "MH":
+			tmpeCodes = append(tmpeCodes, `Marshall Islands`)
+
+		// Macedonia, the former Yugoslav Republic of
+		case "MK":
+			tmpeCodes = append(tmpeCodes, `Macedonia, the former Yugoslav Republic of`)
+
+		// Mali
+		case "ML":
+			tmpeCodes = append(tmpeCodes, `Mali`)
+
+		// Myanmar
+		case "MM":
+			tmpeCodes = append(tmpeCodes, `Myanmar`)
+
+		// Mongolia
+		case "MN":
+			tmpeCodes = append(tmpeCodes, `Mongolia`)
+
+		// Macao
+		case "MO":
+			tmpeCodes = append(tmpeCodes, `Macao`)
+
+		// Northern Mariana Islands
+		case "MP":
+			tmpeCodes = append(tmpeCodes, `Northern Mariana Islands`)
+
+		// Martinique
+		case "MQ":
+			tmpeCodes = append(tmpeCodes, `Martinique`)
+
+		// Mauritania
+		case "MR":
+			tmpeCodes = append(tmpeCodes, `Mauritania`)
+
+		// Montserrat
+		case "MS":
+			tmpeCodes = append(tmpeCodes, `Montserrat`)
+
+		// Malta
+		case "MT":
+			tmpeCodes = append(tmpeCodes, `Malta`)
+
+		// Mauritius
+		case "MU":
+			tmpeCodes = append(tmpeCodes, `Mauritius`)
+
+		// Maldives
+		case "MV":
+			tmpeCodes = append(tmpeCodes, `Maldives`)
+
+		// Malawi
+		case "MW":
+			tmpeCodes = append(tmpeCodes, `Malawi`)
+
+		// Mexico
+		case "MX":
+			tmpeCodes = append(tmpeCodes, `Mexico`)
+
+		// Malaysia
+		case "MY":
+			tmpeCodes = append(tmpeCodes, `Malaysia`)
+
+		// Mozambique
+		case "MZ":
+			tmpeCodes = append(tmpeCodes, `Mozambique`)
+
+		// Namibia
+		case "NA":
+			tmpeCodes = append(tmpeCodes, `Namibia`)
+
+		// New Caledonia
+		case "NC":
+			tmpeCodes = append(tmpeCodes, `New Caledonia`)
+
+		// Niger
+		case "NE":
+			tmpeCodes = append(tmpeCodes, `Niger`)
+
+		// Norfolk Island
+		case "NF":
+			tmpeCodes = append(tmpeCodes, `Norfolk Island`)
+
+		// Nigeria
+		case "NG":
+			tmpeCodes = append(tmpeCodes, `Nigeria`)
+
+		// Nicaragua
+		case "NI":
+			tmpeCodes = append(tmpeCodes, `Nicaragua`)
+
+		// Netherlands
+		case "NL":
+			tmpeCodes = append(tmpeCodes, `Netherlands`)
+
+		// Norway
+		case "NO":
+			tmpeCodes = append(tmpeCodes, `Norway`)
+
+		// Nepal
+		case "NP":
+			tmpeCodes = append(tmpeCodes, `Nepal`)
+
+		// Nauru
+		case "NR":
+			tmpeCodes = append(tmpeCodes, `Nauru`)
+
+		// Niue
+		case "NU":
+			tmpeCodes = append(tmpeCodes, `Niue`)
+
+		// New Zealand
+		case "NZ":
+			tmpeCodes = append(tmpeCodes, `New Zealand`)
+
+		// Oman
+		case "OM":
+			tmpeCodes = append(tmpeCodes, `Oman`)
+
+		// Panama
+		case "PA":
+			tmpeCodes = append(tmpeCodes, `Panama`)
+
+		// Peru
+		case "PE":
+			tmpeCodes = append(tmpeCodes, `Peru`)
+
+		// French Polynesia
+		case "PF":
+			tmpeCodes = append(tmpeCodes, `French Polynesia`)
+
+		// Papua New Guinea
+		case "PG":
+			tmpeCodes = append(tmpeCodes, `Papua New Guinea`)
+
+		// Philippines
+		case "PH":
+			tmpeCodes = append(tmpeCodes, `Philippines`)
+
+		// Pakistan
+		case "PK":
+			tmpeCodes = append(tmpeCodes, `Pakistan`)
+
+		// Poland
+		case "PL":
+			tmpeCodes = append(tmpeCodes, `Poland`)
+
+		// Saint Pierre and Miquelon
+		case "PM":
+			tmpeCodes = append(tmpeCodes, `Saint Pierre and Miquelon`)
+
+		// Pitcairn
+		case "PN":
+			tmpeCodes = append(tmpeCodes, `Pitcairn`)
+
+		// Puerto Rico
+		case "PR":
+			tmpeCodes = append(tmpeCodes, `Puerto Rico`)
+
+		// Palestine, State of
+		case "PS":
+			tmpeCodes = append(tmpeCodes, `Palestine, State of`)
+
+		// Portugal
+		case "PT":
+			tmpeCodes = append(tmpeCodes, `Portugal`)
+
+		// Palau
+		case "PW":
+			tmpeCodes = append(tmpeCodes, `Palau`)
+
+		// Paraguay
+		case "PY":
+			tmpeCodes = append(tmpeCodes, `Paraguay`)
+
+		// Qatar
+		case "QA":
+			tmpeCodes = append(tmpeCodes, `Qatar`)
+
+		// Réunion
+		case "RE":
+			tmpeCodes = append(tmpeCodes, `Réunion`)
+
+		// Romania
+		case "RO":
+			tmpeCodes = append(tmpeCodes, `Romania`)
+
+		// Serbia
+		case "RS":
+			tmpeCodes = append(tmpeCodes, `Serbia`)
+
+		// Russian Federation
+		case "RU":
+			tmpeCodes = append(tmpeCodes, `Russian Federation`)
+
+		// Rwanda
+		case "RW":
+			tmpeCodes = append(tmpeCodes, `Rwanda`)
+
+		// Saudi Arabia
+		case "SA":
+			tmpeCodes = append(tmpeCodes, `Saudi Arabia`)
+
+		// Solomon Islands
+		case "SB":
+			tmpeCodes = append(tmpeCodes, `Solomon Islands`)
+
+		// Seychelles
+		case "SC":
+			tmpeCodes = append(tmpeCodes, `Seychelles`)
+
+		// Sudan
+		case "SD":
+			tmpeCodes = append(tmpeCodes, `Sudan`)
+
+		// Sweden
+		case "SE":
+			tmpeCodes = append(tmpeCodes, `Sweden`)
+
+		// Singapore
+		case "SG":
+			tmpeCodes = append(tmpeCodes, `Singapore`)
+
+		// Saint Helena, Ascension and Tristan da Cunha
+		case "SH":
+			tmpeCodes = append(tmpeCodes, `Saint Helena, Ascension and Tristan da Cunha`)
+
+		// Slovenia
+		case "SI":
+			tmpeCodes = append(tmpeCodes, `Slovenia`)
+
+		// Svalbard and Jan Mayen
+		case "SJ":
+			tmpeCodes = append(tmpeCodes, `Svalbard and Jan Mayen`)
+
+		// Slovakia
+		case "SK":
+			tmpeCodes = append(tmpeCodes, `Slovakia`)
+
+		// Sierra Leone
+		case "SL":
+			tmpeCodes = append(tmpeCodes, `Sierra Leone`)
+
+		// San Marino
+		case "SM":
+			tmpeCodes = append(tmpeCodes, `San Marino`)
+
+		// Senegal
+		case "SN":
+			tmpeCodes = append(tmpeCodes, `Senegal`)
+
+		// Somalia
+		case "SO":
+			tmpeCodes = append(tmpeCodes, `Somalia`)
+
+		// Suriname
+		case "SR":
+			tmpeCodes = append(tmpeCodes, `Suriname`)
+
+		// South Sudan
+		case "SS":
+			tmpeCodes = append(tmpeCodes, `South Sudan`)
+
+		// Sao Tome and Principe
+		case "ST":
+			tmpeCodes = append(tmpeCodes, `Sao Tome and Principe`)
+
+		// El Salvador
+		case "SV":
+			tmpeCodes = append(tmpeCodes, `El Salvador`)
+
+		// Sint Maarten (Dutch part)
+		case "SX":
+			tmpeCodes = append(tmpeCodes, `Sint Maarten (Dutch part)`)
+
+		// Syrian Arab Republic
+		case "SY":
+			tmpeCodes = append(tmpeCodes, `Syrian Arab Republic`)
+
+		// Swaziland
+		case "SZ":
+			tmpeCodes = append(tmpeCodes, `Swaziland`)
+
+		// Turks and Caicos Islands
+		case "TC":
+			tmpeCodes = append(tmpeCodes, `Turks and Caicos Islands`)
+
+		// Chad
+		case "TD":
+			tmpeCodes = append(tmpeCodes, `Chad`)
+
+		// French Southern Territories
+		case "TF":
+			tmpeCodes = append(tmpeCodes, `French Southern Territories`)
+
+		// Togo
+		case "TG":
+			tmpeCodes = append(tmpeCodes, `Togo`)
+
+		// Thailand
+		case "TH":
+			tmpeCodes = append(tmpeCodes, `Thailand`)
+
+		// Tajikistan
+		case "TJ":
+			tmpeCodes = append(tmpeCodes, `Tajikistan`)
+
+		// Tokelau
+		case "TK":
+			tmpeCodes = append(tmpeCodes, `Tokelau`)
+
+		// Timor-Leste
+		case "TL":
+			tmpeCodes = append(tmpeCodes, `Timor-Leste`)
+
+		// Turkmenistan
+		case "TM":
+			tmpeCodes = append(tmpeCodes, `Turkmenistan`)
+
+		// Tunisia
+		case "TN":
+			tmpeCodes = append(tmpeCodes, `Tunisia`)
+
+		// Tonga
+		case "TO":
+			tmpeCodes = append(tmpeCodes, `Tonga`)
+
+		// Turkey
+		case "TR":
+			tmpeCodes = append(tmpeCodes, `Turkey`)
+
+		// Trinidad and Tobago
+		case "TT":
+			tmpeCodes = append(tmpeCodes, `Trinidad and Tobago`)
+
+		// Tuvalu
+		case "TV":
+			tmpeCodes = append(tmpeCodes, `Tuvalu`)
+
+		// Taiwan, Province of China
+		case "TW":
+			tmpeCodes = append(tmpeCodes, `Taiwan, Province of China`)
+
+		// Tanzania, United Republic of
+		case "TZ":
+			tmpeCodes = append(tmpeCodes, `Tanzania, United Republic of`)
+
+		// Ukraine
+		case "UA":
+			tmpeCodes = append(tmpeCodes, `Ukraine`)
+
+		// Uganda
+		case "UG":
+			tmpeCodes = append(tmpeCodes, `Uganda`)
+
+		// United States Minor Outlying Islands
+		case "UM":
+			tmpeCodes = append(tmpeCodes, `United States Minor Outlying Islands`)
+
+		// United States
+		case "US":
+			tmpeCodes = append(tmpeCodes, `United States`)
+
+		// Uruguay
+		case "UY":
+			tmpeCodes = append(tmpeCodes, `Uruguay`)
+
+		// Uzbekistan
+		case "UZ":
+			tmpeCodes = append(tmpeCodes, `Uzbekistan`)
+
+		// Holy See (Vatican City State)
+		case "VA":
+			tmpeCodes = append(tmpeCodes, `Holy See (Vatican City State)`)
+
+		// Saint Vincent and the Grenadines
+		case "VC":
+			tmpeCodes = append(tmpeCodes, `Saint Vincent and the Grenadines`)
+
+		// Venezuela, Bolivarian Republic of
+		case "VE":
+			tmpeCodes = append(tmpeCodes, `Venezuela, Bolivarian Republic of`)
+
+		// Virgin Islands, British
+		case "VG":
+			tmpeCodes = append(tmpeCodes, `Virgin Islands, British`)
+
+		// Virgin Islands, US
+		case "VI":
+			tmpeCodes = append(tmpeCodes, `Virgin Islands, US`)
+
+		// Viet Nam
+		case "VN":
+			tmpeCodes = append(tmpeCodes, `Viet Nam`)
+
+		// Vanuatu
+		case "VU":
+			tmpeCodes = append(tmpeCodes, `Vanuatu`)
+
+		// Wallis and Futuna
+		case "WF":
+			tmpeCodes = append(tmpeCodes, `Wallis and Futuna`)
+
+		// Samoa
+		case "WS":
+			tmpeCodes = append(tmpeCodes, `Samoa`)
+
+		// Yemen
+		case "YE":
+			tmpeCodes = append(tmpeCodes, `Yemen`)
+
+		// Mayotte
+		case "YT":
+			tmpeCodes = append(tmpeCodes, `Mayotte`)
+
+		// DEPRECATED, replaced by ME – Montenegro and RS – Serbia
+		case "YU":
+			tmpeCodes = append(tmpeCodes, `Yugoslavia`)
+
+		// South Africa
+		case "ZA":
+			tmpeCodes = append(tmpeCodes, `South Africa`)
+
+		// Zambia
+		case "ZM":
+			tmpeCodes = append(tmpeCodes, `Zambia`)
+
+		// Zimbabwe
+		case "ZW":
+			tmpeCodes = append(tmpeCodes, `Zimbabwe`)
+		default:
+			return fmt.Errorf("undefined code for PrizeCountry has been passed, got [%s]", v)
+		}
 	}
+	*c = tmpeCodes
 	return nil
 }
 

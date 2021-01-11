@@ -3,17 +3,42 @@ package onix
 import (
 	"encoding/xml"
 	"fmt"
+	"strings"
 )
 
 {{#.}}
 
+{{#spaceSeparatable}}
+// {{xmlReferenceName}} {{description}}
+type {{xmlReferenceName}} []string
+{{/spaceSeparatable}}
+{{^spaceSeparatable}}
 // {{xmlReferenceName}} {{description}}
 type {{xmlReferenceName}} string
+{{/spaceSeparatable}}
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
 func (c *{{xmlReferenceName}}) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	var v string
 	d.DecodeElement(&v, &start)
+{{#spaceSeparatable}}
+	codes := strings.Split(v, " ")
+	tmpeCodes := []string{}
+	for _, code := range codes {
+		switch code {
+		{{#codes}}
+
+		// {{&notes}}
+		case "{{value}}":
+			tmpeCodes = append(tmpeCodes, `{{description}}`)
+		{{/codes}}
+		default:
+			return fmt.Errorf("undefined code for {{xmlReferenceName}} has been passed, got [%s]", v)
+		}
+	}
+	*c = tmpeCodes
+{{/spaceSeparatable}}
+{{^spaceSeparatable}}
 	switch v {
   {{#codes}}
 
@@ -24,6 +49,7 @@ func (c *{{xmlReferenceName}}) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 	default:
 		return fmt.Errorf("undefined code for {{xmlReferenceName}} has been passed, got [%s]", v)
 	}
+{{/spaceSeparatable}}
 	return nil
 }
 {{/.}}

@@ -2,12 +2,13 @@
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 module Code
   ( codeTypes,
     CodeTypes,
-    CodeType,
-    Code,
+    CodeType (..),
+    Code (..),
     collectCodes,
     readSchema,
     topLevelElementToCode,
@@ -50,11 +51,12 @@ data CodeType = CodeType
   deriving (Generic, Show, Eq)
 
 instance ToMustache CodeType where
-  toMustache CodeType {xmlReferenceName, description, codes} =
+  toMustache CodeType {xmlReferenceName, description, codes, spaceSeparatable} =
     object
       [ pack "xmlReferenceName" ~> xmlReferenceName,
         pack "description" ~> description,
-        pack "codes" ~> toMustache codes
+        pack "codes" ~> toMustache codes,
+        pack "spaceSeparatable" ~> spaceSeparatable
       ]
 
 type CodeTypes = Vector CodeType
@@ -93,6 +95,10 @@ topLevelTypeToCode scm (ref, X.TypeSimple (X.ListType ty _)) =
       -- NOTE: Codelists does not contain namespaces which refer to `http://www.editeur.org/onix/2.1/reference`
       let key = X.QName Nothing $ X.qnName key_
           t = (unwrap . M.lookup key . X.schemaTypes) scm
+          spaceSeparatable_ = case key of
+            X.QName {X.qnName = "List49"} -> True
+            X.QName {X.qnName = "List91"} -> True
+            _ -> False
           desc = (T.intercalate (pack ". ") . map (\(X.Documentation x) -> x) . typeAnnotations) t
           constraints = typeConstraints t
           codes_ =
@@ -103,7 +109,7 @@ topLevelTypeToCode scm (ref, X.TypeSimple (X.ListType ty _)) =
               )
               constraints
           refname = X.qnName ref
-       in CodeType {xmlReferenceName = refname, description = desc, codes = fromList codes_, spaceSeparatable = False}
+       in CodeType {xmlReferenceName = refname, description = desc, codes = fromList codes_, spaceSeparatable = spaceSeparatable_}
     X.Inline _ -> throw Unreachable
 topLevelTypeToCode _scm (_, X.TypeSimple (X.UnionType _ _)) = throw Unreachable
 topLevelTypeToCode _scm (_, X.TypeComplex _) = throw Unreachable
@@ -120,6 +126,11 @@ topLevelElementToCode scm elm =
         Just (X.ContentComplex (X.ComplexContentExtension X.ComplexExtension {})) -> Nothing
         Just (X.ContentComplex (X.ComplexContentRestriction X.ComplexRestriction {})) -> Nothing
         Nothing -> Nothing
+      spaceSeparatable_ = case keyOfType of
+        Just X.QName {X.qnName = "List49"} -> True
+        Just X.QName {X.qnName = "List91"} -> True
+        Just _ -> False
+        Nothing -> False
       ty = case keyOfType of
         Just key_ ->
           -- NOTE: Codelists does not contain namespaces which refer to `http://www.editeur.org/onix/2.1/reference`
@@ -143,7 +154,7 @@ topLevelElementToCode scm elm =
            in enums
         Nothing -> []
       refname = unwrap $ findFixedOf "refname" plainContentAttributes
-   in CodeType {xmlReferenceName = refname, description = desc, codes = fromList codes_, spaceSeparatable = False}
+   in CodeType {xmlReferenceName = refname, description = desc, codes = fromList codes_, spaceSeparatable = spaceSeparatable_}
 
 collectCodes :: X.Schema -> [X.ElementInline]
 collectCodes =
