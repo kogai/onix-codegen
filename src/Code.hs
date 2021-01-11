@@ -2,14 +2,13 @@
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 module Code
-  ( code,
-    codeType,
-    codeTypes,
+  ( codeTypes,
     CodeTypes,
-    CodeType,
-    Code,
+    CodeType (..),
+    Code (..),
     collectCodes,
     readSchema,
     topLevelElementToCode,
@@ -22,7 +21,6 @@ import qualified Data.Map as M
 import Data.Text (Text, pack)
 import qualified Data.Text as T
 import Data.Vector (Vector, fromList)
-import qualified Data.Yaml.Aeson as A
 import GHC.Generics (Generic)
 import Model (content, contentAttributes, findFixedOf)
 import Text.Mustache (ToMustache (..), object, (~>))
@@ -36,10 +34,6 @@ data Code = Code
   }
   deriving (Generic, Show, Eq)
 
-instance A.ToJSON Code
-
-instance A.FromJSON Code
-
 instance ToMustache Code where
   toMustache Code {value, description, notes} =
     object
@@ -48,40 +42,22 @@ instance ToMustache Code where
         pack "notes" ~> notes
       ]
 
-code :: Text -> Text -> Text -> Code
-code v d n =
-  Code
-    { value = v,
-      description = d,
-      notes = n
-    }
-
 data CodeType = CodeType
   { xmlReferenceName :: Text,
     description :: Text,
-    codes :: Vector Code
+    codes :: Vector Code,
+    spaceSeparatable :: Bool
   }
   deriving (Generic, Show, Eq)
 
-instance A.ToJSON CodeType
-
-instance A.FromJSON CodeType
-
 instance ToMustache CodeType where
-  toMustache CodeType {xmlReferenceName, description, codes} =
+  toMustache CodeType {xmlReferenceName, description, codes, spaceSeparatable} =
     object
       [ pack "xmlReferenceName" ~> xmlReferenceName,
         pack "description" ~> description,
-        pack "codes" ~> toMustache codes
+        pack "codes" ~> toMustache codes,
+        pack "spaceSeparatable" ~> spaceSeparatable
       ]
-
-codeType :: Text -> Text -> [Code] -> CodeType
-codeType n d cs =
-  CodeType
-    { xmlReferenceName = n,
-      description = d,
-      codes = fromList cs
-    }
 
 type CodeTypes = Vector CodeType
 
@@ -119,17 +95,21 @@ topLevelTypeToCode scm (ref, X.TypeSimple (X.ListType ty _)) =
       -- NOTE: Codelists does not contain namespaces which refer to `http://www.editeur.org/onix/2.1/reference`
       let key = X.QName Nothing $ X.qnName key_
           t = (unwrap . M.lookup key . X.schemaTypes) scm
+          spaceSeparatable_ = case key of
+            X.QName {X.qnName = "List49"} -> True
+            X.QName {X.qnName = "List91"} -> True
+            _ -> False
           desc = (T.intercalate (pack ". ") . map (\(X.Documentation x) -> x) . typeAnnotations) t
           constraints = typeConstraints t
           codes_ =
             map
               ( \(X.Enumeration v docs) ->
                   let docs_ = map (\(X.Documentation d) -> d) docs
-                   in code v (head docs_) (last docs_)
+                   in Code {value = v, description = head docs_, notes = last docs_}
               )
               constraints
           refname = X.qnName ref
-       in codeType refname desc codes_
+       in CodeType {xmlReferenceName = refname, description = desc, codes = fromList codes_, spaceSeparatable = spaceSeparatable_}
     X.Inline _ -> throw Unreachable
 topLevelTypeToCode _scm (_, X.TypeSimple (X.UnionType _ _)) = throw Unreachable
 topLevelTypeToCode _scm (_, X.TypeComplex _) = throw Unreachable
@@ -146,6 +126,11 @@ topLevelElementToCode scm elm =
         Just (X.ContentComplex (X.ComplexContentExtension X.ComplexExtension {})) -> Nothing
         Just (X.ContentComplex (X.ComplexContentRestriction X.ComplexRestriction {})) -> Nothing
         Nothing -> Nothing
+      spaceSeparatable_ = case keyOfType of
+        Just X.QName {X.qnName = "List49"} -> True
+        Just X.QName {X.qnName = "List91"} -> True
+        Just _ -> False
+        Nothing -> False
       ty = case keyOfType of
         Just key_ ->
           -- NOTE: Codelists does not contain namespaces which refer to `http://www.editeur.org/onix/2.1/reference`
@@ -163,13 +148,13 @@ topLevelElementToCode scm elm =
                 map
                   ( \(X.Enumeration v docs) ->
                       let docs_ = map (\(X.Documentation d) -> d) docs
-                       in code v (head docs_) (last docs_)
+                       in Code {value = v, description = head docs_, notes = last docs_}
                   )
                   constraints
            in enums
         Nothing -> []
       refname = unwrap $ findFixedOf "refname" plainContentAttributes
-   in codeType refname desc codes_
+   in CodeType {xmlReferenceName = refname, description = desc, codes = fromList codes_, spaceSeparatable = spaceSeparatable_}
 
 collectCodes :: X.Schema -> [X.ElementInline]
 collectCodes =
