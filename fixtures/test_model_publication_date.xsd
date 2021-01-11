@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="Product">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="PublicationDate" minOccurs="0" />
+        </xs:sequence>
+      </xs:sequence>
+      <xs:attribute name="refname" type="xs:NMTOKEN" fixed="Product" />
+      <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="product" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PublicationDate">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="NonEmptyString">
+          <xs:attribute name="refname" type="xs:NMTOKEN" fixed="PublicationDate" />
+          <xs:attribute name="shortname" type="xs:NMTOKEN" fixed="a100" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="NonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

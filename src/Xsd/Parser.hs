@@ -354,30 +354,41 @@ flt (x : xs) = do
 parseSequence :: Cursor -> P [Xsd.RefOr Xsd.SequenceInChild]
 parseSequence c = do
   choiceAxis <- makeElemAxis "choice"
-
-  let choices = (flt . map parseChoice) (c $/ choiceAxis)
-      elements_ = parseElements c
-  choices' <- choices
-  elements' <- elements_
-  occurs <- parseOccurs c
-
-  return $ case (choices', elements') of
-    ([], []) -> []
-    (xs, []) -> [Xsd.Inline $ Xsd.ChoiceOfSequence occurs xs]
-    ([], xs) -> [Xsd.Inline $ Xsd.ElementOfSequence occurs xs]
-    (xs, ys) -> [Xsd.Inline $ Xsd.ChoiceOfSequence occurs xs, Xsd.Inline $ Xsd.ElementOfSequence occurs ys]
-
-parseChoice :: Cursor -> P [Xsd.RefOr Xsd.ChoiceInChild]
-parseChoice c = do
   sequenceAxis <- makeElemAxis "sequence"
+
+  choices' <- (flt . map parseChoice) (c $/ choiceAxis)
   elements' <- parseElements c
   sequences' <- (flt . map parseSequence) (c $/ sequenceAxis)
   occurs <- parseOccurs c
 
-  let choices = case (elements', sequences') of
-        (xs, []) -> [Xsd.ElementOfChoice occurs xs]
-        ([], xs) -> [Xsd.SequenceOfChoice occurs xs]
-        (xs, ys) -> [Xsd.ElementOfChoice occurs xs, Xsd.SequenceOfChoice occurs ys]
+  return $ case (choices', elements', sequences') of
+    ([], [], []) -> []
+    (xs, [], []) -> [Xsd.Inline $ Xsd.ChoiceOfSequence occurs xs]
+    ([], xs, []) -> [Xsd.Inline $ Xsd.ElementOfSequence occurs xs]
+    ([], [], xs) -> [Xsd.Inline $ Xsd.SequenceInSequence occurs xs]
+    ([], xs, ys) -> [Xsd.Inline $ Xsd.ElementOfSequence occurs xs, Xsd.Inline $ Xsd.SequenceInSequence occurs ys]
+    (xs, [], ys) -> [Xsd.Inline $ Xsd.ChoiceOfSequence occurs xs, Xsd.Inline $ Xsd.SequenceInSequence occurs ys]
+    (xs, ys, []) -> [Xsd.Inline $ Xsd.ChoiceOfSequence occurs xs, Xsd.Inline $ Xsd.ElementOfSequence occurs ys]
+    (xs, ys, zs) -> [Xsd.Inline $ Xsd.ChoiceOfSequence occurs xs, Xsd.Inline $ Xsd.ElementOfSequence occurs ys, Xsd.Inline $ Xsd.SequenceInSequence occurs zs]
+
+parseChoice :: Cursor -> P [Xsd.RefOr Xsd.ChoiceInChild]
+parseChoice c = do
+  choiceAxis <- makeElemAxis "choice"
+  sequenceAxis <- makeElemAxis "sequence"
+  elements' <- parseElements c
+  sequences' <- (flt . map parseSequence) (c $/ sequenceAxis)
+  choices' <- (flt . map parseChoice) (c $/ choiceAxis)
+  occurs <- parseOccurs c
+
+  let choices = case (elements', sequences', choices') of
+        ([], [], []) -> []
+        (xs, [], []) -> [Xsd.ElementOfChoice occurs xs]
+        ([], xs, []) -> [Xsd.SequenceOfChoice occurs xs]
+        ([], [], xs) -> [Xsd.ChoiceInChoice occurs xs]
+        (xs, ys, []) -> [Xsd.ElementOfChoice occurs xs, Xsd.SequenceOfChoice occurs ys]
+        (xs, [], ys) -> [Xsd.ElementOfChoice occurs xs, Xsd.ChoiceInChoice occurs ys]
+        ([], xs, ys) -> [Xsd.SequenceOfChoice occurs xs, Xsd.ChoiceInChoice occurs ys]
+        (xs, ys, zs) -> [Xsd.ElementOfChoice occurs xs, Xsd.SequenceOfChoice occurs ys, Xsd.ChoiceInChoice occurs zs]
 
   return $ map Xsd.Inline choices
 

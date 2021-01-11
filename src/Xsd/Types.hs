@@ -165,11 +165,13 @@ data SimpleContent
 data ChoiceInChild
   = ElementOfChoice Occurs [Element]
   | SequenceOfChoice Occurs [RefOr SequenceInChild]
+  | ChoiceInChoice Occurs [RefOr ChoiceInChild]
   deriving (Show, Eq)
 
 data SequenceInChild
   = ElementOfSequence Occurs [Element]
   | ChoiceOfSequence Occurs [RefOr ChoiceInChild]
+  | SequenceInSequence Occurs [RefOr SequenceInChild]
   deriving (Show, Eq)
 
 data ModelGroup
