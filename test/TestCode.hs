@@ -65,5 +65,21 @@ tests =
                   True
 
           assertEqual "can parse territory code list" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_model_general_attributes_simple.xsd"
+          let actual = (topLevelElementToCode scm . head . collectCodes) scm
+              expected =
+                CodeType
+                  "MyIDType"
+                  "Name code type"
+                  ( V.fromList
+                      [ Code "01" "Proprietary" "Note that <IDTypeName> is required with proprietary identifiers",
+                        Code "02" "Proprietary" "DEPRECATED \8211 use 01"
+                      ]
+                  )
+                  True
+          assertEqual "can parse generalAttributes" expected actual
       )
   ]
