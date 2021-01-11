@@ -25,8 +25,8 @@ type Audience struct {
 // AudienceRange is not documented.
 type AudienceRange struct {
 	AudienceRangeQualifier AudienceRangeQualifier `xml:"b074"`
-	AudienceRangePrecision AudienceRangePrecision `xml:"b075"`
-	AudienceRangeValue string `xml:"b076"`
+	AudienceRangePrecision AudienceRangePrecision `xml:"b075,omitempty"`
+	AudienceRangeValue string `xml:"b076,omitempty"`
 }
 
 // BatchBonus is not documented.
@@ -104,8 +104,6 @@ type ContentItem struct {
 	DistinctiveTitle string `xml:"b028,omitempty"`
 	LevelSequenceNumber string `xml:"b284,omitempty"`
 	TextItem TextItem `xml:"textitem"`
-	Contributor Contributor `xml:"contributor,omitempty"`
-	ContributorStatement ContributorStatement `xml:"b049,omitempty"`
 	Website []Website `xml:"website,omitempty"`
 	WorkIdentifier []WorkIdentifier `xml:"workidentifier,omitempty"`
 	Subject []Subject `xml:"subject,omitempty"`
@@ -114,6 +112,8 @@ type ContentItem struct {
 	PlaceAsSubject []string `xml:"b072,omitempty"`
 	OtherText []OtherText `xml:"othertext,omitempty"`
 	MediaFile []MediaFile `xml:"mediafile,omitempty"`
+	Contributor []Contributor `xml:"contributor,omitempty"`
+	ContributorStatement string `xml:"b049,omitempty"`
 }
 
 // Contributor is not documented.
@@ -239,8 +239,6 @@ type LocationIdentifier struct {
 type MainSeriesRecord struct {
 	RecordReference string `xml:"a001"`
 	NotificationType NotificationType `xml:"a002"`
-	RecordSourceIdentifierType RecordSourceIdentifierType `xml:"a195,omitempty"`
-	RecordSourceIdentifier RecordSourceIdentifier `xml:"a196,omitempty"`
 	DeletionCode DeletionCode `xml:"a198,omitempty"`
 	DeletionText string `xml:"a199,omitempty"`
 	RecordSourceType RecordSourceType `xml:"a194,omitempty"`
@@ -251,6 +249,8 @@ type MainSeriesRecord struct {
 	OtherText []OtherText `xml:"othertext,omitempty"`
 	Publisher []Publisher `xml:"publisher,omitempty"`
 	SubordinateEntries string `xml:"a245,omitempty"`
+	RecordSourceIdentifierType RecordSourceIdentifierType `xml:"a195,omitempty"`
+	RecordSourceIdentifier string `xml:"a196,omitempty"`
 }
 
 // MainSubject is not documented.
@@ -374,8 +374,6 @@ type OnOrderDetail struct {
 type OtherText struct {
 	Text Text `xml:"d104,omitempty"`
 	TextLinkType TextLinkType `xml:"d105,omitempty"`
-	StartDate StartDate `xml:"b324,omitempty"`
-	EndDate EndDate `xml:"b325,omitempty"`
 	TextLink string `xml:"d106,omitempty"`
 	TextTypeCode TextTypeCode `xml:"d102"`
 	TextFormat TextFormat `xml:"d103,omitempty"`
@@ -383,6 +381,8 @@ type OtherText struct {
 	TextSourceCorporate string `xml:"b374,omitempty"`
 	TextSourceTitle string `xml:"d108,omitempty"`
 	TextPublicationDate string `xml:"d109,omitempty"`
+	StartDate string `xml:"b324,omitempty"`
+	EndDate string `xml:"b325,omitempty"`
 }
 
 // PageRun is not documented.
@@ -442,21 +442,21 @@ type Price struct {
 	DiscountPercent string `xml:"j267,omitempty"`
 	PriceStatus PriceStatus `xml:"j266,omitempty"`
 	PriceAmount string `xml:"j151"`
-	CountryCode CountryCode `xml:"b251,omitempty"`
-	Territory Territory `xml:"j303,omitempty"`
-	CountryExcluded CountryExcluded `xml:"j304,omitempty"`
-	TerritoryExcluded TerritoryExcluded `xml:"j308,omitempty"`
-	TaxRateCode1 TaxRateCode1 `xml:"j153,omitempty"`
-	TaxRatePercent1 TaxRatePercent1 `xml:"j154,omitempty"`
-	TaxableAmount1 TaxableAmount1 `xml:"j155,omitempty"`
-	TaxAmount1 TaxAmount1 `xml:"j156,omitempty"`
-	TaxRateCode2 TaxRateCode2 `xml:"j157,omitempty"`
-	TaxRatePercent2 TaxRatePercent2 `xml:"j158,omitempty"`
-	TaxableAmount2 TaxableAmount2 `xml:"j159,omitempty"`
-	TaxAmount2 TaxAmount2 `xml:"j160,omitempty"`
 	CurrencyCode CurrencyCode `xml:"j152,omitempty"`
 	PriceEffectiveFrom string `xml:"j161,omitempty"`
 	PriceEffectiveUntil string `xml:"j162,omitempty"`
+	Territory TerritoryCodeList `xml:"j303,omitempty"`
+	CountryCode []CountryCode `xml:"b251,omitempty"`
+	CountryExcluded CountryCodeList `xml:"j304,omitempty"`
+	TerritoryExcluded TerritoryCodeList `xml:"j308,omitempty"`
+	TaxRateCode1 TaxRateCode1 `xml:"j153,omitempty"`
+	TaxRatePercent1 string `xml:"j154,omitempty"`
+	TaxableAmount1 string `xml:"j155,omitempty"`
+	TaxAmount1 string `xml:"j156,omitempty"`
+	TaxRateCode2 TaxRateCode2 `xml:"j157,omitempty"`
+	TaxRatePercent2 string `xml:"j158,omitempty"`
+	TaxableAmount2 string `xml:"j159,omitempty"`
+	TaxAmount2 string `xml:"j160,omitempty"`
 }
 
 // Prize is not documented.
@@ -687,19 +687,19 @@ type RelatedProduct struct {
 	ProductFormFeature []ProductFormFeature `xml:"productformfeature,omitempty"`
 	BookFormDetail []BookFormDetail `xml:"b013,omitempty"`
 	ProductPackaging ProductPackaging `xml:"b225,omitempty"`
-	EpubType EpubType `xml:"b211,omitempty"`
-	EpubTypeVersion EpubTypeVersion `xml:"b212,omitempty"`
-	EpubTypeDescription EpubTypeDescription `xml:"b213,omitempty"`
-	EpubFormat EpubFormat `xml:"b214,omitempty"`
-	EpubFormatVersion EpubFormatVersion `xml:"b215,omitempty"`
-	EpubFormatDescription EpubFormatDescription `xml:"b216,omitempty"`
-	EpubTypeNote EpubTypeNote `xml:"b277,omitempty"`
 	ProductFormDescription string `xml:"b014,omitempty"`
 	RelationCode RelationCode `xml:"h208"`
 	NumberOfPieces string `xml:"b210,omitempty"`
 	TradeCategory TradeCategory `xml:"b384,omitempty"`
 	ProductContentType []ProductContentType `xml:"b385,omitempty"`
 	Publisher []Publisher `xml:"publisher,omitempty"`
+	EpubType EpubType `xml:"b211,omitempty"`
+	EpubTypeVersion string `xml:"b212,omitempty"`
+	EpubTypeDescription string `xml:"b213,omitempty"`
+	EpubFormatDescription string `xml:"b216,omitempty"`
+	EpubTypeNote string `xml:"b277,omitempty"`
+	EpubFormat EpubFormat `xml:"b214,omitempty"`
+	EpubFormatVersion string `xml:"b215,omitempty"`
 }
 
 // ReligiousText is not documented.
@@ -806,22 +806,22 @@ type StockQuantityCoded struct {
 type SubSeriesRecord struct {
 	RecordReference string `xml:"a001"`
 	NotificationType NotificationType `xml:"a002"`
-	RecordSourceIdentifierType RecordSourceIdentifierType `xml:"a195,omitempty"`
-	RecordSourceIdentifier RecordSourceIdentifier `xml:"a196,omitempty"`
 	DeletionCode DeletionCode `xml:"a198,omitempty"`
 	DeletionText string `xml:"a199,omitempty"`
 	RecordSourceType RecordSourceType `xml:"a194,omitempty"`
 	RecordSourceName string `xml:"a197,omitempty"`
 	SeriesIdentifier []SeriesIdentifier `xml:"seriesidentifier"`
 	ParentIdentifier ParentIdentifier `xml:"parentidentifier"`
-	SeriesPartName SeriesPartName `xml:"b282,omitempty"`
-	NumberWithinSeries NumberWithinSeries `xml:"b019,omitempty"`
 	LevelSequenceNumber string `xml:"b284"`
 	Title []Title `xml:"title"`
 	Contributor []Contributor `xml:"contributor,omitempty"`
 	OtherText []OtherText `xml:"othertext,omitempty"`
 	Publisher []Publisher `xml:"publisher,omitempty"`
 	SubordinateEntries string `xml:"a245,omitempty"`
+	RecordSourceIdentifierType RecordSourceIdentifierType `xml:"a195,omitempty"`
+	RecordSourceIdentifier string `xml:"a196,omitempty"`
+	SeriesPartName string `xml:"b282,omitempty"`
+	NumberWithinSeries string `xml:"b019,omitempty"`
 }
 
 // Subject is not documented.
@@ -842,17 +842,6 @@ type SupplierIdentifier struct {
 
 // SupplyDetail is not documented.
 type SupplyDetail struct {
-	TelephoneNumber string `xml:"j270"`
-	FaxNumber string `xml:"j271"`
-	EmailAddress string `xml:"j272"`
-	Website Website `xml:"website"`
-	SupplierRole SupplierRole `xml:"j292"`
-	SupplyToCountry SupplyToCountry `xml:"j138,omitempty"`
-	SupplyToTerritory SupplyToTerritory `xml:"j397,omitempty"`
-	SupplyToRegion SupplyToRegion `xml:"j139,omitempty"`
-	SupplyToCountryExcluded SupplyToCountryExcluded `xml:"j140,omitempty"`
-	ReturnsCodeType ReturnsCodeType `xml:"j268,omitempty"`
-	ReturnsCode ReturnsCode `xml:"j269,omitempty"`
 	SupplierName string `xml:"j137,omitempty"`
 	SupplierIdentifier []SupplierIdentifier `xml:"supplieridentifier,omitempty"`
 	SupplierSAN string `xml:"j136,omitempty"`
@@ -860,13 +849,14 @@ type SupplyDetail struct {
 	IntermediaryAvailabilityCode IntermediaryAvailabilityCode `xml:"j348,omitempty"`
 	AvailabilityCode AvailabilityCode `xml:"j141,omitempty"`
 	ProductAvailability ProductAvailability `xml:"j396,omitempty"`
-	DateFormat DateFormat `xml:"j260,omitempty"`
-	ExpectedShipDate ExpectedShipDate `xml:"j142,omitempty"`
-	AudienceRestrictionFlag AudienceRestrictionFlag `xml:"j146,omitempty"`
-	AudienceRestrictionNote AudienceRestrictionNote `xml:"j147,omitempty"`
 	PriceAmount string `xml:"j151,omitempty"`
 	UnpricedItemType UnpricedItemType `xml:"j192,omitempty"`
 	Price []Price `xml:"price,omitempty"`
+	TelephoneNumber []string `xml:"j270,omitempty"`
+	FaxNumber []string `xml:"j271,omitempty"`
+	EmailAddress []string `xml:"j272,omitempty"`
+	Website []Website `xml:"website,omitempty"`
+	SupplierRole SupplierRole `xml:"j292,omitempty"`
 	SupplyRestrictionDetail string `xml:"j399,omitempty"`
 	LastDateForReturns string `xml:"j387,omitempty"`
 	NewSupplier NewSupplier `xml:"newsupplier,omitempty"`
@@ -875,6 +865,16 @@ type SupplyDetail struct {
 	Stock []Stock `xml:"stock,omitempty"`
 	PackQuantity string `xml:"j145,omitempty"`
 	Reissue Reissue `xml:"reissue,omitempty"`
+	SupplyToTerritory TerritoryCodeList `xml:"j397,omitempty"`
+	SupplyToRegion []SupplyToRegion `xml:"j139,omitempty"`
+	SupplyToCountry []CountryCodeList `xml:"j138,omitempty"`
+	SupplyToCountryExcluded []CountryCodeList `xml:"j140,omitempty"`
+	ReturnsCodeType ReturnsCodeType `xml:"j268,omitempty"`
+	ReturnsCode string `xml:"j269,omitempty"`
+	DateFormat DateFormat `xml:"j260,omitempty"`
+	ExpectedShipDate string `xml:"j142,omitempty"`
+	AudienceRestrictionFlag AudienceRestrictionFlag `xml:"j146,omitempty"`
+	AudienceRestrictionNote string `xml:"j147,omitempty"`
 }
 
 // TextItem is not documented.
