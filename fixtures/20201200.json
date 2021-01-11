@@ -76,7 +76,9 @@
               "PriceAmount": "60.95",
               "CurrencyCode": "Canadian Dollar",
               "CountryCodes": [
+                [
                 "Canada"
+              ]
               ]
             },
             {
@@ -96,7 +98,9 @@
               "PriceAmount": "42.00",
               "CurrencyCode": "Euro",
               "CountryCodes": [
+                [
                 "Germany"
+              ]
               ]
             },
             {
@@ -116,7 +120,9 @@
               "PriceAmount": "36.99",
               "CurrencyCode": "Pound Sterling",
               "CountryCodes": [
+                [
                 "United Kingdom"
+              ]
               ]
             },
             {
@@ -136,7 +142,9 @@
               "PriceAmount": "45.95",
               "CurrencyCode": "US Dollar",
               "CountryCodes": [
+                [
                 "United States"
+              ]
               ]
             }
           ],
@@ -507,16 +515,12 @@
           "SubjectHeadingText": "blood, sweat, and pixels; blood sweat and pixels; blood, sweat, and video games; blood sweat and video games; jason schreier; jason schrer; jason schreir; jason schrier; kotaku; pillars of eternity; dragon age: inquisition; dragon age inquisition; dragon age; stardew valley; diablo; diablo 3; diablo iii; the witcher; witcher; the witcher 3; witcher 3; witcher iii; uncharted; uncharted 4; uncharted iv; destiny; shovel knight; destiny 2; star wars; star wars 1313; cancelled star wars game; star wars game; halo wars; halo; how to make video games; making video games; video game development; development hell; video game careers; playstation; playstation 4; xbox; xbox 360; xbox one; nintendo; e3; video game demos; crunch; video game crunch; bioware; lucasarts; bungie; microsoft; games; 2016; 2017; 2018"
         },
         {
-          "SubjectSchemeIdentifier": "Dewey",
-          "SubjectSchemeName": "",
           "SubjectCode": "794.8",
-          "SubjectHeadingText": ""
+          "SubjectSchemeIdentifier": "Dewey"
         },
         {
-          "SubjectSchemeIdentifier": "LC subject heading",
-          "SubjectSchemeName": "",
-          "SubjectCode": "",
-          "SubjectHeadingText": "Video games"
+          "SubjectHeadingText": "Video games",
+          "SubjectSchemeIdentifier": "LC subject heading"
         },
         {
           "SubjectSchemeIdentifier": "LC subject heading",
@@ -555,7 +559,9 @@
           "SubjectHeadingText": "Games / Gamebooks / Crosswords"
         }
       ],
-      "AudienceCode": "01",
+      "AudienceCodes": [
+        "General/trade"
+      ],
       "OtherTexts": [
         {
           "TextTypeCode": "Short description/annotation",
@@ -1115,85 +1121,65 @@
       },
       "Subjects": [
         {
-          "SubjectSchemeIdentifier": "BISAC Subject Heading",
-          "SubjectSchemeName": "",
+          "SubjectHeadingText": "\n        Computers/Hardware - Chips \u0026 Processors\n      ",
           "SubjectCode": "COM041000",
-          "SubjectHeadingText": "\n        Computers/Hardware - Chips \u0026 Processors\n      "
+          "SubjectSchemeIdentifier": "BISAC Subject Heading"
         },
         {
-          "SubjectSchemeIdentifier": "BISAC Subject Heading",
-          "SubjectSchemeName": "",
+          "SubjectHeadingText": "Computers/Hardware - General",
           "SubjectCode": "COM067000",
-          "SubjectHeadingText": "Computers/Hardware - General"
+          "SubjectSchemeIdentifier": "BISAC Subject Heading"
         },
         {
-          "SubjectSchemeIdentifier": "Keywords",
-          "SubjectSchemeName": "",
-          "SubjectCode": "",
-          "SubjectHeadingText": "DIY; electronics; survival; technology; engineering; crafts; inventions; hobbies; electricity; craft; arts and crafts; craft books; engineer; arts and crafts for adults; crafts for adults; engineering books; diy books; engineer gifts; craft books for adults; craft projects; invention; craft gifts; crafting gifts; gifts for crafters; computer; how to; programming; ideas; physics; computers; business; security; reference; makerspace; maker; education; guide; geek; strategy; networking; weather; robotics; design; chemistry; gaming; cars"
+          "SubjectHeadingText": "DIY; electronics; survival; technology; engineering; crafts; inventions; hobbies; electricity; craft; arts and crafts; craft books; engineer; arts and crafts for adults; crafts for adults; engineering books; diy books; engineer gifts; craft books for adults; craft projects; invention; craft gifts; crafting gifts; gifts for crafters; computer; how to; programming; ideas; physics; computers; business; security; reference; makerspace; maker; education; guide; geek; strategy; networking; weather; robotics; design; chemistry; gaming; cars",
+          "SubjectSchemeIdentifier": "Keywords"
         },
         {
-          "SubjectSchemeIdentifier": "Dewey",
-          "SubjectSchemeName": "",
           "SubjectCode": "621.381",
-          "SubjectHeadingText": ""
+          "SubjectSchemeIdentifier": "Dewey"
         },
         {
-          "SubjectSchemeIdentifier": "LC subject heading",
-          "SubjectSchemeName": "",
-          "SubjectCode": "",
-          "SubjectHeadingText": "Microcontrollers"
+          "SubjectHeadingText": "Microcontrollers",
+          "SubjectSchemeIdentifier": "LC subject heading"
         },
         {
-          "SubjectSchemeIdentifier": "LC subject heading",
-          "SubjectSchemeName": "",
-          "SubjectCode": "",
-          "SubjectHeadingText": "Electronic circuits"
+          "SubjectHeadingText": "Electronic circuits",
+          "SubjectSchemeIdentifier": "LC subject heading"
         },
         {
-          "SubjectSchemeIdentifier": "LC subject heading",
-          "SubjectSchemeName": "",
-          "SubjectCode": "",
-          "SubjectHeadingText": "Electronic apparatus and appliances - Design and construction"
+          "SubjectHeadingText": "Electronic apparatus and appliances - Design and construction",
+          "SubjectSchemeIdentifier": "LC subject heading"
         },
         {
-          "SubjectSchemeIdentifier": "LC subject heading",
-          "SubjectSchemeName": "",
-          "SubjectCode": "",
-          "SubjectHeadingText": "Raspberry Pi (Computer)"
+          "SubjectHeadingText": "Raspberry Pi (Computer)",
+          "SubjectSchemeIdentifier": "LC subject heading"
         },
         {
-          "SubjectSchemeIdentifier": "LC subject heading",
-          "SubjectSchemeName": "",
-          "SubjectCode": "",
-          "SubjectHeadingText": "Arduino (Programmable controller)"
+          "SubjectHeadingText": "Arduino (Programmable controller)",
+          "SubjectSchemeIdentifier": "LC subject heading"
         },
         {
-          "SubjectSchemeIdentifier": "Proprietary subject scheme",
-          "SubjectSchemeName": "INGRAM SUBJECT",
+          "SubjectHeadingText": "\n        Technology \u0026 Industrial Arts\n      ",
           "SubjectCode": "TE",
-          "SubjectHeadingText": "\n        Technology \u0026 Industrial Arts\n      "
+          "SubjectSchemeIdentifier": "Proprietary subject scheme",
+          "SubjectSchemeName": "INGRAM SUBJECT"
         },
         {
-          "SubjectSchemeIdentifier": "Thema subject category",
-          "SubjectSchemeName": "",
           "SubjectCode": "TJF",
-          "SubjectHeadingText": ""
+          "SubjectSchemeIdentifier": "Thema subject category"
         },
         {
-          "SubjectSchemeIdentifier": "Thema subject category",
-          "SubjectSchemeName": "",
           "SubjectCode": "WF",
-          "SubjectHeadingText": ""
+          "SubjectSchemeIdentifier": "Thema subject category"
         },
         {
-          "SubjectSchemeIdentifier": "Thema subject category",
-          "SubjectSchemeName": "",
           "SubjectCode": "TBY",
-          "SubjectHeadingText": ""
+          "SubjectSchemeIdentifier": "Thema subject category"
         }
       ],
-      "AudienceCode": "01",
+      "AudienceCodes": [
+        "General/trade"
+      ],
       "OtherTexts": [
         {
           "TextTypeCode": "Short description/annotation",
