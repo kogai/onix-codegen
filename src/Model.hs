@@ -20,7 +20,7 @@ module Model
   )
 where
 
-import Data.List (elemIndex, find, findIndex)
+import Data.List (find, findIndex)
 import qualified Data.Map as M
 import Data.Maybe (fromMaybe, mapMaybe)
 import Data.Text (Text, pack, unpack)
@@ -232,6 +232,10 @@ fieldsOfElementOfChoiceInChild docOfRef =
                 . fieldsOfElement docOfRef
                 . X.Sequence
                 $ ss
+            (X.ChoiceInChoice occurs ss) ->
+              map (makeOptional . extendOccurs occurs)
+                . fieldsOfElementOfChoiceInChild docOfRef
+                $ ss
         )
     )
 
@@ -258,6 +262,11 @@ fieldsOfElement docOfRef (X.Sequence xs) =
           (X.Inline (X.ChoiceOfSequence occurs ys)) ->
             map (makeOptional . extendOccurs occurs)
               . fieldsOfElementOfChoiceInChild docOfRef
+              $ ys
+          (X.Inline (X.SequenceInSequence occurs ys)) ->
+            map (extendOccurs occurs)
+              . fieldsOfElement docOfRef
+              . X.Sequence
               $ ys
       )
     $ xs

@@ -25,8 +25,8 @@ type Audience struct {
 // AudienceRange is not documented.
 type AudienceRange struct {
 	AudienceRangeQualifier AudienceRangeQualifier `xml:"b074"`
-	AudienceRangePrecision AudienceRangePrecision `xml:"b075"`
-	AudienceRangeValue string `xml:"b076"`
+	AudienceRangePrecision AudienceRangePrecision `xml:"b075,omitempty"`
+	AudienceRangeValue string `xml:"b076,omitempty"`
 }
 
 // BatchBonus is not documented.
@@ -104,8 +104,6 @@ type ContentItem struct {
 	DistinctiveTitle string `xml:"b028,omitempty"`
 	LevelSequenceNumber string `xml:"b284,omitempty"`
 	TextItem TextItem `xml:"textitem"`
-	Contributor Contributor `xml:"contributor,omitempty"`
-	ContributorStatement ContributorStatement `xml:"b049,omitempty"`
 	Website []Website `xml:"website,omitempty"`
 	WorkIdentifier []WorkIdentifier `xml:"workidentifier,omitempty"`
 	Subject []Subject `xml:"subject,omitempty"`
@@ -114,6 +112,8 @@ type ContentItem struct {
 	PlaceAsSubject []string `xml:"b072,omitempty"`
 	OtherText []OtherText `xml:"othertext,omitempty"`
 	MediaFile []MediaFile `xml:"mediafile,omitempty"`
+	Contributor []Contributor `xml:"contributor,omitempty"`
+	ContributorStatement string `xml:"b049,omitempty"`
 }
 
 // Contributor is not documented.
@@ -239,8 +239,6 @@ type LocationIdentifier struct {
 type MainSeriesRecord struct {
 	RecordReference string `xml:"a001"`
 	NotificationType NotificationType `xml:"a002"`
-	RecordSourceIdentifierType RecordSourceIdentifierType `xml:"a195,omitempty"`
-	RecordSourceIdentifier RecordSourceIdentifier `xml:"a196,omitempty"`
 	DeletionCode DeletionCode `xml:"a198,omitempty"`
 	DeletionText string `xml:"a199,omitempty"`
 	RecordSourceType RecordSourceType `xml:"a194,omitempty"`
@@ -251,6 +249,8 @@ type MainSeriesRecord struct {
 	OtherText []OtherText `xml:"othertext,omitempty"`
 	Publisher []Publisher `xml:"publisher,omitempty"`
 	SubordinateEntries string `xml:"a245,omitempty"`
+	RecordSourceIdentifierType RecordSourceIdentifierType `xml:"a195,omitempty"`
+	RecordSourceIdentifier string `xml:"a196,omitempty"`
 }
 
 // MainSubject is not documented.
@@ -374,8 +374,6 @@ type OnOrderDetail struct {
 type OtherText struct {
 	Text Text `xml:"d104,omitempty"`
 	TextLinkType TextLinkType `xml:"d105,omitempty"`
-	StartDate StartDate `xml:"b324,omitempty"`
-	EndDate EndDate `xml:"b325,omitempty"`
 	TextLink string `xml:"d106,omitempty"`
 	TextTypeCode TextTypeCode `xml:"d102"`
 	TextFormat TextFormat `xml:"d103,omitempty"`
@@ -383,6 +381,8 @@ type OtherText struct {
 	TextSourceCorporate string `xml:"b374,omitempty"`
 	TextSourceTitle string `xml:"d108,omitempty"`
 	TextPublicationDate string `xml:"d109,omitempty"`
+	StartDate string `xml:"b324,omitempty"`
+	EndDate string `xml:"b325,omitempty"`
 }
 
 // PageRun is not documented.
@@ -442,21 +442,21 @@ type Price struct {
 	DiscountPercent string `xml:"j267,omitempty"`
 	PriceStatus PriceStatus `xml:"j266,omitempty"`
 	PriceAmount string `xml:"j151"`
-	CountryCode CountryCode `xml:"b251,omitempty"`
-	Territory Territory `xml:"j303,omitempty"`
-	CountryExcluded CountryExcluded `xml:"j304,omitempty"`
-	TerritoryExcluded TerritoryExcluded `xml:"j308,omitempty"`
-	TaxRateCode1 TaxRateCode1 `xml:"j153,omitempty"`
-	TaxRatePercent1 TaxRatePercent1 `xml:"j154,omitempty"`
-	TaxableAmount1 TaxableAmount1 `xml:"j155,omitempty"`
-	TaxAmount1 TaxAmount1 `xml:"j156,omitempty"`
-	TaxRateCode2 TaxRateCode2 `xml:"j157,omitempty"`
-	TaxRatePercent2 TaxRatePercent2 `xml:"j158,omitempty"`
-	TaxableAmount2 TaxableAmount2 `xml:"j159,omitempty"`
-	TaxAmount2 TaxAmount2 `xml:"j160,omitempty"`
 	CurrencyCode CurrencyCode `xml:"j152,omitempty"`
 	PriceEffectiveFrom string `xml:"j161,omitempty"`
 	PriceEffectiveUntil string `xml:"j162,omitempty"`
+	Territory TerritoryCodeList `xml:"j303,omitempty"`
+	CountryCode []CountryCode `xml:"b251,omitempty"`
+	CountryExcluded CountryCodeList `xml:"j304,omitempty"`
+	TerritoryExcluded TerritoryCodeList `xml:"j308,omitempty"`
+	TaxRateCode1 TaxRateCode1 `xml:"j153,omitempty"`
+	TaxRatePercent1 string `xml:"j154,omitempty"`
+	TaxableAmount1 string `xml:"j155,omitempty"`
+	TaxAmount1 string `xml:"j156,omitempty"`
+	TaxRateCode2 TaxRateCode2 `xml:"j157,omitempty"`
+	TaxRatePercent2 string `xml:"j158,omitempty"`
+	TaxableAmount2 string `xml:"j159,omitempty"`
+	TaxAmount2 string `xml:"j160,omitempty"`
 }
 
 // Prize is not documented.
@@ -473,135 +473,11 @@ type Product struct {
 	Dimensions string `xml:"c258,omitempty"`
 	Weight string `xml:"c099,omitempty"`
 	Measure []Measure `xml:"measure,omitempty"`
+	Height string `xml:"c096,omitempty"`
+	Width string `xml:"c097,omitempty"`
+	Thickness string `xml:"c098,omitempty"`
 	RecordReference string `xml:"a001"`
 	NotificationType NotificationType `xml:"a002"`
-	RecordSourceIdentifierType RecordSourceIdentifierType `xml:"a195,omitempty"`
-	RecordSourceIdentifier RecordSourceIdentifier `xml:"a196,omitempty"`
-	ISBN ISBN `xml:"b004,omitempty"`
-	EAN13 EAN13 `xml:"b005,omitempty"`
-	UPC UPC `xml:"b006,omitempty"`
-	PublisherProductNo PublisherProductNo `xml:"b007,omitempty"`
-	ISMN ISMN `xml:"b008,omitempty"`
-	DOI DOI `xml:"b009,omitempty"`
-	ProductIdentifier ProductIdentifier `xml:"productidentifier,omitempty"`
-	Barcode Barcode `xml:"b246,omitempty"`
-	ReplacesISBN ReplacesISBN `xml:"b010,omitempty"`
-	ReplacesEAN13 ReplacesEAN13 `xml:"b011,omitempty"`
-	ProductForm ProductForm `xml:"b012,omitempty"`
-	ProductFormDetail ProductFormDetail `xml:"b333,omitempty"`
-	ProductFormFeature ProductFormFeature `xml:"productformfeature,omitempty"`
-	BookFormDetail BookFormDetail `xml:"b013,omitempty"`
-	ProductPackaging ProductPackaging `xml:"b225,omitempty"`
-	ProductFormDescription ProductFormDescription `xml:"b014,omitempty"`
-	NumberOfPieces NumberOfPieces `xml:"b210,omitempty"`
-	TradeCategory TradeCategory `xml:"b384,omitempty"`
-	ProductContentType ProductContentType `xml:"b385,omitempty"`
-	ContainedItem ContainedItem `xml:"containeditem,omitempty"`
-	ProductClassification ProductClassification `xml:"productclassification,omitempty"`
-	EpubType EpubType `xml:"b211,omitempty"`
-	EpubTypeVersion EpubTypeVersion `xml:"b212,omitempty"`
-	EpubTypeDescription EpubTypeDescription `xml:"b213,omitempty"`
-	EpubFormat EpubFormat `xml:"b214,omitempty"`
-	EpubFormatVersion EpubFormatVersion `xml:"b215,omitempty"`
-	EpubFormatDescription EpubFormatDescription `xml:"b216,omitempty"`
-	EpubSource EpubSource `xml:"b278,omitempty"`
-	EpubSourceVersion EpubSourceVersion `xml:"b279,omitempty"`
-	EpubSourceDescription EpubSourceDescription `xml:"b280,omitempty"`
-	EpubTypeNote EpubTypeNote `xml:"b277,omitempty"`
-	Series Series `xml:"series,omitempty"`
-	NoSeries NoSeries `xml:"n338,omitempty"`
-	Set Set `xml:"set,omitempty"`
-	TextCaseFlag TextCaseFlag `xml:"b027,omitempty"`
-	DistinctiveTitle DistinctiveTitle `xml:"b028,omitempty"`
-	TitlePrefix TitlePrefix `xml:"b030,omitempty"`
-	TitleWithoutPrefix TitleWithoutPrefix `xml:"b031,omitempty"`
-	Subtitle Subtitle `xml:"b029,omitempty"`
-	TranslationOfTitle TranslationOfTitle `xml:"b032,omitempty"`
-	FormerTitle FormerTitle `xml:"b033,omitempty"`
-	Title Title `xml:"title,omitempty"`
-	WorkIdentifier WorkIdentifier `xml:"workidentifier,omitempty"`
-	Website Website `xml:"website,omitempty"`
-	ThesisType ThesisType `xml:"b368,omitempty"`
-	ThesisPresentedTo ThesisPresentedTo `xml:"b369,omitempty"`
-	ThesisYear ThesisYear `xml:"b370,omitempty"`
-	Contributor Contributor `xml:"contributor,omitempty"`
-	ContributorStatement ContributorStatement `xml:"b049,omitempty"`
-	NoContributor NoContributor `xml:"n339,omitempty"`
-	ConferenceDescription ConferenceDescription `xml:"b050,omitempty"`
-	ConferenceRole ConferenceRole `xml:"b051,omitempty"`
-	ConferenceName ConferenceName `xml:"b052,omitempty"`
-	ConferenceNumber ConferenceNumber `xml:"b053,omitempty"`
-	ConferenceDate ConferenceDate `xml:"b054,omitempty"`
-	ConferencePlace ConferencePlace `xml:"b055,omitempty"`
-	Conference Conference `xml:"conference,omitempty"`
-	EditionTypeCode EditionTypeCode `xml:"b056,omitempty"`
-	EditionNumber EditionNumber `xml:"b057,omitempty"`
-	EditionVersionNumber EditionVersionNumber `xml:"b217,omitempty"`
-	EditionStatement EditionStatement `xml:"b058,omitempty"`
-	NoEdition NoEdition `xml:"n386,omitempty"`
-	ReligiousText ReligiousText `xml:"religioustext,omitempty"`
-	LanguageOfText LanguageOfText `xml:"b059,omitempty"`
-	OriginalLanguage OriginalLanguage `xml:"b060,omitempty"`
-	Language Language `xml:"language,omitempty"`
-	NumberOfPages NumberOfPages `xml:"b061,omitempty"`
-	PagesRoman PagesRoman `xml:"b254,omitempty"`
-	PagesArabic PagesArabic `xml:"b255,omitempty"`
-	Extent Extent `xml:"extent,omitempty"`
-	NumberOfIllustrations NumberOfIllustrations `xml:"b125,omitempty"`
-	IllustrationsNote IllustrationsNote `xml:"b062,omitempty"`
-	Illustrations Illustrations `xml:"illustrations,omitempty"`
-	MapScale MapScale `xml:"b063,omitempty"`
-	BASICMainSubject BASICMainSubject `xml:"b064,omitempty"`
-	BASICVersion BASICVersion `xml:"b200,omitempty"`
-	BICMainSubject BICMainSubject `xml:"b065,omitempty"`
-	BICVersion BICVersion `xml:"b066,omitempty"`
-	MainSubject MainSubject `xml:"mainsubject,omitempty"`
-	Subject Subject `xml:"subject,omitempty"`
-	PersonAsSubject PersonAsSubject `xml:"personassubject,omitempty"`
-	CorporateBodyAsSubject CorporateBodyAsSubject `xml:"b071,omitempty"`
-	PlaceAsSubject PlaceAsSubject `xml:"b072,omitempty"`
-	AudienceCode AudienceCode `xml:"b073,omitempty"`
-	Audience Audience `xml:"audience,omitempty"`
-	USSchoolGrade USSchoolGrade `xml:"b189,omitempty"`
-	InterestAge InterestAge `xml:"b190,omitempty"`
-	AudienceRange AudienceRange `xml:"audiencerange,omitempty"`
-	AudienceDescription AudienceDescription `xml:"b207,omitempty"`
-	Complexity Complexity `xml:"complexity,omitempty"`
-	Annotation Annotation `xml:"d100,omitempty"`
-	MainDescription MainDescription `xml:"d101,omitempty"`
-	OtherText OtherText `xml:"othertext,omitempty"`
-	ReviewQuote ReviewQuote `xml:"e110,omitempty"`
-	CoverImageFormatCode CoverImageFormatCode `xml:"f111,omitempty"`
-	CoverImageLinkTypeCode CoverImageLinkTypeCode `xml:"f112,omitempty"`
-	CoverImageLink CoverImageLink `xml:"f113,omitempty"`
-	MediaFile MediaFile `xml:"mediafile,omitempty"`
-	ProductWebsite ProductWebsite `xml:"productwebsite,omitempty"`
-	PrizesDescription PrizesDescription `xml:"g124,omitempty"`
-	Prize Prize `xml:"prize,omitempty"`
-	ContentItem ContentItem `xml:"contentitem,omitempty"`
-	ImprintName ImprintName `xml:"b079,omitempty"`
-	Imprint Imprint `xml:"imprint,omitempty"`
-	PublisherName PublisherName `xml:"b081,omitempty"`
-	Publisher Publisher `xml:"publisher,omitempty"`
-	CityOfPublication CityOfPublication `xml:"b209,omitempty"`
-	CountryOfPublication CountryOfPublication `xml:"b083,omitempty"`
-	CopublisherName CopublisherName `xml:"b084,omitempty"`
-	SponsorName SponsorName `xml:"b085,omitempty"`
-	OriginalPublisher OriginalPublisher `xml:"b240,omitempty"`
-	PublishingStatus PublishingStatus `xml:"b394,omitempty"`
-	PublishingStatusNote PublishingStatusNote `xml:"b395,omitempty"`
-	AnnouncementDate AnnouncementDate `xml:"b086,omitempty"`
-	TradeAnnouncementDate TradeAnnouncementDate `xml:"b362,omitempty"`
-	PublicationDate PublicationDate `xml:"b003,omitempty"`
-	CopyrightStatement CopyrightStatement `xml:"copyrightstatement,omitempty"`
-	CopyrightYear CopyrightYear `xml:"b087,omitempty"`
-	YearFirstPublished YearFirstPublished `xml:"b088,omitempty"`
-	SalesRights SalesRights `xml:"salesrights,omitempty"`
-	NotForSale NotForSale `xml:"notforsale,omitempty"`
-	SalesRestriction SalesRestriction `xml:"salesrestriction,omitempty"`
-	Height Height `xml:"c096,omitempty"`
-	Width Width `xml:"c097,omitempty"`
-	Thickness Thickness `xml:"c098,omitempty"`
 	DeletionCode DeletionCode `xml:"a198,omitempty"`
 	DeletionText string `xml:"a199,omitempty"`
 	RecordSourceType RecordSourceType `xml:"a194,omitempty"`
@@ -622,6 +498,130 @@ type Product struct {
 	ReprintDetail []string `xml:"k309,omitempty"`
 	CopiesSold string `xml:"k168,omitempty"`
 	BookClubAdoption string `xml:"k169,omitempty"`
+	RecordSourceIdentifierType RecordSourceIdentifierType `xml:"a195,omitempty"`
+	RecordSourceIdentifier string `xml:"a196,omitempty"`
+	ProductIdentifier []ProductIdentifier `xml:"productidentifier,omitempty"`
+	ISBN string `xml:"b004,omitempty"`
+	EAN13 string `xml:"b005,omitempty"`
+	UPC string `xml:"b006,omitempty"`
+	PublisherProductNo string `xml:"b007,omitempty"`
+	ISMN string `xml:"b008,omitempty"`
+	DOI string `xml:"b009,omitempty"`
+	Series []Series `xml:"series,omitempty"`
+	NoSeries NoSeries `xml:"n338,omitempty"`
+	Set []Set `xml:"set,omitempty"`
+	Title []Title `xml:"title,omitempty"`
+	DistinctiveTitle string `xml:"b028,omitempty"`
+	TitlePrefix string `xml:"b030,omitempty"`
+	TitleWithoutPrefix string `xml:"b031,omitempty"`
+	Subtitle string `xml:"b029,omitempty"`
+	TranslationOfTitle string `xml:"b032,omitempty"`
+	FormerTitle []string `xml:"b033,omitempty"`
+	NoContributor NoContributor `xml:"n339,omitempty"`
+	Contributor []Contributor `xml:"contributor,omitempty"`
+	ContributorStatement string `xml:"b049,omitempty"`
+	ConferenceDescription string `xml:"b050,omitempty"`
+	Conference []Conference `xml:"conference,omitempty"`
+	ConferenceRole ConferenceRole `xml:"b051,omitempty"`
+	ConferenceName string `xml:"b052,omitempty"`
+	ConferenceNumber string `xml:"b053,omitempty"`
+	ConferenceDate string `xml:"b054,omitempty"`
+	ConferencePlace string `xml:"b055,omitempty"`
+	NoEdition NoEdition `xml:"n386,omitempty"`
+	EditionTypeCode []EditionTypeCode `xml:"b056,omitempty"`
+	EditionNumber string `xml:"b057,omitempty"`
+	EditionVersionNumber string `xml:"b217,omitempty"`
+	EditionStatement string `xml:"b058,omitempty"`
+	PrizesDescription string `xml:"g124,omitempty"`
+	Prize []Prize `xml:"prize,omitempty"`
+	Publisher []Publisher `xml:"publisher,omitempty"`
+	ImprintName string `xml:"b079,omitempty"`
+	Imprint []Imprint `xml:"imprint,omitempty"`
+	PublisherName string `xml:"b081,omitempty"`
+	CopyrightStatement []CopyrightStatement `xml:"copyrightstatement,omitempty"`
+	CopyrightYear string `xml:"b087,omitempty"`
+	Barcode []Barcode `xml:"b246,omitempty"`
+	ReplacesISBN string `xml:"b010,omitempty"`
+	ReplacesEAN13 string `xml:"b011,omitempty"`
+	ProductForm ProductForm `xml:"b012,omitempty"`
+	ProductFormDetail []ProductFormDetail `xml:"b333,omitempty"`
+	ProductFormFeature []ProductFormFeature `xml:"productformfeature,omitempty"`
+	BookFormDetail []BookFormDetail `xml:"b013,omitempty"`
+	ProductPackaging ProductPackaging `xml:"b225,omitempty"`
+	ProductFormDescription string `xml:"b014,omitempty"`
+	NumberOfPieces string `xml:"b210,omitempty"`
+	TradeCategory TradeCategory `xml:"b384,omitempty"`
+	ProductContentType []ProductContentType `xml:"b385,omitempty"`
+	ContainedItem []ContainedItem `xml:"containeditem,omitempty"`
+	ProductClassification []ProductClassification `xml:"productclassification,omitempty"`
+	TextCaseFlag TextCaseFlag `xml:"b027,omitempty"`
+	WorkIdentifier []WorkIdentifier `xml:"workidentifier,omitempty"`
+	Website []Website `xml:"website,omitempty"`
+	ReligiousText ReligiousText `xml:"religioustext,omitempty"`
+	LanguageOfText []LanguageOfText `xml:"b059,omitempty"`
+	OriginalLanguage OriginalLanguage `xml:"b060,omitempty"`
+	Language []Language `xml:"language,omitempty"`
+	NumberOfPages string `xml:"b061,omitempty"`
+	PagesRoman string `xml:"b254,omitempty"`
+	PagesArabic string `xml:"b255,omitempty"`
+	Extent []Extent `xml:"extent,omitempty"`
+	NumberOfIllustrations string `xml:"b125,omitempty"`
+	IllustrationsNote string `xml:"b062,omitempty"`
+	Illustrations []Illustrations `xml:"illustrations,omitempty"`
+	MapScale []string `xml:"b063,omitempty"`
+	MainSubject []MainSubject `xml:"mainsubject,omitempty"`
+	Subject []Subject `xml:"subject,omitempty"`
+	PersonAsSubject []PersonAsSubject `xml:"personassubject,omitempty"`
+	CorporateBodyAsSubject []string `xml:"b071,omitempty"`
+	PlaceAsSubject []string `xml:"b072,omitempty"`
+	AudienceCode []AudienceCode `xml:"b073,omitempty"`
+	Audience []Audience `xml:"audience,omitempty"`
+	USSchoolGrade string `xml:"b189,omitempty"`
+	InterestAge string `xml:"b190,omitempty"`
+	AudienceRange []AudienceRange `xml:"audiencerange,omitempty"`
+	AudienceDescription string `xml:"b207,omitempty"`
+	Complexity []Complexity `xml:"complexity,omitempty"`
+	Annotation Annotation `xml:"d100,omitempty"`
+	MainDescription MainDescription `xml:"d101,omitempty"`
+	OtherText []OtherText `xml:"othertext,omitempty"`
+	ReviewQuote []ReviewQuote `xml:"e110,omitempty"`
+	MediaFile []MediaFile `xml:"mediafile,omitempty"`
+	ProductWebsite []ProductWebsite `xml:"productwebsite,omitempty"`
+	ContentItem []ContentItem `xml:"contentitem,omitempty"`
+	CityOfPublication []string `xml:"b209,omitempty"`
+	CountryOfPublication CountryOfPublication `xml:"b083,omitempty"`
+	CopublisherName []string `xml:"b084,omitempty"`
+	SponsorName []string `xml:"b085,omitempty"`
+	OriginalPublisher string `xml:"b240,omitempty"`
+	AnnouncementDate string `xml:"b086,omitempty"`
+	TradeAnnouncementDate string `xml:"b362,omitempty"`
+	PublicationDate string `xml:"b003,omitempty"`
+	YearFirstPublished string `xml:"b088,omitempty"`
+	SalesRights []SalesRights `xml:"salesrights,omitempty"`
+	NotForSale []NotForSale `xml:"notforsale,omitempty"`
+	SalesRestriction []SalesRestriction `xml:"salesrestriction,omitempty"`
+	EpubType EpubType `xml:"b211,omitempty"`
+	EpubTypeVersion string `xml:"b212,omitempty"`
+	EpubTypeDescription string `xml:"b213,omitempty"`
+	EpubFormatDescription string `xml:"b216,omitempty"`
+	EpubSourceDescription string `xml:"b280,omitempty"`
+	EpubTypeNote string `xml:"b277,omitempty"`
+	EpubFormat EpubFormat `xml:"b214,omitempty"`
+	EpubFormatVersion string `xml:"b215,omitempty"`
+	EpubSource EpubSource `xml:"b278,omitempty"`
+	EpubSourceVersion string `xml:"b279,omitempty"`
+	ThesisType ThesisType `xml:"b368,omitempty"`
+	ThesisPresentedTo string `xml:"b369,omitempty"`
+	ThesisYear string `xml:"b370,omitempty"`
+	BASICMainSubject string `xml:"b064,omitempty"`
+	BASICVersion string `xml:"b200,omitempty"`
+	BICMainSubject string `xml:"b065,omitempty"`
+	BICVersion string `xml:"b066,omitempty"`
+	CoverImageFormatCode CoverImageFormatCode `xml:"f111,omitempty"`
+	CoverImageLinkTypeCode CoverImageLinkTypeCode `xml:"f112,omitempty"`
+	CoverImageLink string `xml:"f113,omitempty"`
+	PublishingStatus PublishingStatus `xml:"b394,omitempty"`
+	PublishingStatusNote string `xml:"b395,omitempty"`
 }
 
 // ProductClassification is not documented.
@@ -687,19 +687,19 @@ type RelatedProduct struct {
 	ProductFormFeature []ProductFormFeature `xml:"productformfeature,omitempty"`
 	BookFormDetail []BookFormDetail `xml:"b013,omitempty"`
 	ProductPackaging ProductPackaging `xml:"b225,omitempty"`
-	EpubType EpubType `xml:"b211,omitempty"`
-	EpubTypeVersion EpubTypeVersion `xml:"b212,omitempty"`
-	EpubTypeDescription EpubTypeDescription `xml:"b213,omitempty"`
-	EpubFormat EpubFormat `xml:"b214,omitempty"`
-	EpubFormatVersion EpubFormatVersion `xml:"b215,omitempty"`
-	EpubFormatDescription EpubFormatDescription `xml:"b216,omitempty"`
-	EpubTypeNote EpubTypeNote `xml:"b277,omitempty"`
 	ProductFormDescription string `xml:"b014,omitempty"`
 	RelationCode RelationCode `xml:"h208"`
 	NumberOfPieces string `xml:"b210,omitempty"`
 	TradeCategory TradeCategory `xml:"b384,omitempty"`
 	ProductContentType []ProductContentType `xml:"b385,omitempty"`
 	Publisher []Publisher `xml:"publisher,omitempty"`
+	EpubType EpubType `xml:"b211,omitempty"`
+	EpubTypeVersion string `xml:"b212,omitempty"`
+	EpubTypeDescription string `xml:"b213,omitempty"`
+	EpubFormatDescription string `xml:"b216,omitempty"`
+	EpubTypeNote string `xml:"b277,omitempty"`
+	EpubFormat EpubFormat `xml:"b214,omitempty"`
+	EpubFormatVersion string `xml:"b215,omitempty"`
 }
 
 // ReligiousText is not documented.
@@ -806,22 +806,22 @@ type StockQuantityCoded struct {
 type SubSeriesRecord struct {
 	RecordReference string `xml:"a001"`
 	NotificationType NotificationType `xml:"a002"`
-	RecordSourceIdentifierType RecordSourceIdentifierType `xml:"a195,omitempty"`
-	RecordSourceIdentifier RecordSourceIdentifier `xml:"a196,omitempty"`
 	DeletionCode DeletionCode `xml:"a198,omitempty"`
 	DeletionText string `xml:"a199,omitempty"`
 	RecordSourceType RecordSourceType `xml:"a194,omitempty"`
 	RecordSourceName string `xml:"a197,omitempty"`
 	SeriesIdentifier []SeriesIdentifier `xml:"seriesidentifier"`
 	ParentIdentifier ParentIdentifier `xml:"parentidentifier"`
-	SeriesPartName SeriesPartName `xml:"b282,omitempty"`
-	NumberWithinSeries NumberWithinSeries `xml:"b019,omitempty"`
 	LevelSequenceNumber string `xml:"b284"`
 	Title []Title `xml:"title"`
 	Contributor []Contributor `xml:"contributor,omitempty"`
 	OtherText []OtherText `xml:"othertext,omitempty"`
 	Publisher []Publisher `xml:"publisher,omitempty"`
 	SubordinateEntries string `xml:"a245,omitempty"`
+	RecordSourceIdentifierType RecordSourceIdentifierType `xml:"a195,omitempty"`
+	RecordSourceIdentifier string `xml:"a196,omitempty"`
+	SeriesPartName string `xml:"b282,omitempty"`
+	NumberWithinSeries string `xml:"b019,omitempty"`
 }
 
 // Subject is not documented.
@@ -842,17 +842,6 @@ type SupplierIdentifier struct {
 
 // SupplyDetail is not documented.
 type SupplyDetail struct {
-	TelephoneNumber string `xml:"j270"`
-	FaxNumber string `xml:"j271"`
-	EmailAddress string `xml:"j272"`
-	Website Website `xml:"website"`
-	SupplierRole SupplierRole `xml:"j292"`
-	SupplyToCountry SupplyToCountry `xml:"j138,omitempty"`
-	SupplyToTerritory SupplyToTerritory `xml:"j397,omitempty"`
-	SupplyToRegion SupplyToRegion `xml:"j139,omitempty"`
-	SupplyToCountryExcluded SupplyToCountryExcluded `xml:"j140,omitempty"`
-	ReturnsCodeType ReturnsCodeType `xml:"j268,omitempty"`
-	ReturnsCode ReturnsCode `xml:"j269,omitempty"`
 	SupplierName string `xml:"j137,omitempty"`
 	SupplierIdentifier []SupplierIdentifier `xml:"supplieridentifier,omitempty"`
 	SupplierSAN string `xml:"j136,omitempty"`
@@ -860,13 +849,14 @@ type SupplyDetail struct {
 	IntermediaryAvailabilityCode IntermediaryAvailabilityCode `xml:"j348,omitempty"`
 	AvailabilityCode AvailabilityCode `xml:"j141,omitempty"`
 	ProductAvailability ProductAvailability `xml:"j396,omitempty"`
-	DateFormat DateFormat `xml:"j260,omitempty"`
-	ExpectedShipDate ExpectedShipDate `xml:"j142,omitempty"`
-	AudienceRestrictionFlag AudienceRestrictionFlag `xml:"j146,omitempty"`
-	AudienceRestrictionNote AudienceRestrictionNote `xml:"j147,omitempty"`
 	PriceAmount string `xml:"j151,omitempty"`
 	UnpricedItemType UnpricedItemType `xml:"j192,omitempty"`
 	Price []Price `xml:"price,omitempty"`
+	TelephoneNumber []string `xml:"j270,omitempty"`
+	FaxNumber []string `xml:"j271,omitempty"`
+	EmailAddress []string `xml:"j272,omitempty"`
+	Website []Website `xml:"website,omitempty"`
+	SupplierRole SupplierRole `xml:"j292,omitempty"`
 	SupplyRestrictionDetail string `xml:"j399,omitempty"`
 	LastDateForReturns string `xml:"j387,omitempty"`
 	NewSupplier NewSupplier `xml:"newsupplier,omitempty"`
@@ -875,6 +865,16 @@ type SupplyDetail struct {
 	Stock []Stock `xml:"stock,omitempty"`
 	PackQuantity string `xml:"j145,omitempty"`
 	Reissue Reissue `xml:"reissue,omitempty"`
+	SupplyToTerritory TerritoryCodeList `xml:"j397,omitempty"`
+	SupplyToRegion []SupplyToRegion `xml:"j139,omitempty"`
+	SupplyToCountry []CountryCodeList `xml:"j138,omitempty"`
+	SupplyToCountryExcluded []CountryCodeList `xml:"j140,omitempty"`
+	ReturnsCodeType ReturnsCodeType `xml:"j268,omitempty"`
+	ReturnsCode string `xml:"j269,omitempty"`
+	DateFormat DateFormat `xml:"j260,omitempty"`
+	ExpectedShipDate string `xml:"j142,omitempty"`
+	AudienceRestrictionFlag AudienceRestrictionFlag `xml:"j146,omitempty"`
+	AudienceRestrictionNote string `xml:"j147,omitempty"`
 }
 
 // TextItem is not documented.

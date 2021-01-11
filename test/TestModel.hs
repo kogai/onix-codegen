@@ -251,5 +251,25 @@ tests =
                   }
 
           assertEqual "can drop deplicated field" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_model_publication_date.xsd"
+          let key = makeTargetQName "Product"
+              actual = (topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
+              expected =
+                Model
+                  { shortname = "product",
+                    xmlReferenceName = "Product",
+                    typeName = Nothing,
+                    kind = Tag,
+                    optional = False,
+                    iterable = False,
+                    elements =
+                      [ Model {shortname = "a100", xmlReferenceName = "PublicationDate", typeName = Just "string", kind = Tag, optional = True, iterable = False, elements = []}
+                      ]
+                  }
+
+          assertEqual "can parse sequence of sequence" expected actual
       )
   ]
