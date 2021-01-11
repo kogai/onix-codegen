@@ -4,9 +4,7 @@
 {-# LANGUAGE NamedFieldPuns #-}
 
 module Code
-  ( code,
-    codeType,
-    codeTypes,
+  ( codeTypes,
     CodeTypes,
     CodeType,
     Code,
@@ -22,7 +20,6 @@ import qualified Data.Map as M
 import Data.Text (Text, pack)
 import qualified Data.Text as T
 import Data.Vector (Vector, fromList)
-import qualified Data.Yaml.Aeson as A
 import GHC.Generics (Generic)
 import Model (content, contentAttributes, findFixedOf)
 import Text.Mustache (ToMustache (..), object, (~>))
@@ -35,10 +32,6 @@ data Code = Code
     notes :: Text
   }
   deriving (Generic, Show, Eq)
-
-instance A.ToJSON Code
-
-instance A.FromJSON Code
 
 instance ToMustache Code where
   toMustache Code {value, description, notes} =
@@ -62,10 +55,6 @@ data CodeType = CodeType
     codes :: Vector Code
   }
   deriving (Generic, Show, Eq)
-
-instance A.ToJSON CodeType
-
-instance A.FromJSON CodeType
 
 instance ToMustache CodeType where
   toMustache CodeType {xmlReferenceName, description, codes} =
