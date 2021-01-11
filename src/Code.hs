@@ -41,18 +41,11 @@ instance ToMustache Code where
         pack "notes" ~> notes
       ]
 
-code :: Text -> Text -> Text -> Code
-code v d n =
-  Code
-    { value = v,
-      description = d,
-      notes = n
-    }
-
 data CodeType = CodeType
   { xmlReferenceName :: Text,
     description :: Text,
-    codes :: Vector Code
+    codes :: Vector Code,
+    spaceSeparatable :: Bool
   }
   deriving (Generic, Show, Eq)
 
@@ -63,14 +56,6 @@ instance ToMustache CodeType where
         pack "description" ~> description,
         pack "codes" ~> toMustache codes
       ]
-
-codeType :: Text -> Text -> [Code] -> CodeType
-codeType n d cs =
-  CodeType
-    { xmlReferenceName = n,
-      description = d,
-      codes = fromList cs
-    }
 
 type CodeTypes = Vector CodeType
 
@@ -114,11 +99,11 @@ topLevelTypeToCode scm (ref, X.TypeSimple (X.ListType ty _)) =
             map
               ( \(X.Enumeration v docs) ->
                   let docs_ = map (\(X.Documentation d) -> d) docs
-                   in code v (head docs_) (last docs_)
+                   in Code {value = v, description = head docs_, notes = last docs_}
               )
               constraints
           refname = X.qnName ref
-       in codeType refname desc codes_
+       in CodeType {xmlReferenceName = refname, description = desc, codes = fromList codes_, spaceSeparatable = False}
     X.Inline _ -> throw Unreachable
 topLevelTypeToCode _scm (_, X.TypeSimple (X.UnionType _ _)) = throw Unreachable
 topLevelTypeToCode _scm (_, X.TypeComplex _) = throw Unreachable
@@ -152,13 +137,13 @@ topLevelElementToCode scm elm =
                 map
                   ( \(X.Enumeration v docs) ->
                       let docs_ = map (\(X.Documentation d) -> d) docs
-                       in code v (head docs_) (last docs_)
+                       in Code {value = v, description = head docs_, notes = last docs_}
                   )
                   constraints
            in enums
         Nothing -> []
       refname = unwrap $ findFixedOf "refname" plainContentAttributes
-   in codeType refname desc codes_
+   in CodeType {xmlReferenceName = refname, description = desc, codes = fromList codes_, spaceSeparatable = False}
 
 collectCodes :: X.Schema -> [X.ElementInline]
 collectCodes =
