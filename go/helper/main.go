@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 
-	onix "github.com/kogai/onix/go"
+	onix "github.com/kogai/onix-codegen/go"
 )
 
 func main() {
