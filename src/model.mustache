@@ -7,10 +7,10 @@ type {{xmlReferenceName}} struct {
 {{#elements}}
 {{#optional}}
 {{#iterable}}
-	{{xmlReferenceName}} []{{typeName}} `xml:"{{shortname}},omitempty"`
+	{{xmlReferenceName}} []{{typeName}} `xml:"{{shortname}},omitempty" json:",omitempty"`
 {{/iterable}}
 {{^iterable}}
-	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}},omitempty"`
+	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}},omitempty" json:",omitempty"`
 {{/iterable}}
 {{/optional}}
 {{^optional}}
