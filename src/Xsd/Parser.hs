@@ -54,6 +54,7 @@ parseChild c = do
     "complexType" -> Just <$> parseTopComplexType c
     "include" -> Just . Xsd.ChildInclude <$> parseInclude c
     "import" -> Just . Xsd.ChildImport <$> parseImport c
+    "attributeGroup" -> Just . Xsd.ChildAttribute <$> parseAttributeGroup c
     _ -> return Nothing
 
 parseInclude :: Cursor -> P Xsd.Include

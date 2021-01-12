@@ -62,6 +62,7 @@ data Child
   | ChildType QName Type
   | ChildImport Import
   | ChildInclude Include
+  | ChildAttribute Attribute
   deriving (Show, Eq)
 
 newtype Annotation = Documentation Text
