@@ -293,10 +293,11 @@ parseSimpleExtension :: Cursor -> P Xsd.SimpleExtension
 parseSimpleExtension c = handleNamespaces c $ do
   base <- theAttribute "base" c >>= makeQName c
   attributes <- parseAttributes c
+  attributeGroups <- parseAttributeGroups c
   return
     Xsd.SimpleExtension
       { Xsd.simpleExtensionBase = base,
-        Xsd.simpleExtensionAttributes = attributes
+        Xsd.simpleExtensionAttributes = attributes ++ attributeGroups
       }
 
 parseComplexContent :: Cursor -> P Xsd.ComplexContent
@@ -400,6 +401,23 @@ parseElements :: Cursor -> P [Xsd.Element]
 parseElements c = do
   elementAxis <- makeElemAxis "element"
   mapM parseElementOrRef (c $/ elementAxis)
+
+parseAttributeGroups :: Cursor -> P [Xsd.Attribute]
+parseAttributeGroups c = do
+  attrAxis <- makeElemAxis "attributeGroup"
+  mapM parseAttributeGroup (c $/ attrAxis)
+
+parseAttributeGroup :: Cursor -> P Xsd.Attribute
+parseAttributeGroup c =
+  case (anAttribute "name" c, anAttribute "ref" c) of
+    (Just n, Nothing) -> do
+      name <- makeTargetQName n
+      attrs <- parseAttributes c
+      return $ Xsd.AttributeGroupInline name attrs
+    (Nothing, Just r) -> do
+      ref <- makeQName c r
+      return $ Xsd.AttributeGroupRef ref
+    _ -> parseError c "Should be either name or ref"
 
 parseAttributes :: Cursor -> P [Xsd.Attribute]
 parseAttributes c = do

@@ -183,6 +183,8 @@ data ModelGroup
 data Attribute
   = RefAttribute AttributeRef
   | InlineAttribute AttributeInline
+  | AttributeGroupRef QName
+  | AttributeGroupInline QName [Attribute]
   deriving (Show, Eq)
 
 data AttributeInline = AttributeInline

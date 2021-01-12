@@ -271,5 +271,26 @@ tests =
                   }
 
           assertEqual "can parse sequence of sequence" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_model_general_attributes_simple.xsd"
+          print ""
+          print scm
+          let key = makeTargetQName "PublishingStatus"
+              actual = (topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
+              expected =
+                Model
+                  { shortname = "a000",
+                    xmlReferenceName = "PublishingStatus",
+                    typeName = Nothing,
+                    kind = Tag,
+                    optional = False,
+                    iterable = False,
+                    elements =
+                      [ Model {shortname = "a100", xmlReferenceName = "PublicationDate", typeName = Just "string", kind = Tag, optional = True, iterable = False, elements = []}
+                      ]
+                  }
+          assertEqual "can parse generalAttributes" expected actual
       )
   ]
