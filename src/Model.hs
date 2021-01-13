@@ -23,7 +23,7 @@ where
 import Data.List (find, findIndex)
 import qualified Data.Map as M
 import Data.Maybe (fromMaybe, mapMaybe)
-import Data.Text (Text, pack, unpack)
+import Data.Text (Text, pack, toTitle, unpack)
 import qualified Data.Text as T
 import Data.Vector (Vector, fromList)
 import Data.Yaml (FromJSON (..), withText)
@@ -66,12 +66,12 @@ instance ToMustache Model where
           Nothing -> []
           Just t -> [pack "typeName" ~> t]
      in object $
-          [ pack "shortname" ~> shortname,
-            pack "xmlReferenceName" ~> xmlReferenceName,
-            pack "kind" ~> kind,
-            pack "optional" ~> optional,
-            pack "iterable" ~> iterable,
-            pack "elements" ~> elements
+          [ "shortname" ~> shortname,
+            "xmlReferenceName" ~> xmlReferenceName,
+            "is_tag" ~> (kind == Tag),
+            "optional" ~> optional,
+            "iterable" ~> iterable,
+            "elements" ~> elements
           ]
             ++ typeName_
 
@@ -316,8 +316,8 @@ fieldsOfAttribute _scm (X.RefAttribute _x) = []
 fieldsOfAttribute _scm (X.InlineAttribute X.AttributeInline {X.attributeInlineName = name, X.attributeInlineType, X.attributeInlineUse}) =
   [ Model
       { shortname = X.qnName name,
-        -- TODO: Make optional
-        xmlReferenceName = "",
+        xmlReferenceName = toTitle $ X.qnName name,
+        -- TODO: Make CodeType
         typeName = Just ty,
         kind = Attribute,
         optional = attributeInlineUse == X.Required,
@@ -354,9 +354,8 @@ topLevelModels xsd elm =
 readSchema :: IO Models
 readSchema = do
   xsd <- X.getSchema "./2_1_rev03_schema/ONIX_BookProduct_Release2.1_reference.xsd"
-  ( return
+  return
       . models
       . map (topLevelModels xsd)
       . collectElements
-    )
-    xsd
+    $ xsd

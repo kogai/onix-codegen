@@ -7,18 +7,38 @@ type {{xmlReferenceName}} struct {
 {{#elements}}
 {{#optional}}
 {{#iterable}}
+{{#is_tag}}
 	{{xmlReferenceName}}s []{{typeName}} `xml:"{{shortname}},omitempty" json:",omitempty"`
+{{/is_tag}}
+{{^is_tag}}
+	{{xmlReferenceName}}s []{{typeName}} `xml:"{{shortname}},omitempty,attr" json:",omitempty"`
+{{/is_tag}}
 {{/iterable}}
 {{^iterable}}
+{{#is_tag}}
 	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}},omitempty" json:",omitempty"`
+{{/is_tag}}
+{{^is_tag}}
+	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}},omitempty,attr" json:",omitempty"`
+{{/is_tag}}
 {{/iterable}}
 {{/optional}}
 {{^optional}}
 {{#iterable}}
+{{#is_tag}}
 	{{xmlReferenceName}}s []{{typeName}} `xml:"{{shortname}}"`
+{{/is_tag}}
+{{^is_tag}}
+	{{xmlReferenceName}}s []{{typeName}} `xml:"{{shortname}},attr"`
+{{/is_tag}}
 {{/iterable}}
 {{^iterable}}
+{{#is_tag}}
 	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}}"`
+{{/is_tag}}
+{{^is_tag}}
+	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}},attr"`
+{{/is_tag}}
 {{/iterable}}
 {{/optional}}
 {{/elements}}
