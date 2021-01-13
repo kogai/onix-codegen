@@ -294,11 +294,10 @@ parseSimpleExtension :: Cursor -> P Xsd.SimpleExtension
 parseSimpleExtension c = handleNamespaces c $ do
   base <- theAttribute "base" c >>= makeQName c
   attributes <- parseAttributes c
-  attributeGroups <- parseAttributeGroups c
   return
     Xsd.SimpleExtension
       { Xsd.simpleExtensionBase = base,
-        Xsd.simpleExtensionAttributes = attributes ++ attributeGroups
+        Xsd.simpleExtensionAttributes = attributes
       }
 
 parseComplexContent :: Cursor -> P Xsd.ComplexContent
@@ -423,7 +422,9 @@ parseAttributeGroup c =
 parseAttributes :: Cursor -> P [Xsd.Attribute]
 parseAttributes c = do
   attrAxis <- makeElemAxis "attribute"
-  mapM parseAttribute (c $/ attrAxis)
+  attributes <- mapM parseAttribute (c $/ attrAxis)
+  attributeGroups <- parseAttributeGroups c
+  return $ attributes ++ attributeGroups
 
 parseAttribute :: Cursor -> P Xsd.Attribute
 parseAttribute c = do
