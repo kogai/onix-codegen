@@ -14,6 +14,8 @@ module Code
     topLevelElementToCode,
     topLevelTypeToCode,
     collectTypes,
+    collectAttributes,
+    topLevelAttributeCode,
   )
 where
 
@@ -22,7 +24,7 @@ import Data.Text (Text, pack)
 import qualified Data.Text as T
 import Data.Vector (Vector, fromList)
 import GHC.Generics (Generic)
-import Model (content, contentAttributes, findFixedOf)
+import Model (content, contentAttributes, findFixedOf, typeToText)
 import Text.Mustache (ToMustache (..), object, (~>))
 import Util
 import qualified Xsd as X
@@ -37,9 +39,9 @@ data Code = Code
 instance ToMustache Code where
   toMustache Code {value, description, notes} =
     object
-      [ pack "value" ~> value,
-        pack "description" ~> description,
-        pack "notes" ~> notes
+      [ "value" ~> value,
+        "description" ~> description,
+        "notes" ~> notes
       ]
 
 data CodeType = CodeType
@@ -53,10 +55,10 @@ data CodeType = CodeType
 instance ToMustache CodeType where
   toMustache CodeType {xmlReferenceName, description, codes, spaceSeparatable} =
     object
-      [ pack "xmlReferenceName" ~> xmlReferenceName,
-        pack "description" ~> description,
-        pack "codes" ~> toMustache codes,
-        pack "spaceSeparatable" ~> spaceSeparatable
+      [ "xmlReferenceName" ~> xmlReferenceName,
+        "description" ~> description,
+        "codes" ~> toMustache codes,
+        "spaceSeparatable" ~> spaceSeparatable
       ]
 
 type CodeTypes = Vector CodeType
@@ -68,8 +70,9 @@ readSchema :: IO CodeTypes
 readSchema = do
   xsd <- X.getSchema "./2_1_rev03_schema/ONIX_BookProduct_Release2.1_reference.xsd"
   let codeTypesFromTypes = (map (topLevelTypeToCode xsd) . collectTypes) xsd
-  let codeTypesFromElements = (map (topLevelElementToCode xsd) . collectCodes) xsd
-  return $ codeTypes (codeTypesFromTypes ++ codeTypesFromElements)
+      codeTypesFromElements = (map (topLevelElementToCode xsd) . collectCodes) xsd
+      codeTypesFromAttributes = (map (topLevelAttributeCode xsd) . collectAttributes) xsd
+  return $ codeTypes (codeTypesFromTypes ++ codeTypesFromElements ++ codeTypesFromAttributes)
 
 typeAnnotations :: X.Type -> [X.Annotation]
 typeAnnotations ty =
@@ -99,7 +102,7 @@ topLevelTypeToCode scm (ref, X.TypeSimple (X.ListType ty _)) =
             X.QName {X.qnName = "List49"} -> True
             X.QName {X.qnName = "List91"} -> True
             _ -> False
-          desc = (T.intercalate (pack ". ") . map (\(X.Documentation x) -> x) . typeAnnotations) t
+          desc = (T.intercalate ". " . map (\(X.Documentation x) -> x) . typeAnnotations) t
           constraints = typeConstraints t
           codes_ =
             map
@@ -120,7 +123,7 @@ topLevelElementToCode scm elm =
       keyOfType = case content elm of
         Just (X.ContentSimple (X.SimpleContentExtension X.SimpleExtension {X.simpleExtensionBase})) ->
           let qnName = X.qnName simpleExtensionBase
-           in if T.isPrefixOf (pack "List") qnName then Just simpleExtensionBase else Nothing
+           in if T.isPrefixOf "List" qnName then Just simpleExtensionBase else Nothing
         Just (X.ContentSimple (X.SimpleContentRestriction _)) -> Nothing
         Just (X.ContentPlain X.PlainContent {}) -> Nothing
         Just (X.ContentComplex (X.ComplexContentExtension X.ComplexExtension {})) -> Nothing
@@ -139,7 +142,7 @@ topLevelElementToCode scm elm =
         Nothing -> Nothing
       desc = case ty of
         Just t ->
-          (T.intercalate (pack ". ") . map (\(X.Documentation x) -> x) . typeAnnotations) t
+          (T.intercalate ". " . map (\(X.Documentation x) -> x) . typeAnnotations) t
         Nothing -> pack ""
       codes_ = case ty of
         Just t ->
@@ -156,6 +159,40 @@ topLevelElementToCode scm elm =
       refname = unwrap $ findFixedOf "refname" plainContentAttributes
    in CodeType {xmlReferenceName = refname, description = desc, codes = fromList codes_, spaceSeparatable = spaceSeparatable_}
 
+topLevelAttributeCode :: X.Schema -> X.Attribute -> CodeType
+topLevelAttributeCode _scm (X.RefAttribute _) = throw Unreachable
+topLevelAttributeCode _scm (X.AttributeGroupRef _) = throw Unreachable
+topLevelAttributeCode _scm (X.AttributeGroupInline _ _) = throw Unreachable
+topLevelAttributeCode scm (X.InlineAttribute X.AttributeInline {X.attributeInlineName, X.attributeInlineType}) =
+  let name = X.qnName attributeInlineName
+      typeName = case attributeInlineType of
+        X.Ref n -> X.qnName n
+        X.Inline t -> typeToText . X.TypeSimple $ t
+      xmlReferenceName = case typeName of
+        "string" -> T.toTitle name
+        x -> if T.isPrefixOf "List" x then T.concat [T.toTitle name, x] else x
+      ty = (M.lookup (X.QName Nothing typeName) . X.schemaTypes) scm
+      codes_ = case ty of
+        Just t ->
+          let constraints = typeConstraints t
+              enums =
+                map
+                  ( \(X.Enumeration v docs) ->
+                      let docs_ = map (\(X.Documentation d) -> d) docs
+                       in Code {value = v, description = head docs_, notes = last docs_}
+                  )
+                  constraints
+           in enums
+        Nothing -> []
+      description = ""
+      spaceSeparatable = False
+   in CodeType
+        { xmlReferenceName = xmlReferenceName,
+          description = description,
+          codes = fromList codes_,
+          spaceSeparatable = spaceSeparatable
+        }
+
 collectCodes :: X.Schema -> [X.ElementInline]
 collectCodes =
   map snd
@@ -164,7 +201,7 @@ collectCodes =
       ( \x -> case content x of
           Just (X.ContentSimple (X.SimpleContentExtension X.SimpleExtension {X.simpleExtensionBase})) ->
             let qnName = X.qnName simpleExtensionBase
-             in T.isPrefixOf (pack "List") qnName
+             in T.isPrefixOf "List" qnName
           Just (X.ContentSimple (X.SimpleContentRestriction _)) -> False
           Just (X.ContentPlain X.PlainContent {}) -> False
           Just (X.ContentComplex (X.ComplexContentExtension X.ComplexExtension {})) -> False
@@ -172,6 +209,19 @@ collectCodes =
           Nothing -> False
       )
     . X.schemaElements
+
+collectAttributes :: X.Schema -> [X.Attribute]
+collectAttributes =
+  concatMap snd
+    . M.toList
+    . M.map
+      ( \case
+          X.RefAttribute _ -> []
+          X.InlineAttribute _ -> []
+          X.AttributeGroupRef _ -> []
+          X.AttributeGroupInline _ attrs -> attrs
+      )
+    . X.schemaAttributes
 
 collectTypes :: X.Schema -> [(X.QName, X.Type)]
 collectTypes =

@@ -316,9 +316,8 @@ fieldsOfAttribute _scm (X.RefAttribute _x) = []
 fieldsOfAttribute _scm (X.InlineAttribute X.AttributeInline {X.attributeInlineName = name, X.attributeInlineType, X.attributeInlineUse}) =
   [ Model
       { shortname = X.qnName name,
-        xmlReferenceName = toTitle $ X.qnName name,
-        -- TODO: Make CodeType
-        typeName = Just ty,
+        xmlReferenceName = xmlReferenceName_,
+        typeName = Just (if T.isPrefixOf "List" ty then T.concat [xmlReferenceName_, ty] else ty),
         kind = Attribute,
         optional = attributeInlineUse /= X.Required,
         iterable = False,
@@ -329,6 +328,7 @@ fieldsOfAttribute _scm (X.InlineAttribute X.AttributeInline {X.attributeInlineNa
     ty = case attributeInlineType of
       X.Ref n -> X.qnName n
       X.Inline t -> typeToText . X.TypeSimple $ t
+    xmlReferenceName_ = toTitle $ X.qnName name
 
 topLevelAttribute :: X.Attribute -> Bool
 topLevelAttribute (X.AttributeGroupRef _) = True

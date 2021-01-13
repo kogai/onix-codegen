@@ -6,6 +6,13 @@ type AddresseeIdentifier struct {
 	AddresseeIDType AddresseeIDType `xml:"m380"`
 	IDTypeName string `xml:"b233,omitempty" json:",omitempty"`
 	IDValue string `xml:"b244"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // AgentIdentifier is not documented.
@@ -13,6 +20,13 @@ type AgentIdentifier struct {
 	AgentIDType string `xml:"j400"`
 	IDTypeName string `xml:"b233,omitempty" json:",omitempty"`
 	IDValue string `xml:"b244"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Audience is not documented.
@@ -20,6 +34,13 @@ type Audience struct {
 	AudienceCodeType AudienceCodeType `xml:"b204"`
 	AudienceCodeTypeName string `xml:"b205,omitempty" json:",omitempty"`
 	AudienceCodeValue string `xml:"b206"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // AudienceRange is not documented.
@@ -27,12 +48,26 @@ type AudienceRange struct {
 	AudienceRangeQualifier AudienceRangeQualifier `xml:"b074"`
 	AudienceRangePrecision AudienceRangePrecision `xml:"b075,omitempty" json:",omitempty"`
 	AudienceRangeValue string `xml:"b076,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // BatchBonus is not documented.
 type BatchBonus struct {
 	BatchQuantity string `xml:"j264"`
 	FreeQuantity string `xml:"j265"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Bible is not documented.
@@ -44,12 +79,26 @@ type Bible struct {
 	BibleTextOrganization BibleTextOrganization `xml:"b355,omitempty" json:",omitempty"`
 	BibleReferenceLocation BibleReferenceLocation `xml:"b356,omitempty" json:",omitempty"`
 	BibleTextFeatures []BibleTextFeature `xml:"b357,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Complexity is not documented.
 type Complexity struct {
 	ComplexitySchemeIdentifier ComplexitySchemeIdentifier `xml:"b077"`
 	ComplexityCode string `xml:"b078"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Conference is not documented.
@@ -63,6 +112,13 @@ type Conference struct {
 	ConferencePlace string `xml:"b055,omitempty" json:",omitempty"`
 	ConferenceSponsors []ConferenceSponsor `xml:"conferencesponsor,omitempty" json:",omitempty"`
 	Websites []Website `xml:"website,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ConferenceSponsor is not documented.
@@ -70,6 +126,13 @@ type ConferenceSponsor struct {
 	PersonName string `xml:"b036,omitempty" json:",omitempty"`
 	CorporateName string `xml:"b047,omitempty" json:",omitempty"`
 	ConferenceSponsorIdentifier ConferenceSponsorIdentifier `xml:"conferencesponsoridentifier,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ConferenceSponsorIdentifier is not documented.
@@ -77,6 +140,13 @@ type ConferenceSponsorIdentifier struct {
 	ConferenceSponsorIDType ConferenceSponsorIDType `xml:"b391"`
 	IDTypeName string `xml:"b233,omitempty" json:",omitempty"`
 	IDValue string `xml:"b244"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ContainedItem is not documented.
@@ -94,6 +164,13 @@ type ContainedItem struct {
 	TradeCategory TradeCategory `xml:"b384,omitempty" json:",omitempty"`
 	ProductContentTypes []ProductContentType `xml:"b385,omitempty" json:",omitempty"`
 	ItemQuantity string `xml:"b015,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ContentItem is not documented.
@@ -114,6 +191,13 @@ type ContentItem struct {
 	MediaFiles []MediaFile `xml:"mediafile,omitempty" json:",omitempty"`
 	Contributors []Contributor `xml:"contributor,omitempty" json:",omitempty"`
 	ContributorStatement string `xml:"b049,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Contributor is not documented.
@@ -145,6 +229,13 @@ type Contributor struct {
 	SequenceNumber string `xml:"b034,omitempty" json:",omitempty"`
 	CountryCodes []CountryCode `xml:"b251,omitempty" json:",omitempty"`
 	RegionCodes []string `xml:"b398,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // CopyrightOwner is not documented.
@@ -152,6 +243,13 @@ type CopyrightOwner struct {
 	PersonName string `xml:"b036,omitempty" json:",omitempty"`
 	CorporateName string `xml:"b047,omitempty" json:",omitempty"`
 	CopyrightOwnerIdentifier CopyrightOwnerIdentifier `xml:"copyrightowneridentifier,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // CopyrightOwnerIdentifier is not documented.
@@ -159,12 +257,26 @@ type CopyrightOwnerIdentifier struct {
 	CopyrightOwnerIDType CopyrightOwnerIDType `xml:"b392"`
 	IDTypeName string `xml:"b233,omitempty" json:",omitempty"`
 	IDValue string `xml:"b244"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // CopyrightStatement is not documented.
 type CopyrightStatement struct {
 	CopyrightYears []string `xml:"b087"`
 	CopyrightOwners []CopyrightOwner `xml:"copyrightowner"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // DiscountCoded is not documented.
@@ -172,6 +284,13 @@ type DiscountCoded struct {
 	DiscountCodeType DiscountCodeType `xml:"j363"`
 	DiscountCodeTypeName string `xml:"j378,omitempty" json:",omitempty"`
 	DiscountCode string `xml:"j364"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Extent is not documented.
@@ -179,6 +298,13 @@ type Extent struct {
 	ExtentType ExtentType `xml:"b218"`
 	ExtentValue string `xml:"b219"`
 	ExtentUnit ExtentUnit `xml:"b220"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Header is not documented.
@@ -204,6 +330,13 @@ type Header struct {
 	DefaultLinearUnit DefaultLinearUnit `xml:"m187,omitempty" json:",omitempty"`
 	DefaultWeightUnit DefaultWeightUnit `xml:"m188,omitempty" json:",omitempty"`
 	DefaultClassOfTrade string `xml:"m193,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Illustrations is not documented.
@@ -211,6 +344,13 @@ type Illustrations struct {
 	IllustrationType IllustrationType `xml:"b256"`
 	IllustrationTypeDescription string `xml:"b361,omitempty" json:",omitempty"`
 	Number string `xml:"b257,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Imprint is not documented.
@@ -219,6 +359,13 @@ type Imprint struct {
 	NameCodeType NameCodeType `xml:"b241,omitempty" json:",omitempty"`
 	NameCodeTypeName string `xml:"b242,omitempty" json:",omitempty"`
 	NameCodeValue string `xml:"b243,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Language is not documented.
@@ -226,6 +373,13 @@ type Language struct {
 	LanguageRole LanguageRole `xml:"b253"`
 	LanguageCode LanguageCode `xml:"b252"`
 	CountryCode CountryCode `xml:"b251,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // LocationIdentifier is not documented.
@@ -233,6 +387,13 @@ type LocationIdentifier struct {
 	LocationIDType LocationIDType `xml:"j377"`
 	IDTypeName string `xml:"b233,omitempty" json:",omitempty"`
 	IDValue string `xml:"b244"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // MainSeriesRecord is not documented.
@@ -251,6 +412,13 @@ type MainSeriesRecord struct {
 	SubordinateEntries string `xml:"a245,omitempty" json:",omitempty"`
 	RecordSourceIdentifierType RecordSourceIdentifierType `xml:"a195,omitempty" json:",omitempty"`
 	RecordSourceIdentifier string `xml:"a196,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // MainSubject is not documented.
@@ -259,6 +427,13 @@ type MainSubject struct {
 	SubjectCode string `xml:"b069,omitempty" json:",omitempty"`
 	MainSubjectSchemeIdentifier MainSubjectSchemeIdentifier `xml:"b191"`
 	SubjectSchemeVersion string `xml:"b068,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // MarketDate is not documented.
@@ -266,6 +441,13 @@ type MarketDate struct {
 	MarketDateRole string `xml:"j408"`
 	DateFormat DateFormat `xml:"j260,omitempty" json:",omitempty"`
 	Date string `xml:"b306"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // MarketRepresentation is not documented.
@@ -283,6 +465,13 @@ type MarketRepresentation struct {
 	MarketRestrictionDetail string `xml:"j406,omitempty" json:",omitempty"`
 	MarketPublishingStatus string `xml:"j407,omitempty" json:",omitempty"`
 	MarketDates []MarketDate `xml:"marketdate,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Measure is not documented.
@@ -290,6 +479,13 @@ type Measure struct {
 	MeasureTypeCode MeasureTypeCode `xml:"c093"`
 	Measurement string `xml:"c094"`
 	MeasureUnitCode MeasureUnitCode `xml:"c095"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // MediaFile is not documented.
@@ -305,6 +501,13 @@ type MediaFile struct {
 	MediaFileLink string `xml:"f117"`
 	DownloadTerms DownloadTerms `xml:"f122,omitempty" json:",omitempty"`
 	MediaFileDate string `xml:"f373,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Name is not documented.
@@ -321,6 +524,13 @@ type Name struct {
 	LettersAfterNames string `xml:"b042,omitempty" json:",omitempty"`
 	TitlesAfterNames string `xml:"b043,omitempty" json:",omitempty"`
 	PersonNameType PersonNameType `xml:"b250"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // NewSupplier is not documented.
@@ -332,18 +542,46 @@ type NewSupplier struct {
 	TelephoneNumbers []string `xml:"j270,omitempty" json:",omitempty"`
 	FaxNumbers []string `xml:"j271,omitempty" json:",omitempty"`
 	EmailAddresss []string `xml:"j272,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // NoContributor is not documented.
 type NoContributor struct {
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // NoEdition is not documented.
 type NoEdition struct {
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // NoSeries is not documented.
 type NoSeries struct {
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // NotForSale is not documented.
@@ -354,6 +592,13 @@ type NotForSale struct {
 	EAN13 string `xml:"b005,omitempty" json:",omitempty"`
 	ProductIdentifiers []ProductIdentifier `xml:"productidentifier,omitempty" json:",omitempty"`
 	PublisherName string `xml:"b081,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ONIXMessage is not documented.
@@ -362,12 +607,26 @@ type ONIXMessage struct {
 	Products []Product `xml:"product,omitempty" json:",omitempty"`
 	MainSeriesRecords []MainSeriesRecord `xml:"mainseriesrecord,omitempty" json:",omitempty"`
 	SubSeriesRecords []SubSeriesRecord `xml:"subseriesrecord,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // OnOrderDetail is not documented.
 type OnOrderDetail struct {
 	OnOrder string `xml:"j351"`
 	ExpectedDate string `xml:"j302"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // OtherText is not documented.
@@ -383,12 +642,26 @@ type OtherText struct {
 	TextPublicationDate string `xml:"d109,omitempty" json:",omitempty"`
 	StartDate string `xml:"b324,omitempty" json:",omitempty"`
 	EndDate string `xml:"b325,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // PageRun is not documented.
 type PageRun struct {
 	FirstPageNumber string `xml:"b286"`
 	LastPageNumber string `xml:"b287,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ParentIdentifier is not documented.
@@ -396,6 +669,13 @@ type ParentIdentifier struct {
 	SeriesIDType SeriesIDType `xml:"b273"`
 	IDTypeName string `xml:"b233,omitempty" json:",omitempty"`
 	IDValue string `xml:"b244"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // PersonAsSubject is not documented.
@@ -412,6 +692,13 @@ type PersonAsSubject struct {
 	SuffixToKey string `xml:"b248,omitempty" json:",omitempty"`
 	LettersAfterNames string `xml:"b042,omitempty" json:",omitempty"`
 	TitlesAfterNames string `xml:"b043,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // PersonDate is not documented.
@@ -419,6 +706,13 @@ type PersonDate struct {
 	PersonDateRole PersonDateRole `xml:"b305"`
 	DateFormat DateFormat `xml:"j260,omitempty" json:",omitempty"`
 	Date string `xml:"b306"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // PersonNameIdentifier is not documented.
@@ -426,6 +720,13 @@ type PersonNameIdentifier struct {
 	PersonNameIDType PersonNameIDType `xml:"b390"`
 	IDTypeName string `xml:"b233,omitempty" json:",omitempty"`
 	IDValue string `xml:"b244"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Price is not documented.
@@ -457,6 +758,13 @@ type Price struct {
 	TaxRatePercent2 string `xml:"j158,omitempty" json:",omitempty"`
 	TaxableAmount2 string `xml:"j159,omitempty" json:",omitempty"`
 	TaxAmount2 string `xml:"j160,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Prize is not documented.
@@ -466,6 +774,13 @@ type Prize struct {
 	PrizeCountry PrizeCountry `xml:"g128,omitempty" json:",omitempty"`
 	PrizeCode PrizeCode `xml:"g129,omitempty" json:",omitempty"`
 	PrizeJury PrizeJury `xml:"g343,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Product is not documented.
@@ -622,6 +937,13 @@ type Product struct {
 	CoverImageLink string `xml:"f113,omitempty" json:",omitempty"`
 	PublishingStatus PublishingStatus `xml:"b394,omitempty" json:",omitempty"`
 	PublishingStatusNote string `xml:"b395,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ProductClassification is not documented.
@@ -629,6 +951,13 @@ type ProductClassification struct {
 	ProductClassificationType ProductClassificationType `xml:"b274"`
 	ProductClassificationCode string `xml:"b275"`
 	Percent string `xml:"b337,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ProductFormFeature is not documented.
@@ -636,6 +965,13 @@ type ProductFormFeature struct {
 	ProductFormFeatureType ProductFormFeatureType `xml:"b334"`
 	ProductFormFeatureValue string `xml:"b335,omitempty" json:",omitempty"`
 	ProductFormFeatureDescription string `xml:"b336,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ProductIdentifier is not documented.
@@ -643,6 +979,13 @@ type ProductIdentifier struct {
 	ProductIDType ProductIDType `xml:"b221"`
 	IDTypeName string `xml:"b233,omitempty" json:",omitempty"`
 	IDValue string `xml:"b244"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ProductWebsite is not documented.
@@ -650,12 +993,26 @@ type ProductWebsite struct {
 	WebsiteRole WebsiteRole `xml:"b367,omitempty" json:",omitempty"`
 	ProductWebsiteDescription ProductWebsiteDescription `xml:"f170,omitempty" json:",omitempty"`
 	ProductWebsiteLink string `xml:"f123"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ProfessionalAffiliation is not documented.
 type ProfessionalAffiliation struct {
 	Affiliation string `xml:"b046,omitempty" json:",omitempty"`
 	ProfessionalPosition string `xml:"b045,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Publisher is not documented.
@@ -666,6 +1023,13 @@ type Publisher struct {
 	NameCodeValue string `xml:"b243,omitempty" json:",omitempty"`
 	PublishingRole PublishingRole `xml:"b291,omitempty" json:",omitempty"`
 	Websites []Website `xml:"website,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Reissue is not documented.
@@ -674,6 +1038,13 @@ type Reissue struct {
 	ReissueDescription string `xml:"j366,omitempty" json:",omitempty"`
 	Prices []Price `xml:"price,omitempty" json:",omitempty"`
 	MediaFiles []MediaFile `xml:"mediafile,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // RelatedProduct is not documented.
@@ -700,6 +1071,13 @@ type RelatedProduct struct {
 	EpubTypeNote string `xml:"b277,omitempty" json:",omitempty"`
 	EpubFormat EpubFormat `xml:"b214,omitempty" json:",omitempty"`
 	EpubFormatVersion string `xml:"b215,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ReligiousText is not documented.
@@ -707,6 +1085,13 @@ type ReligiousText struct {
 	Bible Bible `xml:"bible,omitempty" json:",omitempty"`
 	ReligiousTextID ReligiousTextID `xml:"b376,omitempty" json:",omitempty"`
 	ReligiousTextFeatures []ReligiousTextFeature `xml:"religioustextfeature,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ReligiousTextFeature is not documented.
@@ -714,12 +1099,26 @@ type ReligiousTextFeature struct {
 	ReligiousTextFeatureType ReligiousTextFeatureType `xml:"b358"`
 	ReligiousTextFeatureCode ReligiousTextFeatureCode `xml:"b359"`
 	ReligiousTextFeatureDescription string `xml:"b360,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SalesOutlet is not documented.
 type SalesOutlet struct {
 	SalesOutletName string `xml:"b382,omitempty" json:",omitempty"`
 	SalesOutletIdentifier SalesOutletIdentifier `xml:"salesoutletidentifier,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SalesOutletIdentifier is not documented.
@@ -727,6 +1126,13 @@ type SalesOutletIdentifier struct {
 	SalesOutletIDType SalesOutletIDType `xml:"b393"`
 	IDTypeName string `xml:"b233,omitempty" json:",omitempty"`
 	IDValue string `xml:"b244"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SalesRestriction is not documented.
@@ -734,6 +1140,13 @@ type SalesRestriction struct {
 	SalesRestrictionType SalesRestrictionType `xml:"b381"`
 	SalesOutlets []SalesOutlet `xml:"salesoutlet,omitempty" json:",omitempty"`
 	SalesRestrictionDetail string `xml:"b383,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SalesRights is not documented.
@@ -742,6 +1155,13 @@ type SalesRights struct {
 	RightsRegions []RightsRegion `xml:"b091,omitempty" json:",omitempty"`
 	RightsCountrys []CountryCodeList `xml:"b090,omitempty" json:",omitempty"`
 	SalesRightsType SalesRightsType `xml:"b089"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SenderIdentifier is not documented.
@@ -749,6 +1169,13 @@ type SenderIdentifier struct {
 	SenderIDType SenderIDType `xml:"m379"`
 	IDTypeName string `xml:"b233,omitempty" json:",omitempty"`
 	IDValue string `xml:"b244"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Series is not documented.
@@ -761,6 +1188,13 @@ type Series struct {
 	Contributors []Contributor `xml:"contributor,omitempty" json:",omitempty"`
 	NumberWithinSeries string `xml:"b019,omitempty" json:",omitempty"`
 	YearOfAnnual string `xml:"b020,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SeriesIdentifier is not documented.
@@ -768,6 +1202,13 @@ type SeriesIdentifier struct {
 	SeriesIDType SeriesIDType `xml:"b273"`
 	IDTypeName string `xml:"b233,omitempty" json:",omitempty"`
 	IDValue string `xml:"b244"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Set is not documented.
@@ -782,6 +1223,13 @@ type Set struct {
 	ItemNumberWithinSet string `xml:"b026,omitempty" json:",omitempty"`
 	LevelSequenceNumber string `xml:"b284,omitempty" json:",omitempty"`
 	SetItemTitle string `xml:"b281,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Stock is not documented.
@@ -793,6 +1241,13 @@ type Stock struct {
 	OnOrder string `xml:"j351,omitempty" json:",omitempty"`
 	CBO string `xml:"j375,omitempty" json:",omitempty"`
 	OnOrderDetails []OnOrderDetail `xml:"onorderdetail,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // StockQuantityCoded is not documented.
@@ -800,6 +1255,13 @@ type StockQuantityCoded struct {
 	StockQuantityCodeType StockQuantityCodeType `xml:"j293"`
 	StockQuantityCodeTypeName string `xml:"j296,omitempty" json:",omitempty"`
 	StockQuantityCode string `xml:"j297"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SubSeriesRecord is not documented.
@@ -822,6 +1284,13 @@ type SubSeriesRecord struct {
 	RecordSourceIdentifier string `xml:"a196,omitempty" json:",omitempty"`
 	SeriesPartName string `xml:"b282,omitempty" json:",omitempty"`
 	NumberWithinSeries string `xml:"b019,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Subject is not documented.
@@ -831,6 +1300,13 @@ type Subject struct {
 	SubjectSchemeIdentifier SubjectSchemeIdentifier `xml:"b067"`
 	SubjectSchemeName string `xml:"b171,omitempty" json:",omitempty"`
 	SubjectSchemeVersion string `xml:"b068,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SupplierIdentifier is not documented.
@@ -838,6 +1314,13 @@ type SupplierIdentifier struct {
 	SupplierIDType SupplierIDType `xml:"j345"`
 	IDTypeName string `xml:"b233,omitempty" json:",omitempty"`
 	IDValue string `xml:"b244"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SupplyDetail is not documented.
@@ -875,6 +1358,13 @@ type SupplyDetail struct {
 	ExpectedShipDate string `xml:"j142,omitempty" json:",omitempty"`
 	AudienceRestrictionFlag AudienceRestrictionFlag `xml:"j146,omitempty" json:",omitempty"`
 	AudienceRestrictionNote string `xml:"j147,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // TextItem is not documented.
@@ -885,6 +1375,13 @@ type TextItem struct {
 	TextItemType TextItemType `xml:"b290"`
 	TextItemIdentifiers []TextItemIdentifier `xml:"textitemidentifier,omitempty" json:",omitempty"`
 	NumberOfPages string `xml:"b061,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // TextItemIdentifier is not documented.
@@ -892,6 +1389,13 @@ type TextItemIdentifier struct {
 	TextItemIDType TextItemIDType `xml:"b285"`
 	IDTypeName string `xml:"b233,omitempty" json:",omitempty"`
 	IDValue string `xml:"b244"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Title is not documented.
@@ -903,6 +1407,13 @@ type Title struct {
 	AbbreviatedLength string `xml:"b276,omitempty" json:",omitempty"`
 	TextCaseFlag TextCaseFlag `xml:"b027,omitempty" json:",omitempty"`
 	Subtitle string `xml:"b029,omitempty" json:",omitempty"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Website is not documented.
@@ -910,6 +1421,13 @@ type Website struct {
 	WebsiteRole WebsiteRole `xml:"b367,omitempty" json:",omitempty"`
 	WebsiteDescription WebsiteDescription `xml:"b294,omitempty" json:",omitempty"`
 	WebsiteLink string `xml:"b295"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // WorkIdentifier is not documented.
@@ -917,4 +1435,11 @@ type WorkIdentifier struct {
 	WorkIDType WorkIDType `xml:"b201"`
 	IDTypeName string `xml:"b233,omitempty" json:",omitempty"`
 	IDValue string `xml:"b244"`
+	Textformat TextFormatCode `xml:"textformat,omitempty,attr" json:",omitempty"`
+	Textcase TextCaseCode `xml:"textcase,omitempty,attr" json:",omitempty"`
+	Language LanguageList74 `xml:"language,omitempty,attr" json:",omitempty"`
+	Transliteration TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
+	Datestamp DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
+	Sourcetype SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
+	Sourcename string `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }

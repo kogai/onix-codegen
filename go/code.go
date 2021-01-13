@@ -24829,3 +24829,2093 @@ func (c *WorkIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 	}
 	return nil
 }
+
+// TextFormatCode 
+type TextFormatCode string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *TextFormatCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for TextFormatCode has been passed, got [%s]", v)
+	}
+	return nil
+}
+
+// TextCaseCode 
+type TextCaseCode string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *TextCaseCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for TextCaseCode has been passed, got [%s]", v)
+	}
+	return nil
+}
+
+// LanguageList74 
+type LanguageList74 string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *LanguageList74) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+
+  // Afar
+  case "aar":
+		*c = `Afar`
+
+  // Abkhaz
+  case "abk":
+		*c = `Abkhaz`
+
+  // Achinese
+  case "ace":
+		*c = `Achinese`
+
+  // Acoli
+  case "ach":
+		*c = `Acoli`
+
+  // Adangme
+  case "ada":
+		*c = `Adangme`
+
+  // Adygei
+  case "ady":
+		*c = `Adygei`
+
+  // Collective name
+  case "afa":
+		*c = `Afro-Asiatic languages`
+
+  // Artificial language
+  case "afh":
+		*c = `Afrihili`
+
+  // Afrikaans
+  case "afr":
+		*c = `Afrikaans`
+
+  // Ainu
+  case "ain":
+		*c = `Ainu`
+
+  // Macrolanguage
+  case "aka":
+		*c = `Akan`
+
+  // Akkadian
+  case "akk":
+		*c = `Akkadian`
+
+  // Macrolanguage
+  case "alb":
+		*c = `Albanian`
+
+  // Aleut
+  case "ale":
+		*c = `Aleut`
+
+  // Collective name
+  case "alg":
+		*c = `Algonquian languages`
+
+  // Southern Altai
+  case "alt":
+		*c = `Southern Altai`
+
+  // Amharic
+  case "amh":
+		*c = `Amharic`
+
+  // English, Old (ca. 450-1100)
+  case "ang":
+		*c = `English, Old (ca. 450-1100)`
+
+  // Angika
+  case "anp":
+		*c = `Angika`
+
+  // Collective name
+  case "apa":
+		*c = `Apache languages`
+
+  // Macrolanguage
+  case "ara":
+		*c = `Arabic`
+
+  // Official Aramaic; Imperial Aramaic (700-300 BCE)
+  case "arc":
+		*c = `Official Aramaic; Imperial Aramaic (700-300 BCE)`
+
+  // Aragonese
+  case "arg":
+		*c = `Aragonese`
+
+  // Armenian
+  case "arm":
+		*c = `Armenian`
+
+  // Mapudungun; Mapuche
+  case "arn":
+		*c = `Mapudungun; Mapuche`
+
+  // Arapaho
+  case "arp":
+		*c = `Arapaho`
+
+  // Collective name
+  case "art":
+		*c = `Artificial languages`
+
+  // Arawak
+  case "arw":
+		*c = `Arawak`
+
+  // Assamese
+  case "asm":
+		*c = `Assamese`
+
+  // Asturian; Bable; Leonese; Asturleonese
+  case "ast":
+		*c = `Asturian; Bable; Leonese; Asturleonese`
+
+  // Collective name
+  case "ath":
+		*c = `Athapascan languages`
+
+  // Collective name
+  case "aus":
+		*c = `Australian languages`
+
+  // Avaric
+  case "ava":
+		*c = `Avaric`
+
+  // Avestan
+  case "ave":
+		*c = `Avestan`
+
+  // Awadhi
+  case "awa":
+		*c = `Awadhi`
+
+  // Macrolanguage
+  case "aym":
+		*c = `Aymara`
+
+  // Macrolanguage
+  case "aze":
+		*c = `Azerbaijani`
+
+  // Collective name
+  case "bad":
+		*c = `Banda languages`
+
+  // Collective name
+  case "bai":
+		*c = `Bamileke languages`
+
+  // Bashkir
+  case "bak":
+		*c = `Bashkir`
+
+  // Macrolanguage
+  case "bal":
+		*c = `Baluchi`
+
+  // Bambara
+  case "bam":
+		*c = `Bambara`
+
+  // Balinese
+  case "ban":
+		*c = `Balinese`
+
+  // Basque
+  case "baq":
+		*c = `Basque`
+
+  // Basa
+  case "bas":
+		*c = `Basa`
+
+  // Collective name
+  case "bat":
+		*c = `Baltic languages`
+
+  // Beja; Bedawiyet
+  case "bej":
+		*c = `Beja; Bedawiyet`
+
+  // Belarusian
+  case "bel":
+		*c = `Belarusian`
+
+  // Bemba
+  case "bem":
+		*c = `Bemba`
+
+  // Bengali
+  case "ben":
+		*c = `Bengali`
+
+  // Collective name
+  case "ber":
+		*c = `Berber languages`
+
+  // Bhojpuri
+  case "bho":
+		*c = `Bhojpuri`
+
+  // Collective name
+  case "bih":
+		*c = `Bihari languages`
+
+  // Macrolanguage
+  case "bik":
+		*c = `Bikol`
+
+  // Bini; Edo
+  case "bin":
+		*c = `Bini; Edo`
+
+  // Bislama
+  case "bis":
+		*c = `Bislama`
+
+  // Siksika
+  case "bla":
+		*c = `Siksika`
+
+  // Collective name
+  case "bnt":
+		*c = `Bantu languages`
+
+  // Bosnian
+  case "bos":
+		*c = `Bosnian`
+
+  // Braj
+  case "bra":
+		*c = `Braj`
+
+  // Breton
+  case "bre":
+		*c = `Breton`
+
+  // Collective name
+  case "btk":
+		*c = `Batak languages`
+
+  // Macrolanguage
+  case "bua":
+		*c = `Buriat`
+
+  // Buginese
+  case "bug":
+		*c = `Buginese`
+
+  // Bulgarian
+  case "bul":
+		*c = `Bulgarian`
+
+  // Burmese
+  case "bur":
+		*c = `Burmese`
+
+  // Blin; Bilin
+  case "byn":
+		*c = `Blin; Bilin`
+
+  // Caddo
+  case "cad":
+		*c = `Caddo`
+
+  // Collective name
+  case "cai":
+		*c = `Central American Indian languages`
+
+  // Galibi Carib
+  case "car":
+		*c = `Galibi Carib`
+
+  // Catalan
+  case "cat":
+		*c = `Catalan`
+
+  // Collective name
+  case "cau":
+		*c = `Caucasian languages`
+
+  // Cebuano
+  case "ceb":
+		*c = `Cebuano`
+
+  // Collective name
+  case "cel":
+		*c = `Celtic languages`
+
+  // Chamorro
+  case "cha":
+		*c = `Chamorro`
+
+  // Chibcha
+  case "chb":
+		*c = `Chibcha`
+
+  // Chechen
+  case "che":
+		*c = `Chechen`
+
+  // Chagatai
+  case "chg":
+		*c = `Chagatai`
+
+  // Macrolanguage
+  case "chi":
+		*c = `Chinese`
+
+  // Chuukese (Truk)
+  case "chk":
+		*c = `Chuukese (Truk)`
+
+  // Macrolanguage
+  case "chm":
+		*c = `Mari`
+
+  // Chinook jargon
+  case "chn":
+		*c = `Chinook jargon`
+
+  // Choctaw
+  case "cho":
+		*c = `Choctaw`
+
+  // Chipewyan; Dene Suline
+  case "chp":
+		*c = `Chipewyan; Dene Suline`
+
+  // Cherokee
+  case "chr":
+		*c = `Cherokee`
+
+  // Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic
+  case "chu":
+		*c = `Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic`
+
+  // Chuvash
+  case "chv":
+		*c = `Chuvash`
+
+  // Cheyenne
+  case "chy":
+		*c = `Cheyenne`
+
+  // Collective name
+  case "cmc":
+		*c = `Chamic languages`
+
+  // ONIX local code, equivalent to cmn in ISO 639-3
+  case "cmn":
+		*c = `Mandarin`
+
+  // Coptic
+  case "cop":
+		*c = `Coptic`
+
+  // Cornish
+  case "cor":
+		*c = `Cornish`
+
+  // Corsican
+  case "cos":
+		*c = `Corsican`
+
+  // Collective name
+  case "cpe":
+		*c = `Creoles and pidgins, English-based`
+
+  // Collective name
+  case "cpf":
+		*c = `Creoles and pidgins, French-based`
+
+  // Collective name
+  case "cpp":
+		*c = `Creoles and pidgins, Portuguese-based`
+
+  // Macrolanguage
+  case "cre":
+		*c = `Cree`
+
+  // Crimean Turkish; Crimean Tatar
+  case "crh":
+		*c = `Crimean Turkish; Crimean Tatar`
+
+  // Collective name
+  case "crp":
+		*c = `Creoles and pidgins`
+
+  // Kashubian
+  case "csb":
+		*c = `Kashubian`
+
+  // Collective name
+  case "cus":
+		*c = `Cushitic languages`
+
+  // Czech
+  case "cze":
+		*c = `Czech`
+
+  // Dakota
+  case "dak":
+		*c = `Dakota`
+
+  // Danish
+  case "dan":
+		*c = `Danish`
+
+  // Dargwa
+  case "dar":
+		*c = `Dargwa`
+
+  // Collective name
+  case "day":
+		*c = `Land Dayak languages`
+
+  // Macrolanguage
+  case "del":
+		*c = `Delaware`
+
+  // Macrolanguage
+  case "den":
+		*c = `Slave (Athapascan)`
+
+  // Dogrib
+  case "dgr":
+		*c = `Dogrib`
+
+  // Macrolanguage
+  case "din":
+		*c = `Dinka`
+
+  // Divehi; Dhivehi; Maldivian
+  case "div":
+		*c = `Divehi; Dhivehi; Maldivian`
+
+  // Macrolanguage
+  case "doi":
+		*c = `Dogri`
+
+  // Collective name
+  case "dra":
+		*c = `Dravidian languages`
+
+  // Lower Sorbian
+  case "dsb":
+		*c = `Lower Sorbian`
+
+  // Duala
+  case "dua":
+		*c = `Duala`
+
+  // Dutch, Middle (ca. 1050-1350)
+  case "dum":
+		*c = `Dutch, Middle (ca. 1050-1350)`
+
+  // Dutch; Flemish
+  case "dut":
+		*c = `Dutch; Flemish`
+
+  // Dyula
+  case "dyu":
+		*c = `Dyula`
+
+  // Dzongkha
+  case "dzo":
+		*c = `Dzongkha`
+
+  // Efik
+  case "efi":
+		*c = `Efik`
+
+  // Egyptian (Ancient)
+  case "egy":
+		*c = `Egyptian (Ancient)`
+
+  // Ekajuk
+  case "eka":
+		*c = `Ekajuk`
+
+  // Elamite
+  case "elx":
+		*c = `Elamite`
+
+  // English
+  case "eng":
+		*c = `English`
+
+  // English, Middle (1100-1500)
+  case "enm":
+		*c = `English, Middle (1100-1500)`
+
+  // Artificial language
+  case "epo":
+		*c = `Esperanto`
+
+  // Macrolanguage
+  case "est":
+		*c = `Estonian`
+
+  // Ewe
+  case "ewe":
+		*c = `Ewe`
+
+  // Ewondo
+  case "ewo":
+		*c = `Ewondo`
+
+  // Fang
+  case "fan":
+		*c = `Fang`
+
+  // Faroese
+  case "fao":
+		*c = `Faroese`
+
+  // Fanti
+  case "fat":
+		*c = `Fanti`
+
+  // Fijian
+  case "fij":
+		*c = `Fijian`
+
+  // Filipino; Pilipino
+  case "fil":
+		*c = `Filipino; Pilipino`
+
+  // Finnish
+  case "fin":
+		*c = `Finnish`
+
+  // ONIX local code, equivalent to fit in ISO 639-3
+  case "fit":
+		*c = `Meänkieli / Tornedalen Finnish`
+
+  // Collective name
+  case "fiu":
+		*c = `Finno-Ugrian languages`
+
+  // ONIX local code, equivalent to fkv in ISO 639-3
+  case "fkv":
+		*c = `Kvensk`
+
+  // Fon
+  case "fon":
+		*c = `Fon`
+
+  // French
+  case "fre":
+		*c = `French`
+
+  // French, Middle (ca. 1400-1600)
+  case "frm":
+		*c = `French, Middle (ca. 1400-1600)`
+
+  // French, Old (ca. 842-1400)
+  case "fro":
+		*c = `French, Old (ca. 842-1400)`
+
+  // Northern Frisian
+  case "frr":
+		*c = `Northern Frisian`
+
+  // Eastern Frisian
+  case "frs":
+		*c = `Eastern Frisian`
+
+  // Western Frisian
+  case "fry":
+		*c = `Western Frisian`
+
+  // Fulah
+  case "ful":
+		*c = `Fulah`
+
+  // Friulian
+  case "fur":
+		*c = `Friulian`
+
+  // Gã
+  case "gaa":
+		*c = `Gã`
+
+  // Gayo
+  case "gay":
+		*c = `Gayo`
+
+  // Macrolanguage
+  case "gba":
+		*c = `Gbaya`
+
+  // Collective name
+  case "gem":
+		*c = `Germanic languages`
+
+  // Georgian
+  case "geo":
+		*c = `Georgian`
+
+  // German
+  case "ger":
+		*c = `German`
+
+  // Ethiopic (Ge’ez)
+  case "gez":
+		*c = `Ethiopic (Ge’ez)`
+
+  // Gilbertese
+  case "gil":
+		*c = `Gilbertese`
+
+  // Scottish Gaelic
+  case "gla":
+		*c = `Scottish Gaelic`
+
+  // Irish
+  case "gle":
+		*c = `Irish`
+
+  // Galician
+  case "glg":
+		*c = `Galician`
+
+  // Manx
+  case "glv":
+		*c = `Manx`
+
+  // German, Middle High (ca. 1050-1500)
+  case "gmh":
+		*c = `German, Middle High (ca. 1050-1500)`
+
+  // German, Old High (ca. 750-1050)
+  case "goh":
+		*c = `German, Old High (ca. 750-1050)`
+
+  // Macrolanguage
+  case "gon":
+		*c = `Gondi`
+
+  // Gorontalo
+  case "gor":
+		*c = `Gorontalo`
+
+  // Gothic
+  case "got":
+		*c = `Gothic`
+
+  // Macrolanguage
+  case "grb":
+		*c = `Grebo`
+
+  // Greek, Ancient (to 1453)
+  case "grc":
+		*c = `Greek, Ancient (to 1453)`
+
+  // Greek, Modern (1453-)
+  case "gre":
+		*c = `Greek, Modern (1453-)`
+
+  // Macrolanguage
+  case "grn":
+		*c = `Guarani`
+
+  // Swiss German; Alemannic
+  case "gsw":
+		*c = `Swiss German; Alemannic`
+
+  // Gujarati
+  case "guj":
+		*c = `Gujarati`
+
+  // Gwich’in
+  case "gwi":
+		*c = `Gwich’in`
+
+  // Macrolanguage
+  case "hai":
+		*c = `Haida`
+
+  // Haitian French Creole
+  case "hat":
+		*c = `Haitian French Creole`
+
+  // Hausa
+  case "hau":
+		*c = `Hausa`
+
+  // Hawaiian
+  case "haw":
+		*c = `Hawaiian`
+
+  // Hebrew
+  case "heb":
+		*c = `Hebrew`
+
+  // Herero
+  case "her":
+		*c = `Herero`
+
+  // Hiligaynon
+  case "hil":
+		*c = `Hiligaynon`
+
+  // Collective name
+  case "him":
+		*c = `Himachali languages; Western Pahari languages`
+
+  // Hindi
+  case "hin":
+		*c = `Hindi`
+
+  // Hittite
+  case "hit":
+		*c = `Hittite`
+
+  // Macrolanguage
+  case "hmn":
+		*c = `Hmong; Mong`
+
+  // Hiri Motu
+  case "hmo":
+		*c = `Hiri Motu`
+
+  // Croatian
+  case "hrv":
+		*c = `Croatian`
+
+  // Upper Sorbian
+  case "hsb":
+		*c = `Upper Sorbian`
+
+  // Hungarian
+  case "hun":
+		*c = `Hungarian`
+
+  // Hupa
+  case "hup":
+		*c = `Hupa`
+
+  // Iban
+  case "iba":
+		*c = `Iban`
+
+  // Igbo
+  case "ibo":
+		*c = `Igbo`
+
+  // Icelandic
+  case "ice":
+		*c = `Icelandic`
+
+  // Artificial language
+  case "ido":
+		*c = `Ido`
+
+  // Sichuan Yi; Nuosu
+  case "iii":
+		*c = `Sichuan Yi; Nuosu`
+
+  // Collective name
+  case "ijo":
+		*c = `Ijo languages`
+
+  // Macrolanguage
+  case "iku":
+		*c = `Inuktitut`
+
+  // Artificial language
+  case "ile":
+		*c = `Interlingue; Occidental`
+
+  // Iloko
+  case "ilo":
+		*c = `Iloko`
+
+  // Artificial language
+  case "ina":
+		*c = `Interlingua (International Auxiliary Language Association)`
+
+  // Collective name
+  case "inc":
+		*c = `Indic languages`
+
+  // Indonesian
+  case "ind":
+		*c = `Indonesian`
+
+  // Collective name
+  case "ine":
+		*c = `Indo-European languages`
+
+  // Ingush
+  case "inh":
+		*c = `Ingush`
+
+  // Macrolanguage
+  case "ipk":
+		*c = `Inupiaq`
+
+  // Collective name
+  case "ira":
+		*c = `Iranian languages`
+
+  // Collective name
+  case "iro":
+		*c = `Iroquoian languages`
+
+  // Italian
+  case "ita":
+		*c = `Italian`
+
+  // Javanese
+  case "jav":
+		*c = `Javanese`
+
+  // Lojban
+  case "jbo":
+		*c = `Lojban`
+
+  // Japanese
+  case "jpn":
+		*c = `Japanese`
+
+  // Judeo-Persian
+  case "jpr":
+		*c = `Judeo-Persian`
+
+  // Macrolanguage
+  case "jrb":
+		*c = `Judeo-Arabic`
+
+  // Kara-Kalpak
+  case "kaa":
+		*c = `Kara-Kalpak`
+
+  // Kabyle
+  case "kab":
+		*c = `Kabyle`
+
+  // Kachin; Jingpho
+  case "kac":
+		*c = `Kachin; Jingpho`
+
+  // Kalâtdlisut; Greenlandic
+  case "kal":
+		*c = `Kalâtdlisut; Greenlandic`
+
+  // Kamba
+  case "kam":
+		*c = `Kamba`
+
+  // Kannada
+  case "kan":
+		*c = `Kannada`
+
+  // Collective name
+  case "kar":
+		*c = `Karen languages`
+
+  // Kashmiri
+  case "kas":
+		*c = `Kashmiri`
+
+  // Macrolanguage
+  case "kau":
+		*c = `Kanuri`
+
+  // Kawi
+  case "kaw":
+		*c = `Kawi`
+
+  // Kazakh
+  case "kaz":
+		*c = `Kazakh`
+
+  // Kabardian (Circassian)
+  case "kbd":
+		*c = `Kabardian (Circassian)`
+
+  // ONIX local code, equivalent to kdr in ISO 639-3
+  case "kdr":
+		*c = `Karaim`
+
+  // Khasi
+  case "kha":
+		*c = `Khasi`
+
+  // Collective name
+  case "khi":
+		*c = `Khoisan languages`
+
+  // Central Khmer
+  case "khm":
+		*c = `Central Khmer`
+
+  // Khotanese; Sakan
+  case "kho":
+		*c = `Khotanese; Sakan`
+
+  // Kikuyu; Gikuyu
+  case "kik":
+		*c = `Kikuyu; Gikuyu`
+
+  // Kinyarwanda
+  case "kin":
+		*c = `Kinyarwanda`
+
+  // Kirghiz; Kyrgyz
+  case "kir":
+		*c = `Kirghiz; Kyrgyz`
+
+  // Kimbundu
+  case "kmb":
+		*c = `Kimbundu`
+
+  // Macrolanguage
+  case "kok":
+		*c = `Konkani`
+
+  // Macrolanguage
+  case "kom":
+		*c = `Komi`
+
+  // Macrolanguage
+  case "kon":
+		*c = `Kongo`
+
+  // Korean
+  case "kor":
+		*c = `Korean`
+
+  // Kusaiean (Caroline Islands)
+  case "kos":
+		*c = `Kusaiean (Caroline Islands)`
+
+  // Macrolanguage
+  case "kpe":
+		*c = `Kpelle`
+
+  // Karachay-Balkar
+  case "krc":
+		*c = `Karachay-Balkar`
+
+  // Karelian
+  case "krl":
+		*c = `Karelian`
+
+  // Collective name
+  case "kro":
+		*c = `Kru languages`
+
+  // Kurukh
+  case "kru":
+		*c = `Kurukh`
+
+  // Kuanyama
+  case "kua":
+		*c = `Kuanyama`
+
+  // Kumyk
+  case "kum":
+		*c = `Kumyk`
+
+  // Macrolanguage
+  case "kur":
+		*c = `Kurdish`
+
+  // Kutenai
+  case "kut":
+		*c = `Kutenai`
+
+  // Ladino
+  case "lad":
+		*c = `Ladino`
+
+  // Macrolanguage
+  case "lah":
+		*c = `Lahnda`
+
+  // Lamba
+  case "lam":
+		*c = `Lamba`
+
+  // Lao
+  case "lao":
+		*c = `Lao`
+
+  // Latin
+  case "lat":
+		*c = `Latin`
+
+  // Macrolanguage
+  case "lav":
+		*c = `Latvian`
+
+  // Lezgian
+  case "lez":
+		*c = `Lezgian`
+
+  // Limburgish
+  case "lim":
+		*c = `Limburgish`
+
+  // Lingala
+  case "lin":
+		*c = `Lingala`
+
+  // Lithuanian
+  case "lit":
+		*c = `Lithuanian`
+
+  // Mongo-Nkundu
+  case "lol":
+		*c = `Mongo-Nkundu`
+
+  // Lozi
+  case "loz":
+		*c = `Lozi`
+
+  // Luxembourgish; Letzeburgesch
+  case "ltz":
+		*c = `Luxembourgish; Letzeburgesch`
+
+  // Luba-Lulua
+  case "lua":
+		*c = `Luba-Lulua`
+
+  // Luba-Katanga
+  case "lub":
+		*c = `Luba-Katanga`
+
+  // Ganda
+  case "lug":
+		*c = `Ganda`
+
+  // Luiseño
+  case "lui":
+		*c = `Luiseño`
+
+  // Lunda
+  case "lun":
+		*c = `Lunda`
+
+  // Luo (Kenya and Tanzania)
+  case "luo":
+		*c = `Luo (Kenya and Tanzania)`
+
+  // Lushai
+  case "lus":
+		*c = `Lushai`
+
+  // Macedonian
+  case "mac":
+		*c = `Macedonian`
+
+  // Madurese
+  case "mad":
+		*c = `Madurese`
+
+  // Magahi
+  case "mag":
+		*c = `Magahi`
+
+  // Marshallese
+  case "mah":
+		*c = `Marshallese`
+
+  // Maithili
+  case "mai":
+		*c = `Maithili`
+
+  // Makasar
+  case "mak":
+		*c = `Makasar`
+
+  // Malayalam
+  case "mal":
+		*c = `Malayalam`
+
+  // Macrolanguage
+  case "man":
+		*c = `Mandingo`
+
+  // Maori
+  case "mao":
+		*c = `Maori`
+
+  // Collective name
+  case "map":
+		*c = `Austronesian languages`
+
+  // Marathi
+  case "mar":
+		*c = `Marathi`
+
+  // Masai
+  case "mas":
+		*c = `Masai`
+
+  // Macrolanguage
+  case "may":
+		*c = `Malay`
+
+  // Moksha
+  case "mdf":
+		*c = `Moksha`
+
+  // Mandar
+  case "mdr":
+		*c = `Mandar`
+
+  // Mende
+  case "men":
+		*c = `Mende`
+
+  // Irish, Middle (ca. 1100-1550)
+  case "mga":
+		*c = `Irish, Middle (ca. 1100-1550)`
+
+  // Mi’kmaq; Micmac
+  case "mic":
+		*c = `Mi’kmaq; Micmac`
+
+  // Minangkabau
+  case "min":
+		*c = `Minangkabau`
+
+  // Use where no suitable code is available
+  case "mis":
+		*c = `Uncoded languages`
+
+  // Collective name
+  case "mkh":
+		*c = `Mon-Khmer languages`
+
+  // Macrolanguage
+  case "mlg":
+		*c = `Malagasy`
+
+  // Maltese
+  case "mlt":
+		*c = `Maltese`
+
+  // Manchu
+  case "mnc":
+		*c = `Manchu`
+
+  // Manipuri
+  case "mni":
+		*c = `Manipuri`
+
+  // Collective name
+  case "mno":
+		*c = `Manobo languages`
+
+  // Mohawk
+  case "moh":
+		*c = `Mohawk`
+
+  // DEPRECATED – use rum
+  case "mol":
+		*c = `Moldavian; Moldovan`
+
+  // Macrolanguage
+  case "mon":
+		*c = `Mongolian`
+
+  // Mooré; Mossi
+  case "mos":
+		*c = `Mooré; Mossi`
+
+  // Multiple languages
+  case "mul":
+		*c = `Multiple languages`
+
+  // Collective name
+  case "mun":
+		*c = `Munda languages`
+
+  // Creek
+  case "mus":
+		*c = `Creek`
+
+  // Mirandese
+  case "mwl":
+		*c = `Mirandese`
+
+  // Macrolanguage
+  case "mwr":
+		*c = `Marwari`
+
+  // Collective name
+  case "myn":
+		*c = `Mayan languages`
+
+  // Erzya
+  case "myv":
+		*c = `Erzya`
+
+  // Collective name
+  case "nah":
+		*c = `Nahuatl languages`
+
+  // Collective name
+  case "nai":
+		*c = `North American Indian languages`
+
+  // Neapolitan
+  case "nap":
+		*c = `Neapolitan`
+
+  // Nauruan
+  case "nau":
+		*c = `Nauruan`
+
+  // Navajo
+  case "nav":
+		*c = `Navajo`
+
+  // Ndebele, South
+  case "nbl":
+		*c = `Ndebele, South`
+
+  // Ndebele, North
+  case "nde":
+		*c = `Ndebele, North`
+
+  // Ndonga
+  case "ndo":
+		*c = `Ndonga`
+
+  // Low German; Low Saxon
+  case "nds":
+		*c = `Low German; Low Saxon`
+
+  // Macrolanguage
+  case "nep":
+		*c = `Nepali`
+
+  // Newari; Nepal Bhasa
+  case "new":
+		*c = `Newari; Nepal Bhasa`
+
+  // Nias
+  case "nia":
+		*c = `Nias`
+
+  // Collective name
+  case "nic":
+		*c = `Niger-Kordofanian languages`
+
+  // Niuean
+  case "niu":
+		*c = `Niuean`
+
+  // Norwegian Nynorsk
+  case "nno":
+		*c = `Norwegian Nynorsk`
+
+  // Norwegian Bokmål
+  case "nob":
+		*c = `Norwegian Bokmål`
+
+  // Nogai
+  case "nog":
+		*c = `Nogai`
+
+  // Old Norse
+  case "non":
+		*c = `Old Norse`
+
+  // Macrolanguage
+  case "nor":
+		*c = `Norwegian`
+
+  // N’Ko
+  case "nqo":
+		*c = `N’Ko`
+
+  // Pedi; Sepedi; Northern Sotho
+  case "nso":
+		*c = `Pedi; Sepedi; Northern Sotho`
+
+  // Collective name
+  case "nub":
+		*c = `Nubian languages`
+
+  // Classical Newari; Old Newari; Classical Nepal Bhasa
+  case "nwc":
+		*c = `Classical Newari; Old Newari; Classical Nepal Bhasa`
+
+  // Chichewa; Chewa; Nyanja
+  case "nya":
+		*c = `Chichewa; Chewa; Nyanja`
+
+  // Nyamwezi
+  case "nym":
+		*c = `Nyamwezi`
+
+  // Nyankole
+  case "nyn":
+		*c = `Nyankole`
+
+  // Nyoro
+  case "nyo":
+		*c = `Nyoro`
+
+  // Nzima
+  case "nzi":
+		*c = `Nzima`
+
+  // Occitan (post 1500)
+  case "oci":
+		*c = `Occitan (post 1500)`
+
+  // ONIX local code, equivalent to odt in ISO 639-3
+  case "odt":
+		*c = `Old Dutch / Old Low Franconian (ca. 400–1050)`
+
+  // Macrolanguage
+  case "oji":
+		*c = `Ojibwa`
+
+  // ONIX local code, equivalent to omq in ISO 639-5. Collective name
+  case "omq":
+		*c = `Oto-Manguean languages`
+
+  // Macrolanguage
+  case "ori":
+		*c = `Oriya`
+
+  // Macrolanguage
+  case "orm":
+		*c = `Oromo`
+
+  // Osage
+  case "osa":
+		*c = `Osage`
+
+  // Ossetian; Ossetic
+  case "oss":
+		*c = `Ossetian; Ossetic`
+
+  // Turkish, Ottoman
+  case "ota":
+		*c = `Turkish, Ottoman`
+
+  // Collective name
+  case "oto":
+		*c = `Otomian languages`
+
+  // Collective name
+  case "paa":
+		*c = `Papuan languages`
+
+  // Pangasinan
+  case "pag":
+		*c = `Pangasinan`
+
+  // Pahlavi
+  case "pal":
+		*c = `Pahlavi`
+
+  // Pampanga; Kapampangan
+  case "pam":
+		*c = `Pampanga; Kapampangan`
+
+  // Panjabi
+  case "pan":
+		*c = `Panjabi`
+
+  // Papiamento
+  case "pap":
+		*c = `Papiamento`
+
+  // Palauan
+  case "pau":
+		*c = `Palauan`
+
+  // Old Persian (ca. 600-400 B.C.)
+  case "peo":
+		*c = `Old Persian (ca. 600-400 B.C.)`
+
+  // Macrolanguage
+  case "per":
+		*c = `Persian`
+
+  // Collective name
+  case "phi":
+		*c = `Philippine languages`
+
+  // Phoenician
+  case "phn":
+		*c = `Phoenician`
+
+  // Pali
+  case "pli":
+		*c = `Pali`
+
+  // Polish
+  case "pol":
+		*c = `Polish`
+
+  // Ponapeian
+  case "pon":
+		*c = `Ponapeian`
+
+  // Portuguese
+  case "por":
+		*c = `Portuguese`
+
+  // Collective name
+  case "pra":
+		*c = `Prakrit languages`
+
+  // Provençal, Old (to 1500); Occitan, Old (to 1500)
+  case "pro":
+		*c = `Provençal, Old (to 1500); Occitan, Old (to 1500)`
+
+  // Macrolanguage
+  case "pus":
+		*c = `Pushto; Pashto`
+
+  // ONIX local code, distinct dialect of Occitan (not distinguished from oci by ISO 639-3)
+  case "qar":
+		*c = `Aranés`
+
+  // ONIX local code, distinct dialect of Catalan (not distinguished from cat by ISO 639-3)
+  case "qav":
+		*c = `Valencian`
+
+  // Macrolanguage
+  case "que":
+		*c = `Quechua`
+
+  // Macrolanguage
+  case "raj":
+		*c = `Rajasthani`
+
+  // Rapanui
+  case "rap":
+		*c = `Rapanui`
+
+  // Rarotongan; Cook Islands Maori
+  case "rar":
+		*c = `Rarotongan; Cook Islands Maori`
+
+  // Collective name
+  case "roa":
+		*c = `Romance languages`
+
+  // Romansh
+  case "roh":
+		*c = `Romansh`
+
+  // Macrolanguage
+  case "rom":
+		*c = `Romany`
+
+  // Romanian
+  case "rum":
+		*c = `Romanian`
+
+  // Rundi
+  case "run":
+		*c = `Rundi`
+
+  // Aromanian; Arumanian; Macedo-Romanian
+  case "rup":
+		*c = `Aromanian; Arumanian; Macedo-Romanian`
+
+  // Russian
+  case "rus":
+		*c = `Russian`
+
+  // Sandawe
+  case "sad":
+		*c = `Sandawe`
+
+  // Sango
+  case "sag":
+		*c = `Sango`
+
+  // Yakut
+  case "sah":
+		*c = `Yakut`
+
+  // Collective name
+  case "sai":
+		*c = `South American Indian languages`
+
+  // Collective name
+  case "sal":
+		*c = `Salishan languages`
+
+  // Samaritan Aramaic
+  case "sam":
+		*c = `Samaritan Aramaic`
+
+  // Sanskrit
+  case "san":
+		*c = `Sanskrit`
+
+  // Sasak
+  case "sas":
+		*c = `Sasak`
+
+  // Santali
+  case "sat":
+		*c = `Santali`
+
+  // DEPRECATED – use srp
+  case "scc":
+		*c = `Serbian`
+
+  // Sicilian
+  case "scn":
+		*c = `Sicilian`
+
+  // Scots (lallans)
+  case "sco":
+		*c = `Scots (lallans)`
+
+  // DEPRECATED – use hrv
+  case "scr":
+		*c = `Croatian`
+
+  // Selkup
+  case "sel":
+		*c = `Selkup`
+
+  // Collective name
+  case "sem":
+		*c = `Semitic languages`
+
+  // Irish, Old (to 1100)
+  case "sga":
+		*c = `Irish, Old (to 1100)`
+
+  // Collective name
+  case "sgn":
+		*c = `Sign languages`
+
+  // Shan
+  case "shn":
+		*c = `Shan`
+
+  // Sidamo
+  case "sid":
+		*c = `Sidamo`
+
+  // Sinhala; Sinhalese
+  case "sin":
+		*c = `Sinhala; Sinhalese`
+
+  // Collective name
+  case "sio":
+		*c = `Siouan languages`
+
+  // Collective name
+  case "sit":
+		*c = `Sino-Tibetan languages`
+
+  // Collective name
+  case "sla":
+		*c = `Slavic languages`
+
+  // Slovak
+  case "slo":
+		*c = `Slovak`
+
+  // Slovenian
+  case "slv":
+		*c = `Slovenian`
+
+  // Southern Sami
+  case "sma":
+		*c = `Southern Sami`
+
+  // Northern Sami
+  case "sme":
+		*c = `Northern Sami`
+
+  // Collective name
+  case "smi":
+		*c = `Sami languages`
+
+  // Lule Sami
+  case "smj":
+		*c = `Lule Sami`
+
+  // Inari Sami
+  case "smn":
+		*c = `Inari Sami`
+
+  // Samoan
+  case "smo":
+		*c = `Samoan`
+
+  // Skolt Sami
+  case "sms":
+		*c = `Skolt Sami`
+
+  // Shona
+  case "sna":
+		*c = `Shona`
+
+  // Sindhi
+  case "snd":
+		*c = `Sindhi`
+
+  // Soninke
+  case "snk":
+		*c = `Soninke`
+
+  // Sogdian
+  case "sog":
+		*c = `Sogdian`
+
+  // Somali
+  case "som":
+		*c = `Somali`
+
+  // Collective name
+  case "son":
+		*c = `Songhai languages`
+
+  // Sotho; Sesotho
+  case "sot":
+		*c = `Sotho; Sesotho`
+
+  // Spanish
+  case "spa":
+		*c = `Spanish`
+
+  // Macrolanguage
+  case "srd":
+		*c = `Sardinian`
+
+  // Sranan Tongo
+  case "srn":
+		*c = `Sranan Tongo`
+
+  // Serbian
+  case "srp":
+		*c = `Serbian`
+
+  // Serer
+  case "srr":
+		*c = `Serer`
+
+  // Collective name
+  case "ssa":
+		*c = `Nilo-Saharan languages`
+
+  // Swazi; Swati
+  case "ssw":
+		*c = `Swazi; Swati`
+
+  // Sukuma
+  case "suk":
+		*c = `Sukuma`
+
+  // Sundanese
+  case "sun":
+		*c = `Sundanese`
+
+  // Susu
+  case "sus":
+		*c = `Susu`
+
+  // Sumerian
+  case "sux":
+		*c = `Sumerian`
+
+  // Macrolanguage
+  case "swa":
+		*c = `Swahili`
+
+  // Swedish
+  case "swe":
+		*c = `Swedish`
+
+  // Classical Syriac
+  case "syc":
+		*c = `Classical Syriac`
+
+  // Macrolanguage
+  case "syr":
+		*c = `Syriac`
+
+  // Tahitian
+  case "tah":
+		*c = `Tahitian`
+
+  // Collective name
+  case "tai":
+		*c = `Tai languages`
+
+  // Tamil
+  case "tam":
+		*c = `Tamil`
+
+  // Tatar
+  case "tat":
+		*c = `Tatar`
+
+  // Telugu
+  case "tel":
+		*c = `Telugu`
+
+  // Temne; Time
+  case "tem":
+		*c = `Temne; Time`
+
+  // Terena
+  case "ter":
+		*c = `Terena`
+
+  // Tetum
+  case "tet":
+		*c = `Tetum`
+
+  // Tajik
+  case "tgk":
+		*c = `Tajik`
+
+  // Tagalog
+  case "tgl":
+		*c = `Tagalog`
+
+  // Thai
+  case "tha":
+		*c = `Thai`
+
+  // Tibetan
+  case "tib":
+		*c = `Tibetan`
+
+  // Tigré
+  case "tig":
+		*c = `Tigré`
+
+  // Tigrinya
+  case "tir":
+		*c = `Tigrinya`
+
+  // Tiv
+  case "tiv":
+		*c = `Tiv`
+
+  // Tokelauan
+  case "tkl":
+		*c = `Tokelauan`
+
+  // Artificial language
+  case "tlh":
+		*c = `Klingon; tlhIngan-Hol`
+
+  // Tlingit
+  case "tli":
+		*c = `Tlingit`
+
+  // Macrolanguage
+  case "tmh":
+		*c = `Tamashek`
+
+  // Tonga (Nyasa)
+  case "tog":
+		*c = `Tonga (Nyasa)`
+
+  // Tongan
+  case "ton":
+		*c = `Tongan`
+
+  // Tok Pisin
+  case "tpi":
+		*c = `Tok Pisin`
+
+  // Tsimshian
+  case "tsi":
+		*c = `Tsimshian`
+
+  // AKA Setswana
+  case "tsn":
+		*c = `Tswana`
+
+  // Tsonga
+  case "tso":
+		*c = `Tsonga`
+
+  // Turkmen
+  case "tuk":
+		*c = `Turkmen`
+
+  // Tumbuka
+  case "tum":
+		*c = `Tumbuka`
+
+  // Collective name
+  case "tup":
+		*c = `Tupi languages`
+
+  // Turkish
+  case "tur":
+		*c = `Turkish`
+
+  // Altaic languages
+  case "tut":
+		*c = `Altaic languages`
+
+  // Tuvaluan
+  case "tvl":
+		*c = `Tuvaluan`
+
+  // Twi
+  case "twi":
+		*c = `Twi`
+
+  // Tuvinian
+  case "tyv":
+		*c = `Tuvinian`
+
+  // ONIX local code, equivalent to tzo in ISO 639-3
+  case "tzo":
+		*c = `Tzotzil`
+
+  // Udmurt
+  case "udm":
+		*c = `Udmurt`
+
+  // Ugaritic
+  case "uga":
+		*c = `Ugaritic`
+
+  // Uighur; Uyghur
+  case "uig":
+		*c = `Uighur; Uyghur`
+
+  // Ukrainian
+  case "ukr":
+		*c = `Ukrainian`
+
+  // Umbundu
+  case "umb":
+		*c = `Umbundu`
+
+  // Undetermined language
+  case "und":
+		*c = `Undetermined language`
+
+  // Urdu
+  case "urd":
+		*c = `Urdu`
+
+  // Macrolanguage
+  case "uzb":
+		*c = `Uzbek`
+
+  // Vai
+  case "vai":
+		*c = `Vai`
+
+  // Venda
+  case "ven":
+		*c = `Venda`
+
+  // Vietnamese
+  case "vie":
+		*c = `Vietnamese`
+
+  // Artificial language
+  case "vol":
+		*c = `Volapük`
+
+  // Votic
+  case "vot":
+		*c = `Votic`
+
+  // Collective name
+  case "wak":
+		*c = `Wakashan languages`
+
+  // Wolaitta; Wolaytta
+  case "wal":
+		*c = `Wolaitta; Wolaytta`
+
+  // Waray
+  case "war":
+		*c = `Waray`
+
+  // Washo
+  case "was":
+		*c = `Washo`
+
+  // Welsh
+  case "wel":
+		*c = `Welsh`
+
+  // Collective name
+  case "wen":
+		*c = `Sorbian languages`
+
+  // Walloon
+  case "wln":
+		*c = `Walloon`
+
+  // Wolof
+  case "wol":
+		*c = `Wolof`
+
+  // Kalmyk
+  case "xal":
+		*c = `Kalmyk`
+
+  // Xhosa
+  case "xho":
+		*c = `Xhosa`
+
+  // Yao
+  case "yao":
+		*c = `Yao`
+
+  // Yapese
+  case "yap":
+		*c = `Yapese`
+
+  // Macrolanguage
+  case "yid":
+		*c = `Yiddish`
+
+  // Yoruba
+  case "yor":
+		*c = `Yoruba`
+
+  // ONIX local code, equivalent to yue in ISO 639-3
+  case "yue":
+		*c = `Cantonese`
+
+  // Collective name
+  case "ypk":
+		*c = `Yupik languages`
+
+  // Macrolanguage
+  case "zap":
+		*c = `Zapotec`
+
+  // Artificial language
+  case "zbl":
+		*c = `Blissymbols; Blissymbolics; Bliss`
+
+  // Zenaga
+  case "zen":
+		*c = `Zenaga`
+
+  // Standard Moroccan Tamazight
+  case "zgh":
+		*c = `Standard Moroccan Tamazight`
+
+  // Macrolanguage
+  case "zha":
+		*c = `Zhuang; Chuang`
+
+  // Collective name
+  case "znd":
+		*c = `Zande languages`
+
+  // Zulu
+  case "zul":
+		*c = `Zulu`
+
+  // Zuni
+  case "zun":
+		*c = `Zuni`
+
+  // No linguistic content
+  case "zxx":
+		*c = `No linguistic content`
+
+  // Macrolanguage
+  case "zza":
+		*c = `Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki`
+	default:
+		return fmt.Errorf("undefined code for LanguageList74 has been passed, got [%s]", v)
+	}
+	return nil
+}
+
+// TransliterationCode 
+type TransliterationCode string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *TransliterationCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for TransliterationCode has been passed, got [%s]", v)
+	}
+	return nil
+}
+
+// DateOrDateTime 
+type DateOrDateTime string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DateOrDateTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DateOrDateTime has been passed, got [%s]", v)
+	}
+	return nil
+}
+
+// SourceTypeCode 
+type SourceTypeCode string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *SourceTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for SourceTypeCode has been passed, got [%s]", v)
+	}
+	return nil
+}
+
+// Sourcename 
+type Sourcename string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Sourcename) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for Sourcename has been passed, got [%s]", v)
+	}
+	return nil
+}

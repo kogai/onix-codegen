@@ -65,5 +65,13 @@ tests =
                   True
 
           assertEqual "can parse territory code list" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_code_attributes.xsd"
+          let actual = (topLevelAttributeCode scm . head . collectAttributes) scm
+              expected =
+                CodeType "TextFormatCode" "" (V.fromList []) False
+          assertEqual "can parse attributes" expected actual
       )
   ]
