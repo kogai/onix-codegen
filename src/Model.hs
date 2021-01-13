@@ -23,11 +23,10 @@ where
 import Data.List (find, findIndex)
 import qualified Data.Map as M
 import Data.Maybe (fromMaybe, mapMaybe)
-import Data.Text (Text, pack, unpack)
+import Data.Text (Text, pack, toTitle, unpack)
 import qualified Data.Text as T
 import Data.Vector (Vector, fromList)
 import Data.Yaml (FromJSON (..), withText)
-import Debug.Trace
 import GHC.Generics (Generic)
 import Text.Mustache (ToMustache (..), object, (~>))
 import Util
@@ -67,12 +66,12 @@ instance ToMustache Model where
           Nothing -> []
           Just t -> [pack "typeName" ~> t]
      in object $
-          [ pack "shortname" ~> shortname,
-            pack "xmlReferenceName" ~> xmlReferenceName,
-            pack "kind" ~> kind,
-            pack "optional" ~> optional,
-            pack "iterable" ~> iterable,
-            pack "elements" ~> elements
+          [ "shortname" ~> shortname,
+            "xmlReferenceName" ~> xmlReferenceName,
+            "is_tag" ~> (kind == Tag),
+            "optional" ~> optional,
+            "iterable" ~> iterable,
+            "elements" ~> elements
           ]
             ++ typeName_
 
@@ -306,23 +305,57 @@ contentModel el =
     Just (X.ContentPlain X.PlainContent {X.plainContentModel}) -> plainContentModel
     Nothing -> Nothing
 
+fieldsOfAttribute :: X.Schema -> X.Attribute -> [Model]
+fieldsOfAttribute scm (X.AttributeGroupRef key) =
+  let value = (M.lookup key . X.schemaAttributes) scm
+   in case value of
+        Just v -> fieldsOfAttribute scm v
+        Nothing -> []
+fieldsOfAttribute scm (X.AttributeGroupInline _ as) = concatMap (fieldsOfAttribute scm) as
+fieldsOfAttribute _scm (X.RefAttribute _x) = []
+fieldsOfAttribute _scm (X.InlineAttribute X.AttributeInline {X.attributeInlineName = name, X.attributeInlineType, X.attributeInlineUse}) =
+  [ Model
+      { shortname = X.qnName name,
+        xmlReferenceName = xmlReferenceName_,
+        typeName = Just (if T.isPrefixOf "List" ty then T.concat [xmlReferenceName_, ty] else ty),
+        kind = Attribute,
+        optional = attributeInlineUse /= X.Required,
+        iterable = False,
+        elements = []
+      }
+  ]
+  where
+    ty = case attributeInlineType of
+      X.Ref n -> X.qnName n
+      X.Inline t -> typeToText . X.TypeSimple $ t
+    xmlReferenceName_ = toTitle $ X.qnName name
+
+topLevelAttribute :: X.Attribute -> Bool
+topLevelAttribute (X.AttributeGroupRef _) = True
+topLevelAttribute (X.AttributeGroupInline _ _) = False
+topLevelAttribute (X.RefAttribute _) = False
+topLevelAttribute (X.InlineAttribute _) = False
+
 topLevelModels :: X.Schema -> X.ElementInline -> Model
 topLevelModels xsd elm =
   let modelGroup = contentModel elm
       attributes = contentAttributes elm
       shortname = unwrap $ findFixedOf "shortname" attributes
       refname = unwrap $ findFixedOf "refname" attributes
+      attributes' =
+        concatMap (fieldsOfAttribute xsd)
+          . filter topLevelAttribute
+          $ attributes
       elements = case modelGroup of
         Just mdgrp -> fieldsOfElement xsd mdgrp
         Nothing -> []
-   in model shortname refname Nothing Tag False False elements
+   in model shortname refname Nothing Tag False False (elements ++ attributes')
 
 readSchema :: IO Models
 readSchema = do
   xsd <- X.getSchema "./2_1_rev03_schema/ONIX_BookProduct_Release2.1_reference.xsd"
-  ( return
+  return
       . models
       . map (topLevelModels xsd)
       . collectElements
-    )
-    xsd
+    $ xsd

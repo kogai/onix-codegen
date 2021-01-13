@@ -54,6 +54,7 @@ parseChild c = do
     "complexType" -> Just <$> parseTopComplexType c
     "include" -> Just . Xsd.ChildInclude <$> parseInclude c
     "import" -> Just . Xsd.ChildImport <$> parseImport c
+    "attributeGroup" -> Just . Xsd.ChildAttribute <$> parseAttributeGroup c
     _ -> return Nothing
 
 parseInclude :: Cursor -> P Xsd.Include
@@ -401,10 +402,29 @@ parseElements c = do
   elementAxis <- makeElemAxis "element"
   mapM parseElementOrRef (c $/ elementAxis)
 
+parseAttributeGroups :: Cursor -> P [Xsd.Attribute]
+parseAttributeGroups c = do
+  attrAxis <- makeElemAxis "attributeGroup"
+  mapM parseAttributeGroup (c $/ attrAxis)
+
+parseAttributeGroup :: Cursor -> P Xsd.Attribute
+parseAttributeGroup c =
+  case (anAttribute "name" c, anAttribute "ref" c) of
+    (Just n, Nothing) -> do
+      name <- makeTargetQName n
+      attrs <- parseAttributes c
+      return $ Xsd.AttributeGroupInline name attrs
+    (Nothing, Just r) -> do
+      ref <- makeQName c r
+      return $ Xsd.AttributeGroupRef ref
+    _ -> parseError c "Should be either name or ref"
+
 parseAttributes :: Cursor -> P [Xsd.Attribute]
 parseAttributes c = do
   attrAxis <- makeElemAxis "attribute"
-  mapM parseAttribute (c $/ attrAxis)
+  attributes <- mapM parseAttribute (c $/ attrAxis)
+  attributeGroups <- parseAttributeGroups c
+  return $ attributes ++ attributeGroups
 
 parseAttribute :: Cursor -> P Xsd.Attribute
 parseAttribute c = do

@@ -73,7 +73,8 @@ expected =
                                           attributeInlineFixed = Just "2.1",
                                           attributeInlineUse = Optional
                                         }
-                                    )
+                                    ),
+                                  AttributeGroupRef (QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "generalAttributes"})
                                 ]
                             }
                         ),

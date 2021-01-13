@@ -62,6 +62,7 @@ data Child
   | ChildType QName Type
   | ChildImport Import
   | ChildInclude Include
+  | ChildAttribute Attribute
   deriving (Show, Eq)
 
 newtype Annotation = Documentation Text
@@ -183,6 +184,8 @@ data ModelGroup
 data Attribute
   = RefAttribute AttributeRef
   | InlineAttribute AttributeInline
+  | AttributeGroupRef QName
+  | AttributeGroupInline QName [Attribute]
   deriving (Show, Eq)
 
 data AttributeInline = AttributeInline

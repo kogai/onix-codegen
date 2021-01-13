@@ -27,6 +27,7 @@ import Xsd.Parser
 data Schema = Schema
   { schemaTypes :: Map QName Type
   , schemaElements :: Map QName ElementInline
+  , schemaAttributes :: Map QName Attribute
   }
   deriving (Show)
 
@@ -34,12 +35,14 @@ emptySchema :: Schema
 emptySchema = Schema
   { schemaTypes = Map.empty
   , schemaElements = Map.empty
+  , schemaAttributes = Map.empty
   }
 
 mergeSchemata :: Schema -> Schema -> Schema
 mergeSchemata s1 s2 = Schema
   { schemaTypes = schemaTypes s1 <> schemaTypes s2
   , schemaElements = schemaElements s1 <> schemaElements s2
+  , schemaAttributes = schemaAttributes s1 <> schemaAttributes s2
   }
 
 instance Semigroup Schema where
@@ -107,14 +110,16 @@ xsdToSchema :: Xsd -> Schema
 xsdToSchema xsd = Schema
   { schemaTypes = Map.fromList types
   , schemaElements = Map.fromList elements
+  , schemaAttributes = Map.fromList attributes
   }
   where
-  (types, elements) = go ([], []) (children xsd)
+  (types, elements, attributes) = go ([], [], []) (children xsd)
   go res [] = res
-  go (ts, es) (c:cs) = case c of
-    ChildType n t -> go ((n, t):ts, es) cs
-    ChildElement (InlineElement e) -> go (ts, (elementName e, e):es) cs
-    _ -> go (ts, es) cs
+  go (ts, es, as) (c:cs) = case c of
+    ChildType n t -> go ((n, t):ts, es, as) cs
+    ChildElement (InlineElement e) -> go (ts, (elementName e, e):es, as) cs
+    ChildAttribute (AttributeGroupInline n as') -> go (ts, es, (n, AttributeGroupInline n as'):as) cs
+    _ -> go (ts, es, as) cs
 
 fetchXsd :: URI -> IO Xsd
 fetchXsd uri = do

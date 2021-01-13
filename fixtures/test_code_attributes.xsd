@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:simpleType name="TextFormatCode">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:attributeGroup name="generalAttributes">
+    <xs:attribute name="textformat" type="TextFormatCode" use="optional" default="00" />
+    <xs:attribute name="sourcename" type="xs:string" use="optional" />
+  </xs:attributeGroup>
+</xs:schema>

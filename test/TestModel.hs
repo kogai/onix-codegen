@@ -57,7 +57,6 @@ expected4 =
   TypeComplex
     ( ComplexType
         { complexAnnotations = [],
-          complexMixed = False,
           complexContent =
             ContentSimple
               ( SimpleContentExtension
@@ -79,11 +78,13 @@ expected4 =
                                     attributeInlineFixed = Just "b352",
                                     attributeInlineUse = Optional
                                   }
-                              )
+                              ),
+                            AttributeGroupRef (QName {qnNamespace = Just (Namespace {fromNamespace = "http://www.editeur.org/onix/2.1/reference"}), qnName = "generalAttributes"})
                           ]
                       }
                   )
-              )
+              ),
+          complexMixed = False
         }
     )
 
@@ -271,5 +272,24 @@ tests =
                   }
 
           assertEqual "can parse sequence of sequence" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_model_general_attributes_simple.xsd"
+          let key = makeTargetQName "PublishingStatus"
+              actual = (topLevelModels scm . unwrap . M.lookup key . schemaElements) scm
+              expected =
+                Model
+                  { shortname = "a000",
+                    xmlReferenceName = "PublishingStatus",
+                    typeName = Nothing,
+                    kind = Tag,
+                    optional = False,
+                    iterable = False,
+                    elements =
+                      [ Model {shortname = "datestamp", xmlReferenceName = "Datestamp", typeName = Just "DateOrDateTime", kind = Attribute, optional = False, iterable = False, elements = []}
+                      ]
+                  }
+          assertEqual "can parse generalAttributes" expected actual
       )
   ]
