@@ -287,7 +287,7 @@ tests =
                     optional = False,
                     iterable = False,
                     elements =
-                      [ Model {shortname = "datestamp", xmlReferenceName = "Datestamp", typeName = Just "DateOrDateTime", kind = Attribute, optional = True, iterable = False, elements = []}
+                      [ Model {shortname = "datestamp", xmlReferenceName = "Datestamp", typeName = Just "DateOrDateTime", kind = Attribute, optional = False, iterable = False, elements = []}
                       ]
                   }
           assertEqual "can parse generalAttributes" expected actual

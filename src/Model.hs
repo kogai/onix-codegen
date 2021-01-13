@@ -320,7 +320,7 @@ fieldsOfAttribute _scm (X.InlineAttribute X.AttributeInline {X.attributeInlineNa
         -- TODO: Make CodeType
         typeName = Just ty,
         kind = Attribute,
-        optional = attributeInlineUse == X.Required,
+        optional = attributeInlineUse /= X.Required,
         iterable = False,
         elements = []
       }
