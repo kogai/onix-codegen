@@ -75,7 +75,7 @@ tests =
           scm <- getSchema "./fixtures/test_code_attributes.xsd"
           let actual = (topLevelAttributeCode scm . head . collectAttributes) scm
               expected =
-                CodeType "TextFormatCode" "" (V.fromList []) False []
+                CodeType "TextFormatCode" "has not document" (V.fromList []) False []
           assertEqual "can parse attributes" expected actual
       ),
     TestCase

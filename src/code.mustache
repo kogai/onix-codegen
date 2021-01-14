@@ -89,6 +89,8 @@ func (c *{{xmlReferenceName}}) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 		return fmt.Errorf("undefined code for {{xmlReferenceName}} has been passed, got [%s]", v)
 	}
 {{/spaceSeparatable}}
+{{#hasCodes}}
 	return nil
+{{/hasCodes}}
 }
 {{/.}}

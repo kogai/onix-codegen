@@ -61,6 +61,7 @@ instance ToMustache CodeType where
         "codes" ~> toMustache codes,
         "spaceSeparatable" ~> spaceSeparatable,
         "elements" ~> elements,
+        "hasCodes" ~> not (null codes),
         "hasElements" ~> not (null elements)
       ]
 
@@ -203,7 +204,7 @@ topLevelAttributeCode scm (X.InlineAttribute X.AttributeInline {X.attributeInlin
                   constraints
            in enums
         Nothing -> []
-      description = ""
+      description = "has not document"
       spaceSeparatable = False
    in CodeType
         { xmlReferenceName = xmlReferenceName,

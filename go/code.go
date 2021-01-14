@@ -12758,7 +12758,6 @@ func (c *IntermediaryAvailabilityCode) UnmarshalXML(d *xml.Decoder, start xml.St
 	default:
 		return fmt.Errorf("undefined code for IntermediaryAvailabilityCode has been passed, got [%s]", v)
 	}
-	return nil
 }
 
 // LanguageCode Language code – ISO 639-2/B
@@ -25243,7 +25242,6 @@ func (c *ReligiousTextID) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 	default:
 		return fmt.Errorf("undefined code for ReligiousTextID has been passed, got [%s]", v)
 	}
-	return nil
 }
 
 // ReturnsCodeType Returns conditions code type
@@ -28246,7 +28244,7 @@ func (c *WorkIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 	return nil
 }
 
-// TextFormatCode 
+// TextFormatCode has not document
 type TextFormatCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -28257,10 +28255,9 @@ func (c *TextFormatCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	default:
 		return fmt.Errorf("undefined code for TextFormatCode has been passed, got [%s]", v)
 	}
-	return nil
 }
 
-// TextCaseCode 
+// TextCaseCode has not document
 type TextCaseCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -28271,10 +28268,9 @@ func (c *TextCaseCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 	default:
 		return fmt.Errorf("undefined code for TextCaseCode has been passed, got [%s]", v)
 	}
-	return nil
 }
 
-// LanguageList74 
+// LanguageList74 has not document
 type LanguageList74 string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -30280,7 +30276,7 @@ func (c *LanguageList74) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	return nil
 }
 
-// TransliterationCode 
+// TransliterationCode has not document
 type TransliterationCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -30291,10 +30287,9 @@ func (c *TransliterationCode) UnmarshalXML(d *xml.Decoder, start xml.StartElemen
 	default:
 		return fmt.Errorf("undefined code for TransliterationCode has been passed, got [%s]", v)
 	}
-	return nil
 }
 
-// DateOrDateTime 
+// DateOrDateTime has not document
 type DateOrDateTime string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -30305,10 +30300,9 @@ func (c *DateOrDateTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	default:
 		return fmt.Errorf("undefined code for DateOrDateTime has been passed, got [%s]", v)
 	}
-	return nil
 }
 
-// SourceTypeCode 
+// SourceTypeCode has not document
 type SourceTypeCode string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -30319,10 +30313,9 @@ func (c *SourceTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	default:
 		return fmt.Errorf("undefined code for SourceTypeCode has been passed, got [%s]", v)
 	}
-	return nil
 }
 
-// Sourcename 
+// Sourcename has not document
 type Sourcename string
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -30333,5 +30326,4 @@ func (c *Sourcename) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 	default:
 		return fmt.Errorf("undefined code for Sourcename has been passed, got [%s]", v)
 	}
-	return nil
 }
