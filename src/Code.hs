@@ -24,23 +24,23 @@ import Data.Text (Text, pack)
 import qualified Data.Text as T
 import Data.Vector (Vector, fromList)
 import GHC.Generics (Generic)
-import Model (content, contentAttributes, findFixedOf, typeToText)
+import Model (Model, content, contentAttributes, fieldsOfAttribute, findFixedOf, topLevelAttribute, typeToText)
 import Text.Mustache (ToMustache (..), object, (~>))
 import Util
 import qualified Xsd as X
 
 data Code = Code
   { value :: Text,
-    description :: Text,
+    codeDescription :: Text,
     notes :: Text
   }
   deriving (Generic, Show, Eq)
 
 instance ToMustache Code where
-  toMustache Code {value, description, notes} =
+  toMustache Code {value, codeDescription, notes} =
     object
       [ "value" ~> value,
-        "description" ~> description,
+        "description" ~> codeDescription,
         "notes" ~> notes
       ]
 
@@ -48,17 +48,20 @@ data CodeType = CodeType
   { xmlReferenceName :: Text,
     description :: Text,
     codes :: Vector Code,
-    spaceSeparatable :: Bool
+    spaceSeparatable :: Bool,
+    elements :: [Model]
   }
   deriving (Generic, Show, Eq)
 
 instance ToMustache CodeType where
-  toMustache CodeType {xmlReferenceName, description, codes, spaceSeparatable} =
+  toMustache CodeType {xmlReferenceName, description, codes, spaceSeparatable, elements} =
     object
       [ "xmlReferenceName" ~> xmlReferenceName,
         "description" ~> description,
         "codes" ~> toMustache codes,
-        "spaceSeparatable" ~> spaceSeparatable
+        "spaceSeparatable" ~> spaceSeparatable,
+        "elements" ~> elements,
+        "hasElements" ~> not (null elements)
       ]
 
 type CodeTypes = Vector CodeType
@@ -108,11 +111,17 @@ topLevelTypeToCode scm (ref, X.TypeSimple (X.ListType ty _)) =
             map
               ( \(X.Enumeration v docs) ->
                   let docs_ = map (\(X.Documentation d) -> d) docs
-                   in Code {value = v, description = head docs_, notes = last docs_}
+                   in Code {value = v, codeDescription = head docs_, notes = last docs_}
               )
               constraints
           refname = X.qnName ref
-       in CodeType {xmlReferenceName = refname, description = desc, codes = fromList codes_, spaceSeparatable = spaceSeparatable_}
+       in CodeType
+            { xmlReferenceName = refname,
+              description = desc,
+              codes = fromList codes_,
+              spaceSeparatable = spaceSeparatable_,
+              elements = []
+            }
     X.Inline _ -> throw Unreachable
 topLevelTypeToCode _scm (_, X.TypeSimple (X.UnionType _ _)) = throw Unreachable
 topLevelTypeToCode _scm (_, X.TypeComplex _) = throw Unreachable
@@ -151,13 +160,23 @@ topLevelElementToCode scm elm =
                 map
                   ( \(X.Enumeration v docs) ->
                       let docs_ = map (\(X.Documentation d) -> d) docs
-                       in Code {value = v, description = head docs_, notes = last docs_}
+                       in Code {value = v, codeDescription = head docs_, notes = last docs_}
                   )
                   constraints
            in enums
         Nothing -> []
       refname = unwrap $ findFixedOf "refname" plainContentAttributes
-   in CodeType {xmlReferenceName = refname, description = desc, codes = fromList codes_, spaceSeparatable = spaceSeparatable_}
+      elements =
+        concatMap (fieldsOfAttribute scm)
+          . filter topLevelAttribute
+          $ plainContentAttributes
+   in CodeType
+        { xmlReferenceName = refname,
+          description = desc,
+          codes = fromList codes_,
+          spaceSeparatable = spaceSeparatable_,
+          elements = elements
+        }
 
 topLevelAttributeCode :: X.Schema -> X.Attribute -> CodeType
 topLevelAttributeCode _scm (X.RefAttribute _) = throw Unreachable
@@ -179,7 +198,7 @@ topLevelAttributeCode scm (X.InlineAttribute X.AttributeInline {X.attributeInlin
                 map
                   ( \(X.Enumeration v docs) ->
                       let docs_ = map (\(X.Documentation d) -> d) docs
-                       in Code {value = v, description = head docs_, notes = last docs_}
+                       in Code {value = v, codeDescription = head docs_, notes = last docs_}
                   )
                   constraints
            in enums
@@ -190,6 +209,7 @@ topLevelAttributeCode scm (X.InlineAttribute X.AttributeInline {X.attributeInlin
         { xmlReferenceName = xmlReferenceName,
           description = description,
           codes = fromList codes_,
+          elements = [],
           spaceSeparatable = spaceSeparatable
         }
 
