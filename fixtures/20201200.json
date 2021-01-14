@@ -2,177 +2,263 @@
   "Header": {
     "FromCompany": "Ingram Book Company",
     "SentDate": "20201119",
-    "DefaultLanguageOfText": "English",
-    "DefaultPriceTypeCode": "RRP excluding tax",
-    "DefaultCurrencyCode": "US Dollar"
+    "DefaultLanguageOfText": {
+      "Body": "English"
+    },
+    "DefaultPriceTypeCode": {
+      "Body": "RRP excluding tax"
+    },
+    "DefaultCurrencyCode": {
+      "Body": "US Dollar"
+    }
   },
   "Products": [
     {
       "Measures": [
         {
-          "MeasureTypeCode": "Height",
+          "MeasureTypeCode": {
+            "Body": "Height"
+          },
           "Measurement": "9.25",
-          "MeasureUnitCode": "Inches (US)"
+          "MeasureUnitCode": {
+            "Body": "Inches (US)"
+          }
         },
         {
-          "MeasureTypeCode": "Width",
+          "MeasureTypeCode": {
+            "Body": "Width"
+          },
           "Measurement": "7.50",
-          "MeasureUnitCode": "Inches (US)"
+          "MeasureUnitCode": {
+            "Body": "Inches (US)"
+          }
         },
         {
-          "MeasureTypeCode": "Thickness",
+          "MeasureTypeCode": {
+            "Body": "Thickness"
+          },
           "Measurement": "0.51",
-          "MeasureUnitCode": "Inches (US)"
+          "MeasureUnitCode": {
+            "Body": "Inches (US)"
+          }
         },
         {
-          "MeasureTypeCode": "Unit weight",
+          "MeasureTypeCode": {
+            "Body": "Unit weight"
+          },
           "Measurement": "0.9200",
-          "MeasureUnitCode": "Pounds (US)"
+          "MeasureUnitCode": {
+            "Body": "Pounds (US)"
+          }
         }
       ],
       "RecordReference": "062124983",
-      "NotificationType": "Advance notification (confirmed)",
+      "NotificationType": {
+        "Body": "Advance notification (confirmed)"
+      },
       "RelatedProducts": [
         {
           "ProductIdentifiers": [
             {
-              "ProductIDType": "GTIN-13",
+              "ProductIDType": {
+                "Body": "GTIN-13"
+              },
               "IDValue": "9781680506839"
             }
           ],
-          "ProductForm": "Electronic book text",
-          "RelationCode": "Unspecified"
+          "ProductForm": {
+            "Body": "Electronic book text"
+          },
+          "RelationCode": {
+            "Body": "Unspecified"
+          }
         },
         {
           "ProductIdentifiers": [
             {
-              "ProductIDType": "GTIN-13",
+              "ProductIDType": {
+                "Body": "GTIN-13"
+              },
               "IDValue": "9781680506860"
             }
           ],
-          "ProductForm": "Electronic book text",
-          "RelationCode": "Unspecified"
+          "ProductForm": {
+            "Body": "Electronic book text"
+          },
+          "RelationCode": {
+            "Body": "Unspecified"
+          }
         }
       ],
       "SupplyDetails": [
         {
           "SupplierName": "Ingram Publisher Services",
-          "ProductAvailability": "In stock",
+          "ProductAvailability": {
+            "Body": "In stock"
+          },
           "Prices": [
             {
-              "PriceTypeCode": "RRP excluding tax",
+              "PriceTypeCode": {
+                "Body": "RRP excluding tax"
+              },
               "DiscountCodeds": [
                 {
-                  "DiscountCodeType": "Proprietary discount code",
+                  "DiscountCodeType": {
+                    "Body": "Proprietary discount code"
+                  },
                   "DiscountCodeTypeName": "INGRAM PROPRIETARY",
                   "DiscountCode": "C"
                 },
                 {
-                  "DiscountCodeType": "Proprietary discount code",
+                  "DiscountCodeType": {
+                    "Body": "Proprietary discount code"
+                  },
                   "DiscountCodeTypeName": "S007",
                   "DiscountCode": "SDS007"
                 }
               ],
               "PriceAmount": "60.95",
-              "CurrencyCode": "Canadian Dollar",
+              "CurrencyCode": {
+                "Body": "Canadian Dollar"
+              },
               "CountryCodes": [
-                [
+                {
+                  "Body": [
                 "Canada"
               ]
+                }
               ]
             },
             {
-              "PriceTypeCode": "RRP excluding tax",
+              "PriceTypeCode": {
+                "Body": "RRP excluding tax"
+              },
               "DiscountCodeds": [
                 {
-                  "DiscountCodeType": "Proprietary discount code",
+                  "DiscountCodeType": {
+                    "Body": "Proprietary discount code"
+                  },
                   "DiscountCodeTypeName": "INGRAM PROPRIETARY",
                   "DiscountCode": "C"
                 },
                 {
-                  "DiscountCodeType": "Proprietary discount code",
+                  "DiscountCodeType": {
+                    "Body": "Proprietary discount code"
+                  },
                   "DiscountCodeTypeName": "S007",
                   "DiscountCode": "SDS007"
                 }
               ],
               "PriceAmount": "42.00",
-              "CurrencyCode": "Euro",
+              "CurrencyCode": {
+                "Body": "Euro"
+              },
               "CountryCodes": [
-                [
+                {
+                  "Body": [
                 "Germany"
               ]
+                }
               ]
             },
             {
-              "PriceTypeCode": "RRP excluding tax",
+              "PriceTypeCode": {
+                "Body": "RRP excluding tax"
+              },
               "DiscountCodeds": [
                 {
-                  "DiscountCodeType": "Proprietary discount code",
+                  "DiscountCodeType": {
+                    "Body": "Proprietary discount code"
+                  },
                   "DiscountCodeTypeName": "INGRAM PROPRIETARY",
                   "DiscountCode": "C"
                 },
                 {
-                  "DiscountCodeType": "Proprietary discount code",
+                  "DiscountCodeType": {
+                    "Body": "Proprietary discount code"
+                  },
                   "DiscountCodeTypeName": "S007",
                   "DiscountCode": "SDS007"
                 }
               ],
               "PriceAmount": "36.99",
-              "CurrencyCode": "Pound Sterling",
+              "CurrencyCode": {
+                "Body": "Pound Sterling"
+              },
               "CountryCodes": [
-                [
+                {
+                  "Body": [
                 "United Kingdom"
               ]
+                }
               ]
             },
             {
-              "PriceTypeCode": "RRP excluding tax",
+              "PriceTypeCode": {
+                "Body": "RRP excluding tax"
+              },
               "DiscountCodeds": [
                 {
-                  "DiscountCodeType": "Proprietary discount code",
+                  "DiscountCodeType": {
+                    "Body": "Proprietary discount code"
+                  },
                   "DiscountCodeTypeName": "INGRAM PROPRIETARY",
                   "DiscountCode": "C"
                 },
                 {
-                  "DiscountCodeType": "Proprietary discount code",
+                  "DiscountCodeType": {
+                    "Body": "Proprietary discount code"
+                  },
                   "DiscountCodeTypeName": "S007",
                   "DiscountCode": "SDS007"
                 }
               ],
               "PriceAmount": "45.95",
-              "CurrencyCode": "US Dollar",
+              "CurrencyCode": {
+                "Body": "US Dollar"
+              },
               "CountryCodes": [
-                [
+                {
+                  "Body": [
                 "United States"
               ]
+                }
               ]
             }
           ],
-          "SupplierRole": "Publisher’s exclusive distributor to retailers",
-          "NewSupplier": {},
-          "PackQuantity": "16",
-          "Reissue": {
-            "ReissueDate": ""
+          "SupplierRole": {
+            "Body": "Publisher’s exclusive distributor to retailers"
           },
-          "ReturnsCodeType": "BISAC Returnable Indicator code",
+          "PackQuantity": "16",
+          "ReturnsCodeType": {
+            "Body": "BISAC Returnable Indicator code"
+          },
           "ReturnsCode": "Y"
         }
       ],
       "ProductIdentifiers": [
         {
-          "ProductIDType": "ISBN-10",
+          "ProductIDType": {
+            "Body": "ISBN-10"
+          },
           "IDValue": "1680506366"
         },
         {
-          "ProductIDType": "GTIN-13",
+          "ProductIDType": {
+            "Body": "GTIN-13"
+          },
           "IDValue": "9781680506365"
         },
         {
-          "ProductIDType": "GTIN-14",
+          "ProductIDType": {
+            "Body": "GTIN-14"
+          },
           "IDValue": "09781680506365"
         },
         {
-          "ProductIDType": "ISBN-13",
+          "ProductIDType": {
+            "Body": "ISBN-13"
+          },
           "IDValue": "9781680506365"
         }
       ],
