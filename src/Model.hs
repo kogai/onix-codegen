@@ -17,6 +17,8 @@ module Model
     contentAttributes,
     collectElements,
     topLevelModels,
+    topLevelAttribute,
+    fieldsOfAttribute,
   )
 where
 

@@ -10,17 +10,46 @@ import (
 
 {{#spaceSeparatable}}
 // {{xmlReferenceName}} {{description}}
+{{#hasElements}}
+type {{xmlReferenceName}} struct {
+	Body []string `xml:",innerxml" json:",omitempty"`
+{{#elements}}
+	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}},attr,omitempty" json:",omitempty"`
+{{/elements}}
+}
+{{/hasElements}}
+{{^hasElements}}
 type {{xmlReferenceName}} []string
+{{/hasElements}}
 {{/spaceSeparatable}}
 {{^spaceSeparatable}}
 // {{xmlReferenceName}} {{description}}
+{{#hasElements}}
+type {{xmlReferenceName}} struct {
+	Body string `xml:",innerxml" json:",omitempty"`
+{{#elements}}
+	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}},attr,omitempty" json:",omitempty"`
+{{/elements}}
+}
+{{/hasElements}}
+{{^hasElements}}
 type {{xmlReferenceName}} string
+{{/hasElements}}
 {{/spaceSeparatable}}
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
 func (c *{{xmlReferenceName}}) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	var v string
 	d.DecodeElement(&v, &start)
+{{#hasElements}}
+	for _, attr := range start.Attr {
+{{#elements}}
+		if attr.Name.Local == "{{shortname}}" {
+			c.{{xmlReferenceName}} = {{typeName}}(attr.Value)
+		}
+{{/elements}}
+	}
+{{/hasElements}}
 {{#spaceSeparatable}}
 	codes := strings.Split(v, " ")
 	tmpeCodes := []string{}
@@ -36,7 +65,12 @@ func (c *{{xmlReferenceName}}) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 			return fmt.Errorf("undefined code for {{xmlReferenceName}} has been passed, got [%s]", v)
 		}
 	}
+{{#hasElements}}
+	c.Body = tmpeCodes
+{{/hasElements}}
+{{^hasElements}}
 	*c = tmpeCodes
+{{/hasElements}}
 {{/spaceSeparatable}}
 {{^spaceSeparatable}}
 	switch v {
@@ -44,12 +78,19 @@ func (c *{{xmlReferenceName}}) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 
   // {{&notes}}
   case "{{value}}":
+{{#hasElements}}
+		c.Body = `{{description}}`
+{{/hasElements}}
+{{^hasElements}}
 		*c = `{{description}}`
+{{/hasElements}}
   {{/codes}}
 	default:
 		return fmt.Errorf("undefined code for {{xmlReferenceName}} has been passed, got [%s]", v)
 	}
 {{/spaceSeparatable}}
+{{#hasCodes}}
 	return nil
+{{/hasCodes}}
 }
 {{/.}}

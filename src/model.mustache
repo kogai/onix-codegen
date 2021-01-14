@@ -16,10 +16,10 @@ type {{xmlReferenceName}} struct {
 {{/iterable}}
 {{^iterable}}
 {{#is_tag}}
-	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}},omitempty" json:",omitempty"`
+	{{xmlReferenceName}} *{{typeName}} `xml:"{{shortname}},omitempty" json:",omitempty"`
 {{/is_tag}}
 {{^is_tag}}
-	{{xmlReferenceName}} {{typeName}} `xml:"{{shortname}},omitempty,attr" json:",omitempty"`
+	{{xmlReferenceName}} *{{typeName}} `xml:"{{shortname}},omitempty,attr" json:",omitempty"`
 {{/is_tag}}
 {{/iterable}}
 {{/optional}}
