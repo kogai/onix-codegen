@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go",
+    srcs = [
+        "code.go",
+        "mixed.go",
+        "model.go",
+        "reader.go",
+    ],
+    importpath = "github.com/kogai/k9bookshelf/go",
+    visibility = ["//visibility:public"],
+)

@@ -1,5 +1,6 @@
 TS_FILES := $(shell find ./ -type f -name '*.ts' | grep -v 'node_modules')
 HS_FILES := $(shell find ./ -type f -name '*.hs' | grep -v '.stack-work')
+BZL := npx bazelisk
 BZL_BIN := $(shell npx bazel info bazel-bin)
 
 .PHONY: run
@@ -22,3 +23,6 @@ build: .stack-work
 json: fixtures/20201200.json
 fixtures/20201200.json: run
 	go run github.com/kogai/onix-codegen/go/helper
+
+WORKSPACE: go.mod
+	$(BZL) run //:gazelle -- update-repos -from_file=go.mod
