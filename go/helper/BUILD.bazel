@@ -3,9 +3,9 @@ load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 go_library(
     name = "helper_lib",
     srcs = ["main.go"],
-    importpath = "github.com/kogai/k9bookshelf/go/helper",
+    importpath = "github.com/kogai/onix-codegen/go/helper",
     visibility = ["//visibility:private"],
-    deps = ["@com_github_kogai_onix_codegen//go:go_default_library"],
+    deps = ["//go"],
 )
 
 go_binary(

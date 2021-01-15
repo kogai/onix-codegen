@@ -8,6 +8,6 @@ go_library(
         "model.go",
         "reader.go",
     ],
-    importpath = "github.com/kogai/k9bookshelf/go",
+    importpath = "github.com/kogai/onix-codegen/go",
     visibility = ["//visibility:public"],
 )
