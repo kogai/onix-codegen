@@ -29,7 +29,7 @@ data Renderer
 
 templateToGoV2 :: Language -> [FilePath]
 templateToGoV2 TypeScript = throw Unimplemented
-templateToGoV2 Go = [".", "template", "go", "v2"]
+templateToGoV2 Go = [".", "template/go/v2"]
 
 compiledTemplate :: Renderer -> Language -> IO (Either ParseError Template)
 compiledTemplate Code Go = automaticCompile (templateToGoV2 Go) "code.mustache"
@@ -69,7 +69,7 @@ compile Mixed Go = do
         Right t -> unpack $ substitute t vars
     )
 compile Reader Go = do
-  compiled <- compiledTemplate Mixed Go
+  compiled <- compiledTemplate Reader Go
   return
     ( case compiled of
         Left err -> throw $ ParseErr err
