@@ -27,42 +27,45 @@ data Renderer
   | Reader
   deriving (Show)
 
+templateToGoV2 :: Language -> [FilePath]
+templateToGoV2 TypeScript = throw Unimplemented
+templateToGoV2 Go = [".", "template", "go", "v2"]
+
+generatedToGeV2 = "generated/go/v2"
+
 compile :: Renderer -> Language -> IO (Maybe String)
 compile _ TypeScript = throw Unimplemented
-compile r Go = do
-  let searchSpace = [".", "src"]
-   in case r of
-        Code -> do
-          let name = "code.mustache"
-          compiled <- automaticCompile searchSpace name
-          codeTypes <- C.readSchema
-          let txt =
-                ( case compiled of
-                    Left err -> throw $ ParseErr err
-                    Right t -> unpack $ substitute t codeTypes
-                )
-          return $ Just txt
-        Model -> do
-          let name = "model.mustache"
-          compiled <- automaticCompile searchSpace name
-          models <- M.readSchema
-          let txt =
-                ( case compiled of
-                    Left err -> throw $ ParseErr err
-                    Right t -> unpack $ substitute t models
-                )
-          return $ Just txt
-        Mixed -> do
-          let name = "mixed.mustache"
-          compiled <- automaticCompile searchSpace name
-          models <- Mi.readSchema
-          let txt =
-                ( case compiled of
-                    Left err -> throw $ ParseErr err
-                    Right t -> unpack $ substitute t models
-                )
-          return $ Just txt
-        _ -> throw Unimplemented
+compile Code Go = do
+  let name = "code.mustache"
+  compiled <- automaticCompile (templateToGoV2 Go) name
+  codeTypes <- C.readSchema
+  let txt =
+        ( case compiled of
+            Left err -> throw $ ParseErr err
+            Right t -> unpack $ substitute t codeTypes
+        )
+  return $ Just txt
+compile Model Go = do
+  let name = "model.mustache"
+  compiled <- automaticCompile (templateToGoV2 Go) name
+  models <- M.readSchema
+  let txt =
+        ( case compiled of
+            Left err -> throw $ ParseErr err
+            Right t -> unpack $ substitute t models
+        )
+  return $ Just txt
+compile Mixed Go = do
+  let name = "mixed.mustache"
+  compiled <- automaticCompile (templateToGoV2 Go) name
+  models <- Mi.readSchema
+  let txt =
+        ( case compiled of
+            Left err -> throw $ ParseErr err
+            Right t -> unpack $ substitute t models
+        )
+  return $ Just txt
+compile _ _ = throw Unimplemented
 
 render :: Language -> IO ()
 render l = do

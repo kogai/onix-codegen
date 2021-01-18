@@ -1,4 +1,4 @@
-# onix
+# onix-codegen
 
 ONIX for Books clients aimed to
 
