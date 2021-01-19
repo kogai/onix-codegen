@@ -1,5 +1,6 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE NamedFieldPuns #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -10,7 +11,6 @@ module Code
     CodeType (..),
     Code (..),
     collectCodes,
-    readSchema,
     topLevelElementToCode,
     topLevelTypeToCode,
     collectTypes,
@@ -69,14 +69,6 @@ type CodeTypes = Vector CodeType
 
 codeTypes :: [CodeType] -> CodeTypes
 codeTypes = fromList
-
-readSchema :: IO CodeTypes
-readSchema = do
-  xsd <- X.getSchema "./schema/2p1/ONIX_BookProduct_Release2.1_reference.xsd"
-  let codeTypesFromTypes = (map (topLevelTypeToCode xsd) . collectTypes) xsd
-      codeTypesFromElements = (map (topLevelElementToCode xsd) . collectCodes) xsd
-      codeTypesFromAttributes = (map (topLevelAttributeCode xsd) . collectAttributes) xsd
-  return $ codeTypes (codeTypesFromTypes ++ codeTypesFromElements ++ codeTypesFromAttributes)
 
 typeAnnotations :: X.Type -> [X.Annotation]
 typeAnnotations ty =
@@ -255,3 +247,11 @@ collectTypes =
           X.TypeComplex _ -> False
       )
     . X.schemaTypes
+
+instance GenSchema CodeTypes where
+  readSchema = do
+    xsd <- X.getSchema "./schema/2p1/ONIX_BookProduct_Release2.1_reference.xsd"
+    let codeTypesFromTypes = (map (topLevelTypeToCode xsd) . collectTypes) xsd
+        codeTypesFromElements = (map (topLevelElementToCode xsd) . collectCodes) xsd
+        codeTypesFromAttributes = (map (topLevelAttributeCode xsd) . collectAttributes) xsd
+    return $ codeTypes (codeTypesFromTypes ++ codeTypesFromElements ++ codeTypesFromAttributes)

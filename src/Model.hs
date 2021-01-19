@@ -1,4 +1,5 @@
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE NamedFieldPuns #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -9,7 +10,6 @@ module Model
     Model (..),
     models,
     model,
-    readSchema,
     dropDuplicate,
     typeToText,
     content,
@@ -353,11 +353,11 @@ topLevelModels xsd elm =
         Nothing -> []
    in model shortname refname Nothing Tag False False (elements ++ attributes')
 
-readSchema :: IO Models
-readSchema = do
-  xsd <- X.getSchema "./schema/2p1/ONIX_BookProduct_Release2.1_reference.xsd"
-  return
-    . models
-    . map (topLevelModels xsd)
-    . collectElements
-    $ xsd
+instance GenSchema Models where
+  readSchema = do
+    xsd <- X.getSchema "./schema/2p1/ONIX_BookProduct_Release2.1_reference.xsd"
+    return
+      . models
+      . map (topLevelModels xsd)
+      . collectElements
+      $ xsd

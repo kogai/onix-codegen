@@ -46,27 +46,27 @@ compile :: Renderer -> Language -> IO String
 compile _ TypeScript = throw Unimplemented
 compile Code Go = do
   compiled <- compiledTemplate Code Go
-  vars <- C.readSchema
+  vars <- readSchema
   return
     ( case compiled of
         Left err -> throw $ ParseErr err
-        Right t -> unpack $ substitute t vars
+        Right t -> unpack $ substitute t (vars :: C.CodeTypes)
     )
 compile Model Go = do
   compiled <- compiledTemplate Model Go
-  vars <- M.readSchema
+  vars <- readSchema
   return
     ( case compiled of
         Left err -> throw $ ParseErr err
-        Right t -> unpack $ substitute t vars
+        Right t -> unpack $ substitute t (vars :: M.Models)
     )
 compile Mixed Go = do
   compiled <- compiledTemplate Mixed Go
-  vars <- Mi.readSchema
+  vars <- readSchema
   return
     ( case compiled of
         Left err -> throw $ ParseErr err
-        Right t -> unpack $ substitute t vars
+        Right t -> unpack $ substitute t (vars :: [Mi.Mixed])
     )
 compile Reader Go = do
   compiled <- compiledTemplate Reader Go

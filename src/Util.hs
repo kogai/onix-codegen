@@ -2,11 +2,13 @@ module Util
   ( Empty (..),
     throw,
     unwrap,
+    GenSchema (..),
   )
 where
 
 import Control.Exception (Exception, throw)
 import Data.Typeable (Typeable)
+import Text.Mustache (ToMustache)
 import Text.Parsec.Error (ParseError)
 
 data Empty
@@ -20,3 +22,6 @@ instance Exception Empty
 unwrap :: Maybe a -> a
 unwrap (Just a) = a
 unwrap Nothing = throw Unreachable
+
+class (ToMustache a) => GenSchema a where
+  readSchema :: IO a
