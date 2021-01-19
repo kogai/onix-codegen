@@ -15,6 +15,7 @@ import qualified Model as M
 import Text.Mustache (Template, automaticCompile, substitute)
 import Text.Parsec.Error (ParseError)
 import Util
+import qualified Xsd as X
 
 data Language
   = Go
@@ -44,37 +45,16 @@ generateTo TypeScript = "generated/typescript/v2"
 
 compile :: Renderer -> Language -> IO String
 compile _ TypeScript = throw Unimplemented
-compile Code Go = do
-  compiled <- compiledTemplate Code Go
-  vars <- readSchema
-  return
-    ( case compiled of
-        Left err -> throw $ ParseErr err
-        Right t -> unpack $ substitute t (vars :: C.CodeTypes)
-    )
-compile Model Go = do
-  compiled <- compiledTemplate Model Go
-  vars <- readSchema
-  return
-    ( case compiled of
-        Left err -> throw $ ParseErr err
-        Right t -> unpack $ substitute t (vars :: M.Models)
-    )
-compile Mixed Go = do
-  compiled <- compiledTemplate Mixed Go
-  vars <- readSchema
-  return
-    ( case compiled of
-        Left err -> throw $ ParseErr err
-        Right t -> unpack $ substitute t (vars :: [Mi.Mixed])
-    )
-compile Reader Go = do
-  compiled <- compiledTemplate Reader Go
-  return
-    ( case compiled of
-        Left err -> throw $ ParseErr err
-        Right t -> unpack $ substitute t ()
-    )
+compile r Go = do
+  compiled <- compiledTemplate r Go
+  xsd <- X.getSchema "./schema/2p1/ONIX_BookProduct_Release2.1_reference.xsd"
+  return $
+    case (compiled, r) of
+      (Left err, _) -> throw $ ParseErr err
+      (Right t, Code) -> unpack $ substitute t (readSchema xsd :: C.CodeTypes)
+      (Right t, Mixed) -> unpack $ substitute t (readSchema xsd :: [Mi.Mixed])
+      (Right t, Model) -> unpack $ substitute t (readSchema xsd :: M.Models)
+      (Right t, Reader) -> unpack $ substitute t ()
 
 render :: Language -> IO ()
 render l = do

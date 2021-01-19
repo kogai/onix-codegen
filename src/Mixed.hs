@@ -57,9 +57,7 @@ collectElements =
     . X.schemaElements
 
 instance GenSchema [Mixed] where
-  readSchema = do
-    xsd <- X.getSchema "./schema/2p1/ONIX_BookProduct_Release2.1_reference.xsd"
-    return
-      . mapMaybe (topLevelMixed xsd)
+  readSchema xsd =
+    mapMaybe (topLevelMixed xsd)
       . collectElements
       $ xsd

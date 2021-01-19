@@ -354,10 +354,8 @@ topLevelModels xsd elm =
    in model shortname refname Nothing Tag False False (elements ++ attributes')
 
 instance GenSchema Models where
-  readSchema = do
-    xsd <- X.getSchema "./schema/2p1/ONIX_BookProduct_Release2.1_reference.xsd"
-    return
-      . models
+  readSchema xsd =
+    models
       . map (topLevelModels xsd)
       . collectElements
       $ xsd

@@ -249,9 +249,8 @@ collectTypes =
     . X.schemaTypes
 
 instance GenSchema CodeTypes where
-  readSchema = do
-    xsd <- X.getSchema "./schema/2p1/ONIX_BookProduct_Release2.1_reference.xsd"
+  readSchema xsd =
     let codeTypesFromTypes = (map (topLevelTypeToCode xsd) . collectTypes) xsd
         codeTypesFromElements = (map (topLevelElementToCode xsd) . collectCodes) xsd
         codeTypesFromAttributes = (map (topLevelAttributeCode xsd) . collectAttributes) xsd
-    return $ codeTypes (codeTypesFromTypes ++ codeTypesFromElements ++ codeTypesFromAttributes)
+     in codeTypes (codeTypesFromTypes ++ codeTypesFromElements ++ codeTypesFromAttributes)

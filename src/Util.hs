@@ -10,6 +10,7 @@ import Control.Exception (Exception, throw)
 import Data.Typeable (Typeable)
 import Text.Mustache (ToMustache)
 import Text.Parsec.Error (ParseError)
+import Xsd (Schema)
 
 data Empty
   = Unimplemented
@@ -24,4 +25,4 @@ unwrap (Just a) = a
 unwrap Nothing = throw Unreachable
 
 class (ToMustache a) => GenSchema a where
-  readSchema :: IO a
+  readSchema :: Schema -> a
