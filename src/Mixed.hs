@@ -1,14 +1,16 @@
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE NamedFieldPuns #-}
 {-# LANGUAGE OverloadedStrings #-}
 
-module Mixed (Mixed (..), topLevelMixed, readSchema) where
+module Mixed (Mixed (..), topLevelMixed) where
 
 import qualified Data.Map as M
 import Data.Maybe (mapMaybe)
 import Data.Text (Text)
 import qualified Model as Md
 import Text.Mustache (ToMustache (..), object, (~>))
+import Util
 import qualified Xsd as X
 
 data Mixed = Mixed
@@ -54,11 +56,8 @@ collectElements =
       )
     . X.schemaElements
 
-readSchema :: IO [Mixed]
-readSchema = do
-  xsd <- X.getSchema "./2_1_rev03_schema/ONIX_BookProduct_Release2.1_reference.xsd"
-  ( return
-      . mapMaybe (topLevelMixed xsd)
+instance GenSchema [Mixed] where
+  readSchema xsd =
+    mapMaybe (topLevelMixed xsd)
       . collectElements
-    )
-    xsd
+      $ xsd

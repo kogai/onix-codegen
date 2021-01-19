@@ -12,13 +12,13 @@ debug: build
 	stack exec --trace -- onix-exe +RTS -xc
 
 .PHONY: test
-test:
+test: schema
 	stack test --trace --fast
 
 .stack-work: $(HS_FILES) package.yaml stack.yaml
 	stack build --fast
 
-build: .stack-work
+build: schema .stack-work
 
 json: fixtures/20201200.json
 fixtures/20201200.json: run
@@ -26,3 +26,16 @@ fixtures/20201200.json: run
 
 WORKSPACE: go.mod
 	$(BZL) run //:gazelle -- update-repos -from_file=go.mod
+
+.PHONY: schema
+schema: schema/v2 schema/v3
+
+schema/v2:
+	mkdir -p schema
+	$(BZL) build copy_of_onix2p1
+	cp -r $(BZL_BIN)/v2/ schema/v2/
+
+schema/v3:
+	mkdir -p schema
+	$(BZL) build copy_of_onix3p0p7
+	cp -r $(BZL_BIN)/v3/ schema/v3/

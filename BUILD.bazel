@@ -2,3 +2,41 @@ load("@bazel_gazelle//:def.bzl", "gazelle")
 
 # gazelle:prefix github.com/kogai/onix-codegen
 gazelle(name = "gazelle")
+
+filegroup(
+    name = "onix2p1",
+    srcs = [
+        "@org_editeur_release_2_1_rev03_schema//:ONIX_for_Books_Release2-1_rev03_schema+codes_Issue_36/ONIX_BookProduct_CodeLists.xsd",
+        "@org_editeur_release_2_1_rev03_schema//:ONIX_for_Books_Release2-1_rev03_schema+codes_Issue_36/ONIX_BookProduct_Release2.1_reference.xsd",
+        "@org_editeur_release_2_1_rev03_schema//:ONIX_for_Books_Release2-1_rev03_schema+codes_Issue_36/ONIX_BookProduct_Release2.1_short.xsd",
+        "@org_editeur_release_2_1_rev03_schema//:ONIX_for_Books_Release2-1_rev03_schema+codes_Issue_36/ONIX_XHTML_Subset.xsd",
+        "@org_editeur_release_2_1_rev03_schema//:ONIX_for_Books_Release2-1_rev03_schema+codes_Issue_36/ONIX_XHTML_Subset_reference.xsd",
+        "@org_editeur_release_2_1_rev03_schema//:ONIX_for_Books_Release2-1_rev03_schema+codes_Issue_36/ONIX_XHTML_Subset_short.xsd",
+        "@org_editeur_release_2_1_rev03_schema//:ONIX_for_Books_Release2-1_rev03_schema+codes_Issue_36/readme.txt",
+        "@org_editeur_release_2_1_rev03_schema//:ONIX_for_Books_Release2-1_rev03_schema+codes_Issue_36/readme2.txt",
+    ],
+)
+
+filegroup(
+    name = "onix3p0p7",
+    srcs = [
+        "@org_editeur_release_3_0_7_schema//:ONIX_BookProduct_XSD_schema+codes_Issue_51/ONIX_BookProduct_3.0_reference.xsd",
+        "@org_editeur_release_3_0_7_schema//:ONIX_BookProduct_XSD_schema+codes_Issue_51/ONIX_BookProduct_3.0_short.xsd",
+        "@org_editeur_release_3_0_7_schema//:ONIX_BookProduct_XSD_schema+codes_Issue_51/ONIX_BookProduct_CodeLists.xsd",
+        "@org_editeur_release_3_0_7_schema//:ONIX_BookProduct_XSD_schema+codes_Issue_51/ONIX_XHTML_Subset.xsd",
+    ],
+)
+
+genrule(
+    name = "copy_of_onix2p1",
+    srcs = [":onix2p1"],
+    outs = ["v2"],
+    cmd = "mkdir $(RULEDIR)/v2 && cp $(SRCS) $(RULEDIR)/v2",
+)
+
+genrule(
+    name = "copy_of_onix3p0p7",
+    srcs = [":onix3p0p7"],
+    outs = ["v3"],
+    cmd = "mkdir $(RULEDIR)/v3 && cp $(SRCS) $(RULEDIR)/v3",
+)
