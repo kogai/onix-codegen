@@ -1,16 +1,9 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
-    name = "org_editeur_release",
-    build_file = "//:org_editeur_release.bazel",
-    sha256 = "e929f37b5e63fc44a82873c66430df9d0479d3e1b965b1609f439688d002647d",
-    url = "https://www.editeur.org/files/ONIX%202.1/ONIX_for_Books_Release2-1_rev03_docs+codes_Issue_36.zip",
-)
-
-http_archive(
     name = "org_editeur_release_2_1_rev03_schema",
     build_file = "//:org_editeur_release.bazel",
-    # sha256 = "e929f37b5e63fc44a82873c66430df9d0479d3e1b965b1609f439688d002647d",
+    sha256 = "8fe932426066538a1d4ef17f41a70432d3eef7bb09c54e9262b24cc883cdb461",
     url = "https://www.editeur.org/files/ONIX%202.1/ONIX_for_Books_Release2-1_rev03_schema+codes_Issue_36.zip",
 )
 

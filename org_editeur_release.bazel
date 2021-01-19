@@ -1,3 +1,6 @@
 exports_files(
-    [] + glob(["ONIX_for_Books_Release2-1_rev03_docs+codes_Issue_36/codelists/*.htm"]),
+    [] + glob([
+        "ONIX_for_Books_Release2-1_rev03_schema+codes_Issue_36/*.xsd",
+        "ONIX_for_Books_Release2-1_rev03_schema+codes_Issue_36/*.txt",
+    ]),
 )
