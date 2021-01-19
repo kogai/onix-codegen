@@ -47,7 +47,7 @@ compile :: Renderer -> Language -> IO String
 compile _ TypeScript = throw Unimplemented
 compile r Go = do
   compiled <- compiledTemplate r Go
-  xsd <- X.getSchema "./schema/2p1/ONIX_BookProduct_Release2.1_reference.xsd"
+  xsd <- X.getSchema "./schema/v2/ONIX_BookProduct_Release2.1_reference.xsd"
   return $
     case (compiled, r) of
       (Left err, _) -> throw $ ParseErr err

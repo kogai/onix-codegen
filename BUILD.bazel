@@ -17,9 +17,26 @@ filegroup(
     ],
 )
 
+filegroup(
+    name = "onix3p0p7",
+    srcs = [
+        "@org_editeur_release_3_0_7_schema//:ONIX_BookProduct_XSD_schema+codes_Issue_51/ONIX_BookProduct_3.0_reference.xsd",
+        "@org_editeur_release_3_0_7_schema//:ONIX_BookProduct_XSD_schema+codes_Issue_51/ONIX_BookProduct_3.0_short.xsd",
+        "@org_editeur_release_3_0_7_schema//:ONIX_BookProduct_XSD_schema+codes_Issue_51/ONIX_BookProduct_CodeLists.xsd",
+        "@org_editeur_release_3_0_7_schema//:ONIX_BookProduct_XSD_schema+codes_Issue_51/ONIX_XHTML_Subset.xsd",
+    ],
+)
+
 genrule(
     name = "copy_of_onix2p1",
     srcs = [":onix2p1"],
-    outs = ["outdir"],
-    cmd = "mkdir $(RULEDIR)/outdir && cp $(SRCS) $(RULEDIR)/outdir",
+    outs = ["v2"],
+    cmd = "mkdir $(RULEDIR)/v2 && cp $(SRCS) $(RULEDIR)/v2",
+)
+
+genrule(
+    name = "copy_of_onix3p0p7",
+    srcs = [":onix3p0p7"],
+    outs = ["v3"],
+    cmd = "mkdir $(RULEDIR)/v3 && cp $(SRCS) $(RULEDIR)/v3",
 )
