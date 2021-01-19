@@ -355,9 +355,9 @@ topLevelModels xsd elm =
 
 readSchema :: IO Models
 readSchema = do
-  xsd <- X.getSchema "./2_1_rev03_schema/ONIX_BookProduct_Release2.1_reference.xsd"
+  xsd <- X.getSchema "./schema/2p1/ONIX_BookProduct_Release2.1_reference.xsd"
   return
-      . models
-      . map (topLevelModels xsd)
-      . collectElements
+    . models
+    . map (topLevelModels xsd)
+    . collectElements
     $ xsd

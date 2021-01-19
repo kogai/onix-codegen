@@ -16,3 +16,10 @@ filegroup(
         "@org_editeur_release_2_1_rev03_schema//:ONIX_for_Books_Release2-1_rev03_schema+codes_Issue_36/readme2.txt",
     ],
 )
+
+genrule(
+    name = "copy_of_onix2p1",
+    srcs = [":onix2p1"],
+    outs = ["outdir"],
+    cmd = "mkdir $(RULEDIR)/outdir && cp $(SRCS) $(RULEDIR)/outdir",
+)

@@ -4,3 +4,4 @@
 !/fixtures/20201200.onix
 /bazel-*
 /*.prof
+/schema

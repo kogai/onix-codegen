@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
-  <xs:include schemaLocation="../2_1_rev03_schema/ONIX_XHTML_Subset.xsd" />
+  <xs:include schemaLocation="../schema/2p1/ONIX_XHTML_Subset.xsd" />
   <xs:element name="Annotation">
     <xs:complexType mixed="true">
       <xs:choice minOccurs="0" maxOccurs="unbounded">

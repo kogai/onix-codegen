@@ -72,7 +72,7 @@ codeTypes = fromList
 
 readSchema :: IO CodeTypes
 readSchema = do
-  xsd <- X.getSchema "./2_1_rev03_schema/ONIX_BookProduct_Release2.1_reference.xsd"
+  xsd <- X.getSchema "./schema/2p1/ONIX_BookProduct_Release2.1_reference.xsd"
   let codeTypesFromTypes = (map (topLevelTypeToCode xsd) . collectTypes) xsd
       codeTypesFromElements = (map (topLevelElementToCode xsd) . collectCodes) xsd
       codeTypesFromAttributes = (map (topLevelAttributeCode xsd) . collectAttributes) xsd
