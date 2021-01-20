@@ -3,13 +3,11 @@ HS_FILES := $(shell find ./ -type f -name '*.hs' | grep -v '.stack-work')
 BZL := npx bazelisk
 BZL_BIN := $(shell npx bazel info bazel-bin)
 
-.PHONY: generated/go/v2 generated/go/v3
 generated/go/%: build
 	stack exec onix-exe -- --schemaVersion $(@F) --language go
 
-.PHONY: debug
 debug: build
-	stack exec --trace -- onix-exe +RTS -xc
+	stack exec --trace -- onix-exe +RTS -xc --RTS --schemaVersion v3 --language go
 
 .PHONY: test
 test: schema
@@ -27,7 +25,6 @@ fixtures/20201200.json: run
 WORKSPACE: go.mod
 	$(BZL) run //:gazelle -- update-repos -from_file=go.mod
 
-.PHONY: schema
 schema: schema/v2 schema/v3
 
 schema/%:
