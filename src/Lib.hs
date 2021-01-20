@@ -5,6 +5,7 @@ module Lib
   ( render,
     compile,
     Language (..),
+    SchemaVersion (..),
   )
 where
 
@@ -17,6 +18,14 @@ import Text.Parsec.Error (ParseError)
 import Util
 import qualified Xsd as X
 
+data SchemaVersion
+  = V2
+  | V3
+
+instance Show SchemaVersion where
+  show V2 = "v2"
+  show V3 = "v3"
+
 data Language
   = Go
   | TypeScript
@@ -28,26 +37,27 @@ data Renderer
   | Reader
   deriving (Show)
 
-templateToGoV2 :: Language -> [FilePath]
-templateToGoV2 TypeScript = throw Unimplemented
-templateToGoV2 Go = [".", "template/go/v2"]
+templateToGoV2 :: Language -> SchemaVersion -> [FilePath]
+templateToGoV2 TypeScript _version = throw Unimplemented
+templateToGoV2 Go version = [".", "template/go/" ++ show version]
 
-compiledTemplate :: Renderer -> Language -> IO (Either ParseError Template)
-compiledTemplate Code Go = automaticCompile (templateToGoV2 Go) "code.mustache"
-compiledTemplate Model Go = automaticCompile (templateToGoV2 Go) "model.mustache"
-compiledTemplate Mixed Go = automaticCompile (templateToGoV2 Go) "mixed.mustache"
-compiledTemplate Reader Go = automaticCompile (templateToGoV2 Go) "reader.mustache"
-compiledTemplate _ TypeScript = throw Unimplemented
+compiledTemplate :: Renderer -> Language -> SchemaVersion -> IO (Either ParseError Template)
+compiledTemplate Code Go version = automaticCompile (templateToGoV2 Go version) "code.mustache"
+compiledTemplate Model Go version = automaticCompile (templateToGoV2 Go version) "model.mustache"
+compiledTemplate Mixed Go version = automaticCompile (templateToGoV2 Go version) "mixed.mustache"
+compiledTemplate Reader Go version = automaticCompile (templateToGoV2 Go version) "reader.mustache"
+compiledTemplate _ TypeScript _version = throw Unimplemented
 
-generateTo :: Language -> String
-generateTo Go = "generated/go/v2"
-generateTo TypeScript = "generated/typescript/v2"
+generateTo :: Language -> SchemaVersion -> String
+generateTo Go V2 = "generated/go/v2"
+generateTo Go V3 = "generated/go/v3"
+generateTo TypeScript V2 = "generated/typescript/v2"
+generateTo TypeScript V3 = "generated/typescript/v3"
 
-compile :: Renderer -> Language -> IO String
-compile _ TypeScript = throw Unimplemented
-compile r Go = do
-  compiled <- compiledTemplate r Go
-  xsd <- X.getSchema "./schema/v2/ONIX_BookProduct_Release2.1_reference.xsd"
+compile :: Renderer -> Language -> SchemaVersion -> IO String
+compile r Go version = do
+  compiled <- compiledTemplate r Go version
+  xsd <- X.getSchema schemaRoot
   return $
     case (compiled, r) of
       (Left err, _) -> throw $ ParseErr err
@@ -55,10 +65,18 @@ compile r Go = do
       (Right t, Mixed) -> unpack $ substitute t (readSchema xsd :: [Mi.Mixed])
       (Right t, Model) -> unpack $ substitute t (readSchema xsd :: M.Models)
       (Right t, Reader) -> unpack $ substitute t ()
+  where
+    schemaRoot =
+      "./schema"
+        ++ ( case version of
+               V2 -> "/v2/ONIX_BookProduct_Release2.1_reference.xsd"
+               V3 -> "/v3/ONIX_BookProduct_3.0_reference.xsd"
+           )
+compile _ TypeScript _version = throw Unimplemented
 
-render :: Language -> IO ()
-render l = do
-  compile Mixed l >>= writeFile (generateTo l ++ "/mixed.go")
-  compile Code l >>= writeFile (generateTo l ++ "/code.go")
-  compile Model l >>= writeFile (generateTo l ++ "/model.go")
-  compile Reader l >>= writeFile (generateTo l ++ "/reader.go")
+render :: Language -> SchemaVersion -> IO ()
+render l version = do
+  compile Mixed l version >>= writeFile (generateTo l version ++ "/mixed.go")
+  compile Code l version >>= writeFile (generateTo l version ++ "/code.go")
+  compile Model l version >>= writeFile (generateTo l version ++ "/model.go")
+  compile Reader l version >>= writeFile (generateTo l version ++ "/reader.go")
