@@ -5,6 +5,7 @@ module Lib
   ( render,
     compile,
     Language (..),
+    SchemaVersion (..),
   )
 where
 
@@ -16,6 +17,10 @@ import Text.Mustache (Template, automaticCompile, substitute)
 import Text.Parsec.Error (ParseError)
 import Util
 import qualified Xsd as X
+
+data SchemaVersion
+  = V2
+  | V3
 
 data Language
   = Go
@@ -56,8 +61,8 @@ compile r Go = do
       (Right t, Model) -> unpack $ substitute t (readSchema xsd :: M.Models)
       (Right t, Reader) -> unpack $ substitute t ()
 
-render :: Language -> IO ()
-render l = do
+render :: Language -> SchemaVersion -> String -> IO ()
+render l _ pathToSchema = do
   compile Mixed l >>= writeFile (generateTo l ++ "/mixed.go")
   compile Code l >>= writeFile (generateTo l ++ "/code.go")
   compile Model l >>= writeFile (generateTo l ++ "/model.go")

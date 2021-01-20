@@ -59,6 +59,7 @@ executables:
         -fwarn-incomplete-uni-patterns
     dependencies:
       - onix
+      - optparse-applicative == 0.16.1.0
 
 tests:
   onix-test:
