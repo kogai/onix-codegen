@@ -30,12 +30,7 @@ WORKSPACE: go.mod
 .PHONY: schema
 schema: schema/v2 schema/v3
 
-schema/v2:
+schema/%:
 	mkdir -p schema
-	$(BZL) build copy_of_onix2p1
-	cp -r $(BZL_BIN)/v2/ schema/v2/
-
-schema/v3:
-	mkdir -p schema
-	$(BZL) build copy_of_onix3p0p7
-	cp -r $(BZL_BIN)/v3/ schema/v3/
+	$(BZL) build onix_$(@F)
+	cp -r $(BZL_BIN)/$(@F)/ schema/$(@F)/
