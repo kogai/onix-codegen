@@ -3,9 +3,9 @@ HS_FILES := $(shell find ./ -type f -name '*.hs' | grep -v '.stack-work')
 BZL := npx bazelisk
 BZL_BIN := $(shell npx bazel info bazel-bin)
 
-.PHONY: run
-run: build
-	stack exec onix-exe
+.PHONY: generated/go/v2 generated/go/v3
+generated/go/%: build
+	stack exec onix-exe -- --schemaVersion $(@F) --language go
 
 .PHONY: debug
 debug: build
