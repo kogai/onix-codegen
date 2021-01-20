@@ -17,7 +17,10 @@ jobs:
         with:
           path: |
             ${{steps.haskell-setup.outputs.stack-path}}
-          key: ${{ runner.os }}-${{ hashFiles('**/onix.cabal') }}-${{ hashFiles('**/stack.yaml.lock') }}
+            ~/.stack
+            ./.stack-work/
+          key: ${{ runner.os }}-${{ hashFiles('**/package.yaml') }}-${{ hashFiles('**/onix.cabal') }}-${{ hashFiles('**/stack.yaml.lock') }}
           restore-keys: |
             ${{ runner.os }}-
+      - run: echo ${{steps.haskell-setup.outputs.stack-path}}
       - run: make test
