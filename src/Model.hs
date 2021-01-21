@@ -120,7 +120,8 @@ findFixedOf s =
   )
     . fmap
       ( \case
-          X.InlineAttribute X.AttributeInline {X.attributeInlineFixed} -> attributeInlineFixed
+          X.InlineAttribute X.AttributeInline {X.attributeInlineFixed = Just name} -> Just name
+          X.InlineAttribute X.AttributeInline {X.attributeInlineType = X.Inline ty} -> Just $ typeToText (X.TypeSimple ty)
           _ -> Nothing
       )
     . find
@@ -148,8 +149,9 @@ dropDuplicate =
     []
 
 typeToText :: X.Type -> Text
-typeToText (X.TypeSimple (X.AtomicType X.SimpleRestriction {X.simpleRestrictionBase} [])) =
+typeToText (X.TypeSimple (X.AtomicType X.SimpleRestriction {X.simpleRestrictionBase, X.simpleRestrictionConstraints = []} [])) =
   X.refOr (\X.QName {X.qnName} -> qnName) (throw Unreachable) simpleRestrictionBase
+typeToText (X.TypeSimple (X.AtomicType X.SimpleRestriction {X.simpleRestrictionConstraints = [X.Enumeration ty _]} [])) = ty
 typeToText (X.TypeSimple (X.AtomicType _ty _annotations)) = throw Unimplemented
 typeToText (X.TypeSimple (X.ListType _ty _annotations)) = throw Unimplemented
 typeToText (X.TypeSimple (X.UnionType _ty _annotations)) = throw Unimplemented

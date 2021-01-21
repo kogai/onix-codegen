@@ -94,5 +94,29 @@ tests =
                       ]
                   }
           assertEqual "can parse general attributes" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_code_refname.xsd"
+          let actual = (topLevelElementToCode scm . head . collectCodes) scm
+              expected =
+                CodeType
+                  { xmlReferenceName = "AVItemIDType",
+                    description = "Name code type",
+                    codes = V.fromList [Code {value = "01", codeDescription = "Proprietary", notes = "Note that <IDTypeName> is required with proprietary identifiers"}, Code {value = "02", codeDescription = "Proprietary", notes = "DEPRECATED \8211 use 01"}],
+                    spaceSeparatable = True,
+                    elements =
+                      [ Md.Model
+                          { Md.shortname = "sourcename",
+                            Md.xmlReferenceName = "Sourcename",
+                            Md.typeName = Just "string",
+                            Md.kind = Md.Attribute,
+                            Md.optional = True,
+                            Md.iterable = False,
+                            Md.elements = []
+                          }
+                      ]
+                  }
+          assertEqual "can parse enumrationed code refname" expected actual
       )
   ]
