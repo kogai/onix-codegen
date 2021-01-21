@@ -172,9 +172,9 @@ topLevelElementToCode scm elm =
         }
 
 topLevelAttributeCode :: X.Schema -> X.Attribute -> CodeType
-topLevelAttributeCode _scm (X.RefAttribute _) = throw Unreachable
-topLevelAttributeCode _scm (X.AttributeGroupRef _) = throw Unreachable
-topLevelAttributeCode _scm (X.AttributeGroupInline _ _) = throw Unreachable
+topLevelAttributeCode _scm (X.RefAttribute x) = unreachable ["RefAttribute", show x]
+topLevelAttributeCode _scm (X.AttributeGroupRef x) = unreachable ["AttributeGroupRef", show x]
+topLevelAttributeCode _scm (X.AttributeGroupInline x y) = unreachable ["AttributeGroupInline", show x, show y]
 topLevelAttributeCode scm (X.InlineAttribute X.AttributeInline {X.attributeInlineName, X.attributeInlineType}) =
   let name = X.qnName attributeInlineName
       typeName = case attributeInlineType of
