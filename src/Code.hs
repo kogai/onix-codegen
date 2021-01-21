@@ -189,9 +189,13 @@ topLevelAttributeCode scm (X.InlineAttribute X.AttributeInline {X.attributeInlin
           let constraints = typeConstraints t
               enums =
                 map
-                  ( \(X.Enumeration v docs) ->
-                      let docs_ = map (\(X.Documentation d) -> d) docs
-                       in Code {value = v, codeDescription = head docs_, notes = last docs_}
+                  ( \case
+                      (X.Enumeration v []) ->
+                        Code {value = v, codeDescription = "", notes = ""}
+                      (X.Enumeration v docs) ->
+                        Code {value = v, codeDescription = head docs_, notes = last docs_}
+                        where
+                          docs_ = map (\(X.Documentation d) -> d) docs
                   )
                   constraints
            in enums
