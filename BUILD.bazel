@@ -40,3 +40,10 @@ genrule(
     outs = ["v3"],
     cmd = "mkdir $(RULEDIR)/v3 && cp $(SRCS) $(RULEDIR)/v3",
 )
+
+exports_files([
+    # "fixtures/*.json",
+    "fixtures/20201200.json",
+    # "fixtures/*.onix",
+    "fixtures/20201200.onix",
+])
