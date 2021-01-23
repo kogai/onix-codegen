@@ -1,7 +1,6 @@
 import { promises as fs } from "fs";
 import xml from "fast-xml-parser";
-
-type ONIXMessage = {};
+import { ONIXMessage } from "./model"
 
 export const read = async (input: string): Promise<ONIXMessage> => {
   try {
