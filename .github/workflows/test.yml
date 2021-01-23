@@ -24,3 +24,23 @@ jobs:
             ${{ runner.os }}-
       - run: ls -lah ${{steps.haskell-setup.outputs.stack-path}}
       - run: make test
+  e2e:
+    name: Test e2e
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: 12.x
+      - name: Restore caches
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            ./node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-
+      - run: npm install
+      - run: npx bazelisk test //e2e/go:snapshot_test
