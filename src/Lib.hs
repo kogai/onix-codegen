@@ -30,6 +30,10 @@ data Language
   = Go
   | TypeScript
 
+ext :: Language -> String
+ext Go = ".go"
+ext TypeScript = ".ts"
+
 data Renderer
   = Model
   | Mixed
@@ -37,16 +41,21 @@ data Renderer
   | Reader
   deriving (Show)
 
-templateToGoV2 :: Language -> SchemaVersion -> [FilePath]
-templateToGoV2 TypeScript _version = throw Unimplemented
-templateToGoV2 Go version = [".", "template/go/" ++ show version]
+file :: Renderer -> String
+file Model = "model"
+file Mixed = "mixed"
+file Code = "code"
+file Reader = "reader"
+
+template :: Language -> SchemaVersion -> [FilePath]
+template TypeScript version = [".", "template/typescript/" ++ show version]
+template Go version = [".", "template/go/" ++ show version]
 
 compiledTemplate :: Renderer -> Language -> SchemaVersion -> IO (Either ParseError Template)
-compiledTemplate Code Go version = automaticCompile (templateToGoV2 Go version) "code.mustache"
-compiledTemplate Model Go version = automaticCompile (templateToGoV2 Go version) "model.mustache"
-compiledTemplate Mixed Go version = automaticCompile (templateToGoV2 Go version) "mixed.mustache"
-compiledTemplate Reader Go version = automaticCompile (templateToGoV2 Go version) "reader.mustache"
-compiledTemplate _ TypeScript _version = throw Unimplemented
+compiledTemplate Code l version = automaticCompile (template l version) "code.mustache"
+compiledTemplate Model l version = automaticCompile (template l version) "model.mustache"
+compiledTemplate Mixed l version = automaticCompile (template l version) "mixed.mustache"
+compiledTemplate Reader l version = automaticCompile (template l version) "reader.mustache"
 
 generateTo :: Language -> SchemaVersion -> String
 generateTo Go V2 = "generated/go/v2"
@@ -54,9 +63,12 @@ generateTo Go V3 = "generated/go/v3"
 generateTo TypeScript V2 = "generated/typescript/v2"
 generateTo TypeScript V3 = "generated/typescript/v3"
 
+fileName :: Renderer -> Language -> String
+fileName r l = file r ++ ext l
+
 compile :: Renderer -> Language -> SchemaVersion -> IO String
-compile r Go version = do
-  compiled <- compiledTemplate r Go version
+compile r l version = do
+  compiled <- compiledTemplate r l version
   xsd <- X.getSchema schemaRoot
   return $
     case (compiled, r) of
@@ -72,11 +84,10 @@ compile r Go version = do
                V2 -> "/v2/ONIX_BookProduct_Release2.1_reference.xsd"
                V3 -> "/v3/ONIX_BookProduct_3.0_reference.xsd"
            )
-compile _ TypeScript _version = throw Unimplemented
 
 render :: Language -> SchemaVersion -> IO ()
 render l version = do
-  compile Mixed l version >>= writeFile (generateTo l version ++ "/mixed.go")
-  compile Code l version >>= writeFile (generateTo l version ++ "/code.go")
-  compile Model l version >>= writeFile (generateTo l version ++ "/model.go")
-  compile Reader l version >>= writeFile (generateTo l version ++ "/reader.go")
+  compile Mixed l version >>= writeFile (generateTo l version ++ "/" ++ fileName Mixed l)
+  compile Code l version >>= writeFile (generateTo l version ++ "/" ++ fileName Code l)
+  compile Model l version >>= writeFile (generateTo l version ++ "/" ++ fileName Model l)
+  compile Reader l version >>= writeFile (generateTo l version ++ "/" ++ fileName Reader l)

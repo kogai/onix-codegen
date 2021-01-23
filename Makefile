@@ -6,6 +6,9 @@ BZL_BIN := $(shell npx bazel info bazel-bin)
 generated/go/%: build
 	stack exec onix-exe -- --schemaVersion $(@F) --language go
 
+generated/ts/%: build
+	stack exec onix-exe -- --schemaVersion $(@F) --language typescript
+
 debug: build
 	stack exec --trace -- onix-exe +RTS -xc --RTS --schemaVersion v3 --language go
 
