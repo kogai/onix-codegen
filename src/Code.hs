@@ -171,10 +171,15 @@ topLevelElementToCode scm elm =
           elements = elements
         }
 
-topLevelAttributeCode :: X.Schema -> X.Attribute -> CodeType
+topLevelAttributeCode :: X.Schema -> X.Attribute -> [CodeType]
 topLevelAttributeCode _scm (X.RefAttribute x) = unreachable ["RefAttribute", show x]
-topLevelAttributeCode _scm (X.AttributeGroupRef x) = unreachable ["AttributeGroupRef", show x]
-topLevelAttributeCode _scm (X.AttributeGroupInline x y) = unreachable ["AttributeGroupInline", show x, show y]
+topLevelAttributeCode scm (X.AttributeGroupRef key) =
+  case attr of
+    Just t -> topLevelAttributeCode scm t
+    Nothing -> unreachable ["AttributeGroupRef", show key, "NotFound"]
+  where
+    attr = (M.lookup key . X.schemaAttributes) scm
+topLevelAttributeCode scm (X.AttributeGroupInline _ attrs) = concatMap (topLevelAttributeCode scm) attrs
 topLevelAttributeCode scm (X.InlineAttribute X.AttributeInline {X.attributeInlineName, X.attributeInlineType}) =
   let name = X.qnName attributeInlineName
       typeName = case attributeInlineType of
@@ -202,13 +207,14 @@ topLevelAttributeCode scm (X.InlineAttribute X.AttributeInline {X.attributeInlin
         Nothing -> []
       description = "has not document"
       spaceSeparatable = False
-   in CodeType
+   in [ CodeType
         { xmlReferenceName = xmlReferenceName,
           description = description,
           codes = fromList codes_,
           elements = [],
           spaceSeparatable = spaceSeparatable
         }
+      ]
 
 collectCodes :: X.Schema -> [X.ElementInline]
 collectCodes =
@@ -256,5 +262,5 @@ instance GenSchema CodeTypes where
   readSchema xsd =
     let codeTypesFromTypes = (map (topLevelTypeToCode xsd) . collectTypes) xsd
         codeTypesFromElements = (map (topLevelElementToCode xsd) . collectCodes) xsd
-        codeTypesFromAttributes = (map (topLevelAttributeCode xsd) . collectAttributes) xsd
+        codeTypesFromAttributes = (concatMap (topLevelAttributeCode xsd) . collectAttributes) xsd
      in codeTypes (codeTypesFromTypes ++ codeTypesFromElements ++ codeTypesFromAttributes)

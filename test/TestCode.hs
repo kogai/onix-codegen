@@ -73,7 +73,7 @@ tests =
     TestCase
       ( do
           scm <- getSchema "./fixtures/test_code_attributes.xsd"
-          let actual = (topLevelAttributeCode scm . head . collectAttributes) scm
+          let actual = (head . topLevelAttributeCode scm . head . collectAttributes) scm
               expected =
                 CodeType "TextFormatCode" "has not document" (V.fromList []) False []
           assertEqual "can parse attributes" expected actual
@@ -117,6 +117,18 @@ tests =
                           }
                       ]
                   }
+          assertEqual "can parse enumrationed code refname" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_code_attribute_group_ref.xsd"
+          let actual = (topLevelAttributeCode scm . head . collectAttributes) scm
+              expected =
+                [ CodeType {xmlReferenceName = "ID", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []},
+                  CodeType {xmlReferenceName = "anySimpleType", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []},
+                  CodeType {xmlReferenceName = "StyleSheet", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []},
+                  CodeType {xmlReferenceName = "XHTMLText", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []}
+                ]
           assertEqual "can parse enumrationed code refname" expected actual
       )
   ]

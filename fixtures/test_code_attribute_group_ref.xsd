@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:attributeGroup name="attrs">
+    <xs:attributeGroup ref="coreattrs" />
+    <xs:attributeGroup ref="i18n" />
+  </xs:attributeGroup>
+  <xs:attributeGroup name="coreattrs">
+    <xs:attribute name="id" type="xs:ID" />
+    <xs:attribute name="class" />
+    <xs:attribute name="style" type="StyleSheet" />
+    <xs:attribute name="title" type="XHTMLText" />
+  </xs:attributeGroup>
+  <xs:attributeGroup name="i18n">
+    <xs:attribute name="lang" type="XHTMLLanguageCode" />
+    <xs:attribute name="dir">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="ltr" />
+          <xs:enumeration value="rtl" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:simpleType name="XHTMLLanguageCode">
+    <xs:restriction base="xs:NMTOKEN" />
+  </xs:simpleType>
+  <xs:simpleType name="StyleSheet">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <!-- style sheet data -->
+  <xs:simpleType name="XHTMLText">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+</xs:schema>
