@@ -152,9 +152,9 @@ typeToText :: X.Type -> Text
 typeToText (X.TypeSimple (X.AtomicType X.SimpleRestriction {X.simpleRestrictionBase, X.simpleRestrictionConstraints = []} [])) =
   X.refOr (\X.QName {X.qnName} -> qnName) (throw Unreachable) simpleRestrictionBase
 typeToText (X.TypeSimple (X.AtomicType X.SimpleRestriction {X.simpleRestrictionConstraints = [X.Enumeration ty _]} [])) = ty
-typeToText (X.TypeSimple (X.AtomicType _ty _annotations)) = throw Unimplemented
-typeToText (X.TypeSimple (X.ListType _ty _annotations)) = throw Unimplemented
-typeToText (X.TypeSimple (X.UnionType _ty _annotations)) = throw Unimplemented
+typeToText (X.TypeSimple (X.AtomicType ty annotations)) = unimplemented ["AtomicType", show ty, show annotations]
+typeToText (X.TypeSimple (X.ListType ty annotations)) = unimplemented ["ListType", show ty, show annotations]
+typeToText (X.TypeSimple (X.UnionType ty annotations)) = unimplemented ["UnionType", show ty, show annotations]
 typeToText (X.TypeComplex X.ComplexType {X.complexContent}) = case complexContent of
   X.ContentSimple (X.SimpleContentExtension X.SimpleExtension {X.simpleExtensionBase, X.simpleExtensionAttributes}) ->
     let qnName = X.qnName simpleExtensionBase
