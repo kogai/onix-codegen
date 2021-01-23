@@ -73,7 +73,7 @@ tests =
     TestCase
       ( do
           scm <- getSchema "./fixtures/test_code_attributes.xsd"
-          let actual = (topLevelAttributeCode scm . head . collectAttributes) scm
+          let actual = (head . topLevelAttributeCode scm . head . collectAttributes) scm
               expected =
                 CodeType "TextFormatCode" "has not document" (V.fromList []) False []
           assertEqual "can parse attributes" expected actual
@@ -94,5 +94,41 @@ tests =
                       ]
                   }
           assertEqual "can parse general attributes" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_code_refname.xsd"
+          let actual = (topLevelElementToCode scm . head . collectCodes) scm
+              expected =
+                CodeType
+                  { xmlReferenceName = "AVItemIDType",
+                    description = "Name code type",
+                    codes = V.fromList [Code {value = "01", codeDescription = "Proprietary", notes = "Note that <IDTypeName> is required with proprietary identifiers"}, Code {value = "02", codeDescription = "Proprietary", notes = "DEPRECATED \8211 use 01"}],
+                    spaceSeparatable = True,
+                    elements =
+                      [ Md.Model
+                          { Md.shortname = "sourcename",
+                            Md.xmlReferenceName = "Sourcename",
+                            Md.typeName = Just "string",
+                            Md.kind = Md.Attribute,
+                            Md.optional = True,
+                            Md.iterable = False,
+                            Md.elements = []
+                          }
+                      ]
+                  }
+          assertEqual "can parse enumrationed code refname" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_code_attribute_group_ref.xsd"
+          let actual = (topLevelAttributeCode scm . head . collectAttributes) scm
+              expected =
+                [ CodeType {xmlReferenceName = "ID", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []},
+                  CodeType {xmlReferenceName = "anySimpleType", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []},
+                  CodeType {xmlReferenceName = "StyleSheet", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []},
+                  CodeType {xmlReferenceName = "XHTMLText", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []}
+                ]
+          assertEqual "can parse enumrationed code refname" expected actual
       )
   ]

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="test_code_space_separated_codelists.xsd" />
+  <xs:element name="AVItemIDType">
+    <xs:annotation>
+      <xs:documentation>Added at revision 3.0.5</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="List91">
+          <xs:attribute name="refname">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="AVItemIDType" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="shortname">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="x541" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attributeGroup ref="generalAttributes" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="generalAttributes">
+    <xs:attribute name="sourcename" type="xs:string" use="optional" />
+  </xs:attributeGroup>
+</xs:schema>

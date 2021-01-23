@@ -1,0 +1,40 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@build_bazel_rules_nodejs//:index.bzl", "generated_file_test")
+
+filegroup(
+    name = "fixtures",
+    srcs = [
+        "//:fixtures/20201200.onix",
+    ],
+)
+
+go_library(
+    name = "helper_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/kogai/onix-codegen/e2e/go",
+    visibility = ["//visibility:private"],
+    deps = ["//generated/go/v2:go"],
+)
+
+go_binary(
+    name = "helper",
+    data = ["fixtures"],
+    embed = [":helper_lib"],
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "snapshot",
+    srcs = [
+        ":fixtures",
+    ],
+    outs = ["out.json"],
+    cmd = "$(location helper) $@",
+    tools = ["helper"],
+)
+
+generated_file_test(
+    name = "snapshot_test",
+    src = "snapshot",
+    generated = "//:fixtures/20201200.json",
+)

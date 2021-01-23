@@ -171,10 +171,15 @@ topLevelElementToCode scm elm =
           elements = elements
         }
 
-topLevelAttributeCode :: X.Schema -> X.Attribute -> CodeType
-topLevelAttributeCode _scm (X.RefAttribute _) = throw Unreachable
-topLevelAttributeCode _scm (X.AttributeGroupRef _) = throw Unreachable
-topLevelAttributeCode _scm (X.AttributeGroupInline _ _) = throw Unreachable
+topLevelAttributeCode :: X.Schema -> X.Attribute -> [CodeType]
+topLevelAttributeCode _scm (X.RefAttribute x) = unreachable ["RefAttribute", show x]
+topLevelAttributeCode scm (X.AttributeGroupRef key) =
+  case attr of
+    Just t -> topLevelAttributeCode scm t
+    Nothing -> unreachable ["AttributeGroupRef", show key, "NotFound"]
+  where
+    attr = (M.lookup key . X.schemaAttributes) scm
+topLevelAttributeCode scm (X.AttributeGroupInline _ attrs) = concatMap (topLevelAttributeCode scm) attrs
 topLevelAttributeCode scm (X.InlineAttribute X.AttributeInline {X.attributeInlineName, X.attributeInlineType}) =
   let name = X.qnName attributeInlineName
       typeName = case attributeInlineType of
@@ -189,22 +194,27 @@ topLevelAttributeCode scm (X.InlineAttribute X.AttributeInline {X.attributeInlin
           let constraints = typeConstraints t
               enums =
                 map
-                  ( \(X.Enumeration v docs) ->
-                      let docs_ = map (\(X.Documentation d) -> d) docs
-                       in Code {value = v, codeDescription = head docs_, notes = last docs_}
+                  ( \case
+                      (X.Enumeration v []) ->
+                        Code {value = v, codeDescription = "", notes = ""}
+                      (X.Enumeration v docs) ->
+                        Code {value = v, codeDescription = head docs_, notes = last docs_}
+                        where
+                          docs_ = map (\(X.Documentation d) -> d) docs
                   )
                   constraints
            in enums
         Nothing -> []
       description = "has not document"
       spaceSeparatable = False
-   in CodeType
+   in [ CodeType
         { xmlReferenceName = xmlReferenceName,
           description = description,
           codes = fromList codes_,
           elements = [],
           spaceSeparatable = spaceSeparatable
         }
+      ]
 
 collectCodes :: X.Schema -> [X.ElementInline]
 collectCodes =
@@ -252,5 +262,5 @@ instance GenSchema CodeTypes where
   readSchema xsd =
     let codeTypesFromTypes = (map (topLevelTypeToCode xsd) . collectTypes) xsd
         codeTypesFromElements = (map (topLevelElementToCode xsd) . collectCodes) xsd
-        codeTypesFromAttributes = (map (topLevelAttributeCode xsd) . collectAttributes) xsd
+        codeTypesFromAttributes = (concatMap (topLevelAttributeCode xsd) . collectAttributes) xsd
      in codeTypes (codeTypesFromTypes ++ codeTypesFromElements ++ codeTypesFromAttributes)
