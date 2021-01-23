@@ -1,27 +1,14 @@
-package onix
+import { promises as fs } from "fs";
+import xml from "fast-xml-parser";
 
-import (
-	"bytes"
-	"encoding/xml"
-	"io"
-	"io/ioutil"
-)
+type ONIXMessage = {};
 
-// Read read ONIX for Books 2.1 format file.
-func Read(input string) (*ONIXMessage, error) {
-	file, err := ioutil.ReadFile(input)
-	if err != nil {
-		return nil, err
-	}
-
-	var data ONIXMessage
-	decoder := xml.NewDecoder(bytes.NewReader(file))
-	decoder.CharsetReader = func(label string, input io.Reader) (io.Reader, error) {
-		return input, nil
-	}
-
-	if err := decoder.Decode(&data); err != nil {
-		return nil, err
-	}
-	return &data, nil
-}
+export const read = async (input: string): Promise<ONIXMessage> => {
+  try {
+    const file = await fs.readFile(input);
+    const parsed = xml.parse(file.toString());
+    return parsed as ONIXMessage;
+  } catch (error) {
+    throw error;
+  }
+};
