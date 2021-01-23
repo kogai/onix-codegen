@@ -8,7 +8,12 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@bazel/bazelisk": "1.7.3"
+    "@bazel/bazelisk": "1.7.3",
+    "@types/node": "14.14.22",
+    "fast-xml-parser": "3.17.6"
+  },
+  "peerDependencies": {
+    "fast-xml-parser": "^3.17.6"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

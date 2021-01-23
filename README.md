@@ -8,6 +8,16 @@ which aimed to
 - First support target is Golang.
 - Support Schema 2.x and 3.x
 
+## Current Status
+
+| Target Language        | Schema Version | Status                   |
+| ---------------------- | -------------- | ------------------------ |
+| Go                     | 2              | OK                       |
+| Go                     | 3              | Not yet                  |
+| TypeScript             | 2              | Not yet                  |
+| TypeScript             | 3              | Not yet                  |
+| Your favorite language | God only knows | Not yet but might be can |
+
 ## Prior Art
 
 - [C#](https://github.com/jaerith/ONIX-Data)

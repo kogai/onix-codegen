@@ -37,4 +37,6 @@ main = run =<< execParser opts
 run :: Opts -> IO ()
 run Opts {schemaVersion = "v2", language = "go"} = render Go V2
 run Opts {schemaVersion = "v3", language = "go"} = render Go V3
-run Opts {schemaVersion = _, language = _} = throw Unimplemented
+run Opts {schemaVersion = "v2", language = "typescript"} = render TypeScript V2
+run Opts {schemaVersion = "v3", language = "typescript"} = unimplemented ["v3 for typescript hasn't supportted yet"]
+run Opts {schemaVersion = v, language = l} = unreachable ["unintentional options has been passed, got", v, l]
