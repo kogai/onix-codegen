@@ -2326,7 +2326,7 @@ type AddresseeIDType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -2353,7 +2353,7 @@ func (c *AddresseeIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -2496,7 +2496,7 @@ type AudienceCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -2523,7 +2523,7 @@ func (c *AudienceCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -2578,7 +2578,7 @@ type AudienceCodeType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -2605,7 +2605,7 @@ func (c *AudienceCodeType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -2740,7 +2740,7 @@ type AudienceRangePrecision struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -2767,7 +2767,7 @@ func (c *AudienceRangePrecision) UnmarshalXML(d *xml.Decoder, start xml.StartEle
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -2798,7 +2798,7 @@ type AudienceRangeQualifier struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -2825,7 +2825,7 @@ func (c *AudienceRangeQualifier) UnmarshalXML(d *xml.Decoder, start xml.StartEle
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -2916,7 +2916,7 @@ type AudienceRestrictionFlag struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -2943,7 +2943,7 @@ func (c *AudienceRestrictionFlag) UnmarshalXML(d *xml.Decoder, start xml.StartEl
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -2970,7 +2970,7 @@ type AvailabilityCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -2997,7 +2997,7 @@ func (c *AvailabilityCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -3108,7 +3108,7 @@ type Barcode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -3135,7 +3135,7 @@ func (c *Barcode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -3458,7 +3458,7 @@ type BibleContents struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -3485,7 +3485,7 @@ func (c *BibleContents) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -3572,7 +3572,7 @@ type BiblePurpose struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -3599,7 +3599,7 @@ func (c *BiblePurpose) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -3710,7 +3710,7 @@ type BibleReferenceLocation struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -3737,7 +3737,7 @@ func (c *BibleReferenceLocation) UnmarshalXML(d *xml.Decoder, start xml.StartEle
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -3780,7 +3780,7 @@ type BibleTextFeature struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -3807,7 +3807,7 @@ func (c *BibleTextFeature) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -3830,7 +3830,7 @@ type BibleTextOrganization struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -3857,7 +3857,7 @@ func (c *BibleTextOrganization) UnmarshalXML(d *xml.Decoder, start xml.StartElem
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -3896,7 +3896,7 @@ type BibleVersion struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -3923,7 +3923,7 @@ func (c *BibleVersion) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -4222,7 +4222,7 @@ type BookFormDetail struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -4249,7 +4249,7 @@ func (c *BookFormDetail) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -4296,7 +4296,7 @@ type ComplexitySchemeIdentifier struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -4323,7 +4323,7 @@ func (c *ComplexitySchemeIdentifier) UnmarshalXML(d *xml.Decoder, start xml.Star
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -4382,7 +4382,7 @@ type ConferenceRole struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -4409,7 +4409,7 @@ func (c *ConferenceRole) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -4464,7 +4464,7 @@ type ConferenceSponsorIDType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -4491,7 +4491,7 @@ func (c *ConferenceSponsorIDType) UnmarshalXML(d *xml.Decoder, start xml.StartEl
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -4634,7 +4634,7 @@ type ContributorRole struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -4661,7 +4661,7 @@ func (c *ContributorRole) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -5100,7 +5100,7 @@ type CopyrightOwnerIDType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -5127,7 +5127,7 @@ func (c *CopyrightOwnerIDType) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -5270,7 +5270,7 @@ type CountryCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -5297,7 +5297,7 @@ func (c *CountryCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	codes := strings.Split(v, " ")
@@ -6329,7 +6329,7 @@ type CountryOfPublication struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -6356,7 +6356,7 @@ func (c *CountryOfPublication) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	codes := strings.Split(v, " ")
@@ -7388,7 +7388,7 @@ type CoverImageFormatCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -7415,7 +7415,7 @@ func (c *CoverImageFormatCode) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -7446,7 +7446,7 @@ type CoverImageLinkTypeCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -7473,7 +7473,7 @@ func (c *CoverImageLinkTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartEle
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -7516,7 +7516,7 @@ type CurrencyCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -7543,7 +7543,7 @@ func (c *CurrencyCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -8334,7 +8334,7 @@ type DateFormat struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -8361,7 +8361,7 @@ func (c *DateFormat) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -8456,7 +8456,7 @@ type DefaultCurrencyCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -8483,7 +8483,7 @@ func (c *DefaultCurrencyCode) UnmarshalXML(d *xml.Decoder, start xml.StartElemen
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -9274,7 +9274,7 @@ type DefaultLanguageOfText struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -9301,7 +9301,7 @@ func (c *DefaultLanguageOfText) UnmarshalXML(d *xml.Decoder, start xml.StartElem
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -11312,7 +11312,7 @@ type DefaultLinearUnit struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -11339,7 +11339,7 @@ func (c *DefaultLinearUnit) UnmarshalXML(d *xml.Decoder, start xml.StartElement)
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -11370,7 +11370,7 @@ type DefaultPriceTypeCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -11397,7 +11397,7 @@ func (c *DefaultPriceTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -11524,7 +11524,7 @@ type DefaultWeightUnit struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -11551,7 +11551,7 @@ func (c *DefaultWeightUnit) UnmarshalXML(d *xml.Decoder, start xml.StartElement)
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -11582,7 +11582,7 @@ type DeletionCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -11609,7 +11609,7 @@ func (c *DeletionCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -11652,7 +11652,7 @@ type DiscountCodeType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -11679,7 +11679,7 @@ func (c *DiscountCodeType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -11722,7 +11722,7 @@ type EditionTypeCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -11749,7 +11749,7 @@ func (c *EditionTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -11920,7 +11920,7 @@ type EpubFormat struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -11947,7 +11947,7 @@ func (c *EpubFormat) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -12010,7 +12010,7 @@ type EpubSource struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -12037,7 +12037,7 @@ func (c *EpubSource) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -12100,7 +12100,7 @@ type EpubType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -12127,7 +12127,7 @@ func (c *EpubType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -12350,7 +12350,7 @@ type ExtentType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -12377,7 +12377,7 @@ func (c *ExtentType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -12464,7 +12464,7 @@ type ExtentUnit struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -12491,7 +12491,7 @@ func (c *ExtentUnit) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -12558,7 +12558,7 @@ type IllustrationType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -12585,7 +12585,7 @@ func (c *IllustrationType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -12724,7 +12724,7 @@ type IntermediaryAvailabilityCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -12751,7 +12751,7 @@ func (c *IntermediaryAvailabilityCode) UnmarshalXML(d *xml.Decoder, start xml.St
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -12769,7 +12769,7 @@ type LanguageCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -12796,7 +12796,7 @@ func (c *LanguageCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -14807,7 +14807,7 @@ type LanguageOfText struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -14834,7 +14834,7 @@ func (c *LanguageOfText) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -16845,7 +16845,7 @@ type LanguageRole struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -16872,7 +16872,7 @@ func (c *LanguageRole) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -16939,7 +16939,7 @@ type LocationIDType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -16966,7 +16966,7 @@ func (c *LocationIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -17021,7 +17021,7 @@ type MainSubjectSchemeIdentifier struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -17048,7 +17048,7 @@ func (c *MainSubjectSchemeIdentifier) UnmarshalXML(d *xml.Decoder, start xml.Sta
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -17475,7 +17475,7 @@ type MeasureTypeCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -17502,7 +17502,7 @@ func (c *MeasureTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -17565,7 +17565,7 @@ type MeasureUnitCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -17592,7 +17592,7 @@ func (c *MeasureUnitCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -17643,7 +17643,7 @@ type MediaFileFormatCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -17670,7 +17670,7 @@ func (c *MediaFileFormatCode) UnmarshalXML(d *xml.Decoder, start xml.StartElemen
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -17765,7 +17765,7 @@ type MediaFileLinkTypeCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -17792,7 +17792,7 @@ func (c *MediaFileLinkTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElem
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -17835,7 +17835,7 @@ type MediaFileTypeCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -17862,7 +17862,7 @@ func (c *MediaFileTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement)
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -18041,7 +18041,7 @@ type NameCodeType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -18068,7 +18068,7 @@ func (c *NameCodeType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -18211,7 +18211,7 @@ type NotificationType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -18238,7 +18238,7 @@ func (c *NotificationType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -18305,7 +18305,7 @@ type OriginalLanguage struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -18332,7 +18332,7 @@ func (c *OriginalLanguage) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -20343,7 +20343,7 @@ type PersonDateRole struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20370,7 +20370,7 @@ func (c *PersonDateRole) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -20397,7 +20397,7 @@ type PersonNameIDType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20424,7 +20424,7 @@ func (c *PersonNameIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -20463,7 +20463,7 @@ type PersonNameType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20490,7 +20490,7 @@ func (c *PersonNameType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -20537,7 +20537,7 @@ type PricePer struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20564,7 +20564,7 @@ func (c *PricePer) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -20591,7 +20591,7 @@ type PriceQualifier struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20618,7 +20618,7 @@ func (c *PriceQualifier) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -20705,7 +20705,7 @@ type PriceStatus struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20732,7 +20732,7 @@ func (c *PriceStatus) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -20763,7 +20763,7 @@ type PriceTypeCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20790,7 +20790,7 @@ func (c *PriceTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -20917,7 +20917,7 @@ type PrizeCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -20944,7 +20944,7 @@ func (c *PrizeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -20991,7 +20991,7 @@ type PrizeCountry struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -21018,7 +21018,7 @@ func (c *PrizeCountry) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	codes := strings.Split(v, " ")
@@ -22050,7 +22050,7 @@ type ProductAvailability struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -22077,7 +22077,7 @@ func (c *ProductAvailability) UnmarshalXML(d *xml.Decoder, start xml.StartElemen
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -22212,7 +22212,7 @@ type ProductClassificationType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -22239,7 +22239,7 @@ func (c *ProductClassificationType) UnmarshalXML(d *xml.Decoder, start xml.Start
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -22306,7 +22306,7 @@ type ProductContentType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -22333,7 +22333,7 @@ func (c *ProductContentType) UnmarshalXML(d *xml.Decoder, start xml.StartElement
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -22508,7 +22508,7 @@ type ProductForm struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -22535,7 +22535,7 @@ func (c *ProductForm) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -23074,7 +23074,7 @@ type ProductFormDetail struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -23101,7 +23101,7 @@ func (c *ProductFormDetail) UnmarshalXML(d *xml.Decoder, start xml.StartElement)
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -23936,7 +23936,7 @@ type ProductFormFeatureType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -23963,7 +23963,7 @@ func (c *ProductFormFeatureType) UnmarshalXML(d *xml.Decoder, start xml.StartEle
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -24082,7 +24082,7 @@ type ProductIDType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -24109,7 +24109,7 @@ func (c *ProductIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -24212,7 +24212,7 @@ type ProductPackaging struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -24239,7 +24239,7 @@ func (c *ProductPackaging) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -24346,7 +24346,7 @@ type PublishingRole struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -24373,7 +24373,7 @@ func (c *PublishingRole) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -24468,7 +24468,7 @@ type PublishingStatus struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -24495,7 +24495,7 @@ func (c *PublishingStatus) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -24582,7 +24582,7 @@ type RecordSourceIdentifierType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -24609,7 +24609,7 @@ func (c *RecordSourceIdentifierType) UnmarshalXML(d *xml.Decoder, start xml.Star
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -24752,7 +24752,7 @@ type RecordSourceType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -24779,7 +24779,7 @@ func (c *RecordSourceType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -24854,7 +24854,7 @@ type RelationCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -24881,7 +24881,7 @@ func (c *RelationCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -25068,7 +25068,7 @@ type ReligiousTextFeatureCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -25095,7 +25095,7 @@ func (c *ReligiousTextFeatureCode) UnmarshalXML(d *xml.Decoder, start xml.StartE
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -25158,7 +25158,7 @@ type ReligiousTextFeatureType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -25185,7 +25185,7 @@ func (c *ReligiousTextFeatureType) UnmarshalXML(d *xml.Decoder, start xml.StartE
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -25208,7 +25208,7 @@ type ReligiousTextID struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -25235,7 +25235,7 @@ func (c *ReligiousTextID) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -25253,7 +25253,7 @@ type ReturnsCodeType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -25280,7 +25280,7 @@ func (c *ReturnsCodeType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -25319,7 +25319,7 @@ type RightsRegion struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -25346,7 +25346,7 @@ func (c *RightsRegion) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -25381,7 +25381,7 @@ type SalesOutletIDType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -25408,7 +25408,7 @@ func (c *SalesOutletIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement)
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -25439,7 +25439,7 @@ type SalesRestrictionType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -25466,7 +25466,7 @@ func (c *SalesRestrictionType) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -25549,7 +25549,7 @@ type SalesRightsType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -25576,7 +25576,7 @@ func (c *SalesRightsType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -25631,7 +25631,7 @@ type SenderIDType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -25658,7 +25658,7 @@ func (c *SenderIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -25801,7 +25801,7 @@ type SeriesIDType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -25828,7 +25828,7 @@ func (c *SeriesIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -25887,7 +25887,7 @@ type StockQuantityCodeType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -25914,7 +25914,7 @@ func (c *StockQuantityCodeType) UnmarshalXML(d *xml.Decoder, start xml.StartElem
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -25941,7 +25941,7 @@ type StudyBibleType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -25968,7 +25968,7 @@ func (c *StudyBibleType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -26027,7 +26027,7 @@ type SubjectSchemeIdentifier struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -26054,7 +26054,7 @@ func (c *SubjectSchemeIdentifier) UnmarshalXML(d *xml.Decoder, start xml.StartEl
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -26521,7 +26521,7 @@ type SupplierIDType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -26548,7 +26548,7 @@ func (c *SupplierIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -26603,7 +26603,7 @@ type SupplierRole struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -26630,7 +26630,7 @@ func (c *SupplierRole) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -26701,7 +26701,7 @@ type SupplyToRegion struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -26728,7 +26728,7 @@ func (c *SupplyToRegion) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -26751,7 +26751,7 @@ type TaxRateCode1 struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -26778,7 +26778,7 @@ func (c *TaxRateCode1) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -26817,7 +26817,7 @@ type TaxRateCode2 struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -26844,7 +26844,7 @@ func (c *TaxRateCode2) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -26883,7 +26883,7 @@ type TextCaseFlag struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -26910,7 +26910,7 @@ func (c *TextCaseFlag) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -26945,7 +26945,7 @@ type TextFormat struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -26972,7 +26972,7 @@ func (c *TextFormat) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -27055,7 +27055,7 @@ type TextItemIDType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -27082,7 +27082,7 @@ func (c *TextItemIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -27129,7 +27129,7 @@ type TextItemType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -27156,7 +27156,7 @@ func (c *TextItemType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -27239,7 +27239,7 @@ type TextLinkType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -27266,7 +27266,7 @@ func (c *TextLinkType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -27309,7 +27309,7 @@ type TextTypeCode struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -27336,7 +27336,7 @@ func (c *TextTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -27539,7 +27539,7 @@ type ThesisType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -27566,7 +27566,7 @@ func (c *ThesisType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -27613,7 +27613,7 @@ type TitleType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -27640,7 +27640,7 @@ func (c *TitleType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -27715,7 +27715,7 @@ type TradeCategory struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -27742,7 +27742,7 @@ func (c *TradeCategory) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -27817,7 +27817,7 @@ type UnnamedPersons struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -27844,7 +27844,7 @@ func (c *UnnamedPersons) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -27891,7 +27891,7 @@ type UnpricedItemType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -27918,7 +27918,7 @@ func (c *UnpricedItemType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -27961,7 +27961,7 @@ type WebsiteRole struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -27988,7 +27988,7 @@ func (c *WebsiteRole) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
@@ -28175,7 +28175,7 @@ type WorkIDType struct {
 	Transliteration TransliterationCode `xml:"transliteration,attr,omitempty" json:",omitempty"`
 	Datestamp DateOrDateTime `xml:"datestamp,attr,omitempty" json:",omitempty"`
 	Sourcetype SourceTypeCode `xml:"sourcetype,attr,omitempty" json:",omitempty"`
-	Sourcename string `xml:"sourcename,attr,omitempty" json:",omitempty"`
+	Sourcename Sourcename `xml:"sourcename,attr,omitempty" json:",omitempty"`
 }
 
 // UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
@@ -28202,7 +28202,7 @@ func (c *WorkIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 			c.Sourcetype = SourceTypeCode(attr.Value)
 		}
 		if attr.Name.Local == "sourcename" {
-			c.Sourcename = string(attr.Value)
+			c.Sourcename = Sourcename(attr.Value)
 		}
 	}
 	switch v {
