@@ -1,3 +1,5 @@
+{-# LANGUAGE LambdaCase #-}
+
 module Xsd
   ( module Xsd.Types,
     module Xsd.Parser,
@@ -69,12 +71,13 @@ getSchema source = do
           xsd <- liftIO $ fetchXsd uri
           modify' (Set.insert uri)
           let schema = xsdToSchema xsd
-              includes = flip mapMaybe (children xsd) $ \c -> case c of
+              includes = flip mapMaybe (children xsd) $ \case
                 ChildInclude i -> Just i
                 _ -> Nothing
-              imports = flip mapMaybe (children xsd) $ \c -> case c of
-                ChildImport i -> Just i
-                _ -> Nothing
+              imports =
+                flip mapMaybe (children xsd) $ \case
+                  ChildImport i -> Just i
+                  _ -> Nothing
           goInclude uri includes (schema : schemata)
             >>= goImports uri imports
 
@@ -84,7 +87,7 @@ getSchema source = do
       uri' <-
         maybe
           (fail ("Can't parse the location URI " <> show location))
-          (\u -> return $ combineURIs uri u)
+          (return . combineURIs uri)
           (URI.parseURIReference (Text.unpack location))
       go uri' schemata
         >>= goInclude uri is
@@ -97,20 +100,17 @@ getSchema source = do
           uri' <-
             maybe
               (fail ("Can't parse the location URI " <> show location))
-              (\u -> return $ combineURIs uri u)
+              (return . combineURIs uri)
               (URI.parseURIReference (Text.unpack location))
           go uri' schemata
             >>= goImports uri is
 
 -- | If the second URI is relative, then make it relative to the first one
 combineURIs :: URI -> URI -> URI
-combineURIs u1 u2 =
-  if URI.uriIsAbsolute u2
-    then u2
-    else
-      if isLocal u1
-        then u1 {URI.uriPath = dropFileName (URI.uriPath u1) </> URI.uriPath u2}
-        else u2 `URI.relativeTo` u1
+combineURIs u1 u2
+  | URI.uriIsAbsolute u2 = u2
+  | isLocal u1 = u1 {URI.uriPath = dropFileName (URI.uriPath u1) </> URI.uriPath u2}
+  | otherwise = u2 `URI.relativeTo` u1
 
 xsdToSchema :: Xsd -> Schema
 xsdToSchema xsd =
