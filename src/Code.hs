@@ -259,5 +259,5 @@ instance GenSchema CodeTypes where
   readSchema xsd =
     let codeTypesFromTypes = (map (topLevelTypeToCode xsd) . collectTypes) xsd
         codeTypesFromElements = (map (topLevelElementToCode xsd) . collectCodes) xsd
-        codeTypesFromAttributes = (concatMap (topLevelAttributeCode xsd) . collectAttributes) xsd
+        codeTypesFromAttributes = (uniq . concatMap (topLevelAttributeCode xsd) . collectAttributes) xsd
      in codeTypes (codeTypesFromTypes ++ codeTypesFromElements ++ codeTypesFromAttributes)
