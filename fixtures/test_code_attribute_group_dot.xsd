@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:attributeGroup name="generalAttributes">
+    <xs:attribute name="sourcename" type="dt.NonEmptyString" />
+  </xs:attributeGroup>
+  <xs:simpleType name="dt.NonEmptyString">
+    <xs:annotation>
+      <xs:documentation>Datatype for non-empty string without leading or trailing white space</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\s*\S.*" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
