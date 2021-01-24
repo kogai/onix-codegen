@@ -162,9 +162,9 @@ typeToText (X.TypeSimple (X.UnionType ty annotations)) = unimplemented ["UnionTy
 typeToText (X.TypeComplex X.ComplexType {X.complexContent}) = case complexContent of
   X.ContentSimple (X.SimpleContentExtension X.SimpleExtension {X.simpleExtensionBase, X.simpleExtensionAttributes}) ->
     let qnName = X.qnName simpleExtensionBase
-     in if T.isPrefixOf (pack "List") qnName
+     in if T.isPrefixOf "List" qnName
           then unwrap $ findFixedOf "refname" simpleExtensionAttributes
-          else case unpack qnName of
+          else case qnName of
             "NonEmptyString" -> configurableType
             _ -> qnName
   X.ContentPlain (X.PlainContent _mdg annotations) -> fromMaybe configurableType $ findFixedOf "refname" annotations
@@ -326,8 +326,7 @@ fieldsOfAttribute _scm (X.InlineAttribute X.AttributeInline {X.attributeInlineNa
   [ Model
       { shortname = X.qnName name,
         xmlReferenceName = xmlReferenceName_,
-        -- TODO: May need to care a case where typeName become token or anySimpleType.
-        typeName = Just (if T.isPrefixOf "List" ty then T.concat [xmlReferenceName_, ty] else ty),
+        typeName = Just $ typeNameToReferenceName xmlReferenceName_ ty,
         kind = Attribute,
         optional = attributeInlineUse /= X.Required,
         iterable = False,

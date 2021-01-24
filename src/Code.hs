@@ -193,18 +193,7 @@ topLevelAttributeCode scm (X.InlineAttribute X.AttributeInline {X.attributeInlin
       typeName = case attributeInlineType of
         X.Ref n -> X.qnName n
         X.Inline t -> typeToText . X.TypeSimple $ t
-      xmlReferenceName = case typeName of
-        "string" -> T.toTitle name
-        "token" -> T.toTitle name
-        "anySimpleType" -> T.toTitle name
-        x ->
-          if T.isPrefixOf "List" x
-            then T.concat [T.toTitle name, x]
-            else case T.splitOn "." x of
-              [] -> x
-              [y] -> y
-              y : ys -> T.concat $ [T.toTitle y, "Dot"] ++ ys
-
+      xmlReferenceName = typeNameToReferenceName name typeName
       ty = (M.lookup (X.QName Nothing typeName) . X.schemaTypes) scm
       codes_ = case ty of
         Just t -> map constraintToCode (typeConstraints t)

@@ -12,7 +12,7 @@ type AddresseeIdentifier struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // AgentIdentifier is not documented.
@@ -26,7 +26,7 @@ type AgentIdentifier struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Audience is not documented.
@@ -40,7 +40,7 @@ type Audience struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // AudienceRange is not documented.
@@ -54,7 +54,7 @@ type AudienceRange struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // BatchBonus is not documented.
@@ -67,7 +67,7 @@ type BatchBonus struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Bible is not documented.
@@ -85,7 +85,7 @@ type Bible struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Complexity is not documented.
@@ -98,7 +98,7 @@ type Complexity struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Conference is not documented.
@@ -118,7 +118,7 @@ type Conference struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ConferenceSponsor is not documented.
@@ -132,7 +132,7 @@ type ConferenceSponsor struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ConferenceSponsorIdentifier is not documented.
@@ -146,7 +146,7 @@ type ConferenceSponsorIdentifier struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ContainedItem is not documented.
@@ -170,7 +170,7 @@ type ContainedItem struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ContentItem is not documented.
@@ -197,7 +197,7 @@ type ContentItem struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Contributor is not documented.
@@ -235,7 +235,7 @@ type Contributor struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // CopyrightOwner is not documented.
@@ -249,7 +249,7 @@ type CopyrightOwner struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // CopyrightOwnerIdentifier is not documented.
@@ -263,7 +263,7 @@ type CopyrightOwnerIdentifier struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // CopyrightStatement is not documented.
@@ -276,7 +276,7 @@ type CopyrightStatement struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // DiscountCoded is not documented.
@@ -290,7 +290,7 @@ type DiscountCoded struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Extent is not documented.
@@ -304,7 +304,7 @@ type Extent struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Header is not documented.
@@ -336,7 +336,7 @@ type Header struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Illustrations is not documented.
@@ -350,7 +350,7 @@ type Illustrations struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Imprint is not documented.
@@ -365,7 +365,7 @@ type Imprint struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Language is not documented.
@@ -379,7 +379,7 @@ type Language struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // LocationIdentifier is not documented.
@@ -393,7 +393,7 @@ type LocationIdentifier struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // MainSeriesRecord is not documented.
@@ -418,7 +418,7 @@ type MainSeriesRecord struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // MainSubject is not documented.
@@ -433,7 +433,7 @@ type MainSubject struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // MarketDate is not documented.
@@ -447,7 +447,7 @@ type MarketDate struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // MarketRepresentation is not documented.
@@ -471,7 +471,7 @@ type MarketRepresentation struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Measure is not documented.
@@ -485,7 +485,7 @@ type Measure struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // MediaFile is not documented.
@@ -507,7 +507,7 @@ type MediaFile struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Name is not documented.
@@ -530,7 +530,7 @@ type Name struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // NewSupplier is not documented.
@@ -548,7 +548,7 @@ type NewSupplier struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // NoContributor is not documented.
@@ -559,7 +559,7 @@ type NoContributor struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // NoEdition is not documented.
@@ -570,7 +570,7 @@ type NoEdition struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // NoSeries is not documented.
@@ -581,7 +581,7 @@ type NoSeries struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // NotForSale is not documented.
@@ -598,7 +598,7 @@ type NotForSale struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ONIXMessage is not documented.
@@ -613,7 +613,7 @@ type ONIXMessage struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // OnOrderDetail is not documented.
@@ -626,7 +626,7 @@ type OnOrderDetail struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // OtherText is not documented.
@@ -648,7 +648,7 @@ type OtherText struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // PageRun is not documented.
@@ -661,7 +661,7 @@ type PageRun struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ParentIdentifier is not documented.
@@ -675,7 +675,7 @@ type ParentIdentifier struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // PersonAsSubject is not documented.
@@ -698,7 +698,7 @@ type PersonAsSubject struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // PersonDate is not documented.
@@ -712,7 +712,7 @@ type PersonDate struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // PersonNameIdentifier is not documented.
@@ -726,7 +726,7 @@ type PersonNameIdentifier struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Price is not documented.
@@ -764,7 +764,7 @@ type Price struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Prize is not documented.
@@ -780,7 +780,7 @@ type Prize struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Product is not documented.
@@ -943,7 +943,7 @@ type Product struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ProductClassification is not documented.
@@ -957,7 +957,7 @@ type ProductClassification struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ProductFormFeature is not documented.
@@ -971,7 +971,7 @@ type ProductFormFeature struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ProductIdentifier is not documented.
@@ -985,7 +985,7 @@ type ProductIdentifier struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ProductWebsite is not documented.
@@ -999,7 +999,7 @@ type ProductWebsite struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ProfessionalAffiliation is not documented.
@@ -1012,7 +1012,7 @@ type ProfessionalAffiliation struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Publisher is not documented.
@@ -1029,7 +1029,7 @@ type Publisher struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Reissue is not documented.
@@ -1044,7 +1044,7 @@ type Reissue struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // RelatedProduct is not documented.
@@ -1077,7 +1077,7 @@ type RelatedProduct struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ReligiousText is not documented.
@@ -1091,7 +1091,7 @@ type ReligiousText struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // ReligiousTextFeature is not documented.
@@ -1105,7 +1105,7 @@ type ReligiousTextFeature struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SalesOutlet is not documented.
@@ -1118,7 +1118,7 @@ type SalesOutlet struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SalesOutletIdentifier is not documented.
@@ -1132,7 +1132,7 @@ type SalesOutletIdentifier struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SalesRestriction is not documented.
@@ -1146,7 +1146,7 @@ type SalesRestriction struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SalesRights is not documented.
@@ -1161,7 +1161,7 @@ type SalesRights struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SenderIdentifier is not documented.
@@ -1175,7 +1175,7 @@ type SenderIdentifier struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Series is not documented.
@@ -1194,7 +1194,7 @@ type Series struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SeriesIdentifier is not documented.
@@ -1208,7 +1208,7 @@ type SeriesIdentifier struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Set is not documented.
@@ -1229,7 +1229,7 @@ type Set struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Stock is not documented.
@@ -1247,7 +1247,7 @@ type Stock struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // StockQuantityCoded is not documented.
@@ -1261,7 +1261,7 @@ type StockQuantityCoded struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SubSeriesRecord is not documented.
@@ -1290,7 +1290,7 @@ type SubSeriesRecord struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Subject is not documented.
@@ -1306,7 +1306,7 @@ type Subject struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SupplierIdentifier is not documented.
@@ -1320,7 +1320,7 @@ type SupplierIdentifier struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // SupplyDetail is not documented.
@@ -1364,7 +1364,7 @@ type SupplyDetail struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // TextItem is not documented.
@@ -1381,7 +1381,7 @@ type TextItem struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // TextItemIdentifier is not documented.
@@ -1395,7 +1395,7 @@ type TextItemIdentifier struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Title is not documented.
@@ -1413,7 +1413,7 @@ type Title struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // Website is not documented.
@@ -1427,7 +1427,7 @@ type Website struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
 
 // WorkIdentifier is not documented.
@@ -1441,5 +1441,5 @@ type WorkIdentifier struct {
 	Transliteration *TransliterationCode `xml:"transliteration,omitempty,attr" json:",omitempty"`
 	Datestamp *DateOrDateTime `xml:"datestamp,omitempty,attr" json:",omitempty"`
 	Sourcetype *SourceTypeCode `xml:"sourcetype,omitempty,attr" json:",omitempty"`
-	Sourcename *string `xml:"sourcename,omitempty,attr" json:",omitempty"`
+	Sourcename *Sourcename `xml:"sourcename,omitempty,attr" json:",omitempty"`
 }
