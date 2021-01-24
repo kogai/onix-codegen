@@ -161,12 +161,13 @@ typeToText (X.TypeSimple (X.ListType ty annotations)) = unimplemented ["ListType
 typeToText (X.TypeSimple (X.UnionType ty annotations)) = unimplemented ["UnionType", show ty, show annotations]
 typeToText (X.TypeComplex X.ComplexType {X.complexContent}) = case complexContent of
   X.ContentSimple (X.SimpleContentExtension X.SimpleExtension {X.simpleExtensionBase, X.simpleExtensionAttributes}) ->
-    let qnName = X.qnName simpleExtensionBase
-     in if T.isPrefixOf "List" qnName
-          then unwrap $ findFixedOf "refname" simpleExtensionAttributes
-          else case qnName of
-            "NonEmptyString" -> configurableType
-            _ -> qnName
+    if T.isPrefixOf "List" qnName
+      then unwrap $ findFixedOf "refname" simpleExtensionAttributes
+      else case qnName of
+        "NonEmptyString" -> configurableType
+        _ -> sanitizeName qnName
+    where
+      qnName = X.qnName simpleExtensionBase
   X.ContentPlain (X.PlainContent _mdg annotations) -> fromMaybe configurableType $ findFixedOf "refname" annotations
   X.ContentComplex (X.ComplexContentExtension X.ComplexExtension {X.complexExtensionBase = X.QName {X.qnName}}) -> qnName
   X.ContentComplex (X.ComplexContentRestriction x) ->
@@ -257,10 +258,11 @@ fieldsOfElement docOfRef (X.Sequence xs) =
     . concatMap
       ( \case
           (X.Ref key) ->
-            let plainContentModel = (contentModel . unwrap . M.lookup key . X.schemaElements) docOfRef
-             in case plainContentModel of
-                  Just mdgrp -> fieldsOfElement docOfRef mdgrp
-                  Nothing -> []
+            case plainContentModel of
+              Just mdgrp -> fieldsOfElement docOfRef mdgrp
+              Nothing -> []
+            where
+              plainContentModel = (contentModel . unwrap . M.lookup key . X.schemaElements) docOfRef
           (X.Inline (X.ElementOfSequence occurs ys)) ->
             map (extendOccurs occurs)
               . mapMaybe

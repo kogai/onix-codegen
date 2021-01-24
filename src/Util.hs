@@ -10,6 +10,7 @@ module Util
     trace',
     typeNameToReferenceName,
     uniq,
+    sanitizeName,
   )
 where
 
@@ -59,10 +60,14 @@ typeNameToReferenceName name "anySimpleType" = T.toTitle name
 typeNameToReferenceName name x =
   if T.isPrefixOf "List" x
     then T.concat [T.toTitle name, x]
-    else case T.splitOn "." x of
-      [] -> x
-      [y] -> y
-      y : ys -> T.concat $ [T.toTitle y, "Dot"] ++ ys
+    else sanitizeName x
+
+sanitizeName :: T.Text -> T.Text
+sanitizeName x =
+  case T.splitOn "." x of
+    [] -> x
+    [y] -> y
+    y : ys -> T.concat $ [T.toTitle y, "Dot"] ++ ys
 
 class (ToMustache a) => GenSchema a where
   readSchema :: Schema -> a
