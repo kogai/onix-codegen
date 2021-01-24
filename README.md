@@ -24,4 +24,4 @@ which aimed to
 - [Ruby](https://github.com/yob/onix)
 - [Java](https://github.com/zach-m/jonix)
 - [JavaScript](https://github.com/GitbookIO/node-onix)
-- [Go](https://github.com/kogai/k9bookshelf)
+- [Go](https://github.com/knakk/kbp)
