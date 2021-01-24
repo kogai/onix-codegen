@@ -121,7 +121,10 @@ findFixedOf s =
     . fmap
       ( \case
           X.InlineAttribute X.AttributeInline {X.attributeInlineFixed = Just name} -> Just name
-          X.InlineAttribute X.AttributeInline {X.attributeInlineType = X.Inline ty} -> Just $ typeToText (X.TypeSimple ty)
+          X.InlineAttribute X.AttributeInline {X.attributeInlineType = X.Inline ty} ->
+            case ty of
+              ((X.AtomicType X.SimpleRestriction {X.simpleRestrictionConstraints = [X.Enumeration ty' _]} [])) -> Just ty'
+              _ -> Nothing
           _ -> Nothing
       )
     . find
@@ -150,7 +153,6 @@ dropDuplicate =
     []
 
 typeToText :: X.Type -> Text
-typeToText (X.TypeSimple (X.AtomicType X.SimpleRestriction {X.simpleRestrictionConstraints = [X.Enumeration ty _]} [])) = ty
 typeToText (X.TypeSimple (X.AtomicType X.SimpleRestriction {X.simpleRestrictionBase} _annotations)) =
   case simpleRestrictionBase of
     X.Ref n -> X.qnName n

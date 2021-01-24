@@ -144,5 +144,14 @@ tests =
                   CodeType {xmlReferenceName = "XHTMLText", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []}
                 ]
           assertEqual "can parse enumrationed code refname" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_code_attribute_group_release.xsd"
+          let actual = (uniq . concatMap (topLevelAttributeCode scm) . collectAttributes) scm
+              expected =
+                [ CodeType {xmlReferenceName = "Release", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []}
+                ]
+          assertEqual "can parse enumrationed code refname" expected actual
       )
   ]
