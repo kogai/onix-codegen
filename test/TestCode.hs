@@ -92,7 +92,7 @@ tests =
                     spaceSeparatable = True,
                     elements =
                       [ Md.Model {Md.shortname = "textformat", Md.xmlReferenceName = "Textformat", Md.typeName = Just "TextFormatCode", Md.kind = Md.Attribute, Md.optional = True, Md.iterable = False, Md.elements = []},
-                        Md.Model {Md.shortname = "sourcename", Md.xmlReferenceName = "Sourcename", Md.typeName = Just "string", Md.kind = Md.Attribute, Md.optional = True, Md.iterable = False, Md.elements = []}
+                        Md.Model {Md.shortname = "sourcename", Md.xmlReferenceName = "Sourcename", Md.typeName = Just "Sourcename", Md.kind = Md.Attribute, Md.optional = True, Md.iterable = False, Md.elements = []}
                       ]
                   }
           assertEqual "can parse general attributes" expected actual
@@ -111,7 +111,7 @@ tests =
                       [ Md.Model
                           { Md.shortname = "sourcename",
                             Md.xmlReferenceName = "Sourcename",
-                            Md.typeName = Just "string",
+                            Md.typeName = Just "Sourcename",
                             Md.kind = Md.Attribute,
                             Md.optional = True,
                             Md.iterable = False,
