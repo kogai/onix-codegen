@@ -37,7 +37,7 @@ import qualified Xsd as X
 data Kind
   = Tag
   | Attribute
-  deriving (Generic, Show, Eq)
+  deriving (Generic, Show, Eq, Ord)
 
 instance FromJSON Kind where
   parseJSON = withText "kind" $ \t -> case unpack t of
@@ -58,7 +58,7 @@ data Model = Model
     iterable :: Bool,
     elements :: [Model]
   }
-  deriving (Generic, Show, Eq)
+  deriving (Generic, Show, Eq, Ord)
 
 instance FromJSON Model
 
@@ -130,6 +130,7 @@ findFixedOf s =
           _ -> False
       )
 
+-- TODO: Use Util.uniq instead
 dropDuplicate :: [Model] -> [Model]
 dropDuplicate =
   foldl
@@ -149,10 +150,11 @@ dropDuplicate =
     []
 
 typeToText :: X.Type -> Text
-typeToText (X.TypeSimple (X.AtomicType X.SimpleRestriction {X.simpleRestrictionBase, X.simpleRestrictionConstraints = []} [])) =
-  X.refOr (\X.QName {X.qnName} -> qnName) (throw Unreachable) simpleRestrictionBase
 typeToText (X.TypeSimple (X.AtomicType X.SimpleRestriction {X.simpleRestrictionConstraints = [X.Enumeration ty _]} [])) = ty
-typeToText (X.TypeSimple (X.AtomicType ty annotations)) = unimplemented ["AtomicType", show ty, show annotations]
+typeToText (X.TypeSimple (X.AtomicType X.SimpleRestriction {X.simpleRestrictionBase} _annotations)) =
+  case simpleRestrictionBase of
+    X.Ref n -> X.qnName n
+    X.Inline x -> unreachable ["TypeSimple.AtomicType expect base type name", show x]
 typeToText (X.TypeSimple (X.ListType ty annotations)) = unimplemented ["ListType", show ty, show annotations]
 typeToText (X.TypeSimple (X.UnionType ty annotations)) = unimplemented ["UnionType", show ty, show annotations]
 typeToText (X.TypeComplex X.ComplexType {X.complexContent}) = case complexContent of
@@ -311,16 +313,18 @@ contentModel el =
 
 fieldsOfAttribute :: X.Schema -> X.Attribute -> [Model]
 fieldsOfAttribute scm (X.AttributeGroupRef key) =
-  let value = (M.lookup key . X.schemaAttributes) scm
-   in case value of
-        Just v -> fieldsOfAttribute scm v
-        Nothing -> []
+  case value of
+    Just v -> fieldsOfAttribute scm v
+    Nothing -> []
+  where
+    value = (M.lookup key . X.schemaAttributes) scm
 fieldsOfAttribute scm (X.AttributeGroupInline _ as) = concatMap (fieldsOfAttribute scm) as
 fieldsOfAttribute _scm (X.RefAttribute _x) = []
 fieldsOfAttribute _scm (X.InlineAttribute X.AttributeInline {X.attributeInlineName = name, X.attributeInlineType, X.attributeInlineUse}) =
   [ Model
       { shortname = X.qnName name,
         xmlReferenceName = xmlReferenceName_,
+        -- TODO: May need to care a case where typeName become token or anySimpleType.
         typeName = Just (if T.isPrefixOf "List" ty then T.concat [xmlReferenceName_, ty] else ty),
         kind = Attribute,
         optional = attributeInlineUse /= X.Required,

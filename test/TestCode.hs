@@ -9,7 +9,9 @@ import qualified Data.Vector as V
 import qualified Model as Md
 import Test.HUnit (Test (TestCase, TestList), assertEqual)
 import Text.XML (def, parseText, readFile)
+import Util
 import Xsd (getSchema)
+import qualified Xsd as X
 
 tests =
   [ TestCase
@@ -122,11 +124,23 @@ tests =
     TestCase
       ( do
           scm <- getSchema "./fixtures/test_code_attribute_group_ref.xsd"
-          let actual = (topLevelAttributeCode scm . head . collectAttributes) scm
+          let actual = (uniq . concatMap (topLevelAttributeCode scm) . collectAttributes) scm
               expected =
-                [ CodeType {xmlReferenceName = "ID", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []},
-                  CodeType {xmlReferenceName = "anySimpleType", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []},
+                [ CodeType {xmlReferenceName = "Class", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []},
+                  CodeType
+                    { xmlReferenceName = "Dir",
+                      description = "has not document",
+                      codes =
+                        V.fromList
+                          [ Code {value = "ltr", codeDescription = "", notes = ""},
+                            Code {value = "rtl", codeDescription = "", notes = ""}
+                          ],
+                      spaceSeparatable = False,
+                      elements = []
+                    },
+                  CodeType {xmlReferenceName = "ID", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []},
                   CodeType {xmlReferenceName = "StyleSheet", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []},
+                  CodeType {xmlReferenceName = "XHTMLLanguageCode", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []},
                   CodeType {xmlReferenceName = "XHTMLText", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []}
                 ]
           assertEqual "can parse enumrationed code refname" expected actual

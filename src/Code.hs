@@ -34,7 +34,7 @@ data Code = Code
     codeDescription :: Text,
     notes :: Text
   }
-  deriving (Generic, Show, Eq)
+  deriving (Generic, Show, Eq, Ord)
 
 instance ToMustache Code where
   toMustache Code {value, codeDescription, notes} =
@@ -51,7 +51,7 @@ data CodeType = CodeType
     spaceSeparatable :: Bool,
     elements :: [Model]
   }
-  deriving (Generic, Show, Eq)
+  deriving (Generic, Show, Eq, Ord)
 
 instance ToMustache CodeType where
   toMustache CodeType {xmlReferenceName, description, codes, spaceSeparatable, elements} =
@@ -171,6 +171,14 @@ topLevelElementToCode scm elm =
           elements = elements
         }
 
+constraintToCode :: X.Constraint -> Code
+constraintToCode (X.Enumeration v []) =
+  Code {value = v, codeDescription = "", notes = ""}
+constraintToCode (X.Enumeration v docs) =
+  Code {value = v, codeDescription = head docs_, notes = last docs_}
+  where
+    docs_ = map (\(X.Documentation d) -> d) docs
+
 topLevelAttributeCode :: X.Schema -> X.Attribute -> [CodeType]
 topLevelAttributeCode _scm (X.RefAttribute x) = unreachable ["RefAttribute", show x]
 topLevelAttributeCode scm (X.AttributeGroupRef key) =
@@ -187,33 +195,26 @@ topLevelAttributeCode scm (X.InlineAttribute X.AttributeInline {X.attributeInlin
         X.Inline t -> typeToText . X.TypeSimple $ t
       xmlReferenceName = case typeName of
         "string" -> T.toTitle name
+        "token" -> T.toTitle name
+        "anySimpleType" -> T.toTitle name
         x -> if T.isPrefixOf "List" x then T.concat [T.toTitle name, x] else x
       ty = (M.lookup (X.QName Nothing typeName) . X.schemaTypes) scm
       codes_ = case ty of
-        Just t ->
-          let constraints = typeConstraints t
-              enums =
-                map
-                  ( \case
-                      (X.Enumeration v []) ->
-                        Code {value = v, codeDescription = "", notes = ""}
-                      (X.Enumeration v docs) ->
-                        Code {value = v, codeDescription = head docs_, notes = last docs_}
-                        where
-                          docs_ = map (\(X.Documentation d) -> d) docs
-                  )
-                  constraints
-           in enums
-        Nothing -> []
+        Just t -> map constraintToCode (typeConstraints t)
+        Nothing ->
+          case (typeName, attributeInlineType) of
+            ("token", X.Inline (X.AtomicType X.SimpleRestriction {X.simpleRestrictionConstraints} _annotations)) ->
+              map constraintToCode simpleRestrictionConstraints
+            _ -> []
       description = "has not document"
       spaceSeparatable = False
    in [ CodeType
-        { xmlReferenceName = xmlReferenceName,
-          description = description,
-          codes = fromList codes_,
-          elements = [],
-          spaceSeparatable = spaceSeparatable
-        }
+          { xmlReferenceName = xmlReferenceName,
+            description = description,
+            codes = fromList codes_,
+            elements = [],
+            spaceSeparatable = spaceSeparatable
+          }
       ]
 
 collectCodes :: X.Schema -> [X.ElementInline]
