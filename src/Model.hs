@@ -168,7 +168,9 @@ typeToText (X.TypeComplex X.ComplexType {X.complexContent}) = case complexConten
             "NonEmptyString" -> configurableType
             _ -> qnName
   X.ContentPlain (X.PlainContent _mdg annotations) -> fromMaybe configurableType $ findFixedOf "refname" annotations
-  X.ContentComplex x -> unimplemented ["ContentComplex", show x]
+  X.ContentComplex (X.ComplexContentExtension X.ComplexExtension {X.complexExtensionBase = X.QName {X.qnName}}) -> qnName
+  X.ContentComplex (X.ComplexContentRestriction x) ->
+    unimplemented ["ComplexContentRestriction", show x]
   x -> unimplemented ["Content", show x]
 
 isIterable :: X.Occurs -> Bool

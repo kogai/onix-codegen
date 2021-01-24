@@ -299,14 +299,22 @@ tests =
               actual = map (topLevelModels scm) $ collectElements scm
               expected =
                 [ Model
-                    { shortname = "a000",
-                      xmlReferenceName = "PublishingStatus",
+                    { shortname = "ancillarycontent",
+                      xmlReferenceName = "AncillaryContent",
                       typeName = Nothing,
                       kind = Tag,
                       optional = False,
                       iterable = False,
                       elements =
-                        [ Model {shortname = "datestamp", xmlReferenceName = "Datestamp", typeName = Just "DateOrDateTime", kind = Attribute, optional = False, iterable = False, elements = []}
+                        [ Model
+                            { shortname = "x424",
+                              xmlReferenceName = "AncillaryContentDescription",
+                              typeName = Just "Flow",
+                              kind = Tag,
+                              optional = True,
+                              iterable = True,
+                              elements = []
+                            }
                         ]
                     }
                 ]
