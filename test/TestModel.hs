@@ -291,5 +291,59 @@ tests =
                       ]
                   }
           assertEqual "can parse generalAttributes" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_model_element_complex_type.xsd"
+          let actual = map (topLevelModels scm) $ collectElements scm
+              expected =
+                [ Model
+                    { shortname = "ancillarycontent",
+                      xmlReferenceName = "AncillaryContent",
+                      typeName = Nothing,
+                      kind = Tag,
+                      optional = False,
+                      iterable = False,
+                      elements =
+                        [ Model
+                            { shortname = "x424",
+                              xmlReferenceName = "AncillaryContentDescription",
+                              typeName = Just "Flow",
+                              kind = Tag,
+                              optional = True,
+                              iterable = True,
+                              elements = []
+                            }
+                        ]
+                    }
+                ]
+          assertEqual "can parse generalAttributes" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_model_dot.xsd"
+          let actual = map (topLevelModels scm) $ collectElements scm
+              expected =
+                [ Model
+                    { shortname = "audiencerange",
+                      xmlReferenceName = "AudienceRange",
+                      typeName = Nothing,
+                      kind = Tag,
+                      optional = False,
+                      iterable = False,
+                      elements =
+                        [ Model
+                            { shortname = "b076",
+                              xmlReferenceName = "AudienceRangeValue",
+                              typeName = Just "DtDotNonEmptyString",
+                              kind = Tag,
+                              optional = False,
+                              iterable = False,
+                              elements = []
+                            }
+                        ]
+                    }
+                ]
+          assertEqual "can parse generalAttributes" expected actual
       )
   ]

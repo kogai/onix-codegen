@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://ns.editeur.org/onix/3.0/reference" elementFormDefault="qualified" targetNamespace="http://ns.editeur.org/onix/3.0/reference">
+  <xs:element name="AudienceRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="AudienceRangeValue" />
+      </xs:sequence>
+      <xs:attribute name="refname">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="AudienceRange" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="shortname">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="audiencerange" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AudienceRangeValue">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="dt.NonEmptyString">
+          <xs:attribute name="refname">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="AudienceRangeValue" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="shortname">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="b076" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="dt.NonEmptyString">
+    <xs:annotation>
+      <xs:documentation>Datatype for non-empty string without leading or trailing white space</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\s*\S.*" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
