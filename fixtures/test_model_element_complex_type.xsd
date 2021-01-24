@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="AncillaryContent">
+    <xs:annotation>
+      <xs:documentation>Modified cardinality of &lt;AncillaryContentDescription> at revision 3.0.1</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="AncillaryContentDescription" />
+      </xs:sequence>
+      <xs:attribute name="refname">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="AncillaryContent" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="shortname">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="ancillarycontent" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AncillaryContentDescription">
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="Flow">
+          <xs:attribute name="refname">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="AncillaryContentDescription" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="shortname">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="x424" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- <xs:element name="BookClubAdoption">
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="Flow">
+          <xs:attribute name="refname">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="BookClubAdoption" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="shortname">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="k169" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element> -->
+  <xs:complexType name="Flow" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="block" />
+      <xs:element ref="inline" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="block" abstract="true" />
+  <xs:element name="inline" abstract="true" />
+</xs:schema>

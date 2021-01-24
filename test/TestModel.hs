@@ -291,5 +291,25 @@ tests =
                       ]
                   }
           assertEqual "can parse generalAttributes" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_model_element_complex_type.xsd"
+          let key = makeTargetQName "BookClubAdoption"
+              actual = map (topLevelModels scm) $ collectElements scm
+              expected =
+                [ Model
+                    { shortname = "a000",
+                      xmlReferenceName = "PublishingStatus",
+                      typeName = Nothing,
+                      kind = Tag,
+                      optional = False,
+                      iterable = False,
+                      elements =
+                        [ Model {shortname = "datestamp", xmlReferenceName = "Datestamp", typeName = Just "DateOrDateTime", kind = Attribute, optional = False, iterable = False, elements = []}
+                        ]
+                    }
+                ]
+          assertEqual "can parse generalAttributes" expected actual
       )
   ]
