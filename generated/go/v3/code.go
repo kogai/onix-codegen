@@ -7,6 +7,618 @@ import (
 )
 
 
+// Character 
+type Character string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Character) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for Character has been passed, got [%s]", v)
+	}
+}
+
+// Charset 
+type Charset string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Charset) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for Charset has been passed, got [%s]", v)
+	}
+}
+
+// Coords 
+type Coords string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Coords) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for Coords has been passed, got [%s]", v)
+	}
+}
+
+// DtDotCountryCodeList 
+type DtDotCountryCodeList string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotCountryCodeList) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotCountryCodeList has been passed, got [%s]", v)
+	}
+}
+
+// DtDotDecimal Datatype for any real number
+type DtDotDecimal string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotDecimal) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotDecimal has been passed, got [%s]", v)
+	}
+}
+
+// DtDotEmailString Datatype for plausible e-mail address
+type DtDotEmailString string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotEmailString) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotEmailString has been passed, got [%s]", v)
+	}
+}
+
+// DtDotInteger Datatype for any integer
+type DtDotInteger string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotInteger) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotInteger has been passed, got [%s]", v)
+	}
+}
+
+// DtDotMultiLevelNumber Datatype for string of dot-separated numbers, eg 3.12.8
+type DtDotMultiLevelNumber string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotMultiLevelNumber) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotMultiLevelNumber has been passed, got [%s]", v)
+	}
+}
+
+// DtDotMultiLevelNumberOrHyphen Datatype for string of dot-separated numbers where hyphen can replace a number, eg 3.-.8
+type DtDotMultiLevelNumberOrHyphen string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotMultiLevelNumberOrHyphen) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotMultiLevelNumberOrHyphen has been passed, got [%s]", v)
+	}
+}
+
+// DtDotNonEmptyString Datatype for non-empty string without leading or trailing white space
+type DtDotNonEmptyString string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotNonEmptyString) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotNonEmptyString has been passed, got [%s]", v)
+	}
+}
+
+// DtDotNonEmptyURI Datatype for URI without leading or trailing white space
+type DtDotNonEmptyURI string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotNonEmptyURI) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotNonEmptyURI has been passed, got [%s]", v)
+	}
+}
+
+// DtDotPercentDecimal Datatype for real number 0–100
+type DtDotPercentDecimal string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotPercentDecimal) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotPercentDecimal has been passed, got [%s]", v)
+	}
+}
+
+// DtDotPositiveDecimal Datatype for zero or any positive real number
+type DtDotPositiveDecimal string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotPositiveDecimal) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotPositiveDecimal has been passed, got [%s]", v)
+	}
+}
+
+// DtDotPositiveInteger Datatype for zero or any positive integer
+type DtDotPositiveInteger string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotPositiveInteger) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotPositiveInteger has been passed, got [%s]", v)
+	}
+}
+
+// DtDotRegionCodeList 
+type DtDotRegionCodeList string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotRegionCodeList) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotRegionCodeList has been passed, got [%s]", v)
+	}
+}
+
+// DtDotRomanNumeralString Datatype for Roman numerals (upper or lower case)
+type DtDotRomanNumeralString string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotRomanNumeralString) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotRomanNumeralString has been passed, got [%s]", v)
+	}
+}
+
+// DtDotStrictPositiveDecimal Datatype for any positive real number (not including zero)
+type DtDotStrictPositiveDecimal string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotStrictPositiveDecimal) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotStrictPositiveDecimal has been passed, got [%s]", v)
+	}
+}
+
+// DtDotStrictPositiveInteger Datatype for any positive integer (not including zero)
+type DtDotStrictPositiveInteger string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotStrictPositiveInteger) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotStrictPositiveInteger has been passed, got [%s]", v)
+	}
+}
+
+// DtDotTimeOrDuration 
+type DtDotTimeOrDuration string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotTimeOrDuration) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotTimeOrDuration has been passed, got [%s]", v)
+	}
+}
+
+// DtDotYear Datatype for year 1000 to 2999
+type DtDotYear string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotYear) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotYear has been passed, got [%s]", v)
+	}
+}
+
+// DtDotYearOrYearRange Datatype for year or range of years 1000-2099
+type DtDotYearOrYearRange string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotYearOrYearRange) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotYearOrYearRange has been passed, got [%s]", v)
+	}
+}
+
+// Length 
+type Length string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Length) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for Length has been passed, got [%s]", v)
+	}
+}
+
+// LinkTypes 
+type LinkTypes string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *LinkTypes) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for LinkTypes has been passed, got [%s]", v)
+	}
+}
+
+// MultiLength 
+type MultiLength string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *MultiLength) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for MultiLength has been passed, got [%s]", v)
+	}
+}
+
+// Pixels 
+type Pixels string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Pixels) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for Pixels has been passed, got [%s]", v)
+	}
+}
+
+// Scope 
+type Scope string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Scope) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+
+  // 
+  case "row":
+		*c = ``
+
+  // 
+  case "col":
+		*c = ``
+
+  // 
+  case "rowgroup":
+		*c = ``
+
+  // 
+  case "colgroup":
+		*c = ``
+	default:
+		return fmt.Errorf("undefined code for Scope has been passed, got [%s]", v)
+	}
+	return nil
+}
+
+// Script 
+type Script string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Script) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for Script has been passed, got [%s]", v)
+	}
+}
+
+// Shape 
+type Shape string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Shape) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+
+  // 
+  case "rect":
+		*c = ``
+
+  // 
+  case "circle":
+		*c = ``
+
+  // 
+  case "poly":
+		*c = ``
+
+  // 
+  case "default":
+		*c = ``
+	default:
+		return fmt.Errorf("undefined code for Shape has been passed, got [%s]", v)
+	}
+	return nil
+}
+
+// SourceTypeCode 
+type SourceTypeCode string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *SourceTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for SourceTypeCode has been passed, got [%s]", v)
+	}
+}
+
+// StyleSheet 
+type StyleSheet string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *StyleSheet) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for StyleSheet has been passed, got [%s]", v)
+	}
+}
+
+// TFrame 
+type TFrame string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *TFrame) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+
+  // 
+  case "void":
+		*c = ``
+
+  // 
+  case "above":
+		*c = ``
+
+  // 
+  case "below":
+		*c = ``
+
+  // 
+  case "hsides":
+		*c = ``
+
+  // 
+  case "lhs":
+		*c = ``
+
+  // 
+  case "rhs":
+		*c = ``
+
+  // 
+  case "vsides":
+		*c = ``
+
+  // 
+  case "box":
+		*c = ``
+
+  // 
+  case "border":
+		*c = ``
+	default:
+		return fmt.Errorf("undefined code for TFrame has been passed, got [%s]", v)
+	}
+	return nil
+}
+
+// TRules 
+type TRules string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *TRules) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+
+  // 
+  case "none":
+		*c = ``
+
+  // 
+  case "groups":
+		*c = ``
+
+  // 
+  case "rows":
+		*c = ``
+
+  // 
+  case "cols":
+		*c = ``
+
+  // 
+  case "all":
+		*c = ``
+	default:
+		return fmt.Errorf("undefined code for TRules has been passed, got [%s]", v)
+	}
+	return nil
+}
+
+// TextCaseCode 
+type TextCaseCode string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *TextCaseCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for TextCaseCode has been passed, got [%s]", v)
+	}
+}
+
+// TextFormatCode 
+type TextFormatCode string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *TextFormatCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for TextFormatCode has been passed, got [%s]", v)
+	}
+}
+
+// URI 
+type URI string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *URI) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for URI has been passed, got [%s]", v)
+	}
+}
+
+// UriList 
+type UriList string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *UriList) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for UriList has been passed, got [%s]", v)
+	}
+}
+
+// XHTMLContentType 
+type XHTMLContentType string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *XHTMLContentType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for XHTMLContentType has been passed, got [%s]", v)
+	}
+}
+
+// XHTMLLanguageCode 
+type XHTMLLanguageCode string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *XHTMLLanguageCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for XHTMLLanguageCode has been passed, got [%s]", v)
+	}
+}
+
+// XHTMLNumber 
+type XHTMLNumber string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *XHTMLNumber) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for XHTMLNumber has been passed, got [%s]", v)
+	}
+}
+
+// XHTMLText 
+type XHTMLText string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *XHTMLText) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for XHTMLText has been passed, got [%s]", v)
+	}
+}
+
 // AVItemIDType AV Item Identifier type
 type AVItemIDType struct {
 	Body string `xml:",innerxml" json:",omitempty"`
@@ -32195,32 +32807,6 @@ func (c *Axis) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	}
 }
 
-// Character has not document
-type Character string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *Character) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for Character has been passed, got [%s]", v)
-	}
-}
-
-// Charset has not document
-type Charset string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *Charset) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for Charset has been passed, got [%s]", v)
-	}
-}
-
 // Class has not document
 type Class string
 
@@ -32231,19 +32817,6 @@ func (c *Class) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	switch v {
 	default:
 		return fmt.Errorf("undefined code for Class has been passed, got [%s]", v)
-	}
-}
-
-// Coords has not document
-type Coords string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *Coords) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for Coords has been passed, got [%s]", v)
 	}
 }
 
@@ -32369,19 +32942,6 @@ func (c *DtDotDateOrDateTime) UnmarshalXML(d *xml.Decoder, start xml.StartElemen
 	switch v {
 	default:
 		return fmt.Errorf("undefined code for DtDotDateOrDateTime has been passed, got [%s]", v)
-	}
-}
-
-// DtDotNonEmptyString has not document
-type DtDotNonEmptyString string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *DtDotNonEmptyString) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for DtDotNonEmptyString has been passed, got [%s]", v)
 	}
 }
 
@@ -34511,45 +35071,6 @@ func (c *LanguageList74) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	return nil
 }
 
-// Length has not document
-type Length string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *Length) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for Length has been passed, got [%s]", v)
-	}
-}
-
-// LinkTypes has not document
-type LinkTypes string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *LinkTypes) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for LinkTypes has been passed, got [%s]", v)
-	}
-}
-
-// MultiLength has not document
-type MultiLength string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *MultiLength) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for MultiLength has been passed, got [%s]", v)
-	}
-}
-
 // NMTOKEN has not document
 type NMTOKEN string
 
@@ -34581,19 +35102,6 @@ func (c *Nohref) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	return nil
 }
 
-// Pixels has not document
-type Pixels string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *Pixels) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for Pixels has been passed, got [%s]", v)
-	}
-}
-
 // Release has not document
 type Release string
 
@@ -34604,215 +35112,6 @@ func (c *Release) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	switch v {
 	default:
 		return fmt.Errorf("undefined code for Release has been passed, got [%s]", v)
-	}
-}
-
-// Scope has not document
-type Scope string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *Scope) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-
-  // 
-  case "row":
-		*c = ``
-
-  // 
-  case "col":
-		*c = ``
-
-  // 
-  case "rowgroup":
-		*c = ``
-
-  // 
-  case "colgroup":
-		*c = ``
-	default:
-		return fmt.Errorf("undefined code for Scope has been passed, got [%s]", v)
-	}
-	return nil
-}
-
-// Script has not document
-type Script string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *Script) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for Script has been passed, got [%s]", v)
-	}
-}
-
-// Shape has not document
-type Shape string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *Shape) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-
-  // 
-  case "rect":
-		*c = ``
-
-  // 
-  case "circle":
-		*c = ``
-
-  // 
-  case "poly":
-		*c = ``
-
-  // 
-  case "default":
-		*c = ``
-	default:
-		return fmt.Errorf("undefined code for Shape has been passed, got [%s]", v)
-	}
-	return nil
-}
-
-// SourceTypeCode has not document
-type SourceTypeCode string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *SourceTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for SourceTypeCode has been passed, got [%s]", v)
-	}
-}
-
-// StyleSheet has not document
-type StyleSheet string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *StyleSheet) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for StyleSheet has been passed, got [%s]", v)
-	}
-}
-
-// TFrame has not document
-type TFrame string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *TFrame) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-
-  // 
-  case "void":
-		*c = ``
-
-  // 
-  case "above":
-		*c = ``
-
-  // 
-  case "below":
-		*c = ``
-
-  // 
-  case "hsides":
-		*c = ``
-
-  // 
-  case "lhs":
-		*c = ``
-
-  // 
-  case "rhs":
-		*c = ``
-
-  // 
-  case "vsides":
-		*c = ``
-
-  // 
-  case "box":
-		*c = ``
-
-  // 
-  case "border":
-		*c = ``
-	default:
-		return fmt.Errorf("undefined code for TFrame has been passed, got [%s]", v)
-	}
-	return nil
-}
-
-// TRules has not document
-type TRules string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *TRules) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-
-  // 
-  case "none":
-		*c = ``
-
-  // 
-  case "groups":
-		*c = ``
-
-  // 
-  case "rows":
-		*c = ``
-
-  // 
-  case "cols":
-		*c = ``
-
-  // 
-  case "all":
-		*c = ``
-	default:
-		return fmt.Errorf("undefined code for TRules has been passed, got [%s]", v)
-	}
-	return nil
-}
-
-// TextCaseCode has not document
-type TextCaseCode string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *TextCaseCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for TextCaseCode has been passed, got [%s]", v)
-	}
-}
-
-// TextFormatCode has not document
-type TextFormatCode string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *TextFormatCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for TextFormatCode has been passed, got [%s]", v)
 	}
 }
 
@@ -35620,19 +35919,6 @@ func (c *Type) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	return nil
 }
 
-// URI has not document
-type URI string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *URI) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for URI has been passed, got [%s]", v)
-	}
-}
-
 // Valign has not document
 type Valign string
 
@@ -35661,58 +35947,6 @@ func (c *Valign) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 		return fmt.Errorf("undefined code for Valign has been passed, got [%s]", v)
 	}
 	return nil
-}
-
-// XHTMLContentType has not document
-type XHTMLContentType string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *XHTMLContentType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for XHTMLContentType has been passed, got [%s]", v)
-	}
-}
-
-// XHTMLLanguageCode has not document
-type XHTMLLanguageCode string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *XHTMLLanguageCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for XHTMLLanguageCode has been passed, got [%s]", v)
-	}
-}
-
-// XHTMLNumber has not document
-type XHTMLNumber string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *XHTMLNumber) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for XHTMLNumber has been passed, got [%s]", v)
-	}
-}
-
-// XHTMLText has not document
-type XHTMLText string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *XHTMLText) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for XHTMLText has been passed, got [%s]", v)
-	}
 }
 
 // int has not document

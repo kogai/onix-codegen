@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://ns.editeur.org/onix/3.0/reference" elementFormDefault="qualified" targetNamespace="http://ns.editeur.org/onix/3.0/reference">
+  <xs:simpleType name="dt.EmailString">
+    <xs:annotation>
+      <xs:documentation>Datatype for plausible e-mail address</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z0-9_]+([\-+.'][A-Za-z0-9_]+)*@[A-Za-z0-9_]+([\-.][A-Za-z0-9_]+)*\.[A-Za-z0-9_]+([\-.][A-Za-z0-9_]+)*" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -19,7 +19,9 @@ module Code
   )
 where
 
+import qualified Data.List as L
 import qualified Data.Map as M
+import Data.Maybe (isJust)
 import Data.Text (Text, pack)
 import qualified Data.Text as T
 import Data.Vector (Vector, fromList)
@@ -87,7 +89,27 @@ typeConstraints ty =
     (X.TypeComplex X.ComplexType {X.complexAnnotations = _}) -> []
 
 topLevelTypeToCode :: X.Schema -> (X.QName, X.Type) -> CodeType
-topLevelTypeToCode _scm (_, X.TypeSimple (X.AtomicType _ _)) = throw Unreachable
+topLevelTypeToCode _scm (ref, X.TypeSimple (X.AtomicType restriction annotations)) =
+  -- unreachable [show ref, show restriction, show annotations]
+  CodeType
+    { xmlReferenceName = sanitizeName . X.qnName $ ref,
+      description = description,
+      codes = fromList codes,
+      spaceSeparatable = False,
+      elements = []
+    }
+  where
+    description = T.intercalate ". " . map (\(X.Documentation x) -> x) $ annotations
+    constraints = X.simpleRestrictionConstraints restriction
+    codes =
+      map
+        ( \(X.Enumeration v docs) ->
+            let docs_ = map (\(X.Documentation d) -> d) docs
+                codeDescription = if not (null docs_) then head docs_ else ""
+                notes = if not (null docs_) then last docs_ else ""
+             in Code {value = v, codeDescription = codeDescription, notes = notes}
+        )
+        constraints
 topLevelTypeToCode scm (ref, X.TypeSimple (X.ListType ty _)) =
   case ty of
     X.Ref key_ ->
@@ -245,10 +267,11 @@ collectAttributes =
 
 collectTypes :: X.Schema -> [(X.QName, X.Type)]
 collectTypes =
-  M.toList
+  filter (\(key, _) -> not $ T.isPrefixOf "List" (X.qnName key))
+    . M.toList
     . M.filter
       ( \case
-          X.TypeSimple (X.AtomicType _ _) -> False
+          X.TypeSimple (X.AtomicType _ _) -> True
           X.TypeSimple (X.ListType _ _) -> True
           X.TypeSimple (X.UnionType _ _) -> False
           X.TypeComplex _ -> False
@@ -257,7 +280,16 @@ collectTypes =
 
 instance GenSchema CodeTypes where
   readSchema xsd =
-    let codeTypesFromTypes = (map (topLevelTypeToCode xsd) . collectTypes) xsd
-        codeTypesFromElements = (map (topLevelElementToCode xsd) . collectCodes) xsd
-        codeTypesFromAttributes = (uniq . concatMap (topLevelAttributeCode xsd) . collectAttributes) xsd
-     in codeTypes (codeTypesFromTypes ++ codeTypesFromElements ++ codeTypesFromAttributes)
+    codeTypes
+      ( uniqBy
+          ( \acc x ->
+              let idx = L.find (\y -> xmlReferenceName x == xmlReferenceName y) acc
+               in isJust idx
+          )
+          ts
+      )
+    where
+      codeTypesFromTypes = (uniq . map (topLevelTypeToCode xsd) . collectTypes) xsd
+      codeTypesFromElements = (map (topLevelElementToCode xsd) . collectCodes) xsd
+      codeTypesFromAttributes = (uniq . concatMap (topLevelAttributeCode xsd) . collectAttributes) xsd
+      ts = codeTypesFromTypes ++ codeTypesFromElements ++ codeTypesFromAttributes

@@ -11,6 +11,8 @@ module Util
     typeNameToReferenceName,
     uniq,
     sanitizeName,
+    uniqBy,
+    unwords',
   )
 where
 
@@ -50,8 +52,14 @@ unwrap Nothing = throw Unreachable
 trace' :: [String] -> a -> a
 trace' xs = trace $ unwords ("\n====\n" : xs)
 
+unwords' :: [T.Text] -> T.Text
+unwords' = T.pack . unwords . map T.unpack
+
 uniq :: Ord a => [a] -> [a]
 uniq = S.toList . S.fromList
+
+uniqBy :: ([a] -> a -> Bool) -> [a] -> [a]
+uniqBy f = foldl (\acc x -> if f acc x then acc else acc ++ [x]) []
 
 typeNameToReferenceName :: T.Text -> T.Text -> T.Text
 typeNameToReferenceName name "string" = T.toTitle name

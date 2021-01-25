@@ -162,5 +162,20 @@ tests =
                 [ CodeType {xmlReferenceName = "DtDotNonEmptyString", description = "has not document", codes = V.fromList [], spaceSeparatable = False, elements = []}
                 ]
           assertEqual "can parse enumrationed code refname" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_code_dot_email.xsd"
+          let actual = (map (topLevelTypeToCode scm) . collectTypes) scm
+              expected =
+                [ CodeType
+                    { xmlReferenceName = "DtDotEmailString",
+                      description = "Datatype for plausible e-mail address",
+                      codes = V.fromList [],
+                      spaceSeparatable = False,
+                      elements = []
+                    }
+                ]
+          assertEqual "can parse enumrationed code refname" expected actual
       )
   ]
