@@ -13,7 +13,7 @@ which aimed to
 | Target Language        | Schema Version | Status                   |
 | ---------------------- | -------------- | ------------------------ |
 | Go                     | 2              | OK                       |
-| Go                     | 3              | Not yet                  |
+| Go                     | 3              | OK                       |
 | TypeScript             | 2              | Not yet                  |
 | TypeScript             | 3              | Not yet                  |
 | Your favorite language | God only knows | Not yet but might be can |
