@@ -10,8 +10,8 @@ http_archive(
 http_archive(
     name = "org_editeur_v3",
     build_file = "//:org_editeur_v3.bazel",
-    sha256 = "e969877c84fc273e1a48fc67435715508006ddd0da5b0c0347ae3df04109d83d",
-    url = "https://www.editeur.org/files/ONIX%203/ONIX_BookProduct_XSD_schema+codes_Issue_51.zip",
+    # sha256 = "e969877c84fc273e1a48fc67435715508006ddd0da5b0c0347ae3df04109d83d",
+    url = "https://www.editeur.org/files/ONIX%203/ONIX_BookProduct_XSD_schema+codes_Issue_52.zip",
 )
 
 http_archive(

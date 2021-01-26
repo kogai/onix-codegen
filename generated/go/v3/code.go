@@ -879,6 +879,10 @@ func (c *AddresseeIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for AddresseeIDType has been passed, got [%s]", v)
 	}
@@ -2777,6 +2781,10 @@ func (c *ConferenceSponsorIDType) UnmarshalXML(d *xml.Decoder, start xml.StartEl
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for ConferenceSponsorIDType has been passed, got [%s]", v)
 	}
@@ -3673,6 +3681,10 @@ func (c *CopyrightOwnerIDType) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for CopyrightOwnerIDType has been passed, got [%s]", v)
 	}
@@ -9327,6 +9339,10 @@ func (c *DefaultLanguageOfText) UnmarshalXML(d *xml.Decoder, start xml.StartElem
   case "grn":
 		c.Body = `Guarani`
 
+  // ONIX local code, equivalent to grt in ISO 639-3
+  case "grt":
+		c.Body = `Garo`
+
   // Swiss German; Alemannic
   case "gsw":
 		c.Body = `Swiss German; Alemannic`
@@ -10122,6 +10138,10 @@ func (c *DefaultLanguageOfText) UnmarshalXML(d *xml.Decoder, start xml.StartElem
   // ONIX local code, distinct dialect of Catalan (not distinguished from cat by ISO 639-3)
   case "qav":
 		c.Body = `Valencian`
+
+  // ONIX local code, distinct variant of langue d’oïl (old northern French) (not distinguished from fro, or from frm, fre, nrf by ISO 639-3). For use in ONIX 3.0 only
+  case "qgl":
+		c.Body = `Gallo`
 
   // ONIX local code, distinct dialect of of Rusyn (not distinguished from rue by ISO 639-3). For use in ONIX 3.0 only
   case "qlk":
@@ -11315,6 +11335,10 @@ func (c *EpubUsageType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 	}
 	switch v {
 
+  // Allows positive indication that there are no particular constraints (that can be specifed in <EpubUsageConstraint>) – the default if <EpubUsageConstraint> is omitted
+  case "00":
+		c.Body = `No constraints`
+
   // Preview before purchase. Allows a retail customer, account holder or patron to view or listen to a proportion of the book before purchase. Also applies to borrowers making use of ‘acquisition on demand’ models in libraries, and to ‘subscription’ models where the purchase is made on behalf of the reader
   case "01":
 		c.Body = `Preview`
@@ -11766,6 +11790,10 @@ func (c *EventSponsorIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for EventSponsorIDType has been passed, got [%s]", v)
 	}
@@ -12745,6 +12773,10 @@ func (c *FromLanguage) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
   case "grn":
 		c.Body = `Guarani`
 
+  // ONIX local code, equivalent to grt in ISO 639-3
+  case "grt":
+		c.Body = `Garo`
+
   // Swiss German; Alemannic
   case "gsw":
 		c.Body = `Swiss German; Alemannic`
@@ -13540,6 +13572,10 @@ func (c *FromLanguage) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
   // ONIX local code, distinct dialect of Catalan (not distinguished from cat by ISO 639-3)
   case "qav":
 		c.Body = `Valencian`
+
+  // ONIX local code, distinct variant of langue d’oïl (old northern French) (not distinguished from fro, or from frm, fre, nrf by ISO 639-3). For use in ONIX 3.0 only
+  case "qgl":
+		c.Body = `Gallo`
 
   // ONIX local code, distinct dialect of of Rusyn (not distinguished from rue by ISO 639-3). For use in ONIX 3.0 only
   case "qlk":
@@ -14404,6 +14440,10 @@ func (c *ImprintIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for ImprintIDType has been passed, got [%s]", v)
 	}
@@ -15118,6 +15158,10 @@ func (c *LanguageCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
   // Macrolanguage
   case "grn":
 		c.Body = `Guarani`
+
+  // ONIX local code, equivalent to grt in ISO 639-3
+  case "grt":
+		c.Body = `Garo`
 
   // Swiss German; Alemannic
   case "gsw":
@@ -15914,6 +15958,10 @@ func (c *LanguageCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
   // ONIX local code, distinct dialect of Catalan (not distinguished from cat by ISO 639-3)
   case "qav":
 		c.Body = `Valencian`
+
+  // ONIX local code, distinct variant of langue d’oïl (old northern French) (not distinguished from fro, or from frm, fre, nrf by ISO 639-3). For use in ONIX 3.0 only
+  case "qgl":
+		c.Body = `Gallo`
 
   // ONIX local code, distinct dialect of of Rusyn (not distinguished from rue by ISO 639-3). For use in ONIX 3.0 only
   case "qlk":
@@ -17220,6 +17268,10 @@ func (c *NameIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for NameIDType has been passed, got [%s]", v)
 	}
@@ -18490,6 +18542,10 @@ func (c *PrimaryContentType) UnmarshalXML(d *xml.Decoder, start xml.StartElement
   // E-publication contains microprograms written (eg) in Javascript and executed within the reading system. For use in ONIX 3.0 only
   case "40":
 		c.Body = `Scripting`
+
+  // E-publication contains pop-ups or other functionality offering (eg) term definitions, cross-links or glossary entries [Note this should not include (eg) dictionary funcionality that is part of the reading system.] For use in ONIX 3.0 only
+  case "43":
+		c.Body = `Scripted pop-ups`
 	default:
 		return fmt.Errorf("undefined code for PrimaryContentType has been passed, got [%s]", v)
 	}
@@ -21261,7 +21317,7 @@ func (c *ProductClassificationType) UnmarshalXML(d *xml.Decoder, start xml.Start
   case "02":
 		c.Body = `UNSPSC`
 
-  // UK Revenue and Customs classifications, based on the Harmonized System
+  // UK Revenue and Customs classifications, based on the Harmonized System (8 or 10 digits, without punctuation, for export and import respectively)
   case "03":
 		c.Body = `HMRC`
 
@@ -21300,6 +21356,14 @@ func (c *ProductClassificationType) UnmarshalXML(d *xml.Decoder, start xml.Start
   // Polish Classification of Products and Services (2015). Use a single letter followed by 2 to 7 digits, without punctuation. For use in ONIX 3.0 only
   case "12":
 		c.Body = `PKWiU`
+
+  // US HTS (or HTSA) commodity codes for import of goods into USA (10 digits, without punctuation). For use in ONIX 3.0 only. See https://hts.usitc.gov/current
+  case "13":
+		c.Body = `HTSUS`
+
+  // US Schedule B commodity codes for export from USA (10 digits, without punctuation). For use in ONIX 3.0 only. See http://uscensus.prod.3ceonline.com
+  case "14":
+		c.Body = `US Schedule B`
 
   // Typologie de marché géré par Electre (Market segment code maintained by Electre)
   case "50":
@@ -21520,6 +21584,10 @@ func (c *ProductContactIDType) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for ProductContactIDType has been passed, got [%s]", v)
 	}
@@ -21784,6 +21852,10 @@ func (c *ProductContentType) UnmarshalXML(d *xml.Decoder, start xml.StartElement
   // E-publication contains microprograms written (eg) in Javascript and executed within the reading system. For use in ONIX 3.0 only
   case "40":
 		c.Body = `Scripting`
+
+  // E-publication contains pop-ups or other functionality offering (eg) term definitions, cross-links or glossary entries [Note this should not include (eg) dictionary funcionality that is part of the reading system.] For use in ONIX 3.0 only
+  case "43":
+		c.Body = `Scripted pop-ups`
 	default:
 		return fmt.Errorf("undefined code for ProductContentType has been passed, got [%s]", v)
 	}
@@ -23137,7 +23209,7 @@ func (c *ProductFormDetail) UnmarshalXML(d *xml.Decoder, start xml.StartElement)
   case "D311":
 		c.Body = `Sony PlayStation 2`
 
-  // Use with Product Form code DE or DB as applicable
+  // Use with Product Form code DE as applicable
   case "D312":
 		c.Body = `Nintendo Dual Screen`
 
@@ -23149,7 +23221,7 @@ func (c *ProductFormDetail) UnmarshalXML(d *xml.Decoder, start xml.StartElement)
   case "D314":
 		c.Body = `Microsoft Xbox 360`
 
-  // Use with Product Form code DE or DB as applicable
+  // Use with Product Form code DA or E* as applicable
   case "D315":
 		c.Body = `Nintendo Wii`
 
@@ -24404,6 +24476,10 @@ func (c *PublisherIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for PublisherIDType has been passed, got [%s]", v)
 	}
@@ -24996,6 +25072,10 @@ func (c *RecordSourceIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for RecordSourceIDType has been passed, got [%s]", v)
 	}
@@ -26938,6 +27018,22 @@ func (c *ResourceFeatureType) UnmarshalXML(d *xml.Decoder, start xml.StartElemen
   // Use to link resource to a contributor unambiguously, for example with Resource Content types 04, 11–14 from List 158, particularly where the product has more than a single contributor. <FeatureValue> contains the proprietary ID, which must match a proprietary ID given in an instance of <Contributor>
   case "06":
 		c.Body = `Proprietary ID of resource contributor`
+
+  // <FeatureNote> is Alternative text for the resource, which might be presented to visually-impaired readers
+  case "07":
+		c.Body = `Resource alternative text`
+
+  // <FeatureValue> is a 24-bit RGB or 32-bit RBGA color in hexadecimal, eg fff2de for an opaque warm cream. Used when the resource – for example a 3D image of the product – includes a background, or if used with an alpha channel, when the image is irregularly shaped or contains a semi-transparent shadow thrown against a background
+  case "08":
+		c.Body = `Background color of image resource`
+
+  // <FeatureValue> is an ONIX code from List 256 that describes an attribute of a product image resource (eg perspective, content)
+  case "09":
+		c.Body = `Attribute of product image resource`
+
+  // <FeatureValue> is a 24-bit RGB color in hexadecimal, eg ffc300 for a rich yellow-orange, used when the resource supplier requests a specific background color be displayed behind the resource on a web page
+  case "10":
+		c.Body = `Background color of page`
 	default:
 		return fmt.Errorf("undefined code for ResourceFeatureType has been passed, got [%s]", v)
 	}
@@ -27305,7 +27401,7 @@ func (c *SalesRestrictionType) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 
   // Not eligible for POD. Only valid in ONIX 3.0
   case "19":
-		c.Body = `Except though POD`
+		c.Body = `Except through POD`
 
   // Positive indication that no sales restrictions apply, for example to indicate the product may be sold both online and in bricks-and mortar retail, or to subscription services and non-subscription customers. For use in ONIX 3.0 only
   case "99":
@@ -28324,6 +28420,10 @@ func (c *SenderIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for SenderIDType has been passed, got [%s]", v)
 	}
@@ -29010,6 +29110,14 @@ func (c *SubjectSchemeIdentifier) UnmarshalXML(d *xml.Decoder, start xml.StartEl
   // Next Generation Science Standards for K-12 education in the USA (https://www.nextgenscience.org). <SubjectCode> is a code such as 4-PS3-2. For use in ONIX 3.0 only
   case "B7":
 		c.Body = `NGSS`
+
+  // MVB classification of ‘reading rationales’, which classify unconscious motives that lead to a book purchase. Categories are assigned and maintained by MVB. For use in ONIX 3.0 only. See https://vlb.de/lesemotive
+  case "B8":
+		c.Body = `MVB-Lesemotive`
+
+  // Finnish Suomalainen oppiaineluokitus
+  case "B9":
+		c.Body = `LOPS21 Subject module`
 	default:
 		return fmt.Errorf("undefined code for SubjectSchemeIdentifier has been passed, got [%s]", v)
 	}
@@ -29390,6 +29498,10 @@ func (c *SupplyContactIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElemen
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for SupplyContactIDType has been passed, got [%s]", v)
 	}
@@ -30769,6 +30881,10 @@ func (c *ToLanguage) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
   case "grn":
 		c.Body = `Guarani`
 
+  // ONIX local code, equivalent to grt in ISO 639-3
+  case "grt":
+		c.Body = `Garo`
+
   // Swiss German; Alemannic
   case "gsw":
 		c.Body = `Swiss German; Alemannic`
@@ -31564,6 +31680,10 @@ func (c *ToLanguage) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
   // ONIX local code, distinct dialect of Catalan (not distinguished from cat by ISO 639-3)
   case "qav":
 		c.Body = `Valencian`
+
+  // ONIX local code, distinct variant of langue d’oïl (old northern French) (not distinguished from fro, or from frm, fre, nrf by ISO 639-3). For use in ONIX 3.0 only
+  case "qgl":
+		c.Body = `Gallo`
 
   // ONIX local code, distinct dialect of of Rusyn (not distinguished from rue by ISO 639-3). For use in ONIX 3.0 only
   case "qlk":
@@ -32370,6 +32490,10 @@ func (c *UnpricedItemType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
   // Unpriced, but available via a pre-determined revenue share agreement
   case "06":
 		c.Body = `Revenue share`
+
+  // Price calculated as sum of individual prices of components listed as Product parts. For use in ONIX 3.0 only
+  case "07":
+		c.Body = `Calculated from contents`
 	default:
 		return fmt.Errorf("undefined code for UnpricedItemType has been passed, got [%s]", v)
 	}
@@ -32638,6 +32762,14 @@ func (c *WebsiteRole) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error
   // For example, a page providing details related to GDPR. For use in ONIX 3.0 only
   case "46":
 		c.Body = `Publisher’s or third party website for privacy statement`
+
+  // The URL of the publisher’s preservation service, or a more specific URL for access to its preserved copy. For use in ONIX 3.0 only
+  case "47":
+		c.Body = `Publisher’s website for digital preservation`
+
+  // The URL of the preservation service (eg https://clockss.org), or a more specific URL for access to its preserved copy. For use in ONIX 3.0 only
+  case "48":
+		c.Body = `Third-party website for digital preservation`
 	default:
 		return fmt.Errorf("undefined code for WebsiteRole has been passed, got [%s]", v)
 	}
@@ -33682,6 +33814,10 @@ func (c *LanguageList74) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
   case "grn":
 		*c = `Guarani`
 
+  // ONIX local code, equivalent to grt in ISO 639-3
+  case "grt":
+		*c = `Garo`
+
   // Swiss German; Alemannic
   case "gsw":
 		*c = `Swiss German; Alemannic`
@@ -34477,6 +34613,10 @@ func (c *LanguageList74) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
   // ONIX local code, distinct dialect of Catalan (not distinguished from cat by ISO 639-3)
   case "qav":
 		*c = `Valencian`
+
+  // ONIX local code, distinct variant of langue d’oïl (old northern French) (not distinguished from fro, or from frm, fre, nrf by ISO 639-3). For use in ONIX 3.0 only
+  case "qgl":
+		*c = `Gallo`
 
   // ONIX local code, distinct dialect of of Rusyn (not distinguished from rue by ISO 639-3). For use in ONIX 3.0 only
   case "qlk":

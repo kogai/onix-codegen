@@ -1,5 +1,5 @@
 exports_files(
     [] + glob([
-        "ONIX_BookProduct_XSD_schema+codes_Issue_51/*.xsd",
+        "ONIX_BookProduct_XSD_schema+codes_Issue_52/*.xsd",
     ]),
 )

@@ -20,10 +20,10 @@ filegroup(
 filegroup(
     name = "onix3p0p7",
     srcs = [
-        "@org_editeur_v3//:ONIX_BookProduct_XSD_schema+codes_Issue_51/ONIX_BookProduct_3.0_reference.xsd",
-        "@org_editeur_v3//:ONIX_BookProduct_XSD_schema+codes_Issue_51/ONIX_BookProduct_3.0_short.xsd",
-        "@org_editeur_v3//:ONIX_BookProduct_XSD_schema+codes_Issue_51/ONIX_BookProduct_CodeLists.xsd",
-        "@org_editeur_v3//:ONIX_BookProduct_XSD_schema+codes_Issue_51/ONIX_XHTML_Subset.xsd",
+        "@org_editeur_v3//:ONIX_BookProduct_XSD_schema+codes_Issue_52/ONIX_BookProduct_3.0_reference.xsd",
+        "@org_editeur_v3//:ONIX_BookProduct_XSD_schema+codes_Issue_52/ONIX_BookProduct_3.0_short.xsd",
+        "@org_editeur_v3//:ONIX_BookProduct_XSD_schema+codes_Issue_52/ONIX_BookProduct_CodeLists.xsd",
+        "@org_editeur_v3//:ONIX_BookProduct_XSD_schema+codes_Issue_52/ONIX_XHTML_Subset.xsd",
     ],
 )
 
