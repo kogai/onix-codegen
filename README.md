@@ -10,13 +10,11 @@ which aimed to
 
 ## Current Status
 
-| Target Language        | Schema Version | Status                   |
-| ---------------------- | -------------- | ------------------------ |
-| Go                     | 2              | OK                       |
-| Go                     | 3              | OK                       |
-| TypeScript             | 2              | Not yet                  |
-| TypeScript             | 3              | Not yet                  |
-| Your favorite language | God only knows | Not yet but might be can |
+| Target Language        | Schema Version 2 with Codes Issue36 | Schema Version 3 with Codes Issue52 |
+| ---------------------- | ----------------------------------- | ----------------------------------- |
+| Go                     | OK                                  | OK                                  |
+| TypeScript             | Not yet                             | Not yet                             |
+| Your favorite language | Not yet but might be you can        | Not yet but might be you can        |
 
 ## Prior Art
 
