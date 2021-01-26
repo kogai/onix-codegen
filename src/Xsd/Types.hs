@@ -122,6 +122,7 @@ data SimpleType
 data ComplexType = ComplexType
   { complexAnnotations :: [Annotation],
     complexContent :: Content,
+    complexName :: Maybe QName,
     complexMixed :: Bool
   }
   deriving (Show, Eq)

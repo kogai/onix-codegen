@@ -57,6 +57,7 @@ expected4 =
   TypeComplex
     ( ComplexType
         { complexAnnotations = [],
+          complexName = Just $ makeTargetQName "nameForTest",
           complexContent =
             ContentSimple
               ( SimpleContentExtension

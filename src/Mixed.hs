@@ -3,10 +3,10 @@
 {-# LANGUAGE NamedFieldPuns #-}
 {-# LANGUAGE OverloadedStrings #-}
 
-module Mixed (Mixed (..), topLevelMixed) where
+module Mixed (Mixed (..), topLevelMixed, collectElements, collectTypes, typeToMixed) where
 
 import qualified Data.Map as M
-import Data.Maybe (mapMaybe)
+import Data.Maybe (fromMaybe, mapMaybe)
 import Data.Text (Text)
 import qualified Model as Md
 import Text.Mustache (ToMustache (..), object, (~>))
@@ -43,6 +43,23 @@ topLevelMixed _xsd elm =
         (Just xmlReferenceName_, Just shortname_, True) -> Just $ Mixed xmlReferenceName_ shortname_
         _ -> Nothing
 
+typeToMixed :: X.Schema -> X.Type -> Mixed
+typeToMixed _scm (X.TypeComplex X.ComplexType {X.complexName}) =
+  Mixed {xmlReferenceName = maybe "" X.qnName complexName, shortname = ""}
+typeToMixed _scm t =
+  unimplemented [show t]
+
+collectTypes :: X.Schema -> [X.Type]
+collectTypes =
+  map snd
+    . M.toList
+    . M.filter
+      ( \case
+          X.TypeComplex X.ComplexType {X.complexMixed = True} -> True
+          _ -> False
+      )
+    . X.schemaTypes
+
 collectElements :: X.Schema -> [X.ElementInline]
 collectElements =
   map snd
@@ -57,7 +74,8 @@ collectElements =
     . X.schemaElements
 
 instance GenSchema [Mixed] where
-  readSchema xsd =
-    mapMaybe (topLevelMixed xsd)
-      . collectElements
-      $ xsd
+  readSchema scm =
+    fromElements ++ fromTypes
+    where
+      fromElements = mapMaybe (topLevelMixed scm) . collectElements $ scm
+      fromTypes = map (typeToMixed scm) . collectTypes $ scm

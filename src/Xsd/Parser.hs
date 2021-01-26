@@ -250,11 +250,16 @@ parseComplexType c = do
   annotations <- parseAnnotations c
   cont <- parseContent c
   mixed <- parseMixed c
-
+  complexName <-
+    ( case anAttribute "name" c of
+        Just n -> Just <$> makeTargetQName n
+        Nothing -> return Nothing
+      )
   return
     Xsd.ComplexType
       { Xsd.complexAnnotations = annotations,
         Xsd.complexContent = cont,
+        Xsd.complexName = complexName,
         Xsd.complexMixed = mixed
       }
 
