@@ -7,6 +7,618 @@ import (
 )
 
 
+// Character 
+type Character string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Character) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for Character has been passed, got [%s]", v)
+	}
+}
+
+// Charset 
+type Charset string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Charset) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for Charset has been passed, got [%s]", v)
+	}
+}
+
+// Coords 
+type Coords string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Coords) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for Coords has been passed, got [%s]", v)
+	}
+}
+
+// DtDotCountryCodeList 
+type DtDotCountryCodeList string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotCountryCodeList) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotCountryCodeList has been passed, got [%s]", v)
+	}
+}
+
+// DtDotDecimal Datatype for any real number
+type DtDotDecimal string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotDecimal) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotDecimal has been passed, got [%s]", v)
+	}
+}
+
+// DtDotEmailString Datatype for plausible e-mail address
+type DtDotEmailString string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotEmailString) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotEmailString has been passed, got [%s]", v)
+	}
+}
+
+// DtDotInteger Datatype for any integer
+type DtDotInteger string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotInteger) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotInteger has been passed, got [%s]", v)
+	}
+}
+
+// DtDotMultiLevelNumber Datatype for string of dot-separated numbers, eg 3.12.8
+type DtDotMultiLevelNumber string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotMultiLevelNumber) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotMultiLevelNumber has been passed, got [%s]", v)
+	}
+}
+
+// DtDotMultiLevelNumberOrHyphen Datatype for string of dot-separated numbers where hyphen can replace a number, eg 3.-.8
+type DtDotMultiLevelNumberOrHyphen string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotMultiLevelNumberOrHyphen) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotMultiLevelNumberOrHyphen has been passed, got [%s]", v)
+	}
+}
+
+// DtDotNonEmptyString Datatype for non-empty string without leading or trailing white space
+type DtDotNonEmptyString string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotNonEmptyString) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotNonEmptyString has been passed, got [%s]", v)
+	}
+}
+
+// DtDotNonEmptyURI Datatype for URI without leading or trailing white space
+type DtDotNonEmptyURI string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotNonEmptyURI) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotNonEmptyURI has been passed, got [%s]", v)
+	}
+}
+
+// DtDotPercentDecimal Datatype for real number 0–100
+type DtDotPercentDecimal string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotPercentDecimal) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotPercentDecimal has been passed, got [%s]", v)
+	}
+}
+
+// DtDotPositiveDecimal Datatype for zero or any positive real number
+type DtDotPositiveDecimal string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotPositiveDecimal) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotPositiveDecimal has been passed, got [%s]", v)
+	}
+}
+
+// DtDotPositiveInteger Datatype for zero or any positive integer
+type DtDotPositiveInteger string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotPositiveInteger) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotPositiveInteger has been passed, got [%s]", v)
+	}
+}
+
+// DtDotRegionCodeList 
+type DtDotRegionCodeList string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotRegionCodeList) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotRegionCodeList has been passed, got [%s]", v)
+	}
+}
+
+// DtDotRomanNumeralString Datatype for Roman numerals (upper or lower case)
+type DtDotRomanNumeralString string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotRomanNumeralString) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotRomanNumeralString has been passed, got [%s]", v)
+	}
+}
+
+// DtDotStrictPositiveDecimal Datatype for any positive real number (not including zero)
+type DtDotStrictPositiveDecimal string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotStrictPositiveDecimal) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotStrictPositiveDecimal has been passed, got [%s]", v)
+	}
+}
+
+// DtDotStrictPositiveInteger Datatype for any positive integer (not including zero)
+type DtDotStrictPositiveInteger string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotStrictPositiveInteger) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotStrictPositiveInteger has been passed, got [%s]", v)
+	}
+}
+
+// DtDotTimeOrDuration 
+type DtDotTimeOrDuration string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotTimeOrDuration) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotTimeOrDuration has been passed, got [%s]", v)
+	}
+}
+
+// DtDotYear Datatype for year 1000 to 2999
+type DtDotYear string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotYear) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotYear has been passed, got [%s]", v)
+	}
+}
+
+// DtDotYearOrYearRange Datatype for year or range of years 1000-2099
+type DtDotYearOrYearRange string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *DtDotYearOrYearRange) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for DtDotYearOrYearRange has been passed, got [%s]", v)
+	}
+}
+
+// Length 
+type Length string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Length) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for Length has been passed, got [%s]", v)
+	}
+}
+
+// LinkTypes 
+type LinkTypes string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *LinkTypes) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for LinkTypes has been passed, got [%s]", v)
+	}
+}
+
+// MultiLength 
+type MultiLength string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *MultiLength) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for MultiLength has been passed, got [%s]", v)
+	}
+}
+
+// Pixels 
+type Pixels string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Pixels) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for Pixels has been passed, got [%s]", v)
+	}
+}
+
+// Scope 
+type Scope string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Scope) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+
+  // 
+  case "row":
+		*c = ``
+
+  // 
+  case "col":
+		*c = ``
+
+  // 
+  case "rowgroup":
+		*c = ``
+
+  // 
+  case "colgroup":
+		*c = ``
+	default:
+		return fmt.Errorf("undefined code for Scope has been passed, got [%s]", v)
+	}
+	return nil
+}
+
+// Script 
+type Script string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Script) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for Script has been passed, got [%s]", v)
+	}
+}
+
+// Shape 
+type Shape string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *Shape) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+
+  // 
+  case "rect":
+		*c = ``
+
+  // 
+  case "circle":
+		*c = ``
+
+  // 
+  case "poly":
+		*c = ``
+
+  // 
+  case "default":
+		*c = ``
+	default:
+		return fmt.Errorf("undefined code for Shape has been passed, got [%s]", v)
+	}
+	return nil
+}
+
+// SourceTypeCode 
+type SourceTypeCode string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *SourceTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for SourceTypeCode has been passed, got [%s]", v)
+	}
+}
+
+// StyleSheet 
+type StyleSheet string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *StyleSheet) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for StyleSheet has been passed, got [%s]", v)
+	}
+}
+
+// TFrame 
+type TFrame string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *TFrame) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+
+  // 
+  case "void":
+		*c = ``
+
+  // 
+  case "above":
+		*c = ``
+
+  // 
+  case "below":
+		*c = ``
+
+  // 
+  case "hsides":
+		*c = ``
+
+  // 
+  case "lhs":
+		*c = ``
+
+  // 
+  case "rhs":
+		*c = ``
+
+  // 
+  case "vsides":
+		*c = ``
+
+  // 
+  case "box":
+		*c = ``
+
+  // 
+  case "border":
+		*c = ``
+	default:
+		return fmt.Errorf("undefined code for TFrame has been passed, got [%s]", v)
+	}
+	return nil
+}
+
+// TRules 
+type TRules string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *TRules) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+
+  // 
+  case "none":
+		*c = ``
+
+  // 
+  case "groups":
+		*c = ``
+
+  // 
+  case "rows":
+		*c = ``
+
+  // 
+  case "cols":
+		*c = ``
+
+  // 
+  case "all":
+		*c = ``
+	default:
+		return fmt.Errorf("undefined code for TRules has been passed, got [%s]", v)
+	}
+	return nil
+}
+
+// TextCaseCode 
+type TextCaseCode string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *TextCaseCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for TextCaseCode has been passed, got [%s]", v)
+	}
+}
+
+// TextFormatCode 
+type TextFormatCode string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *TextFormatCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for TextFormatCode has been passed, got [%s]", v)
+	}
+}
+
+// URI 
+type URI string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *URI) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for URI has been passed, got [%s]", v)
+	}
+}
+
+// UriList 
+type UriList string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *UriList) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for UriList has been passed, got [%s]", v)
+	}
+}
+
+// XHTMLContentType 
+type XHTMLContentType string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *XHTMLContentType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for XHTMLContentType has been passed, got [%s]", v)
+	}
+}
+
+// XHTMLLanguageCode 
+type XHTMLLanguageCode string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *XHTMLLanguageCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for XHTMLLanguageCode has been passed, got [%s]", v)
+	}
+}
+
+// XHTMLNumber 
+type XHTMLNumber string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *XHTMLNumber) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for XHTMLNumber has been passed, got [%s]", v)
+	}
+}
+
+// XHTMLText 
+type XHTMLText string
+
+// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
+func (c *XHTMLText) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var v string
+	d.DecodeElement(&v, &start)
+	switch v {
+	default:
+		return fmt.Errorf("undefined code for XHTMLText has been passed, got [%s]", v)
+	}
+}
+
 // AVItemIDType AV Item Identifier type
 type AVItemIDType struct {
 	Body string `xml:",innerxml" json:",omitempty"`
@@ -267,6 +879,10 @@ func (c *AddresseeIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for AddresseeIDType has been passed, got [%s]", v)
 	}
@@ -2165,6 +2781,10 @@ func (c *ConferenceSponsorIDType) UnmarshalXML(d *xml.Decoder, start xml.StartEl
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for ConferenceSponsorIDType has been passed, got [%s]", v)
 	}
@@ -3061,6 +3681,10 @@ func (c *CopyrightOwnerIDType) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for CopyrightOwnerIDType has been passed, got [%s]", v)
 	}
@@ -8715,6 +9339,10 @@ func (c *DefaultLanguageOfText) UnmarshalXML(d *xml.Decoder, start xml.StartElem
   case "grn":
 		c.Body = `Guarani`
 
+  // ONIX local code, equivalent to grt in ISO 639-3
+  case "grt":
+		c.Body = `Garo`
+
   // Swiss German; Alemannic
   case "gsw":
 		c.Body = `Swiss German; Alemannic`
@@ -9510,6 +10138,10 @@ func (c *DefaultLanguageOfText) UnmarshalXML(d *xml.Decoder, start xml.StartElem
   // ONIX local code, distinct dialect of Catalan (not distinguished from cat by ISO 639-3)
   case "qav":
 		c.Body = `Valencian`
+
+  // ONIX local code, distinct variant of langue d’oïl (old northern French) (not distinguished from fro, or from frm, fre, nrf by ISO 639-3). For use in ONIX 3.0 only
+  case "qgl":
+		c.Body = `Gallo`
 
   // ONIX local code, distinct dialect of of Rusyn (not distinguished from rue by ISO 639-3). For use in ONIX 3.0 only
   case "qlk":
@@ -10703,6 +11335,10 @@ func (c *EpubUsageType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 	}
 	switch v {
 
+  // Allows positive indication that there are no particular constraints (that can be specifed in <EpubUsageConstraint>) – the default if <EpubUsageConstraint> is omitted
+  case "00":
+		c.Body = `No constraints`
+
   // Preview before purchase. Allows a retail customer, account holder or patron to view or listen to a proportion of the book before purchase. Also applies to borrowers making use of ‘acquisition on demand’ models in libraries, and to ‘subscription’ models where the purchase is made on behalf of the reader
   case "01":
 		c.Body = `Preview`
@@ -11154,6 +11790,10 @@ func (c *EventSponsorIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for EventSponsorIDType has been passed, got [%s]", v)
 	}
@@ -12133,6 +12773,10 @@ func (c *FromLanguage) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
   case "grn":
 		c.Body = `Guarani`
 
+  // ONIX local code, equivalent to grt in ISO 639-3
+  case "grt":
+		c.Body = `Garo`
+
   // Swiss German; Alemannic
   case "gsw":
 		c.Body = `Swiss German; Alemannic`
@@ -12928,6 +13572,10 @@ func (c *FromLanguage) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
   // ONIX local code, distinct dialect of Catalan (not distinguished from cat by ISO 639-3)
   case "qav":
 		c.Body = `Valencian`
+
+  // ONIX local code, distinct variant of langue d’oïl (old northern French) (not distinguished from fro, or from frm, fre, nrf by ISO 639-3). For use in ONIX 3.0 only
+  case "qgl":
+		c.Body = `Gallo`
 
   // ONIX local code, distinct dialect of of Rusyn (not distinguished from rue by ISO 639-3). For use in ONIX 3.0 only
   case "qlk":
@@ -13792,6 +14440,10 @@ func (c *ImprintIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for ImprintIDType has been passed, got [%s]", v)
 	}
@@ -14506,6 +15158,10 @@ func (c *LanguageCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
   // Macrolanguage
   case "grn":
 		c.Body = `Guarani`
+
+  // ONIX local code, equivalent to grt in ISO 639-3
+  case "grt":
+		c.Body = `Garo`
 
   // Swiss German; Alemannic
   case "gsw":
@@ -15302,6 +15958,10 @@ func (c *LanguageCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
   // ONIX local code, distinct dialect of Catalan (not distinguished from cat by ISO 639-3)
   case "qav":
 		c.Body = `Valencian`
+
+  // ONIX local code, distinct variant of langue d’oïl (old northern French) (not distinguished from fro, or from frm, fre, nrf by ISO 639-3). For use in ONIX 3.0 only
+  case "qgl":
+		c.Body = `Gallo`
 
   // ONIX local code, distinct dialect of of Rusyn (not distinguished from rue by ISO 639-3). For use in ONIX 3.0 only
   case "qlk":
@@ -16608,6 +17268,10 @@ func (c *NameIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for NameIDType has been passed, got [%s]", v)
 	}
@@ -17878,6 +18542,10 @@ func (c *PrimaryContentType) UnmarshalXML(d *xml.Decoder, start xml.StartElement
   // E-publication contains microprograms written (eg) in Javascript and executed within the reading system. For use in ONIX 3.0 only
   case "40":
 		c.Body = `Scripting`
+
+  // E-publication contains pop-ups or other functionality offering (eg) term definitions, cross-links or glossary entries [Note this should not include (eg) dictionary funcionality that is part of the reading system.] For use in ONIX 3.0 only
+  case "43":
+		c.Body = `Scripted pop-ups`
 	default:
 		return fmt.Errorf("undefined code for PrimaryContentType has been passed, got [%s]", v)
 	}
@@ -20649,7 +21317,7 @@ func (c *ProductClassificationType) UnmarshalXML(d *xml.Decoder, start xml.Start
   case "02":
 		c.Body = `UNSPSC`
 
-  // UK Revenue and Customs classifications, based on the Harmonized System
+  // UK Revenue and Customs classifications, based on the Harmonized System (8 or 10 digits, without punctuation, for export and import respectively)
   case "03":
 		c.Body = `HMRC`
 
@@ -20688,6 +21356,14 @@ func (c *ProductClassificationType) UnmarshalXML(d *xml.Decoder, start xml.Start
   // Polish Classification of Products and Services (2015). Use a single letter followed by 2 to 7 digits, without punctuation. For use in ONIX 3.0 only
   case "12":
 		c.Body = `PKWiU`
+
+  // US HTS (or HTSA) commodity codes for import of goods into USA (10 digits, without punctuation). For use in ONIX 3.0 only. See https://hts.usitc.gov/current
+  case "13":
+		c.Body = `HTSUS`
+
+  // US Schedule B commodity codes for export from USA (10 digits, without punctuation). For use in ONIX 3.0 only. See http://uscensus.prod.3ceonline.com
+  case "14":
+		c.Body = `US Schedule B`
 
   // Typologie de marché géré par Electre (Market segment code maintained by Electre)
   case "50":
@@ -20908,6 +21584,10 @@ func (c *ProductContactIDType) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for ProductContactIDType has been passed, got [%s]", v)
 	}
@@ -21172,6 +21852,10 @@ func (c *ProductContentType) UnmarshalXML(d *xml.Decoder, start xml.StartElement
   // E-publication contains microprograms written (eg) in Javascript and executed within the reading system. For use in ONIX 3.0 only
   case "40":
 		c.Body = `Scripting`
+
+  // E-publication contains pop-ups or other functionality offering (eg) term definitions, cross-links or glossary entries [Note this should not include (eg) dictionary funcionality that is part of the reading system.] For use in ONIX 3.0 only
+  case "43":
+		c.Body = `Scripted pop-ups`
 	default:
 		return fmt.Errorf("undefined code for ProductContentType has been passed, got [%s]", v)
 	}
@@ -22525,7 +23209,7 @@ func (c *ProductFormDetail) UnmarshalXML(d *xml.Decoder, start xml.StartElement)
   case "D311":
 		c.Body = `Sony PlayStation 2`
 
-  // Use with Product Form code DE or DB as applicable
+  // Use with Product Form code DE as applicable
   case "D312":
 		c.Body = `Nintendo Dual Screen`
 
@@ -22537,7 +23221,7 @@ func (c *ProductFormDetail) UnmarshalXML(d *xml.Decoder, start xml.StartElement)
   case "D314":
 		c.Body = `Microsoft Xbox 360`
 
-  // Use with Product Form code DE or DB as applicable
+  // Use with Product Form code DA or E* as applicable
   case "D315":
 		c.Body = `Nintendo Wii`
 
@@ -23792,6 +24476,10 @@ func (c *PublisherIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) e
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for PublisherIDType has been passed, got [%s]", v)
 	}
@@ -24384,6 +25072,10 @@ func (c *RecordSourceIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for RecordSourceIDType has been passed, got [%s]", v)
 	}
@@ -26326,6 +27018,22 @@ func (c *ResourceFeatureType) UnmarshalXML(d *xml.Decoder, start xml.StartElemen
   // Use to link resource to a contributor unambiguously, for example with Resource Content types 04, 11–14 from List 158, particularly where the product has more than a single contributor. <FeatureValue> contains the proprietary ID, which must match a proprietary ID given in an instance of <Contributor>
   case "06":
 		c.Body = `Proprietary ID of resource contributor`
+
+  // <FeatureNote> is Alternative text for the resource, which might be presented to visually-impaired readers
+  case "07":
+		c.Body = `Resource alternative text`
+
+  // <FeatureValue> is a 24-bit RGB or 32-bit RBGA color in hexadecimal, eg fff2de for an opaque warm cream. Used when the resource – for example a 3D image of the product – includes a background, or if used with an alpha channel, when the image is irregularly shaped or contains a semi-transparent shadow thrown against a background
+  case "08":
+		c.Body = `Background color of image resource`
+
+  // <FeatureValue> is an ONIX code from List 256 that describes an attribute of a product image resource (eg perspective, content)
+  case "09":
+		c.Body = `Attribute of product image resource`
+
+  // <FeatureValue> is a 24-bit RGB color in hexadecimal, eg ffc300 for a rich yellow-orange, used when the resource supplier requests a specific background color be displayed behind the resource on a web page
+  case "10":
+		c.Body = `Background color of page`
 	default:
 		return fmt.Errorf("undefined code for ResourceFeatureType has been passed, got [%s]", v)
 	}
@@ -26693,7 +27401,7 @@ func (c *SalesRestrictionType) UnmarshalXML(d *xml.Decoder, start xml.StartEleme
 
   // Not eligible for POD. Only valid in ONIX 3.0
   case "19":
-		c.Body = `Except though POD`
+		c.Body = `Except through POD`
 
   // Positive indication that no sales restrictions apply, for example to indicate the product may be sold both online and in bricks-and mortar retail, or to subscription services and non-subscription customers. For use in ONIX 3.0 only
   case "99":
@@ -27712,6 +28420,10 @@ func (c *SenderIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for SenderIDType has been passed, got [%s]", v)
 	}
@@ -28398,6 +29110,14 @@ func (c *SubjectSchemeIdentifier) UnmarshalXML(d *xml.Decoder, start xml.StartEl
   // Next Generation Science Standards for K-12 education in the USA (https://www.nextgenscience.org). <SubjectCode> is a code such as 4-PS3-2. For use in ONIX 3.0 only
   case "B7":
 		c.Body = `NGSS`
+
+  // MVB classification of ‘reading rationales’, which classify unconscious motives that lead to a book purchase. Categories are assigned and maintained by MVB. For use in ONIX 3.0 only. See https://vlb.de/lesemotive
+  case "B8":
+		c.Body = `MVB-Lesemotive`
+
+  // Finnish Suomalainen oppiaineluokitus
+  case "B9":
+		c.Body = `LOPS21 Subject module`
 	default:
 		return fmt.Errorf("undefined code for SubjectSchemeIdentifier has been passed, got [%s]", v)
 	}
@@ -28778,6 +29498,10 @@ func (c *SupplyContactIDType) UnmarshalXML(d *xml.Decoder, start xml.StartElemen
   // Global Research Identifier Database ID (see https://www.grid.ac). For use in ONIX 3.0 only
   case "37":
 		c.Body = `GRID`
+
+  // Party ID from Identifiers and Standards for Higher Education and Research (fr: Identifiants et Référentiels pour l’enseignement supérieur et la recherche). For use on ONIX 3.0 only. See https://www.idref.fr
+  case "38":
+		c.Body = `IDRef`
 	default:
 		return fmt.Errorf("undefined code for SupplyContactIDType has been passed, got [%s]", v)
 	}
@@ -30157,6 +30881,10 @@ func (c *ToLanguage) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
   case "grn":
 		c.Body = `Guarani`
 
+  // ONIX local code, equivalent to grt in ISO 639-3
+  case "grt":
+		c.Body = `Garo`
+
   // Swiss German; Alemannic
   case "gsw":
 		c.Body = `Swiss German; Alemannic`
@@ -30952,6 +31680,10 @@ func (c *ToLanguage) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
   // ONIX local code, distinct dialect of Catalan (not distinguished from cat by ISO 639-3)
   case "qav":
 		c.Body = `Valencian`
+
+  // ONIX local code, distinct variant of langue d’oïl (old northern French) (not distinguished from fro, or from frm, fre, nrf by ISO 639-3). For use in ONIX 3.0 only
+  case "qgl":
+		c.Body = `Gallo`
 
   // ONIX local code, distinct dialect of of Rusyn (not distinguished from rue by ISO 639-3). For use in ONIX 3.0 only
   case "qlk":
@@ -31758,6 +32490,10 @@ func (c *UnpricedItemType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) 
   // Unpriced, but available via a pre-determined revenue share agreement
   case "06":
 		c.Body = `Revenue share`
+
+  // Price calculated as sum of individual prices of components listed as Product parts. For use in ONIX 3.0 only
+  case "07":
+		c.Body = `Calculated from contents`
 	default:
 		return fmt.Errorf("undefined code for UnpricedItemType has been passed, got [%s]", v)
 	}
@@ -32026,6 +32762,14 @@ func (c *WebsiteRole) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error
   // For example, a page providing details related to GDPR. For use in ONIX 3.0 only
   case "46":
 		c.Body = `Publisher’s or third party website for privacy statement`
+
+  // The URL of the publisher’s preservation service, or a more specific URL for access to its preserved copy. For use in ONIX 3.0 only
+  case "47":
+		c.Body = `Publisher’s website for digital preservation`
+
+  // The URL of the preservation service (eg https://clockss.org), or a more specific URL for access to its preserved copy. For use in ONIX 3.0 only
+  case "48":
+		c.Body = `Third-party website for digital preservation`
 	default:
 		return fmt.Errorf("undefined code for WebsiteRole has been passed, got [%s]", v)
 	}
@@ -32195,32 +32939,6 @@ func (c *Axis) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	}
 }
 
-// Character has not document
-type Character string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *Character) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for Character has been passed, got [%s]", v)
-	}
-}
-
-// Charset has not document
-type Charset string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *Charset) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for Charset has been passed, got [%s]", v)
-	}
-}
-
 // Class has not document
 type Class string
 
@@ -32231,19 +32949,6 @@ func (c *Class) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	switch v {
 	default:
 		return fmt.Errorf("undefined code for Class has been passed, got [%s]", v)
-	}
-}
-
-// Coords has not document
-type Coords string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *Coords) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for Coords has been passed, got [%s]", v)
 	}
 }
 
@@ -32369,19 +33074,6 @@ func (c *DtDotDateOrDateTime) UnmarshalXML(d *xml.Decoder, start xml.StartElemen
 	switch v {
 	default:
 		return fmt.Errorf("undefined code for DtDotDateOrDateTime has been passed, got [%s]", v)
-	}
-}
-
-// DtDotNonEmptyString has not document
-type DtDotNonEmptyString string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *DtDotNonEmptyString) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for DtDotNonEmptyString has been passed, got [%s]", v)
 	}
 }
 
@@ -33121,6 +33813,10 @@ func (c *LanguageList74) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
   // Macrolanguage
   case "grn":
 		*c = `Guarani`
+
+  // ONIX local code, equivalent to grt in ISO 639-3
+  case "grt":
+		*c = `Garo`
 
   // Swiss German; Alemannic
   case "gsw":
@@ -33918,6 +34614,10 @@ func (c *LanguageList74) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
   case "qav":
 		*c = `Valencian`
 
+  // ONIX local code, distinct variant of langue d’oïl (old northern French) (not distinguished from fro, or from frm, fre, nrf by ISO 639-3). For use in ONIX 3.0 only
+  case "qgl":
+		*c = `Gallo`
+
   // ONIX local code, distinct dialect of of Rusyn (not distinguished from rue by ISO 639-3). For use in ONIX 3.0 only
   case "qlk":
 		*c = `Lemko`
@@ -34511,45 +35211,6 @@ func (c *LanguageList74) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 	return nil
 }
 
-// Length has not document
-type Length string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *Length) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for Length has been passed, got [%s]", v)
-	}
-}
-
-// LinkTypes has not document
-type LinkTypes string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *LinkTypes) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for LinkTypes has been passed, got [%s]", v)
-	}
-}
-
-// MultiLength has not document
-type MultiLength string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *MultiLength) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for MultiLength has been passed, got [%s]", v)
-	}
-}
-
 // NMTOKEN has not document
 type NMTOKEN string
 
@@ -34581,19 +35242,6 @@ func (c *Nohref) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	return nil
 }
 
-// Pixels has not document
-type Pixels string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *Pixels) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for Pixels has been passed, got [%s]", v)
-	}
-}
-
 // Release has not document
 type Release string
 
@@ -34604,215 +35252,6 @@ func (c *Release) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	switch v {
 	default:
 		return fmt.Errorf("undefined code for Release has been passed, got [%s]", v)
-	}
-}
-
-// Scope has not document
-type Scope string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *Scope) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-
-  // 
-  case "row":
-		*c = ``
-
-  // 
-  case "col":
-		*c = ``
-
-  // 
-  case "rowgroup":
-		*c = ``
-
-  // 
-  case "colgroup":
-		*c = ``
-	default:
-		return fmt.Errorf("undefined code for Scope has been passed, got [%s]", v)
-	}
-	return nil
-}
-
-// Script has not document
-type Script string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *Script) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for Script has been passed, got [%s]", v)
-	}
-}
-
-// Shape has not document
-type Shape string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *Shape) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-
-  // 
-  case "rect":
-		*c = ``
-
-  // 
-  case "circle":
-		*c = ``
-
-  // 
-  case "poly":
-		*c = ``
-
-  // 
-  case "default":
-		*c = ``
-	default:
-		return fmt.Errorf("undefined code for Shape has been passed, got [%s]", v)
-	}
-	return nil
-}
-
-// SourceTypeCode has not document
-type SourceTypeCode string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *SourceTypeCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for SourceTypeCode has been passed, got [%s]", v)
-	}
-}
-
-// StyleSheet has not document
-type StyleSheet string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *StyleSheet) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for StyleSheet has been passed, got [%s]", v)
-	}
-}
-
-// TFrame has not document
-type TFrame string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *TFrame) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-
-  // 
-  case "void":
-		*c = ``
-
-  // 
-  case "above":
-		*c = ``
-
-  // 
-  case "below":
-		*c = ``
-
-  // 
-  case "hsides":
-		*c = ``
-
-  // 
-  case "lhs":
-		*c = ``
-
-  // 
-  case "rhs":
-		*c = ``
-
-  // 
-  case "vsides":
-		*c = ``
-
-  // 
-  case "box":
-		*c = ``
-
-  // 
-  case "border":
-		*c = ``
-	default:
-		return fmt.Errorf("undefined code for TFrame has been passed, got [%s]", v)
-	}
-	return nil
-}
-
-// TRules has not document
-type TRules string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *TRules) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-
-  // 
-  case "none":
-		*c = ``
-
-  // 
-  case "groups":
-		*c = ``
-
-  // 
-  case "rows":
-		*c = ``
-
-  // 
-  case "cols":
-		*c = ``
-
-  // 
-  case "all":
-		*c = ``
-	default:
-		return fmt.Errorf("undefined code for TRules has been passed, got [%s]", v)
-	}
-	return nil
-}
-
-// TextCaseCode has not document
-type TextCaseCode string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *TextCaseCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for TextCaseCode has been passed, got [%s]", v)
-	}
-}
-
-// TextFormatCode has not document
-type TextFormatCode string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *TextFormatCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for TextFormatCode has been passed, got [%s]", v)
 	}
 }
 
@@ -35620,19 +36059,6 @@ func (c *Type) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	return nil
 }
 
-// URI has not document
-type URI string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *URI) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for URI has been passed, got [%s]", v)
-	}
-}
-
 // Valign has not document
 type Valign string
 
@@ -35661,58 +36087,6 @@ func (c *Valign) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 		return fmt.Errorf("undefined code for Valign has been passed, got [%s]", v)
 	}
 	return nil
-}
-
-// XHTMLContentType has not document
-type XHTMLContentType string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *XHTMLContentType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for XHTMLContentType has been passed, got [%s]", v)
-	}
-}
-
-// XHTMLLanguageCode has not document
-type XHTMLLanguageCode string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *XHTMLLanguageCode) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for XHTMLLanguageCode has been passed, got [%s]", v)
-	}
-}
-
-// XHTMLNumber has not document
-type XHTMLNumber string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *XHTMLNumber) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for XHTMLNumber has been passed, got [%s]", v)
-	}
-}
-
-// XHTMLText has not document
-type XHTMLText string
-
-// UnmarshalXML is unmarshaler from code to human readable description as of defined at codelists.
-func (c *XHTMLText) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	var v string
-	d.DecodeElement(&v, &start)
-	switch v {
-	default:
-		return fmt.Errorf("undefined code for XHTMLText has been passed, got [%s]", v)
-	}
 }
 
 // int has not document

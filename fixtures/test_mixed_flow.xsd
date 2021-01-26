@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://ns.editeur.org/onix/3.0/reference" elementFormDefault="qualified" targetNamespace="http://ns.editeur.org/onix/3.0/reference">
+  <xs:complexType name="Flow" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="block" />
+      <xs:element ref="inline" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="block" abstract="true" />
+  <xs:complexType name="Inline" mixed="true">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="inline" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="inline" abstract="true" />
+</xs:schema>

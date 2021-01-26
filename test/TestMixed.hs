@@ -25,5 +25,12 @@ tests =
           let actual = (topLevelMixed scm . unwrap . M.lookup key . schemaElements) scm
               expected = Just $ Mixed "Annotation" "d100"
           assertEqual "can parse mixed of html string" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_mixed_flow.xsd"
+          let actual = (map (typeToMixed scm) . collectTypes) scm
+              expected = [Mixed {xmlReferenceName = "Flow", shortname = ""}, Mixed {xmlReferenceName = "Inline", shortname = ""}]
+          assertEqual "can parse mixed of flow" expected actual
       )
   ]
