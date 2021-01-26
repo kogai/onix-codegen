@@ -6,7 +6,7 @@
 module Mixed (Mixed (..), topLevelMixed, collectElements, collectTypes, typeToMixed) where
 
 import qualified Data.Map as M
-import Data.Maybe (fromMaybe, mapMaybe)
+import Data.Maybe (mapMaybe)
 import Data.Text (Text)
 import qualified Model as Md
 import Text.Mustache (ToMustache (..), object, (~>))
@@ -45,7 +45,7 @@ topLevelMixed _xsd elm =
 
 typeToMixed :: X.Schema -> X.Type -> Mixed
 typeToMixed _scm (X.TypeComplex X.ComplexType {X.complexName}) =
-  Mixed {xmlReferenceName = maybe "" X.qnName complexName, shortname = ""}
+  Mixed {xmlReferenceName = sanitizeName $ maybe "" X.qnName complexName, shortname = ""}
 typeToMixed _scm t =
   unimplemented [show t]
 
