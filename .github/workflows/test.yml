@@ -5,7 +5,7 @@ jobs:
     name: Test haskell codes
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: haskell/actions/setup@v1
         id: haskell-setup
         with:
@@ -28,7 +28,7 @@ jobs:
     name: Test e2e
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.4
         with:
