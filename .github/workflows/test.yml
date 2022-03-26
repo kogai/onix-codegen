@@ -13,7 +13,7 @@ jobs:
           enable-stack: true
           stack-version: "2.5.1"
       - name: Restore caches
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: |
             ${{steps.haskell-setup.outputs.stack-path}}
@@ -34,7 +34,7 @@ jobs:
         with:
           node-version: 12.x
       - name: Restore caches
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: |
             ~/.npm
