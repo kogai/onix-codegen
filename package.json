@@ -10,10 +10,10 @@
   "devDependencies": {
     "@bazel/bazelisk": "1.7.3",
     "@types/node": "14.14.25",
-    "fast-xml-parser": "3.17.6"
+    "fast-xml-parser": "5.7.0"
   },
   "peerDependencies": {
-    "fast-xml-parser": "^3.17.6"
+    "fast-xml-parser": "^5.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
