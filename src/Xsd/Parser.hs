@@ -11,7 +11,7 @@ module Xsd.Parser
 where
 
 import Control.Monad
-import Control.Monad.Trans
+import Control.Monad.Trans.Class (lift)
 import Control.Monad.Trans.Except
 import Control.Monad.Trans.Reader
 import qualified Data.ByteString.Lazy as Lazy (ByteString)

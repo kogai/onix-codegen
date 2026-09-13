@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: d894bbda696a3e4398796a16a928bd9923bbeaae2b4a61ad371f193c8322fa0d
+-- hash: ccd13791926f8c74575d5f17648a17adbbe0740ce44707823a93b20ae5f7605c
 
 name:           onix
 version:        0.1.0.0
