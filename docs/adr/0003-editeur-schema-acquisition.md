@@ -162,6 +162,24 @@ common --distdir=third_party/distdir
   通過するには JS の実行とクッキーの保持が要る。ヘッダを 1 つ足して済む話ではない。
   そして何より、配布元が自動アクセスを制限するために置いた仕組みを迂回する行為である。
   **採らない。**
+- **v2 だけは git 履歴から復元する**: 見落としていたが、**このリポジトリの履歴に
+  ONIX 2.1 rev03 のスキーマ一式が残っている**。2021-01-19 のコミット 9352123 が
+  `2_1_rev03_schema/` を削除した際の親コミットから、ネットワークなしで取り出せる。
+
+  ```sh
+  mkdir -p schema/v2
+  for f in ONIX_BookProduct_CodeLists.xsd ONIX_BookProduct_Release2.1_reference.xsd \
+           ONIX_BookProduct_Release2.1_short.xsd ONIX_XHTML_Subset.xsd \
+           ONIX_XHTML_Subset_reference.xsd ONIX_XHTML_Subset_short.xsd ; do
+    git show 9352123^:2_1_rev03_schema/$f > schema/v2/$f
+  done
+  ```
+
+  これで v2 のコード生成は editeur.org なしで動く。**再配布という観点でも他の選択肢と
+  質的に違う**: これらのファイルは 2021 年から現在まで、このリポジトリの公開履歴に
+  存在し続けている。復元は新たな公開ではなく、既に起きている公開の追認である。
+  ただしメンテナが意図的に削除した経緯があるため、戻すかどうかは判断が要る。
+  そして**これは 2.1 のみで、3.0 / 3.1 は履歴にも無い**。
 - **`--override_repository` を使う**: `--override_repository=org_editeur_v3=/path/to/dir` で、
   取得済みのディレクトリを外部リポジトリの代わりに使える (3.7.0 にある)。`--distdir` の変種ではなく、
   **sha256 の検証を経由しない**点が本質的に違う。この ADR の出発点は「sha256 が計算できない」ことなので、
@@ -171,6 +189,19 @@ common --distdir=third_party/distdir
   取得物の同一性検証を捨てることになる。さらに Bazel の distdir 探索は sha256 が
   与えられている場合にしか走らないので、`sha256` を捨てるとこの ADR が推奨する
   `--distdir` 自体が効かなくなる。**採らない。**
+
+## ライセンス条項の一次情報について
+
+上記の履歴から、EDItEUR の配布物そのもの (`readme.txt` / `readme2.txt` および各 XSD の
+ヘッダ) を確認した。記載されているのは著作権表示のみで、**許諾条項は含まれていない**。
+
+```
+COPYRIGHT (c) EDItEUR 2005–2013
+(c) 2004-2006 EDItEUR / http://www.editeur.org/
+```
+
+つまり許諾の本文は editeur.org 上にしか存在せず、到達できない以上、この ADR の
+ライセンスに関する記述は二次情報のままである。この点は解消できなかった。
 
 ## 結果
 
