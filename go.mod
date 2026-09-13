@@ -1,3 +1,3 @@
 module github.com/kogai/onix-codegen
 
-go 1.14
+go 1.21

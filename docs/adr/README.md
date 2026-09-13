@@ -9,6 +9,7 @@
 | [0001](0001-record-architecture-decisions.md)                   | 設計判断を ADR として記録する                  | Accepted   |
 | [0002](0002-decouple-unit-tests-from-the-vendored-schema.md)    | ユニットテストを取得済みスキーマから切り離す   | Accepted   |
 | [0004](0004-drop-rules-nodejs-from-the-e2e-test.md)             | e2e から rules_nodejs を外す                   | Accepted   |
+| [0006](0006-migrate-to-bzlmod.md)                               | Bazel を bzlmod に移行する                     | Accepted   |
 
 ## 書き方
 

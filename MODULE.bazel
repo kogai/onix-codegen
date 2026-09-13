@@ -1,0 +1,38 @@
+module(
+    name = "onix_codegen",
+    version = "0.1.0",
+)
+
+# repo_name keeps the labels the BUILD files already use (@io_bazel_rules_go,
+# @bazel_gazelle), so migrating to bzlmod does not touch them.
+bazel_dep(
+    name = "rules_go",
+    version = "0.63.0",
+    repo_name = "io_bazel_rules_go",
+)
+bazel_dep(
+    name = "gazelle",
+    version = "0.54.0",
+    repo_name = "bazel_gazelle",
+)
+
+go_sdk = use_extension("@io_bazel_rules_go//go:extensions.bzl", "go_sdk")
+go_sdk.download(version = "1.24.7")
+
+http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+# The ONIX schemas themselves. These currently fail to download; see
+# docs/adr/0003-editeur-schema-acquisition.md
+http_archive(
+    name = "org_editeur_v2",
+    build_file = "//:org_editeur_v2.bazel",
+    sha256 = "8fe932426066538a1d4ef17f41a70432d3eef7bb09c54e9262b24cc883cdb461",
+    url = "https://www.editeur.org/files/ONIX%202.1/ONIX_for_Books_Release2-1_rev03_schema+codes_Issue_36.zip",
+)
+
+http_archive(
+    name = "org_editeur_v3",
+    build_file = "//:org_editeur_v3.bazel",
+    sha256 = "c77c5b23ac8ea66f14ed75a05c61629623e5b1cf8146ab2bf2512d3faf695c74",
+    url = "https://www.editeur.org/files/ONIX%203/ONIX_BookProduct_XSD_schema+codes_Issue_52.zip",
+)

@@ -5,3 +5,4 @@
 /bazel-*
 /*.prof
 /schema
+MODULE.bazel.lock
