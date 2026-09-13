@@ -34,6 +34,7 @@ genrule(
 
 sh_test(
     name = "snapshot_test",
+    size = "small",
     srcs = ["snapshot_test.sh"],
     args = [
         "$(location :out.json)",
