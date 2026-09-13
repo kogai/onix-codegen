@@ -49,7 +49,7 @@ EDItEUR の zip (WORKSPACE の http_archive)
 npm install                 # bazelisk などを入れる
 make schema                 # EDItEUR の zip を取得して schema/v2, schema/v3 に展開
 make build                  # schema + stack build --fast
-make test                   # schema + stack test (HUnit)
+make test                   # stack test (HUnit) のみ。ネットワーク不要
 make generated/go/v3        # v3 の Go コードを再生成 (ターゲット名の末尾がスキーマ版)
 make generated/ts/v2        # v2 の TypeScript コードを再生成
 npx bazelisk test //e2e/go:snapshot_test   # 生成済み Go クライアントの e2e スナップショット
@@ -57,7 +57,10 @@ make debug                  # プロファイル付きで v3/go を生成 (例�
 ```
 
 CI (`.github/workflows/test.yml`) は `make test` と `//e2e/go:snapshot_test` の 2 ジョブ。
-この 2 つがローカルで通ることを、push 前に確認する。
+この 2 つがローカルで通ることを、push 前に確認する。どちらもネットワークを必要としない。
+
+`make schema` は現在 editeur.org から取得できない (202 が返る)。生成系を動かすには
+手元に zip を用意する必要がある。事情と手順は `docs/adr/0003-editeur-schema-acquisition.md`。
 
 既知の古さ: Makefile の `json` ターゲットは存在しない `run` に依存し、
 import path も `go/helper` と古い (実体は `e2e/go`)。スナップショットの更新は
@@ -120,6 +123,12 @@ import path も `go/helper` と古い (実体は `e2e/go`)。スナップショ�
 テスト側では `getSchema "./fixtures/test_xxx.xsd"` で読み、期待値を AST リテラルで書いて
 `assertEqual` する。コードリストを参照する fixture は `*_codelists.xsd` を隣に置く慣習。
 
+**fixture から `fixtures/` の外を include しないこと。** `Xsd.getSchema` は `xs:include` を
+再帰的にたどってローカルパスを解決するので、`../schema/` を参照した瞬間、テストは
+`make schema` のダウンロードに依存する。実際に `test_mixed_html.xsd` がそうなっていて、
+テスト全体が editeur.org の可用性に縛られていた (ADR-0002)。必要な定義は
+`test_mixed_html_xhtml_subset.xsd` のように、代替物を `fixtures/` 内に置く。
+
 ## コーディング規約
 
 - Haskell は ormolu 相当の整形。既存ファイルのスタイル (import の並び、レコード記法) に合わせる。
@@ -128,6 +137,20 @@ import path も `go/helper` と古い (実体は `e2e/go`)。スナップショ�
 - 依存は `package.yaml` でバージョン固定。追加したら `stack.yaml.lock` の更新も確認する。
 - モジュールの役割を混ぜない。XSD の形の話は `src/Xsd/`、中間表現は `Model`/`Code`/`Mixed`、
   出力先や言語の対応表は `Lib`、CLI は `app/Main.hs`。
+
+## 設計判断は ADR に残す
+
+「なぜそうなっているか」は `docs/adr/` に ADR として記録する。この AGENTS.md は
+「今どうすべきか」を書く場所、ADR は「どういう制約のもとにそう決めたか」を残す場所。
+
+次のいずれかに影響する判断をしたら ADR を足す (`docs/adr/0000-template.md` が雛形)。
+
+- **後方互換性**: 生成コードの公開 API に影響する判断、スキーマの版の扱い方
+- **サポート言語の増やしやすさ**: 中間表現とテンプレートの責務分担、言語追加の手順
+- **ビルドと CI の前提**: 外部依存 (EDItEUR の配布物、ツールチェーンのバージョン) の扱い方
+
+判断が変わったときは既存の ADR を書き換えず、新しい ADR を書いて古いものを
+`Superseded` にする。決定の履歴が消えないことが重要。
 
 ## 触らない / コミットしないもの
 
