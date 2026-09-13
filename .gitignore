@@ -5,4 +5,5 @@
 /bazel-*
 /*.prof
 /schema
+node_modules/
 /third_party/distdir/
