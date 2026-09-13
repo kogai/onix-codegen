@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 07b4003dd4819b94016dc0a6629b5b634c96677c275eb19e5e97c2a6ac30ffd5
+-- hash: 3926f8a5f904cf97dc479ae5599b082559e417ae2568fb51d2a7fd1931177343
 
 name:           onix
 version:        0.1.0.0
@@ -82,7 +82,7 @@ test-suite onix-test
       Paths_onix
   hs-source-dirs:
       test
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall
   build-depends:
       HUnit
     , base >=4.7 && <5
