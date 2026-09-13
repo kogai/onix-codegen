@@ -8,8 +8,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@bazel/bazelisk": "1.7.3",
-    "@types/node": "14.14.25",
+    "@bazel/bazelisk": "1.28.1",
+    "@types/node": "22.20.2",
     "fast-xml-parser": "3.17.6"
   },
   "peerDependencies": {
