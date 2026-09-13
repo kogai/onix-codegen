@@ -23,12 +23,12 @@ bazel_dep(
 )
 
 go_sdk = use_extension("@io_bazel_rules_go//go:extensions.bzl", "go_sdk")
-go_sdk.download(version = "1.24.7")
+go_sdk.download(version = "1.27.1")
 
 http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-# The ONIX schemas themselves. These currently fail to download; see
-# docs/adr/0003-editeur-schema-acquisition.md
+# The ONIX schemas themselves. These currently fail to download: editeur.org
+# answers automated requests with a CAPTCHA challenge rather than the archive.
 http_archive(
     name = "org_editeur_v2",
     build_file = "//:org_editeur_v2.bazel",
