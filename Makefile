@@ -1,7 +1,9 @@
 TS_FILES := $(shell find ./ -type f -name '*.ts' | grep -v 'node_modules')
 HS_FILES := $(shell find ./ -type f -name '*.hs' | grep -v '.stack-work')
 BZL := npx bazelisk
-BZL_BIN := $(shell npx bazel info bazel-bin)
+# Deferred on purpose: `:=` would run bazel on every make invocation, including
+# `make test`, which runs in a job with no node_modules and no need for bazel.
+BZL_BIN = $(shell $(BZL) info bazel-bin)
 
 generated/go/%: build
 	stack exec onix-exe -- --schemaVersion $(@F) --language go
