@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ccd13791926f8c74575d5f17648a17adbbe0740ce44707823a93b20ae5f7605c
+-- hash: 07b4003dd4819b94016dc0a6629b5b634c96677c275eb19e5e97c2a6ac30ffd5
 
 name:           onix
 version:        0.1.0.0
@@ -42,19 +42,19 @@ library
   ghc-options: -Wall -fwarn-incomplete-patterns -fwarn-incomplete-uni-patterns
   build-depends:
       base >=4.7 && <5
-    , bytestring ==0.10.10.1
-    , containers ==0.6.2.1
-    , filepath ==1.4.2.1
-    , http-client ==0.6.4.1
-    , http-client-tls ==0.3.5.3
-    , mustache ==2.3.1
-    , network-uri ==2.6.3.0
-    , parsec ==3.1.14.0
-    , text ==1.2.4.0
-    , transformers ==0.5.6.2
-    , vector ==0.12.1.2
-    , xml-conduit ==1.9.0.0
-    , yaml ==0.11.5.0
+    , bytestring
+    , containers
+    , filepath
+    , http-client
+    , http-client-tls
+    , mustache
+    , network-uri
+    , parsec
+    , text
+    , transformers
+    , vector
+    , xml-conduit
+    , yaml
   default-language: Haskell2010
 
 executable onix-exe
@@ -67,7 +67,7 @@ executable onix-exe
   build-depends:
       base >=4.7 && <5
     , onix
-    , optparse-applicative ==0.16.1.0
+    , optparse-applicative
   default-language: Haskell2010
 
 test-suite onix-test
@@ -84,11 +84,11 @@ test-suite onix-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      HUnit ==1.6.1.0
+      HUnit
     , base >=4.7 && <5
-    , containers ==0.6.2.1
+    , containers
     , onix
-    , text ==1.2.4.0
-    , vector ==0.12.1.2
-    , xml-conduit ==1.9.0.0
+    , text
+    , vector
+    , xml-conduit
   default-language: Haskell2010

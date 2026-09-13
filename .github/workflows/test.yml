@@ -9,9 +9,9 @@ jobs:
       - uses: haskell-actions/setup@v2
         id: haskell-setup
         with:
-          ghc-version: "8.8.3"
+          ghc-version: "9.8.4"
           enable-stack: true
-          stack-version: "2.5.1"
+          stack-version: "latest"
       - name: Restore caches
         uses: actions/cache@v4
         with:

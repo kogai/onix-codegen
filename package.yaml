@@ -29,19 +29,19 @@ library:
     - -fwarn-incomplete-patterns
     - -fwarn-incomplete-uni-patterns
   dependencies:
-    - mustache == 2.3.1
-    - text == 1.2.4.0
-    - yaml == 0.11.5.0
-    - vector == 0.12.1.2
-    - xml-conduit == 1.9.0.0
-    - parsec == 3.1.14.0
-    - containers == 0.6.2.1
-    - transformers == 0.5.6.2
-    - bytestring == 0.10.10.1
-    - filepath == 1.4.2.1
-    - http-client-tls == 0.3.5.3
-    - http-client == 0.6.4.1
-    - network-uri == 2.6.3.0
+    - mustache
+    - text
+    - yaml
+    - vector
+    - xml-conduit
+    - parsec
+    - containers
+    - transformers
+    - bytestring
+    - filepath
+    - http-client-tls
+    - http-client
+    - network-uri
 
 executables:
   onix-exe:
@@ -56,7 +56,7 @@ executables:
         -fwarn-incomplete-uni-patterns
     dependencies:
       - onix
-      - optparse-applicative == 0.16.1.0
+      - optparse-applicative
 
 tests:
   onix-test:
@@ -68,8 +68,8 @@ tests:
       - -with-rtsopts=-N
     dependencies:
       - onix
-      - HUnit == 1.6.1.0
-      - vector == 0.12.1.2
-      - xml-conduit == 1.9.0.0
-      - text == 1.2.4.0
-      - containers == 0.6.2.1
+      - HUnit
+      - vector
+      - xml-conduit
+      - text
+      - containers
