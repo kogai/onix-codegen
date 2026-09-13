@@ -18,16 +18,42 @@ http_archive(
 
 2026-09-13 時点で、この取得が機能しない。観測された事実は次の 2 つ。
 
-**1. CI から: `202 Accepted` が返る**
+**1. CI から: CAPTCHA チャレンジが返る**
 
 ```
 WARNING: Download from https://www.editeur.org/files/ONIX%202.1/...Issue_36.zip
          failed: UnrecoverableHttpException GET returned 202 Accepted
 ```
 
-zip の代わりに 202 が返り、Bazel はこれを回復不能なエラーとして扱う。1 回再実行しても
-同じ結果だったため、一時的な不調ではない。202 を返すのは bot 対策の中間応答として
-一般的な挙動で、GitHub Actions のような自動化された経路が弾かれていると考えられる。
+zip の代わりに 202 が返り、Bazel はこれを回復不能なエラーとして扱う。
+
+この 202 の正体は、CI ランナーから素の GET を投げて確認した。**SiteGround の
+CAPTCHA チャレンジ**である。
+
+```
+HTTP/2 202
+server: nginx
+sg-captcha: challenge
+x-robots-tag: noindex
+content-type: text/html
+content-length: 248
+
+<html><head><meta http-equiv="refresh"
+  content="0;/.well-known/sgcaptcha/?r=%2Ffiles%2FONIX%202.1%2F...zip&y=ipc:...">
+</head></html>
+```
+
+重要なのは、**これがファイル固有の問題ではない**ことである。同じ応答が返るのは
+zip だけでなく、ダウンロードページ (`/93/Release-3.0-and-3.1-Downloads/`) 自体も同様だった。
+`sg-captcha: challenge` と、クライアントの IP を埋め込んだリダイレクト先
+(`y=ipr:<runner の IP>`) から、判定はリクエスト元に対して行われていると分かる。
+
+したがって次のことが言える。
+
+- URL が古いから失敗しているのではない。新しいリリースの URL に変えても結果は同じである。
+- リトライやミラー URL の追加では解決しない。
+- **CI から自動でダウンロードすることは、CAPTCHA を解かない限り不可能である。**
+  そして CAPTCHA はまさに、配布元が自動アクセスを制限するために置いたものである。
 
 **2. 開発用のサンドボックス環境から: そもそも到達できない**
 
@@ -107,11 +133,11 @@ common --distdir=third_party/distdir
 - **自前のミラーを用意する (GitHub Releases、S3 など)**: `http_archive` の `urls` に
   フォールバックとして並べれば、EDItEUR 側の可用性に左右されなくなる。ただし
   再配布である点は vendoring と変わらず、加えてミラーの維持コストが乗る。
-- **User-Agent を偽装してダウンロードする**: 202 が bot 対策なら、ブラウザを装えば通る可能性がある。
-  ただし Bazel 3.7.0 の `http_archive` はカスタムヘッダに対応していない。`repository_ctx.download`
-  の `auth` も `Authorization` ヘッダ専用なので、独自の repository rule を書いても足りず、
-  結局 curl などを呼び出すことになる。何より、配布元が設けたアクセス制御を迂回する行為であり、
-  権利者の意図を確認せずに実装すべきではない。**採らない。**
+- **User-Agent を偽装してダウンロードする**: 上の調査で、これは筋が悪いだけでなく
+  技術的にも足りないことが分かった。返ってくるのは CAPTCHA チャレンジであり、
+  通過するには JS の実行とクッキーの保持が要る。ヘッダを 1 つ足して済む話ではない。
+  そして何より、配布元が自動アクセスを制限するために置いた仕組みを迂回する行為である。
+  **採らない。**
 - **`--override_repository` を使う**: `--override_repository=org_editeur_v3=/path/to/dir` で、
   取得済みのディレクトリを外部リポジトリの代わりに使える (3.7.0 にある)。`--distdir` の変種ではなく、
   **sha256 の検証を経由しない**点が本質的に違う。この ADR の出発点は「sha256 が計算できない」ことなので、
@@ -124,7 +150,9 @@ common --distdir=third_party/distdir
 
 ## 結果
 
-- 生成系は、メンテナが手元に zip を用意できる環境でのみ実行できる。CI では実行できない。
+- 生成系は、メンテナが手元に zip を用意できる環境でのみ実行できる。**CI では実行できない。**
+  これは当面の不便ではなく、CAPTCHA がある限り恒久的な制約である。この点は、
+  vendoring かミラーかを判断する材料として重い。「そのうち直る」類の問題ではない。
 - CI で検証できるのは、ユニットテスト (ADR-0002) と、コミット済み生成物に対する
   e2e スナップショット (`//e2e/go:snapshot_test`) の 2 つ。ただし後者が依存しているのは
   `//generated/go/v2:go` だけで、`generated/go/v3` と `generated/typescript/v2` には
