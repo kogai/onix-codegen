@@ -29,9 +29,6 @@ test:
 
 build: schema .stack-work
 
-WORKSPACE: go.mod
-	$(BZL) run //:gazelle -- update-repos -from_file=go.mod
-
 schema: schema/v2 schema/v3
 
 schema/%:
