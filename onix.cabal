@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: d894bbda696a3e4398796a16a928bd9923bbeaae2b4a61ad371f193c8322fa0d
+-- hash: ccd13791926f8c74575d5f17648a17adbbe0740ce44707823a93b20ae5f7605c
 
 name:           onix
 version:        0.1.0.0
@@ -45,16 +45,13 @@ library
     , bytestring ==0.10.10.1
     , containers ==0.6.2.1
     , filepath ==1.4.2.1
-    , flow ==1.0.21
     , http-client ==0.6.4.1
     , http-client-tls ==0.3.5.3
-    , mtl ==2.2.2
     , mustache ==2.3.1
     , network-uri ==2.6.3.0
     , parsec ==3.1.14.0
     , text ==1.2.4.0
     , transformers ==0.5.6.2
-    , unordered-containers ==0.2.10.0
     , vector ==0.12.1.2
     , xml-conduit ==1.9.0.0
     , yaml ==0.11.5.0
