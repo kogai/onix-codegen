@@ -5,15 +5,15 @@ jobs:
     name: Test haskell codes
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: haskell/actions/setup@v1
+      - uses: actions/checkout@v4
+      - uses: haskell-actions/setup@v2
         id: haskell-setup
         with:
           ghc-version: "8.8.3"
           enable-stack: true
           stack-version: "2.5.1"
       - name: Restore caches
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: |
             ${{steps.haskell-setup.outputs.stack-path}}
@@ -28,13 +28,13 @@ jobs:
     name: Test e2e
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.4
+        uses: actions/setup-node@v4
         with:
           node-version: 12.x
       - name: Restore caches
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: |
             ~/.npm
