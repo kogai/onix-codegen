@@ -34,7 +34,18 @@ bazel_dep(name = "gazelle", version = "0.54.0", repo_name = "bazel_gazelle")
 ```
 
 これにより、既存の BUILD ファイルが使っているラベル (`@io_bazel_rules_go//go:def.bzl`、
-`@bazel_gazelle//:def.bzl`) がそのまま通る。BUILD ファイルは 1 行も変更していない。
+`@bazel_gazelle//:def.bzl`) がそのまま通る。
+
+**ただし BUILD ファイルの変更が 1 行だけ必要になった。** Bazel 9 は `sh_test` を
+ネイティブのルールとして提供しなくなり、`rules_shell` に移された。CI が最初に返した
+エラーはこれである。
+
+```
+ERROR: e2e/go/BUILD.bazel:35:1: name 'sh_test' is not defined (did you mean 'cc_test'?)
+```
+
+`bazel_dep(name = "rules_shell", version = "0.8.0")` を足し、`e2e/go/BUILD.bazel` に
+`load("@rules_shell//shell:sh_test.bzl", "sh_test")` を追加した。
 
 EDItEUR の zip は `use_repo_rule` で従来どおり `http_archive` として宣言する。
 `sha256` も URL も変えていないので、取得の問題 (ADR-0003) の状況は変わらない。
@@ -67,8 +78,12 @@ EDItEUR の zip は `use_repo_rule` で従来どおり `http_archive` として�
 
 ## 結果
 
-- BUILD ファイルは無変更。ラベルの互換性は `repo_name` が担保している。
+- BUILD ファイルの変更は `sh_test` の load 1 行のみ。ラベルの互換性は `repo_name` が
+  担保しているので、それ以外は無変更で済んだ。
+- Bazel 8 以降、ネイティブルールの Starlark 化が進んでいる。今後 Bazel を上げるときは、
+  「無くなったネイティブルールを提供する rules_* を足す」作業が同様に発生しうる。
 - `make schema` の挙動は変わらない。取得できない問題も変わらない (ADR-0003)。
 - `MODULE.bazel.lock` は生成物として扱う。コミットするかどうかは、CI が通ってから決める。
 - **この移行はローカルで検証できていない。** Bazel をこの環境で実行できないため、
-  唯一の検証手段は CI の e2e ジョブ (`//e2e/go:snapshot_test`) である。
+  唯一の検証手段は CI の e2e ジョブ (`//e2e/go:snapshot_test`) である。実際、
+  `sh_test` の件は CI が最初に教えてくれた。

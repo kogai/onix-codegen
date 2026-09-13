@@ -1,4 +1,5 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
 
 filegroup(
     name = "fixtures",
@@ -34,6 +35,7 @@ genrule(
 
 sh_test(
     name = "snapshot_test",
+    size = "small",
     srcs = ["snapshot_test.sh"],
     args = [
         "$(location :out.json)",

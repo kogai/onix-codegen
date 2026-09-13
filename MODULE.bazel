@@ -16,6 +16,12 @@ bazel_dep(
     repo_name = "bazel_gazelle",
 )
 
+# Bazel 9 no longer defines sh_test natively; it lives in rules_shell.
+bazel_dep(
+    name = "rules_shell",
+    version = "0.8.0",
+)
+
 go_sdk = use_extension("@io_bazel_rules_go//go:extensions.bzl", "go_sdk")
 go_sdk.download(version = "1.24.7")
 

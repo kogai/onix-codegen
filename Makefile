@@ -29,10 +29,6 @@ test:
 
 build: schema .stack-work
 
-json: fixtures/20201200.json
-fixtures/20201200.json: run
-	go run github.com/kogai/onix-codegen/go/helper
-
 schema: schema/v2 schema/v3
 
 schema/%:

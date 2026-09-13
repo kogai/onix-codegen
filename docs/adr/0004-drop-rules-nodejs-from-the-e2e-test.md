@@ -18,10 +18,16 @@ e2e/go/BUILD.bazel:2  load("@build_bazel_rules_nodejs//:index.bzl", "generated_f
 参照されていない**。`//e2e/go:snapshot_test` は Go のバイナリと JSON ファイルしか使わない。
 つまり実質的な用途は `generated_file_test` ただ 1 つだった。
 
-この依存はライブラリ更新の妨げにもなっていた。3.1.0 は 2021 年のリリースで、
-新しい Bazel との組み合わせは動作が保証されない。一方 rules_nodejs は 5.x → 6.x で
-大きく整理され、`generated_file_test` は現行版には無い。つまり「rules_nodejs を上げる」には
-どのみち比較の仕組みを書き換える必要があり、上げても得るものが無い。
+この依存はライブラリ更新の妨げにもなっていた。上げ先を順に見ると、行き止まりになっている。
+
+- **4.7.0 / 5.8.5**: `generated_file_test` は存在する。ただし 5.8.5 の
+  `SUPPORTED_BAZEL_VERSIONS` は `["4.2.2", "5.0.0"]` で、現行の `.bazelversion` (3.7.0) を
+  含まない。つまり Bazel 側も同時に上げないと使えない。
+- **6.x**: rules_nodejs が大きく整理され、ルート `index.bzl` ごと無くなった。
+  `generated_file_test` は現行版には存在しない。
+
+したがって「rules_nodejs だけ上げる」は成立せず、最新まで上げるならどのみち比較の仕組みを
+書き換えることになる。書き換えたうえで依存だけが残る。
 
 なお、Bazel 自体の起動に使っている `npx bazelisk` は npm の devDependency であって
 rules_nodejs とは無関係なので、この判断の影響を受けない。
@@ -51,7 +57,9 @@ rules_nodejs とは無関係なので、この判断の影響を受けない。
 
 ## 検討した他の選択肢
 
-- **rules_nodejs を最新に上げる**: `generated_file_test` が現行版に無いので、
+- **rules_nodejs を 5.8.5 に上げる**: `generated_file_test` はまだあるが、
+  対応 Bazel が 4.2.2 / 5.0.0 なので Bazel も同時に上げる必要があり、変更が連鎖する。
+- **rules_nodejs を 6.x に上げる**: `generated_file_test` が無いので、
   どのみち比較の仕組みを書き換えることになる。書き換えたうえで依存が残るだけ損。
 - **`bazel_skylib` の `diff_test` を使う**: 標準的で堅い。ただし上記のとおり、
   依存を入れ替えるだけで減らず、バージョン組み合わせを検証できない。
@@ -64,3 +72,9 @@ rules_nodejs とは無関係なので、この判断の影響を受けない。
   これらが影響するのは `npx bazelisk` の取得だけになる。
 - スナップショットの更新は手作業になった (`bazel build //e2e/go:snapshot` の出力を
   `fixtures/20201200.json` にコピー)。手順は `e2e/go/snapshot_test.sh` の冒頭にある。
+  あわせて Makefile の `json` ターゲットを削除した。存在しない `run` ターゲットに依存し、
+  実在しない import path (`.../go/helper`、実体は `e2e/go`) を叩く二重に壊れた状態で、
+  更新手段として機能していなかった。
+- 旧 `generated_file_test` は `src` と `generated` の指定が逆で、付随する
+  `:snapshot_test.update` はスナップショットではなく生成物側を書き換えようとしていた。
+  比較そのものは対称なので検証は機能していたが、更新経路は元から使えなかった。
