@@ -34,10 +34,28 @@ export type NotificationType = string
 
 宣言は `string`、実際に返るのは `number`。型が嘘をついている状態だった。
 
-Go 側の生成コードは、同じスキーマから一貫して文字列型を生成している
-(`type {{xmlReferenceName}} string`)。同じ入力に対して言語ごとに違う型が返るのは、
-「同じスキーマから複数言語のクライアントを生成する」というこのリポジトリの目的
-(AGENTS.md) に照らして不整合である。
+当初この ADR は「Go 側は一貫して文字列型を生成しているので、言語間で型が揃う」と
+主張していたが、**これは誤りだった**。レビューで指摘され、確認した結果は次のとおり。
+
+- `generated/go/v2/code.go` の型は **struct 107 / string 8 / []string 2** で、一様ではない。
+  `template/go/v2/code.mustache` は 4 分岐あり、`type X string` になるのは
+  `spaceSeparatable` でも `hasElements` でもない場合だけである。
+  この ADR が例に挙げている `NotificationType` は Go では struct である。
+- さらに Go の `UnmarshalXML` は、コード値を**人間可読な説明文に置換する**。
+
+```go
+	switch v {
+	// Use for a complete record issued earlier than ...
+	case "01":
+		c.Body = `Early notification`
+```
+
+つまりこの修正を入れても、同じ入力に対して TypeScript は `"01"`、Go は
+`"Early notification"` を返す。**言語間の一貫性は、この修正では回復しない。**
+それは型の問題ではなく、Go 側だけがコードを説明文に展開しているという、より大きな
+設計上の食い違いである。別途扱う。
+
+したがってこの ADR の根拠は、言語間の一貫性ではなく**データを壊さないこと**の一点に絞る。
 
 ## 決定
 
@@ -61,5 +79,15 @@ ONIX のスキーマにおいて、要素の値はすべて文字列である。
 - 属性の扱いはこの ADR の範囲外。fast-xml-parser v5 は既定で `ignoreAttributes: true` なので、
   `refname` / `shortname` / `datestamp` といった ONIX の属性は現在そもそも読まれていない。
   これも実装上の欠落だが、修正すると出力の形が変わるため別途扱う。
+  **その際は `parseAttributeValue` を既定の `false` のまま保つこと。** さもないと
+  同じ型変換のバグが属性側で再発する。
+- 型宣言と値が一致する、と書いたが、それを型検査が強制するわけではない。
+  `generated/typescript/v2/code.ts` はどこからも import されておらず、
+  `reader.ts` の戻り値型 `ONIXMessage` は `model.ts` で空の interface
+  (`export interface ONIXMessage {}`) として定義されている。一致は規約であって、
+  検査で守られてはいない。
+- `parseTagValue: false` は数値化を止めるが、値の加工をすべて止めるわけではない。
+  `trimValues` は既定で true のままなので前後の空白は落ちる。真偽値らしき文字列の
+  変換も同時に止まる。
 - TypeScript reader は CI で実行されていない。この ADR の測定は手作業であり、
   回帰を検出する仕組みは無い。
