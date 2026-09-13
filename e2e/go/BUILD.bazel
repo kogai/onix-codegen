@@ -1,5 +1,4 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
-load("@build_bazel_rules_nodejs//:index.bzl", "generated_file_test")
 
 filegroup(
     name = "fixtures",
@@ -33,8 +32,16 @@ genrule(
     tools = ["helper"],
 )
 
-generated_file_test(
+sh_test(
     name = "snapshot_test",
-    src = "snapshot",
-    generated = "//:fixtures/20201200.json",
+    size = "small",
+    srcs = ["snapshot_test.sh"],
+    args = [
+        "$(location :out.json)",
+        "$(location //:fixtures/20201200.json)",
+    ],
+    data = [
+        ":out.json",
+        "//:fixtures/20201200.json",
+    ],
 )
