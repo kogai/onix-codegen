@@ -1,8 +1,8 @@
 # Temporary diagnostic, not part of the build. It only observes what
 # editeur.org returns to a plain request from a CI runner, so that ADR-0003 can
-# record facts instead of guesses. Manual trigger only; delete once it has run.
+# record facts instead of guesses. Runs on push on this branch only; deleted once it has run.
 name: probe editeur
-on: workflow_dispatch
+on: push
 
 jobs:
   probe:
