@@ -1,11 +1,8 @@
 {
   "name": "onix",
   "version": "1.0.0",
-  "description": "## Prior Art",
-  "main": "sandbox.js",
-  "directories": {
-    "test": "test"
-  },
+  "private": true,
+  "description": "Auto-generated ONIX for Books client and its generator",
   "dependencies": {},
   "devDependencies": {
     "@bazel/bazelisk": "1.28.1",
@@ -15,18 +12,15 @@
   "peerDependencies": {
     "fast-xml-parser": "^5.11.1"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kogai/onix.git"
+    "url": "git+https://github.com/kogai/onix-codegen.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kogai/onix/issues"
+    "url": "https://github.com/kogai/onix-codegen/issues"
   },
-  "homepage": "https://github.com/kogai/onix#readme"
+  "homepage": "https://github.com/kogai/onix-codegen#readme"
 }
