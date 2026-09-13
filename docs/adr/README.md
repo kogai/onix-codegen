@@ -8,6 +8,7 @@
 | ------------------------------------------------------------- | ---------------------------------------------- | ---------- |
 | [0001](0001-record-architecture-decisions.md)                   | 設計判断を ADR として記録する                  | Accepted   |
 | [0002](0002-decouple-unit-tests-from-the-vendored-schema.md)    | ユニットテストを取得済みスキーマから切り離す   | Accepted   |
+| [0003](0003-editeur-schema-acquisition.md)                      | EDItEUR スキーマの取得方法                     | Proposed   |
 
 ## 書き方
 
