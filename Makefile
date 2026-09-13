@@ -36,6 +36,29 @@ fixtures/20201200.json: run
 WORKSPACE: go.mod
 	$(BZL) run //:gazelle -- update-repos -from_file=go.mod
 
+# ONIX 2.1 is also recoverable without the network. Commit 9352123 deleted
+# 2_1_rev03_schema/ when the build moved to downloading at build time, so its
+# parent still carries the files. This restores them from there. It fetches
+# nothing and adds no EDItEUR file to the tree — schema/ is gitignored — so it
+# changes nothing about what this repository distributes.
+# See docs/adr/0003-editeur-schema-acquisition.md
+ONIX_V2_COMMIT := 9352123^:2_1_rev03_schema
+ONIX_V2_FILES := \
+	ONIX_BookProduct_CodeLists.xsd \
+	ONIX_BookProduct_Release2.1_reference.xsd \
+	ONIX_BookProduct_Release2.1_short.xsd \
+	ONIX_XHTML_Subset.xsd \
+	ONIX_XHTML_Subset_reference.xsd \
+	ONIX_XHTML_Subset_short.xsd
+
+.PHONY: schema-from-history
+schema-from-history:
+	mkdir -p schema/v2
+	@for f in $(ONIX_V2_FILES); do \
+		git show $(ONIX_V2_COMMIT)/$$f > schema/v2/$$f || exit 1; \
+		echo "restored schema/v2/$$f"; \
+	done
+
 schema: schema/v2 schema/v3
 
 schema/%:
