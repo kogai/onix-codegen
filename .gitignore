@@ -6,3 +6,5 @@
 /*.prof
 /schema
 node_modules/
+/third_party/distdir/*
+!/third_party/distdir/README.md
