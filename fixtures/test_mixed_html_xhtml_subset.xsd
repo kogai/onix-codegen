@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Stand-in for the ONIX_XHTML_Subset.xsd shipped in the EDItEUR distribution.
+
+  test_mixed_html.xsd used to include ../schema/v2/ONIX_XHTML_Subset.xsd, which
+  made the test suite depend on `make schema` having downloaded the EDItEUR
+  archive. This file declares only the element names that fixture refers to, in
+  the shape that matters to the code under test: every XHTML content element is
+  a mixed complex type, so Model.collectElements must filter all of them out.
+  See docs/adr/0002-decouple-unit-tests-from-the-vendored-schema.md
+-->
+<xs:schema xmlns="http://www.editeur.org/onix/2.1/reference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.editeur.org/onix/2.1/reference" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="h1"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="h2"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="h3"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="h4"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="h5"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="h6"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="div"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="ul"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="ol"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="dl"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="pre"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="hr"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="blockquote"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="address"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="table"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="a"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="br"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="span"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="bdo"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="object"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="img"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="map"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="tt"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="i"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="b"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="big"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="small"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="em"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="strong"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="dfn"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="code"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="q"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="sub"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="sup"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="samp"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="kbd"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="var"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="cite"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="abbr"><xs:complexType mixed="true" /></xs:element>
+  <xs:element name="acronym"><xs:complexType mixed="true" /></xs:element>
+</xs:schema>

@@ -12,10 +12,12 @@ generated/ts/%: build
 debug: build
 	stack exec --trace -- onix-exe +RTS -xc --RTS --schemaVersion v3 --language go
 
-# The unit tests read only fixtures/*.xsd, so they deliberately do not depend
-# on the `schema` target: `make schema` downloads the EDItEUR archives over the
-# network, and requiring it here made the test suite unrunnable whenever
-# editeur.org was unreachable. See docs/adr/0002-decouple-unit-tests-from-the-vendored-schema.md
+# The fixtures under fixtures/ are self-contained, so the tests deliberately do
+# not depend on the `schema` target: `make schema` downloads the EDItEUR
+# archives over the network, and requiring it here made the test suite
+# unrunnable whenever editeur.org was unreachable. Keep fixtures from including
+# anything outside fixtures/, or this dependency comes back.
+# See docs/adr/0002-decouple-unit-tests-from-the-vendored-schema.md
 .PHONY: test
 test:
 	stack test --trace --fast
