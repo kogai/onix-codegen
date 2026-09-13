@@ -1,7 +1,9 @@
 TS_FILES := $(shell find ./ -type f -name '*.ts' | grep -v 'node_modules')
 HS_FILES := $(shell find ./ -type f -name '*.hs' | grep -v '.stack-work')
 BZL := npx bazelisk
-BZL_BIN := $(shell npx bazel info bazel-bin)
+# Deferred on purpose: `:=` would run bazel on every make invocation, including
+# `make test`, which runs in a job with no node_modules and no need for bazel.
+BZL_BIN = $(shell $(BZL) info bazel-bin)
 
 generated/go/%: build
 	stack exec onix-exe -- --schemaVersion $(@F) --language go
@@ -12,10 +14,12 @@ generated/ts/%: build
 debug: build
 	stack exec --trace -- onix-exe +RTS -xc --RTS --schemaVersion v3 --language go
 
-# The unit tests read only fixtures/*.xsd, so they deliberately do not depend
-# on the `schema` target: `make schema` downloads the EDItEUR archives over the
-# network, and requiring it here made the test suite unrunnable whenever
-# editeur.org was unreachable. See docs/adr/0002-decouple-unit-tests-from-the-vendored-schema.md
+# The fixtures under fixtures/ are self-contained, so the tests deliberately do
+# not depend on the `schema` target: `make schema` downloads the EDItEUR
+# archives over the network, and requiring it here made the test suite
+# unrunnable whenever editeur.org was unreachable. Keep fixtures from including
+# anything outside fixtures/, or this dependency comes back.
+# See docs/adr/0002-decouple-unit-tests-from-the-vendored-schema.md
 .PHONY: test
 test:
 	stack test --trace --fast
