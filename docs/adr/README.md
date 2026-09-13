@@ -8,6 +8,7 @@
 | ------------------------------------------------------------- | ---------------------------------------------- | ---------- |
 | [0001](0001-record-architecture-decisions.md)                   | 設計判断を ADR として記録する                  | Accepted   |
 | [0002](0002-decouple-unit-tests-from-the-vendored-schema.md)    | ユニットテストを取得済みスキーマから切り離す   | Accepted   |
+| [0005](0005-fast-xml-parser-v5-behaviour-changes.md)            | fxp v5 のエンティティ展開を受け入れる          | Accepted   |
 
 ## 書き方
 
