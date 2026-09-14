@@ -101,15 +101,7 @@ topLevelTypeToCode _scm (ref, X.TypeSimple (X.AtomicType restriction annotations
   where
     description = T.intercalate ". " . map (\(X.Documentation x) -> x) $ annotations
     constraints = X.simpleRestrictionConstraints restriction
-    codes =
-      map
-        ( \(X.Enumeration v docs) ->
-            let docs_ = map (\(X.Documentation d) -> d) docs
-                codeDescription = if not (null docs_) then head docs_ else ""
-                notes = if not (null docs_) then last docs_ else ""
-             in Code {value = v, codeDescription = codeDescription, notes = notes}
-        )
-        constraints
+    codes = map constraintToCode constraints
 topLevelTypeToCode scm (ref, X.TypeSimple (X.ListType ty _)) =
   case ty of
     X.Ref key_ ->
@@ -122,13 +114,7 @@ topLevelTypeToCode scm (ref, X.TypeSimple (X.ListType ty _)) =
             _ -> False
           desc = (T.intercalate ". " . map (\(X.Documentation x) -> x) . typeAnnotations) t
           constraints = typeConstraints t
-          codes_ =
-            map
-              ( \(X.Enumeration v docs) ->
-                  let docs_ = map (\(X.Documentation d) -> d) docs
-                   in Code {value = v, codeDescription = head docs_, notes = last docs_}
-              )
-              constraints
+          codes_ = map constraintToCode constraints
           refname = X.qnName ref
        in CodeType
             { xmlReferenceName = refname,
@@ -170,15 +156,7 @@ topLevelElementToCode scm elm =
         Nothing -> pack ""
       codes_ = case ty of
         Just t ->
-          let constraints = typeConstraints t
-              enums =
-                map
-                  ( \(X.Enumeration v docs) ->
-                      let docs_ = map (\(X.Documentation d) -> d) docs
-                       in Code {value = v, codeDescription = head docs_, notes = last docs_}
-                  )
-                  constraints
-           in enums
+          map constraintToCode (typeConstraints t)
         Nothing -> []
       refname = unwrap $ findFixedOf "refname" plainContentAttributes
       elements =
