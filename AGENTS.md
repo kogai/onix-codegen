@@ -47,7 +47,8 @@ EDItEUR の zip (WORKSPACE の http_archive)
 
 ```sh
 npm install                 # bazelisk などを入れる
-make schema                 # EDItEUR の zip を取得して schema/v2, schema/v3 に展開
+make schema                 # EDItEUR の zip を取得して schema/v2, schema/v3 に展開 (現在失敗する)
+make schema-from-history    # 2.1 のみ、git 履歴から復元 (ネットワーク不要)
 make build                  # schema + stack build --fast
 make test                   # stack test (HUnit) のみ。ネットワーク不要
 make generated/go/v3        # v3 の Go コードを再生成 (ターゲット名の末尾がスキーマ版)
@@ -59,8 +60,21 @@ make debug                  # プロファイル付きで v3/go を生成 (例�
 CI (`.github/workflows/test.yml`) は `make test` と `//e2e/go:snapshot_test` の 2 ジョブ。
 この 2 つがローカルで通ることを、push 前に確認する。どちらもネットワークを必要としない。
 
-`make schema` は現在 editeur.org から取得できない (202 が返る)。生成系を動かすには
-手元に zip を用意する必要がある。事情と手順は `docs/adr/0003-editeur-schema-acquisition.md`。
+`make schema` は現在 editeur.org から取得できない。自動アクセスに対して CAPTCHA が返るためで、
+URL を変えても解決しない。事情と手順は `docs/adr/0003-editeur-schema-acquisition.md`。
+
+**2.1 だけはネットワークなしで用意できる。** `make schema-from-history` が、2021 年に
+削除された `2_1_rev03_schema/` を git 履歴から `schema/v2` に復元する。ただしこれで
+`make generated/go/v2` が動くわけではない。`build` → `schema` の連鎖が v3 も要求するため、
+v2 だけを生成するには実行ファイルを直接呼ぶ。
+
+```sh
+make schema-from-history
+stack build --fast
+stack exec onix-exe -- --schemaVersion v2 --language go
+```
+
+3.0 / 3.1 は履歴に無いので、zip を `third_party/distdir/` に置く必要がある。
 
 既知の古さ: Makefile の `json` ターゲットは存在しない `run` に依存し、
 import path も `go/helper` と古い (実体は `e2e/go`)。スナップショットの更新は
