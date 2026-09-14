@@ -9,9 +9,9 @@ jobs:
       - uses: haskell-actions/setup@v2
         id: haskell-setup
         with:
-          ghc-version: "8.8.3"
+          ghc-version: "9.8.4"
           enable-stack: true
-          stack-version: "2.5.1"
+          stack-version: "3.11.1"
       - name: Restore caches
         uses: actions/cache@v4
         with:
@@ -19,9 +19,11 @@ jobs:
             ${{steps.haskell-setup.outputs.stack-path}}
             ~/.stack
             ./.stack-work/
-          key: ${{ runner.os }}-${{ hashFiles('**/package.yaml') }}-${{ hashFiles('**/onix.cabal') }}-${{ hashFiles('**/stack.yaml.lock') }}
+          key: ${{ runner.os }}-ghc9.8.4-stack3.11.1-${{ hashFiles('**/package.yaml') }}-${{ hashFiles('**/onix.cabal') }}-${{ hashFiles('**/stack.yaml.lock') }}
+          # Scoped to the toolchain: a bare ${{ runner.os }}- prefix would happily
+          # restore a GHC 8.8.3 store into a 9.8.4 build.
           restore-keys: |
-            ${{ runner.os }}-
+            ${{ runner.os }}-ghc9.8.4-stack3.11.1-
       - run: make test
   e2e:
     name: Test e2e
