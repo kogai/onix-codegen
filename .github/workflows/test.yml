@@ -31,15 +31,18 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
-          node-version: 12.x
+          node-version: 24.x
       - name: Restore caches
         uses: actions/cache@v4
         with:
           path: |
             ~/.npm
             ./node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/go.sum') }}
+          key: ${{ runner.os }}-e2e-node24-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/go.sum') }}
+          # Scoped to this job: a bare ${{ runner.os }}- prefix also matches the
+          # Haskell job's cache, so this job could restore half a gigabyte of
+          # ~/.stack and .stack-work that it has no use for.
           restore-keys: |
-            ${{ runner.os }}-
+            ${{ runner.os }}-e2e-node24-
       - run: npm install
       - run: npx bazelisk test //e2e/go:snapshot_test
