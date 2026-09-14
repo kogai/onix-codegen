@@ -3,15 +3,14 @@
 module TestModel (tests) where
 
 import qualified Data.Map as M
-import Data.Text (Text, pack, unpack)
 import Model
 import qualified Model as Md
-import Test.HUnit (Test (TestCase, TestList), assertEqual)
+import Test.HUnit (Test (TestCase), assertEqual)
 import TestUtils (makeTargetQName)
-import Text.XML (def, parseText, readFile)
-import Util
+import Util (unwrap)
 import Xsd
 
+expected1 :: Type
 expected1 =
   TypeSimple
     ( AtomicType
@@ -22,6 +21,7 @@ expected1 =
         []
     )
 
+expected2 :: Type
 expected2 =
   TypeSimple
     ( ListType
@@ -29,6 +29,7 @@ expected2 =
         []
     )
 
+expected3 :: Type
 expected3 =
   TypeSimple
     ( AtomicType
@@ -53,6 +54,7 @@ expected3 =
         [Documentation "Notification or update type code"]
     )
 
+expected4 :: Type
 expected4 =
   TypeComplex
     ( ComplexType
@@ -89,6 +91,7 @@ expected4 =
         }
     )
 
+tests :: [Test]
 tests =
   [ TestCase
       ( do
@@ -121,7 +124,8 @@ tests =
     TestCase
       ( do
           scm <- getSchema "./fixtures/test_model_atomic.xsd"
-          let actual = (typeToText . unwrap . M.lookup (makeTargetQName "NonEmptyString") . schemaTypes) scm
+          let key = makeTargetQName "NonEmptyString"
+              actual = (typeToText . unwrap . M.lookup key . schemaTypes) scm
           assertEqual "can derive string type" "string" actual
       ),
     TestCase
@@ -145,7 +149,8 @@ tests =
     TestCase
       ( do
           scm <- getSchema "./fixtures/test_model_atom_ref_bylist.xsd"
-          let actual = (typeToText . unwrap . M.lookup (makeTargetQName "nameForTest") . schemaTypes) scm
+          let key = makeTargetQName "nameForTest"
+              actual = (typeToText . unwrap . M.lookup key . schemaTypes) scm
           assertEqual "can derive referenced type" "BibleContents" actual
       ),
     TestCase

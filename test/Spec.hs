@@ -3,7 +3,6 @@ module Main (main) where
 import System.Exit (exitFailure, exitSuccess)
 import Test.HUnit
   ( Counts (errors, failures),
-    Test (..),
     Testable (test),
     runTestTT,
   )
