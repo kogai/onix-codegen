@@ -9,6 +9,7 @@
 | [0001](0001-record-architecture-decisions.md)                   | 設計判断を ADR として記録する                  | Accepted   |
 | [0002](0002-decouple-unit-tests-from-the-vendored-schema.md)    | ユニットテストを取得済みスキーマから切り離す   | Accepted   |
 | [0003](0003-editeur-schema-acquisition.md)                      | EDItEUR スキーマの取得方法                     | Accepted   |
+| [0008](0008-go-reader-should-not-replace-codes-with-descriptions.md) | Go の reader が ONIX コードを説明文に置き換えるのをやめる | Proposed   |
 
 ## 書き方
 
