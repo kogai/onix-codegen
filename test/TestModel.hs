@@ -121,7 +121,7 @@ tests =
     TestCase
       ( do
           scm <- getSchema "./fixtures/test_model_atomic.xsd"
-          let actual = typeToText expected1
+          let actual = (typeToText . unwrap . M.lookup (makeTargetQName "NonEmptyString") . schemaTypes) scm
           assertEqual "can derive string type" "string" actual
       ),
     TestCase
@@ -145,7 +145,7 @@ tests =
     TestCase
       ( do
           scm <- getSchema "./fixtures/test_model_atom_ref_bylist.xsd"
-          let actual = typeToText expected4
+          let actual = (typeToText . unwrap . M.lookup (makeTargetQName "nameForTest") . schemaTypes) scm
           assertEqual "can derive referenced type" "BibleContents" actual
       ),
     TestCase
@@ -200,8 +200,7 @@ tests =
     TestCase
       ( do
           scm <- getSchema "./fixtures/test_mixed_html.xsd"
-          let key = makeTargetQName "Annotation"
-              actual = collectElements scm
+          let actual = collectElements scm
           assertEqual "can parse choice of html string" [] actual
       ),
     TestCase
