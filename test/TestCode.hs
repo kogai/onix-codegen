@@ -3,16 +3,13 @@
 module TestCode (tests) where
 
 import Code
-import qualified Data.Map as M
-import Data.Text (Text, pack, unpack)
 import qualified Data.Vector as V
 import qualified Model as Md
-import Test.HUnit (Test (TestCase, TestList), assertEqual)
-import Text.XML (def, parseText, readFile)
-import Util
+import Test.HUnit (Test (TestCase), assertEqual)
+import Util (uniq)
 import Xsd (getSchema)
-import qualified Xsd as X
 
+tests :: [Test]
 tests =
   [ TestCase
       ( do

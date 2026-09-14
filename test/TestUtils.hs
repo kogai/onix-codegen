@@ -2,9 +2,7 @@
 
 module TestUtils (makeTargetQName) where
 
-import Data.Text (Text, pack, unpack)
-import Model (Kind (Tag), dropDuplicate, model, models)
-import Test.HUnit (Test (TestCase, TestList), assertEqual)
+import Data.Text (Text)
 import Xsd
   ( Namespace (Namespace, fromNamespace),
     QName (QName, qnName, qnNamespace),

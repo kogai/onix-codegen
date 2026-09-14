@@ -3,12 +3,11 @@
 module TestParser (tests) where
 
 import qualified Data.Map as M
-import Data.Text (Text, pack, unpack)
-import Model (Kind (Tag), dropDuplicate, model, models)
-import Test.HUnit (Test (TestCase, TestList), assertEqual)
+import Test.HUnit (Test (TestCase), assertEqual)
 import TestUtils (makeTargetQName)
 import Xsd
 
+expected :: ElementInline
 expected =
   ElementInline
     { elementName = makeTargetQName "ONIXMessage",
@@ -88,6 +87,7 @@ expected =
       elementAnnotations = []
     }
 
+tests :: [Test]
 tests =
   [ TestCase
       ( do

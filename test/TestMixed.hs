@@ -3,12 +3,9 @@
 module TestMixed (tests) where
 
 import qualified Data.Map as M
-import Data.Text (Text, pack, unpack)
 import Mixed
-import qualified Model as Md
-import Test.HUnit (Test (TestCase, TestList), assertEqual)
-import Text.XML (def, parseText, readFile)
-import Util
+import Test.HUnit (Test (TestCase), assertEqual)
+import Util (unwrap)
 import Xsd
 
 tests :: [Test]
