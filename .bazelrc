@@ -1,3 +1,10 @@
 build --verbose_failures
 run --verbose_failures
 test --verbose_failures
+
+# Accepted interim for schema acquisition (ADR-0003): editeur.org answers
+# automated requests with a CAPTCHA, so archives are placed here by hand and
+# bazel reuses them instead of fetching. The sha256 in MODULE.bazel/WORKSPACE
+# still has to match, so this does not weaken verification. A missing or empty
+# directory is only an INFO, so this is harmless when unused.
+build --distdir=third_party/distdir
