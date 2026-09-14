@@ -26,8 +26,6 @@ library:
   source-dirs: src
   ghc-options:
     - -Wall
-    - -fwarn-incomplete-patterns
-    - -fwarn-incomplete-uni-patterns
   dependencies:
     - mustache
     - text
@@ -52,9 +50,7 @@ executables:
       - -rtsopts
       - -with-rtsopts=-N
       - -Wall
-      - -fwarn-incomplete-patterns
-      - -fwarn-incomplete-uni-patterns
-    dependencies:
+        dependencies:
       - onix
       - optparse-applicative
 
