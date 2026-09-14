@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 07b4003dd4819b94016dc0a6629b5b634c96677c275eb19e5e97c2a6ac30ffd5
+-- hash: 266fcbde15564c65aa539a9de93481d85c7dfb8cc735f00132fafc247db05cd9
 
 name:           onix
 version:        0.1.0.0
@@ -39,7 +39,7 @@ library
       Paths_onix
   hs-source-dirs:
       src
-  ghc-options: -Wall -fwarn-incomplete-patterns -fwarn-incomplete-uni-patterns
+  ghc-options: -Wall
   build-depends:
       base >=4.7 && <5
     , bytestring
@@ -63,7 +63,7 @@ executable onix-exe
       Paths_onix
   hs-source-dirs:
       app
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall -fwarn-incomplete-patterns -fwarn-incomplete-uni-patterns
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall
   build-depends:
       base >=4.7 && <5
     , onix
@@ -82,7 +82,7 @@ test-suite onix-test
       Paths_onix
   hs-source-dirs:
       test
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall
   build-depends:
       HUnit
     , base >=4.7 && <5
