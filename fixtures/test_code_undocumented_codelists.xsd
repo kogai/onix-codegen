@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="List44">
+    <xs:annotation>
+      <xs:documentation source="ONIX Code List 44">Name code type</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="01">
+        <xs:annotation>
+          <xs:documentation>Proprietary</xs:documentation>
+          <xs:documentation>Note that &lt;IDTypeName&gt; is required with proprietary identifiers</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- No xs:annotation at all. EDItEUR ships enumerations like this, and
+           every code path that reaches them used to call `head` on the empty
+           list of documentation strings. -->
+      <xs:enumeration value="02" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

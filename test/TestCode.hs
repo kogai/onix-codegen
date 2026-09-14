@@ -39,6 +39,23 @@ tests =
       ),
     TestCase
       ( do
+          scm <- getSchema "./fixtures/test_code_undocumented.xsd"
+          let actual = (topLevelElementToCode scm . head . collectCodes) scm
+              expected =
+                CodeType
+                  "AddresseeIDType"
+                  "Name code type"
+                  ( V.fromList
+                      [ Code "01" "Proprietary" "Note that <IDTypeName> is required with proprietary identifiers",
+                        Code "02" "" ""
+                      ]
+                  )
+                  False
+                  []
+          assertEqual "codes without documentation do not crash the generator" expected actual
+      ),
+    TestCase
+      ( do
           scm <- getSchema "./fixtures/test_code_territorycodelist.xsd"
           let actual = (topLevelTypeToCode scm . head . collectTypes) scm
               expected =
@@ -53,6 +70,23 @@ tests =
                   False
                   []
           assertEqual "can parse territory code list" expected actual
+      ),
+    TestCase
+      ( do
+          scm <- getSchema "./fixtures/test_code_territorycodelist_undocumented.xsd"
+          let actual = (topLevelTypeToCode scm . head . collectTypes) scm
+              expected =
+                CodeType
+                  "TerritoryCodeList"
+                  "Name code type"
+                  ( V.fromList
+                      [ Code "01" "Proprietary" "Note that <IDTypeName> is required with proprietary identifiers",
+                        Code "02" "" ""
+                      ]
+                  )
+                  False
+                  []
+          assertEqual "codes without documentation do not crash the list-type branch" expected actual
       ),
     TestCase
       ( do
